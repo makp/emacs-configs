@@ -12,7 +12,7 @@
       '((".*\\.freenode.net" "#emacs" "#org-mode" "#conkeror" "#archlinux")
  	(".*\\.irc.twice-irc.de" "#i3")))
 
-(defun mk-erc-start-or-switch ()
+(defun mk/erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)
   (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
