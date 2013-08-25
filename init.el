@@ -34,88 +34,29 @@
 ;; color theme
 ;; ===========
 ;; (add-to-list 'custom-theme-load-path  "/home/makmiller/elisp/bin/from-github/solarized")
-
 (add-to-list 'custom-theme-load-path "/home/makmiller/elisp/bin/from-github/zenburn")
 (load-theme 'zenburn t)
 
-;; =========
-;; mode-line
-;; =========
+
+;; ===========
+;; core config
+;; ===========
 (require 'mk_mode-line)
-
-;; ===============
-;; Better defaults
-;; ===============
 (require 'mk_better-defaults)
-
-;; ===========
-;; dvorak mode
-;; ===========
 (require 'mk_dvorak-mode)
-
-;; =========
-;; registers
-;; =========
 (require 'mk_registers)
-
-;; ====
-;; Helm
-;; ====
 (require 'mk_helm-setup)
-
-;; =======
-;; windows
-;; =======
 (require 'mk_windows-setup)
-
-;; =====
-;; dired
-;; =====
 (require 'mk_dired)
-
-;; ==================
-;; session management
-;; ==================
 (require 'mk_session-management)
-
-;; =======
-;; keyfreq
-;; =======
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
-
-(setq keyfreq-file "/home/makmiller/elisp/cache/emacs.keyfreq-2")
-
-;; -------
-;; ibuffer
-;; -------
 (require 'mk_ibuffer-setup)
-
-;; ===
-;; Git
-;; ===
 (require 'mk_magit)
-
-;; ======
-;; Shells
-;; ======
 (require 'mk_eshell)
-
-;; ==============
-;; Misc functions
-;; ==============
 (require 'mk_misc-functions)
-
-;; =======
-;; cc-mode
-;; =======
-(eval-after-load 'cc-mode '(require 'mk_cc))
 
 ;; =======
 ;; modules
 ;; =======
-
 ;; -------------------------
 ;; mark + yas + autocomplete
 ;; -------------------------
@@ -126,6 +67,7 @@
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
 		   (require 'mk_elisp)
+		   (require 'mk_keyfreq)
 		   (require 'mk_emms-setup)))
 
 ;; -----------------------------------------------
@@ -158,5 +100,10 @@
 		   (message ">>>>> Finished mk_msmtp")
 		   (require 'mk_erc)
 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
+
+;; =================
+;; eval-after-load's
+;; =================
+(eval-after-load 'cc-mode '(require 'mk_cc))
 
 ;;; end of init.el
