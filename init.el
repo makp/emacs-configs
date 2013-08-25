@@ -37,7 +37,6 @@
 (add-to-list 'custom-theme-load-path "/home/makmiller/elisp/bin/from-github/zenburn")
 (load-theme 'zenburn t)
 
-
 ;; ===========
 ;; core config
 ;; ===========
@@ -95,9 +94,7 @@
 		   (setq user-mail-address "makmiller@gmail.com")
 		   (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
 		   (require 'mk_message-mode)
-		   (message ">>>>> Finished mk_email and mk_message")
 		   (require 'mk_msmtp)
-		   (message ">>>>> Finished mk_msmtp")
 		   (require 'mk_erc)
 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
 

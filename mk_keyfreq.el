@@ -4,4 +4,4 @@
 
 (setq keyfreq-file "/home/makmiller/.emacs.d/emacs.keyfreq")
 
-(provide 'keyfreq)
+(provide 'mk_keyfreq)
