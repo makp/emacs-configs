@@ -1,0 +1,4 @@
+# ~/.latexmkrc
+$pdf_previewer = "start okular --unique";
+$pdf_update_method = 0;
+$pdflatex = 'pdflatex -interaction=nonstopmode -synctex=1 %O %S';
