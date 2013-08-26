@@ -61,7 +61,7 @@
 
 (global-set-key (kbd "C-c C-H")
 		(lambda ()
-		  "locate for papers/books."
+		  "locate for $HOME."
  		  (interactive)
  		  (helm-locate-with-db '("/home/makmiller/elisp/locate-home.db"))))
 

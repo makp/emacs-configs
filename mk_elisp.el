@@ -1,7 +1,14 @@
+;; =========
+;; mode name
+;; =========
 (add-hook 'emacs-lisp-mode-hook
          (lambda()
            (setq mode-name "El")))
 
+
+;; =======
+;; paredit
+;; =======
 (autoload 'paredit-mode "/home/makmiller/elisp/bin/paredit/paredit-beta"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 
@@ -17,17 +24,10 @@
 ;; FIXME: Some of the paredit commands have been overwritten by other
 ;; commands I've defined.
 
-;; ---------------------
-;; highlight-parentheses
-;; ---------------------
+;; =====================
+;; highlight parenthesis
+;; =====================
 (require 'highlight-parentheses)
-
-;; Enables highlight-par in all modes
-(define-globalized-minor-mode global-highlight-parentheses-mode
-  highlight-parentheses-mode
-  (lambda ()
-    (highlight-parentheses-mode t)))
-
-(global-highlight-parentheses-mode t)
+(highlight-parentheses-mode t)
 
 (provide 'mk_elisp)
