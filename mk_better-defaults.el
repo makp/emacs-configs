@@ -1,5 +1,3 @@
-;;; TODO: Check smart-forward and change-inner.
-
 ;; =====
 ;; setqs
 ;; =====

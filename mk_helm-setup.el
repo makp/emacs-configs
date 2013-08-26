@@ -35,13 +35,13 @@
      helm-c-source-bookmarks			;; bookmarks
      helm-c-source-files-in-current-dir)))	;; current dir
 
-(global-set-key (kbd "C-x h") 'my-helm)	; C-x C-h
+(global-set-key (kbd "C-x DEL") 'my-helm)	; C-x C-h
 
 ;; ------------------------
 ;; searching for file names
 ;; ------------------------
 ;;; find-files
-(global-set-key (kbd "C-x DEL") 'helm-find-files)
+(global-set-key (kbd "C-x h") 'helm-find-files)
 
 ;;; find
 (global-set-key (kbd "M-s f") 'helm-find)

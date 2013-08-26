@@ -9,11 +9,9 @@ For instance: (mk/add-something-to-hooks '(lisp emacs-lisp) 'do-X)."
   (dolist (mode mode-list)
     (add-hook (intern (concat (symbol-name mode) "-mode-hook")) something)))
 
-
 ;; =======
 ;; editing
 ;; =======
-
 (defun duplicate-current-line-or-region (arg)
   "Duplicates the current line or region ARG times.
 If there's no region, the current line will be duplicated."

@@ -5,13 +5,14 @@
 (autoload 'paredit-mode "/home/makmiller/elisp/bin/paredit/paredit-beta"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 
-(mk/add-something-to-hooks '(emacs-lisp lisp lisp-interaction scheme) 'enable-paredit-mode)
+(mk/add-something-to-hooks '(emacs-lisp lisp) 'paredit-mode)
 
-(add-hook 'paredit-mode-hook (lambda ()
-			       (define-key paredit-mode-map (kbd "M-s") nil)
-			       (define-key paredit-mode-map (kbd "C-S-d") 'paredit-splice-sexp)
-			       (define-key paredit-mode-map (kbd "M-s o") nil)
-			       (define-key paredit-mode-map (kbd "M-r") nil)))
+;;; paredit customizations
+(eval-after-load 'paredit '(progn
+     (define-key paredit-mode-map (kbd "M-s") nil)
+     (define-key paredit-mode-map (kbd "C-S-d") 'paredit-splice-sexp)
+     (define-key paredit-mode-map (kbd "M-s o") nil)
+     (define-key paredit-mode-map (kbd "M-r") nil)))
 
 ;; FIXME: Some of the paredit commands have been overwritten by other
 ;; commands I've defined.

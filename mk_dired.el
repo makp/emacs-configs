@@ -1,7 +1,6 @@
 (add-hook 'dired-mode-hook
          (lambda()
-           (setq mode-name "Dir")
-	   (dired-omit-mode 1)))
+           (setq mode-name "Dir")))
 
 (setq dired-isearch-filenames t ;; search limits to file names
       dired-dwim-target t)      ;; move files more easily with split panes
