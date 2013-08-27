@@ -4,6 +4,8 @@
 (helm-mode t)
 ;; helm-completing-read-handlers-alist controls where we use helm.
 
+(autoload 'helm-ls-git-ls "helm-ls-git" nil t)
+
 ;; ====
 ;; seqs
 ;; ====
@@ -33,7 +35,10 @@
    '(helm-c-source-buffers-list			;; buffers
      helm-c-source-recentf			;; recent files
      helm-c-source-bookmarks			;; bookmarks
-     helm-c-source-files-in-current-dir)))	;; current dir
+;;; helm-c-source-files-in-current-dir
+     )))
+
+
 
 (global-set-key (kbd "C-x DEL") 'my-helm)	; C-x C-h
 
