@@ -186,7 +186,7 @@ wastetime.org."
 (setq org-link-abbrev-alist
       '(("gg" . "http://www.google.com/search?q=")
 	("gmap"	  . "http://maps.google.com/maps?q=%s")
-	("bib" . "/home/makmiller/Documents/mypapers/references/dissert.bib::%s")))
+	("bib" . "/home/makmiller/Documents/mydocs/references/dissert.bib::%s")))
 
 ;; ==========
 ;; TODO items
