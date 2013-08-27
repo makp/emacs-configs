@@ -15,6 +15,9 @@
 (put 'suspend-frame 'disabled t)
 (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
 
+;;; universal argument
+(define-key universal-argument-map (kbd "C-,") 'universal-argument-more)
+
 ;; =======================
 ;; General display options
 ;; =======================

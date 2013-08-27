@@ -45,8 +45,6 @@
 (define-key my-keys-minor-mode-map (kbd "C-.") 'helm-M-x)
 (define-key my-keys-minor-mode-map (kbd "C-M-t") 'backward-list)
 
-(define-key my-keys-minor-mode-map (kbd "C-,") 'universal-argument)
-
 (defun delete-next-window ()
   (interactive)
   (message "Deleting the next window...")

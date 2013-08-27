@@ -7,10 +7,12 @@
 	  (lambda ()
 	    (orgstruct-mode)))
 
-(setq magit-repo-dirs '("/home/makmiller/config-files/general/emacs-config/"
-			"/home/makmiller/Documents/mypapers/evolution/in-progress/relational-essentialism/"))
-;;; With a prefix argument, magit will provide magit-repo-dirs for you
-;;; to complete. If you want to create a new repository, type C-u twice.
-;; FIXME: As of Aug 24, this wasn't working.
+(setq magit-repo-dirs '("/home/makmiller/config-files/general/emacs-config"
+			"/home/makmiller/elisp/agenda"
+			"/home/makmiller/Documents/mydocs/papers/in-progress/reviews-and-comments/comment_fagan-chapter"
+			"/home/makmiller/Documents/mydocs/papers/in-progress/manuscripts/how-bacteria-socialize"))
+;;; With one prefix argument, magit will provide magit-repo-dirs for
+;;; you to complete. If you want to create a new repository, use two
+;;; prefix-args.
 
 (provide 'mk_magit)
