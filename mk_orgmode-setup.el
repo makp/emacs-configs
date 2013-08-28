@@ -71,7 +71,7 @@ wastetime.org."
 ;; =====
 ;; imenu
 ;; =====
-(setq org-imenu-depth 4)
+(setq org-imenu-depth 6)
 
 ;; =====
 ;; setqs
