@@ -15,10 +15,21 @@
 (put 'suspend-frame 'disabled t)
 (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
 
-;;; universal argument
-;;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
+;;; C-, as universal argument
+
 (global-set-key (kbd "C-,") 'universal-argument)
 (define-key universal-argument-map (kbd "C-,") ' universal-argument-more)
+;;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
+
+;;; solving some conflicts
+(add-hook 'flyspell-mode-hook
+	  (lambda ()
+	    (define-key flyspell-mode-map (kbd "C-,") nil)))
+
+(add-hook 'org-mode-hook
+	  (lambda ()
+	    (define-key org-mode-map (kbd "C-,") nil)))  ; it was org-cycle-agenda-files
+
 
 ;; =======================
 ;; General display options
@@ -287,10 +298,6 @@
 ;; Description: use likeness rather than alphabetical ordering with
 
 (setq flyspell-auto-correct-binding (kbd "C-'"))
-
-(add-hook 'flyspell-mode-hook
-	  (lambda ()
-	    (define-key flyspell-mode-map (kbd "C-,") nil)))
 
 ;; ------------------------
 ;; Personal dictionary path
