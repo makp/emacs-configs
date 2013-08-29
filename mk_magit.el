@@ -13,7 +13,8 @@
 
 (setq magit-repo-dirs '("/home/makmiller/config-files/general/emacs-config"
 			"/home/makmiller/Documents/mydocs/papers/in-progress/reviews-and-comments/comment_fagan-chapter"
-			"/home/makmiller/Documents/mydocs/papers/in-progress/manuscripts/how-bacteria-socialize"))
+			"/home/makmiller/Documents/mydocs/papers/in-progress/manuscripts/how-bacteria-socialize"
+			"/home/makmiller/Documents/mydocs/notes/prob-and-stats/probability-and-statistics/"))
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
 ;;; you to complete. If you want to create a new repository, use two
 ;;; prefix-args.

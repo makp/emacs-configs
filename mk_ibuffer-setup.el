@@ -103,6 +103,7 @@
 (define-key ibuffer-mode-map "e" 'ibuffer-ediff-marked-buffers)
 
 (define-key ibuffer-mode-map (kbd "U") 'ibuffer-unmark-all)
+;;; to be consistent with dired-mode. It was ibuffer.*regexp
 
 (defun mk/open-magit-status-from-ibuffer ()
   (interactive)
@@ -110,7 +111,5 @@
   (call-interactively 'magit-status))
 
 (define-key ibuffer-mode-map (kbd "G") 'mk/open-magit-status-from-ibuffer)
-
-;;; to be consistent with dired-mode. It was ibuffer.*regexp
 
 (provide 'mk_ibuffer-setup)
