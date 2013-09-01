@@ -10,9 +10,9 @@
 ;;; * '=' - Show differences between an unsaved buffer and the file on disk.
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-;; (autoload 'ibuffer "ibuffer" "List buffers." t)
-(require 'ibuffer)
-(require 'ibuffer-git)
+(autoload 'ibuffer "ibuffer" "List buffers." t)
+
+(eval-after-load 'ibuffer '(require 'ibuffer-git))
 
 (setq ibuffer-saved-filter-groups
       (quote (("default"      
@@ -40,14 +40,15 @@
 		(or
 		 (mode . perl-mode)
 		 (mode . sh-mode)
-		 (mode . python-mode)
 		 (mode . conf-xdefaults-mode)))
 	       ("programming" 
 		(or
+		 (mode . html-mode)
 		 (mode . c-mode)
 		 (mode . emacs-lisp-mode)
 		 (mode . haskell-mode)
-		 (mode . lisp-mode))) 
+		 (mode . lisp-mode)
+		 (mode . python-mode))) 
 	       ("pdfs"
 		(or 
 		 (mode . doc-view-mode)))
@@ -62,14 +63,14 @@
 	    (ibuffer-auto-mode 1) 	;update
 	    (ibuffer-switch-to-saved-filter-groups "default")))
 
+(require 'ibuf-ext)
+(dolist (ibfilter '("^\\*" "_region_"))
+  (add-to-list 'ibuffer-never-show-predicates ibfilter))
+
 ;;; some setqs
 (setq
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
  ibuffer-expert t) ;; don't ask for confirmation of "dangerous" operations.
-
-(require 'ibuf-ext)
-(dolist (ibfilter '("^\\*" "_region_"))
-  (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
 ;; Use human readable Size column instead of original one
 (define-ibuffer-column size-h
@@ -91,6 +92,7 @@
 	      (git-status 8 8 :left)
 	      " " filename-and-process)))
 
+;;;###autoload
 (defun ibuffer-ediff-marked-buffers ()
   (interactive)
   (let* ((marked-buffers (ibuffer-get-marked-buffers))
