@@ -108,6 +108,7 @@
 (define-key global-map [remap bookmark-jump] 'helm-pp-bookmarks)
 (define-key global-map [remap find-tag] 'helm-etags-select)
 (define-key global-map [remap occur] 'helm-occur)
+(define-key global-map [remap execute-extended-command] 'helm-M-x)
 
 ;; ======
 ;; eshell

@@ -1,8 +1,14 @@
-;; FIXME: this file is a mess!!!
+;; FIXME: this file is a mess!!! 
+
+;; The regular keyboard-translate doesn't work with Emacs daemon. You
+;; should instead use (define-key key-translation-map ...). However
+;; that breaks the prefix arg (bug #9417)
+
+;;; SWAP SOME KEYS
 
 (defun bug-do-emacs ()
-  "Emacs' bug. 'key-translation-map' does not work with emacs
---daemon"
+  "Emacs' bug 9417. 'key-translation-map' does not work properly
+with emacs --daemon "
   (interactive)
 
   (keyboard-translate ?\C-h ?\C-?)
@@ -13,24 +19,22 @@
   (keyboard-translate ?\C-u ?\C-x)
   (keyboard-translate ?\C-x ?\C-u))
 
-(bug-do-emacs)
+(bug-do-emacs) 				; this won't work with emacs --daemon
 
 (global-set-key (kbd "<f5>") 'bug-do-emacs)
 
-;;; Emacs bug
 ;; (define-key key-translation-map (kbd "C-t") (kbd "C-p"))
 ;; (define-key key-translation-map (kbd "C-p") (kbd "C-t"))
+
+;; (define-key key-translation-map [?\C-x] [?\C-u])
+;; (define-key key-translation-map [?\C-u] [?\C-x])
 
 (define-key key-translation-map (kbd "M-p") (kbd "M-t"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-p"))
 
-;; Swap “C-t” and “C-x”, so it's easier to type on Dvorak layout
-;; (keyboard-translate ?\C-. ?\C-x)
-;; (keyboard-translate ?\C-x ?\C-.)
 
-;; (my-dvorak-translations)
-;; (add-hook 'after-make-frame-functions 'my-dvorak-translations)
 
+;;; MY KEYS-MINOR-MODE-MAP
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
 (define-key my-keys-minor-mode-map (kbd "C-x p") ' sticky-window-delete-other-windows)
@@ -42,7 +46,7 @@
 (define-key my-keys-minor-mode-map (kbd "C-x y") 'delete-next-window)
 (define-key my-keys-minor-mode-map (kbd "C-x C-y") 'delete-previous-window)
 
-(define-key my-keys-minor-mode-map (kbd "C-.") 'helm-M-x)
+(define-key my-keys-minor-mode-map (kbd "C-.") 'execute-extended-command)
 (define-key my-keys-minor-mode-map (kbd "C-M-t") 'backward-list)
 
 (defun delete-next-window ()
