@@ -26,9 +26,10 @@
 ;;; Notes
 (set-register ?e '(file . "/home/makmiller/Documents/mydocs/notes/emacs-and-lisp/emacs.org"))
 (set-register ?c '(file . "/home/makmiller/Documents/mydocs/notes/emacs-and-lisp/lisp.org"))
+(set-register ?l '(file . "/home/makmiller/Documents/mydocs/notes/linux/linux.org"))
 
-;; (set-register ?t '(file . "/home/makmiller/Documents/howtodo/htdlatex/htdlatex.tex"))
-;; (set-register ?E '(file . "/home/makmiller/Documents/howtodo/htdenglish/htdenglish.org"))
+ ;; (set-register ?T '(file . "/home/makmiller/Documents/"))
+
 
 ;; ---------
 ;; Bookmarks

@@ -32,8 +32,6 @@ with emacs --daemon "
 (define-key key-translation-map (kbd "M-p") (kbd "M-t"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-p"))
 
-
-
 ;;; MY KEYS-MINOR-MODE-MAP
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
