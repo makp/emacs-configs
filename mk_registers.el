@@ -28,8 +28,7 @@
 (set-register ?c '(file . "/home/makmiller/Documents/mydocs/notes/emacs-and-lisp/lisp.org"))
 (set-register ?l '(file . "/home/makmiller/Documents/mydocs/notes/linux/linux.org"))
 
- ;; (set-register ?T '(file . "/home/makmiller/Documents/"))
-
+;; (set-register ?T '(file . "/home/makmiller/Documents/"))
 
 ;; ---------
 ;; Bookmarks

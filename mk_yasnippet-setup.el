@@ -4,6 +4,8 @@
 (require 'yasnippet)
 (require 'dropdown-list)
 
+(add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
+
 (setq yas-snippet-dirs '("~/elisp/my-snippets" "~/elisp/bin/from-github/yasnippet/snippets/"))
 
 (yas-global-mode 1)
