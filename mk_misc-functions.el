@@ -206,7 +206,7 @@ character or first non-whitespace after a comment sign."
 (defun mk/emacs-config-files ()
   (interactive)
   (save-excursion
-    (cd "/home/makmiller/config-files/general/emacs-config/")
+    (cd "~/config-files/general/emacs-config/")
     (call-interactively 'helm-find-files)))
 
 (provide 'mk_misc-functions)

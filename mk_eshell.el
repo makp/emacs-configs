@@ -14,9 +14,9 @@
 ;; (setq eshell-cmpl-cycle-completions nil)
 ;; Stop with that cycling thing
 
-(setenv "PATH" (concat "/home/makmiller/scripts/myscripts:/home/makmiller/scripts/third-party-scripts/" ":" (getenv "PATH")))
-(setenv "EDITOR" (concat "/home/makmiller/scripts/myscripts/edit.sh" (getenv "EDITOR")))
-(setenv "VISUAL" (concat "/home/makmiller/scripts/myscripts/edit.sh" (getenv "VISUAL")))
+(setenv "PATH" (concat "~/scripts/myscripts:~/scripts/third-party-scripts/" ":" (getenv "PATH")))
+(setenv "EDITOR" (concat "~/scripts/myscripts/edit.sh" (getenv "EDITOR")))
+(setenv "VISUAL" (concat "~/scripts/myscripts/edit.sh" (getenv "VISUAL")))
 (setenv "ALTERNATE_EDITOR" (concat "emacs" (getenv "ALTERNATE_EDITOR")))
 
 (setq eshell-list-files-after-cd nil)

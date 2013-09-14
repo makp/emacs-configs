@@ -400,8 +400,8 @@
 ;; Tags
 ;; ====
 (setq tags-table-list
-      '(;; 	"/home/makmiller/Documents/mydocs/"
-	"/home/makmiller/config-files/general/emacs-config/"))
+      '(;; 	"~/Documents/mydocs/"
+	"~/config-files/general/emacs-config/"))
 ;; Look at the TAGS files in these directories.
 
 (pending-delete-mode t)

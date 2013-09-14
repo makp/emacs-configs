@@ -5,8 +5,8 @@
 ;; ================
 ;; Dictionary files
 ;; ================
-(add-to-list 'ac-user-dictionary-files "/home/makmiller/elisp/.my-ispell-personal-dictionary")
-(add-to-list 'ac-dictionary-directories "/home/makmiller/elisp/bin/from-github/auto-complete/dict/")
+(add-to-list 'ac-user-dictionary-files "~/elisp/.my-ispell-personal-dictionary")
+(add-to-list 'ac-dictionary-directories "~/elisp/bin/from-github/auto-complete/dict/")
 
 ;; ===============
 ;; General options
@@ -45,7 +45,7 @@
 ;; ;; --------
 ;; ;; ac-slime
 ;; ;; --------
-;; (add-to-list 'load-path "/home/makmiller/.emacs.d/ac-slime-0.2/")
+;; (add-to-list 'load-path "~/.emacs.d/ac-slime-0.2/")
 ;; (require 'ac-slime)
 ;; (add-hook 'slime-mode-hook 'set-up-slime-ac)
 ;; (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)

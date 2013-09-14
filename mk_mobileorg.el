@@ -10,7 +10,7 @@
 
 
 (setq org-mobile-files (append
-			'("/home/makmiller/Documents/mydocs/notes/emacs-and-lisp/emacs.org")
+			'("~/Documents/mydocs/notes/emacs-and-lisp/emacs.org")
 			org-agenda-files))
 
 ;; -------------------------

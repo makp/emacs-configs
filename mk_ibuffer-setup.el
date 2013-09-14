@@ -18,11 +18,11 @@
       (quote (("default"      
 	       ("agendas"
 		(or
-		 (filename . "/home/makmiller/elisp/agenda/ag-geral.org")
-		 (filename . "/home/makmiller/elisp/agenda/ag-teaching.org")
-		 (filename . "/home/makmiller/elisp/agenda/ag-longterm.org")
-		 (filename . "/home/makmiller/elisp/agenda/ag-academic.org")
-		 (filename . "/home/makmiller/elisp/agenda/ag-it.org")))
+		 (filename . "~/elisp/agenda/ag-geral.org")
+		 (filename . "~/elisp/agenda/ag-teaching.org")
+		 (filename . "~/elisp/agenda/ag-longterm.org")
+		 (filename . "~/elisp/agenda/ag-academic.org")
+		 (filename . "~/elisp/agenda/ag-it.org")))
 	       ("org files" 
 		(mode . org-mode))
 	       ("info"

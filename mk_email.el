@@ -18,7 +18,7 @@
     (kill-line)
     (insert "\"Makmiller Pedroso\" <mmpedros@ucalgary.ca>")
     (message-goto-fcc)
-    (insert "/home/makmiller/Mail/Uni/sent-mail")
+    (insert "~/Mail/Uni/sent-mail")
     (message-goto-subject)))
 
 (global-set-key (kbd "C-x m") 'envia-email)
@@ -120,7 +120,7 @@
 ;;; NOT, XOR, OR, brackets, NEAR, ADJACENT, from: )
 
 (require 'notmuch-address)
-(setq notmuch-address-command "/home/makmiller/elisp/bin/from-github/nottoomuch/nottoomuch-addresses.sh")
+(setq notmuch-address-command "~/elisp/bin/from-github/nottoomuch/nottoomuch-addresses.sh")
 (notmuch-address-message-insinuate)
 
 (provide 'mk_email)

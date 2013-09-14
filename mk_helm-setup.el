@@ -56,19 +56,19 @@
  		(lambda ()
 		  "locate for papers/books."
  		  (interactive)
- 		  (helm-locate-with-db '("/home/makmiller/elisp/locate.db"))))
+ 		  (helm-locate-with-db '("~/elisp/locate.db"))))
 
 (global-set-key (kbd "C-c DEL") 	;C-c C-h
 		(lambda ()
 		  "locate for mydocs."
 		  (interactive)
-		  (helm-locate-with-db '("/home/makmiller/elisp/locate-mydocs.db"))))
+		  (helm-locate-with-db '("~/elisp/locate-mydocs.db"))))
 
 (global-set-key (kbd "C-c C-H")
 		(lambda ()
 		  "locate for $HOME."
  		  (interactive)
- 		  (helm-locate-with-db '("/home/makmiller/elisp/locate-home.db"))))
+ 		  (helm-locate-with-db '("~/elisp/locate-home.db"))))
 
 ;; ----------------------
 ;; searching within files

@@ -10,8 +10,8 @@
 ;; ----------
 ;; clocktable
 ;; ----------
-(find-file "/home/makmiller/elisp/cache/clocktable.org")
-(find-file "/home/makmiller/elisp/cache/wasteclock.org")
+(find-file "~/elisp/cache/clocktable.org")
+(find-file "~/elisp/cache/wasteclock.org")
 
 ;;;###autoload
 (defun clock-wasteclock ()
@@ -186,7 +186,7 @@ wastetime.org."
 (setq org-link-abbrev-alist
       '(("gg" . "http://www.google.com/search?q=")
 	("gmap"	  . "http://maps.google.com/maps?q=%s")
-	("bib" . "/home/makmiller/Documents/mydocs/references/dissert.bib::%s")))
+	("bib" . "~/Documents/mydocs/references/dissert.bib::%s")))
 
 ;; ==========
 ;; TODO items
@@ -253,11 +253,11 @@ wastetime.org."
 ;; ------------
 ;; Agenda files
 ;; ------------
-(setq org-agenda-files (list "/home/makmiller/elisp/agenda/ag-geral.org"
-			     "/home/makmiller/elisp/agenda/ag-academic.org"
-			     "/home/makmiller/elisp/agenda/ag-longterm.org"
-			     "/home/makmiller/elisp/agenda/ag-it.org"
-			     "/home/makmiller/elisp/agenda/ag-teaching.org"))
+(setq org-agenda-files (list "~/elisp/agenda/ag-geral.org"
+			     "~/elisp/agenda/ag-academic.org"
+			     "~/elisp/agenda/ag-longterm.org"
+			     "~/elisp/agenda/ag-it.org"
+			     "~/elisp/agenda/ag-teaching.org"))
 
 
 ;;; agenda dispatcher
@@ -318,7 +318,7 @@ wastetime.org."
 ;; Capture
 ;; -------
 (global-set-key "\C-cc" 'org-capture)
-(setq org-directory "/home/makmiller/elisp/agenda/")
+(setq org-directory "~/elisp/agenda/")
 (setq org-default-notes-file (concat org-directory "/ag-it.org"))
 
 (setq org-capture-templates
@@ -536,7 +536,7 @@ wastetime.org."
 ;; ===========
 ;; scratch.org
 ;; ===========
-(find-file "/home/makmiller/elisp/cache/scratch-org.org")
+(find-file "~/elisp/cache/scratch-org.org")
 
 (defun take-notes (&optional arg)
   "Toggle `scratch-org.org'. With a prefix arg, opens

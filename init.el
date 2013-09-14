@@ -11,15 +11,15 @@
 ;; =========
 ;; Load path
 ;; =========
-(add-to-list 'load-path "/home/makmiller/elisp/")
+(add-to-list 'load-path "~/elisp/")
 
 (add-to-list 'load-path "~/config-files/general/emacs-config/")
 
-;; (let ((default-directory "/home/makmiller/.emacs.d/elpa/"))
+;; (let ((default-directory "~/.emacs.d/elpa/"))
 ;;   (normal-top-level-add-to-load-path '("."))
 ;;   (normal-top-level-add-subdirs-to-load-path))
 
-(let ((default-directory "/home/makmiller/elisp/bin/"))
+(let ((default-directory "~/elisp/bin/"))
   (normal-top-level-add-to-load-path '("."))
   (normal-top-level-add-subdirs-to-load-path))
 
@@ -33,8 +33,8 @@
 ;; ===========
 ;; color theme
 ;; ===========
-;; (add-to-list 'custom-theme-load-path  "/home/makmiller/elisp/bin/from-github/solarized")
-(add-to-list 'custom-theme-load-path "/home/makmiller/elisp/bin/from-github/zenburn")
+;; (add-to-list 'custom-theme-load-path  "~/elisp/bin/from-github/solarized")
+(add-to-list 'custom-theme-load-path "~/elisp/bin/from-github/zenburn")
 (load-theme 'zenburn t)
 
 ;; ===========

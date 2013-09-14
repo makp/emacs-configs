@@ -9,7 +9,7 @@
 ;; =======
 ;; paredit
 ;; =======
-(autoload 'paredit-mode "/home/makmiller/elisp/bin/paredit/paredit-beta"
+(autoload 'paredit-mode "~/elisp/bin/paredit/paredit-beta"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 
 (mk/add-something-to-hooks '(emacs-lisp lisp) 'paredit-mode)

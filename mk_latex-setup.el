@@ -5,7 +5,7 @@
 
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
-			      'TeX-macro-global "/home/makmiller/texmf/tex/latex/")))
+			      'TeX-macro-global "~/texmf/tex/latex/")))
 
 ;; --------------
 ;; better C-a/C-e
@@ -226,8 +226,8 @@ shown, then it'll be hidden."
 
 (setq reftex-default-bibliography
       (quote
-       ("/home/makmiller/Documents/mydocs/references/dissert.bib"
-	"/home/makmiller/Documents/mydocs/references/logic.bib")))
+       ("~/Documents/mydocs/references/dissert.bib"
+	"~/Documents/mydocs/references/logic.bib")))
 
 ;; So that RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
@@ -305,7 +305,7 @@ shown, then it'll be hidden."
 
 (defun reverse-sync-no-mouse ()
   (interactive)
-  (async-shell-command "/home/makmiller/myscripts/simulating-key-presses.sh")
+  (async-shell-command "~/myscripts/simulating-key-presses.sh")
   ;; (winner-undo)
   (message "Reverse synctex synchronization without the rodent"))
 

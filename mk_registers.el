@@ -12,23 +12,23 @@
 
 
 ;;; Config files
-(set-register ?E '(file . "/home/makmiller/config-files/general/emacs-config/"))
-(set-register ?b '(file . "/home/makmiller/Documents/mydocs/references/dissert.bib"))
-;; (set-register ?d '(file . "/home/makmiller/config-files/general/emacs-config/init.el"))
+(set-register ?E '(file . "~/config-files/general/emacs-config/"))
+(set-register ?b '(file . "~/Documents/mydocs/references/dissert.bib"))
+;; (set-register ?d '(file . "~/config-files/general/emacs-config/init.el"))
 
 ;;; Agendas
-(set-register ?a '(file . "/home/makmiller/elisp/agenda/ag-academic.org"))
-(set-register ?i '(file . "/home/makmiller/elisp/agenda/ag-it.org"))
-(set-register ?o '(file . "/home/makmiller/elisp/agenda/ag-longterm.org"))
-(set-register ?t '(file . "/home/makmiller/elisp/agenda/ag-teaching.org"))
-(set-register ?g '(file . "/home/makmiller/elisp/agenda/ag-geral.org"))
+(set-register ?a '(file . "~/elisp/agenda/ag-academic.org"))
+(set-register ?i '(file . "~/elisp/agenda/ag-it.org"))
+(set-register ?o '(file . "~/elisp/agenda/ag-longterm.org"))
+(set-register ?t '(file . "~/elisp/agenda/ag-teaching.org"))
+(set-register ?g '(file . "~/elisp/agenda/ag-geral.org"))
 
 ;;; Notes
-(set-register ?e '(file . "/home/makmiller/Documents/mydocs/notes/emacs-and-lisp/emacs.org"))
-(set-register ?c '(file . "/home/makmiller/Documents/mydocs/notes/emacs-and-lisp/lisp.org"))
-(set-register ?l '(file . "/home/makmiller/Documents/mydocs/notes/linux/linux.org"))
+(set-register ?e '(file . "~/Documents/mydocs/notes/emacs-and-lisp/emacs.org"))
+(set-register ?c '(file . "~/Documents/mydocs/notes/emacs-and-lisp/lisp.org"))
+(set-register ?l '(file . "~/Documents/mydocs/notes/linux/linux.org"))
 
-;; (set-register ?T '(file . "/home/makmiller/Documents/"))
+;; (set-register ?T '(file . "~/Documents/"))
 
 ;; ---------
 ;; Bookmarks
