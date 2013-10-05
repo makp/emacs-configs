@@ -24,7 +24,7 @@
 ;; (require 'emms-mark)
 ;; (setq emms-playlist-default-major-mode 'emms-mark-mode)
 ;;; playlists have a similar behaviour to dired
-;; FIXME: As of Aug 24th, this was breaking my setup
+;; FIXME: As of Aug 24th 2013, this was breaking my setup
 
 ;; (require 'emms-browser)
 ;;; interactive mode to browse the metadata cache
