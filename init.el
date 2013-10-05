@@ -36,13 +36,11 @@
    (or (package-installed-p package)
        (if (y-or-n-p (format "Package %s is missing. Install it? " package)) 
            (package-install package))))
- '(magit helm ace-jump-mode auto-complete autopair gnuplot-mode helm-ls-git yasnippet undo-tree multiple-cursors keyfreq highlight-parentheses region-bindings-mode dropdown-list))
+ '(magit helm ace-jump-mode auto-complete autopair gnuplot-mode helm-ls-git yasnippet undo-tree multiple-cursors keyfreq highlight-parentheses region-bindings-mode dropdown-list zenburn-theme))
 
 ;; ===========
 ;; color theme
 ;; ===========
-;; (add-to-list 'custom-theme-load-path  "~/elisp/bin/from-github/solarized")
-(add-to-list 'custom-theme-load-path "~/elisp/bin/from-github/zenburn")
 (load-theme 'zenburn t)
 
 ;; ===========
