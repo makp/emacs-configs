@@ -29,6 +29,15 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("melpa" . "http://melpa.milkbox.net/packages/")))
 
+(package-initialize)
+;; check if the packages is installed; if not, install it.
+(mapc
+ (lambda (package)
+   (or (package-installed-p package)
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package)) 
+           (package-install package))))
+ '(magit helm ace-jump-mode auto-complete autopair gnuplot-mode helm-ls-git yasnippet undo-tree multiple-cursors keyfreq highlight-parentheses region-bindings-mode dropdown-list))
+
 ;; ===========
 ;; color theme
 ;; ===========
