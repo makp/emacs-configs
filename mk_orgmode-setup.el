@@ -2,6 +2,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
+;; info directory
+(add-to-list 'Info-default-directory-list "~/elisp/bin/from-github/org-mode/doc/")
+
 ;; Flyspell activation
 (add-hook 'org-mode-hook
 	  (lambda()
