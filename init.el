@@ -68,7 +68,7 @@
 		'(lambda ()
 		   (interactive)
 		   (require 'mk_orgmode-setup) ; (eval-after-load "org" ')
-		   (require 'mk_mobileorg)
+		   ;; (require 'mk_mobileorg)
 		   (require 'mk_emacsw3m)
 		   (require 'gnuplot)
 		   (require 'mk_ess)
