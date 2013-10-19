@@ -1,7 +1,10 @@
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+(require 'package)
+
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
+
 ;; check if the packages is installed; if not, install it.
 (mapc
  (lambda (package)
