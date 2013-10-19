@@ -35,13 +35,6 @@
 ;; Sources
 ;; =======
 
-;; ------
-;; ac-org
-;; ------
-
-;; (require 'ac-org)
-;;; I have the impression that this is breaking something
-
 ;; ;; --------
 ;; ;; ac-slime
 ;; ;; --------

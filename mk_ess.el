@@ -1,5 +1,5 @@
-(setq load-path (cons "/usr/share/emacs/site-lisp/ess" load-path))
-(load "/usr/share/emacs/site-lisp/ess/ess-site")
+;; (setq load-path (cons "/usr/share/emacs/site-lisp/ess" load-path))
+;; (load "/usr/share/emacs/site-lisp/ess/ess-site")
 
 (setq ess-eval-visibly-p nil) ;otherwise C-c C-r (eval region) takes
 			      ;forever

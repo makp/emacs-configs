@@ -359,5 +359,4 @@ shown, then it'll be hidden."
 ;;       '(("definitions" (("DP" "{"))
 ;; 	 (:weight bold :foreground "chocolate1") command)))
 
-(require 'auto-complete-auctex)
 (provide 'mk_latex-setup)

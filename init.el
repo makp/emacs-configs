@@ -19,21 +19,13 @@
 ;;   (normal-top-level-add-to-load-path '("."))
 ;;   (normal-top-level-add-subdirs-to-load-path))
 
-(let ((default-directory "~/elisp/bin/"))
-  (normal-top-level-add-to-load-path '("."))
-  (normal-top-level-add-subdirs-to-load-path))
-
-;; ========
-;; Packages
-;; ========
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-			 ("melpa" . "http://melpa.milkbox.net/packages/")))
+;; (let ((default-directory "~/elisp/bin/"))
+;;   (normal-top-level-add-to-load-path '("."))
+;;   (normal-top-level-add-subdirs-to-load-path))
 
 ;; ===========
 ;; color theme
 ;; ===========
-;; (add-to-list 'custom-theme-load-path  "~/elisp/bin/from-github/solarized")
-(add-to-list 'custom-theme-load-path "~/elisp/bin/from-github/zenburn")
 (load-theme 'zenburn t)
 
 ;; ===========
@@ -61,6 +53,7 @@
 (global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
+		   (require 'mk_packages)
 		   (require 'mk_mark-setup)
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
@@ -75,7 +68,7 @@
 		'(lambda ()
 		   (interactive)
 		   (require 'mk_orgmode-setup) ; (eval-after-load "org" ')
-		   (require 'mk_mobileorg)
+		   ;; (require 'mk_mobileorg)
 		   (require 'mk_emacsw3m)
 		   (require 'gnuplot)
 		   (require 'mk_ess)

@@ -307,8 +307,9 @@
 ;; ------
 ;; Abbrev
 ;; ------
-(setq abbrev-file-name             
-      "~/elisp/cache/abbrev-defs") 
+;; (setq abbrev-file-name             
+;;       "~/elisp/cache/abbrev-defs")
+
 ;; Description: abbrev file
 
 (setq save-abbrevs t)
