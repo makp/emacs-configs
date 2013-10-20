@@ -312,11 +312,11 @@
 
 ;; Description: abbrev file
 
-(setq save-abbrevs t)
+;; (setq save-abbrevs t)
 ;; Description: save abbrevs when files are saved you will be asked
 ;; before the abbreviations are saved
 
-(quietly-read-abbrev-file)
+;; (quietly-read-abbrev-file)
 ;; Description: reads the abbreviations file on startup
 
 ;; -------------
