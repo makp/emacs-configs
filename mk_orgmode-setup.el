@@ -76,6 +76,7 @@
 ;; ----------------------------
 ;; no arrow keys and shift-tabs
 ;; ----------------------------
+
 (add-hook 'org-mode-hook
 	  (lambda ()
 	    ;; for promoting and demoting headings
@@ -94,7 +95,9 @@
 	    (define-key org-mode-map (kbd "C-c SPC") nil)
 	    (define-key org-mode-map (kbd "M-h") nil)
 
-	    (define-key org-mode-map (kbd "C-c C-j") 'org-insert-heading)));; I don't use the org jump mode. 
+	    (define-key org-mode-map (kbd "C-c C-j") 'org-insert-todo-heading-respect-content)));; I don't use the org jump mode. 
+
+;;; org-insert-heading
 
 ;; ----------
 ;; speed keys
@@ -237,8 +240,7 @@
 ;; --------------
 
 ;; global Effort estimate values
-(setq org-global-properties '(("Effort_ALL" . "0:15 0:30 1:00
-1:30 2:00 2:30 3:00 4:00 20:00 40:00")))
+(setq org-global-properties '(("Effort_ALL" . "1:00 2:00 3:00 4:00 0:15 0:30 0:45")))
 
 ;; ----------------
 ;; Progress logging
