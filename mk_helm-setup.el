@@ -38,8 +38,6 @@
 ;;; helm-c-source-files-in-current-dir
      )))
 
-
-
 (global-set-key (kbd "C-x DEL") 'my-helm)	; C-x C-h
 
 ;; ------------------------

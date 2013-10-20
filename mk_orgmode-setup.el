@@ -3,91 +3,16 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; info directory
-;; (add-to-list 'Info-default-directory-list "~/")
+;; (add-to-list 'Info-default-directory-list "~/...")
 
-;; Flyspell activation
-(add-hook 'org-mode-hook
-	  (lambda()
-	    (flyspell-mode 1)))
-
-;; ----------
-;; clocktable
-;; ----------
-(find-file "~/elisp/cache/clocktable.org")
-(find-file "~/elisp/cache/wasteclock.org")
-
-;;;###autoload
-(defun clock-wasteclock ()
-  (save-excursion 
-    (when (get-buffer "wasteclock.org")
-      (switch-to-buffer "wasteclock.org"))
-    (org-dblock-update 4)
-    (goto-char (point-min))
-    (outline-next-visible-heading 1)
-    (org-end-of-line)
-    (let ((base-pos (point)))
-      (call-interactively
-       'helm-imenu)
-      (unless (equal base-pos (point))
-	(org-clock-in))
-      (bury-buffer))))
-
-(defun check-wasteclock ()
-  "Open wasteclock.org and stay there."
-  (switch-to-buffer "wasteclock.org")
-  (org-dblock-update 4)
-  (outline-next-visible-heading 2))
-
-(defun goto-wasteclock (&optional arg)
-  "bla"
-  (interactive "P")
-  (if (consp arg)
-      (check-wasteclock)
-    (clock-wasteclock)))
-
-(global-set-key (kbd "\e\e w") 'goto-wasteclock)
-
-;;;###autoload
-(defun chama-clock-table (&optional arg)
-  "Toggle `clocktable.org'. With a prefix argument, open
-wastetime.org."
-  (interactive "P")
-  (if (consp arg)
-      (switch-to-buffer "clocktable.org")
-    (save-window-excursion
-      (delete-other-windows)
-      (switch-to-buffer "clocktable.org")
-      (org-dblock-update 4)
-      (beginning-of-buffer)
-      (outline-next-visible-heading 2)
-      (org-tree-to-indirect-buffer)
-      (split-window-right)
-      (outline-next-visible-heading -1)
-      (org-tree-to-indirect-buffer '4)
-      (delete-window)
-      (read-key "Press any key to exit.")
-      (kill-buffer "clocktable.org-1")
-      (kill-buffer "clocktable.org-2"))))
-
-(global-set-key (kbd "\e\e m") 'chama-clock-table)
-
-;; =====
-;; imenu
-;; =====
-(setq org-imenu-depth 6)
 
 ;; =====
 ;; setqs
 ;; =====
-(setq org-special-ctrl-a/e t)
-;;; Description: C-a/C-e behavior in headlines
-
-;; org-goto 
-(setq org-goto-auto-isearch t)
-
-;; Org-mode and hyperlinks 
-(setq org-return-follows-link t)	; follow links with RET
-
+(setq org-special-ctrl-a/e t)	       ; C-a/C-e behavior in headlines
+(setq org-goto-auto-isearch t)	       ;  org-goto
+(setq org-return-follows-link t)       ; follow links with RET
+(setq org-pretty-entities nil)		; Use UFT8 characters
 (setq org-special-ctrl-k t)
 ;; Description:
 ;; - When the cursor is at the beginning of a headline, kill the entire
@@ -95,12 +20,22 @@ wastetime.org."
 ;; - When in the middle of the headline text, kill the headline up to the tags.
 ;; - When after the headline text, kill the tags.
 
-(setq org-pretty-entities nil)
-;;; Use UFT8 characters
+;; ========
+;; flyspell
+;; ========
+(add-hook 'org-mode-hook
+	  (lambda()
+	    (flyspell-mode 1)))
 
-;; ---------
-;; Refilling
-;; ---------
+;; =====
+;; imenu
+;; =====
+(setq org-imenu-depth 6)
+
+
+;; =========
+;; refilling
+;; =========
 (setq org-refile-targets
       '((org-agenda-files . (:maxlevel . 3)))
       org-outline-path-complete-in-steps nil
@@ -111,7 +46,10 @@ wastetime.org."
 ;;; Description: the braces are *required* in order to trigger
 ;;; interpretations as sub/superscript.
 
-;; Org-mode and LaTeX exporting
+
+;; ===============
+;; latex exporting
+;; ===============
 (setq org-export-with-LaTeX-fragments 'dvipng)
 ;;; All LaTeX fragments are converted into images and inlined into the
 ;;; document
@@ -135,9 +73,9 @@ wastetime.org."
 ;; Structure editing
 ;; =================
 
-;; -------------
+;; ----------------------------
 ;; no arrow keys and shift-tabs
-;; -------------
+;; ----------------------------
 (add-hook 'org-mode-hook
 	  (lambda ()
 	    ;; for promoting and demoting headings
@@ -174,7 +112,6 @@ wastetime.org."
 ;; ==========
 ;; hyperlinks
 ;; ==========
-
 (global-set-key (kbd "C-c l") 'org-store-link) 
 (global-set-key (kbd "C-c C-S-l") 'org-insert-link-global)
 (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
@@ -536,35 +473,96 @@ wastetime.org."
 			    ("\\.x?html?\\'" . default)
 			    ("\\.pdf\\'" . "/usr/bin/zathura %s"))))
 
-;; ===========
-;; scratch.org
-;; ===========
-(find-file "~/elisp/cache/scratch-org.org")
+;; ;; ===========
+;; ;; scratch.org
+;; ;; ===========
+;; (find-file "~/elisp/cache/scratch-org.org")
 
-(defun take-notes (&optional arg)
-  "Toggle `scratch-org.org'. With a prefix arg, opens
-`scratch-org.org' in another window."
-  (interactive "P")
-  (if (equal (buffer-name) "scratch-org.org")
-      (bury-buffer)
-    (if (consp arg)
-	(switch-to-buffer-other-window "scratch-org.org")
-      (switch-to-buffer "scratch-org.org"))))
+;; (defun take-notes (&optional arg)
+;;   "Toggle `scratch-org.org'. With a prefix arg, opens
+;; `scratch-org.org' in another window."
+;;   (interactive "P")
+;;   (if (equal (buffer-name) "scratch-org.org")
+;;       (bury-buffer)
+;;     (if (consp arg)
+;; 	(switch-to-buffer-other-window "scratch-org.org")
+;;       (switch-to-buffer "scratch-org.org"))))
 
-;;; sound to use for notifications
-;; (setq org-clock-sound t)
-;;; not working
+;; ;;; sound to use for notifications
+;; ;; (setq org-clock-sound t)
+;; ;;; not working
 
-(defun org-column-view-uses-fixed-width-face ()
-  ;; copy from org-faces.el
-  (when (fboundp 'set-face-attribute)
-    ;; Make sure that a fixed-width face is used when we have a column
-    ;; table.
-    (set-face-attribute 'org-column nil
-                        :height (face-attribute 'default :height)
-                        :family (face-attribute 'default :family))))
+;; (defun org-column-view-uses-fixed-width-face ()
+;;   ;; copy from org-faces.el
+;;   (when (fboundp 'set-face-attribute)
+;;     ;; Make sure that a fixed-width face is used when we have a column
+;;     ;; table.
+;;     (set-face-attribute 'org-column nil
+;;                         :height (face-attribute 'default :height)
+;;                         :family (face-attribute 'default :family))))
 
-(when (and (fboundp 'daemonp) (daemonp))
-  (add-hook 'org-mode-hook 'org-column-view-uses-fixed-width-face))
+;; (when (and (fboundp 'daemonp) (daemonp))
+;;   (add-hook 'org-mode-hook 'org-column-view-uses-fixed-width-face))
+
+;; ;; ----------
+;; ;; clocktable
+;; ;; ----------
+;; (find-file "~/elisp/cache/clocktable.org")
+;; (find-file "~/elisp/cache/wasteclock.org")
+
+;; ;;;###autoload
+;; (defun clock-wasteclock ()
+;;   (save-excursion 
+;;     (when (get-buffer "wasteclock.org")
+;;       (switch-to-buffer "wasteclock.org"))
+;;     (org-dblock-update 4)
+;;     (goto-char (point-min))
+;;     (outline-next-visible-heading 1)
+;;     (org-end-of-line)
+;;     (let ((base-pos (point)))
+;;       (call-interactively
+;;        'helm-imenu)
+;;       (unless (equal base-pos (point))
+;; 	(org-clock-in))
+;;       (bury-buffer))))
+
+;; (defun check-wasteclock ()
+;;   "Open wasteclock.org and stay there."
+;;   (switch-to-buffer "wasteclock.org")
+;;   (org-dblock-update 4)
+;;   (outline-next-visible-heading 2))
+
+;; (defun goto-wasteclock (&optional arg)
+;;   "bla"
+;;   (interactive "P")
+;;   (if (consp arg)
+;;       (check-wasteclock)
+;;     (clock-wasteclock)))
+
+;; (global-set-key (kbd "\e\e w") 'goto-wasteclock)
+
+;; ;;;###autoload
+;; (defun chama-clock-table (&optional arg)
+;;   "Toggle `clocktable.org'. With a prefix argument, open
+;; wastetime.org."
+;;   (interactive "P")
+;;   (if (consp arg)
+;;       (switch-to-buffer "clocktable.org")
+;;     (save-window-excursion
+;;       (delete-other-windows)
+;;       (switch-to-buffer "clocktable.org")
+;;       (org-dblock-update 4)
+;;       (beginning-of-buffer)
+;;       (outline-next-visible-heading 2)
+;;       (org-tree-to-indirect-buffer)
+;;       (split-window-right)
+;;       (outline-next-visible-heading -1)
+;;       (org-tree-to-indirect-buffer '4)
+;;       (delete-window)
+;;       (read-key "Press any key to exit.")
+;;       (kill-buffer "clocktable.org-1")
+;;       (kill-buffer "clocktable.org-2"))))
+
+;; (global-set-key (kbd "\e\e m") 'chama-clock-table)
 
 (provide 'mk_orgmode-setup)
