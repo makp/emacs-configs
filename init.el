@@ -15,10 +15,6 @@
 
 (add-to-list 'load-path "~/config-files/general/emacs-config/")
 
-;; (let ((default-directory "~/.emacs.d/elpa/"))
-;;   (normal-top-level-add-to-load-path '("."))
-;;   (normal-top-level-add-subdirs-to-load-path))
-
 ;; (let ((default-directory "~/elisp/bin/"))
 ;;   (normal-top-level-add-to-load-path '("."))
 ;;   (normal-top-level-add-subdirs-to-load-path))
