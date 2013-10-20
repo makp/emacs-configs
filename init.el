@@ -23,6 +23,8 @@
 ;;   (normal-top-level-add-to-load-path '("."))
 ;;   (normal-top-level-add-subdirs-to-load-path))
 
+(require 'mk_packages)
+
 ;; ===========
 ;; color theme
 ;; ===========
@@ -53,7 +55,6 @@
 (global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
-		   (require 'mk_packages)
 		   (require 'mk_mark-setup)
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
