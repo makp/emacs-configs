@@ -509,8 +509,8 @@
 ;; ;; ----------
 ;; ;; clocktable
 ;; ;; ----------
-;; (find-file "~/elisp/cache/clocktable.org")
-;; (find-file "~/elisp/cache/wasteclock.org")
+
+;; (find-file-noselect "~/home/makmiller/Dropbox/shared-files/wasteclock.org")
 
 ;; ;;;###autoload
 ;; (defun clock-wasteclock ()
@@ -543,28 +543,34 @@
 
 ;; (global-set-key (kbd "\e\e w") 'goto-wasteclock)
 
-;; ;;;###autoload
+(defun chama-clock-table ()
+  (interactive)
+  (let ((tab "/home/makmiller/Dropbox/shared-files/clocktable.org"))
+    (find-file tab)))
+
+;;;###autoload
 ;; (defun chama-clock-table (&optional arg)
 ;;   "Toggle `clocktable.org'. With a prefix argument, open
 ;; wastetime.org."
 ;;   (interactive "P")
-;;   (if (consp arg)
-;;       (switch-to-buffer "clocktable.org")
-;;     (save-window-excursion
-;;       (delete-other-windows)
-;;       (switch-to-buffer "clocktable.org")
-;;       (org-dblock-update 4)
-;;       (beginning-of-buffer)
-;;       (outline-next-visible-heading 2)
-;;       (org-tree-to-indirect-buffer)
-;;       (split-window-right)
-;;       (outline-next-visible-heading -1)
-;;       (org-tree-to-indirect-buffer '4)
-;;       (delete-window)
-;;       (read-key "Press any key to exit.")
-;;       (kill-buffer "clocktable.org-1")
-;;       (kill-buffer "clocktable.org-2"))))
+;;   (let ((tab "/home/makmiller/Dropbox/shared-files/clocktable.org"))
+;;     (if (consp arg)
+;; 	(find-file-noselect tab)
+;;       (save-window-excursion
+;; 	(delete-other-windows)
+;; 	(find-file-noselect tab)
+;; 	(org-dblock-update 4)
+;; 	(beginning-of-buffer)
+;; 	(outline-next-visible-heading 2)
+;; 	(org-tree-to-indirect-buffer)
+;; 	(split-window-right)
+;; 	(outline-next-visible-heading -1)
+;; 	(org-tree-to-indirect-buffer '4)
+;; 	(delete-window)
+;; 	(read-key "Press any key to exit.")
+;; 	(kill-buffer "clocktable.org-1")
+;; 	(kill-buffer "clocktable.org-2")))))
 
-;; (global-set-key (kbd "\e\e m") 'chama-clock-table)
+(global-set-key (kbd "\e\e m") 'chama-clock-table)
 
 (provide 'mk_orgmode-setup)
