@@ -120,7 +120,7 @@
 ;;; NOT, XOR, OR, brackets, NEAR, ADJACENT, from: )
 
 (require 'notmuch-address)
-(setq notmuch-address-command "~/elisp/bin/from-github/nottoomuch/nottoomuch-addresses.sh")
+(setq notmuch-address-command "~/scripts/third-party-scripts/nottoomuch/nottoomuch-addresses.sh")
 (notmuch-address-message-insinuate)
 
 (provide 'mk_email)
