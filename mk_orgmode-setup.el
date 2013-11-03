@@ -1,6 +1,6 @@
 (message ">>>>> custom org-mode setup triggered <<<<<<")
 
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; info directory
 ;; (add-to-list 'Info-default-directory-list "~/...")
@@ -506,70 +506,70 @@
 ;; (when (and (fboundp 'daemonp) (daemonp))
 ;;   (add-hook 'org-mode-hook 'org-column-view-uses-fixed-width-face))
 
-;; ;; ----------
-;; ;; clocktable
-;; ;; ----------
+;; --------------
+;; wasteclock.org
+;; --------------
 
-;; (find-file-noselect "~/home/makmiller/Dropbox/shared-files/wasteclock.org")
-
-;; ;;;###autoload
-;; (defun clock-wasteclock ()
-;;   (save-excursion 
-;;     (when (get-buffer "wasteclock.org")
-;;       (switch-to-buffer "wasteclock.org"))
-;;     (org-dblock-update 4)
-;;     (goto-char (point-min))
-;;     (outline-next-visible-heading 1)
-;;     (org-end-of-line)
-;;     (let ((base-pos (point)))
-;;       (call-interactively
-;;        'helm-imenu)
-;;       (unless (equal base-pos (point))
-;; 	(org-clock-in))
-;;       (bury-buffer))))
-
-;; (defun check-wasteclock ()
-;;   "Open wasteclock.org and stay there."
-;;   (switch-to-buffer "wasteclock.org")
-;;   (org-dblock-update 4)
-;;   (outline-next-visible-heading 2))
-
-;; (defun goto-wasteclock (&optional arg)
-;;   "bla"
-;;   (interactive "P")
-;;   (if (consp arg)
-;;       (check-wasteclock)
-;;     (clock-wasteclock)))
-
-;; (global-set-key (kbd "\e\e w") 'goto-wasteclock)
-
-(defun chama-clock-table ()
-  (interactive)
-  (let ((tab "/home/makmiller/Dropbox/shared-files/clocktable.org"))
-    (find-file tab)))
+(find-file-noselect "~/Dropbox/shared-files/wasteclock.org")
 
 ;;;###autoload
-;; (defun chama-clock-table (&optional arg)
-;;   "Toggle `clocktable.org'. With a prefix argument, open
-;; wastetime.org."
-;;   (interactive "P")
-;;   (let ((tab "/home/makmiller/Dropbox/shared-files/clocktable.org"))
-;;     (if (consp arg)
-;; 	(find-file-noselect tab)
-;;       (save-window-excursion
-;; 	(delete-other-windows)
-;; 	(find-file-noselect tab)
-;; 	(org-dblock-update 4)
-;; 	(beginning-of-buffer)
-;; 	(outline-next-visible-heading 2)
-;; 	(org-tree-to-indirect-buffer)
-;; 	(split-window-right)
-;; 	(outline-next-visible-heading -1)
-;; 	(org-tree-to-indirect-buffer '4)
-;; 	(delete-window)
-;; 	(read-key "Press any key to exit.")
-;; 	(kill-buffer "clocktable.org-1")
-;; 	(kill-buffer "clocktable.org-2")))))
+(defun clock-wasteclock ()
+  (save-excursion 
+    (when (get-buffer "wasteclock.org")
+      (switch-to-buffer "wasteclock.org"))
+    (org-dblock-update 4)
+    (goto-char (point-min))
+    (outline-next-visible-heading 1)
+    (org-end-of-line)
+    (let ((base-pos (point)))
+      (call-interactively
+       'helm-imenu)
+      (unless (equal base-pos (point))
+	(org-clock-in))
+      (bury-buffer))))
+
+(defun check-wasteclock ()
+  "Open wasteclock.org and stay there."
+  (switch-to-buffer "wasteclock.org")
+  (org-dblock-update 4)
+  (outline-next-visible-heading 2))
+
+(defun goto-wasteclock (&optional arg)
+  "bla"
+  (interactive "P")
+  (if (consp arg)
+      (check-wasteclock)
+    (clock-wasteclock)))
+
+(global-set-key (kbd "\e\e w") 'goto-wasteclock)
+
+;; --------------
+;; clocktable.org
+;; --------------
+
+(find-file-noselect "~/Dropbox/shared-files/clocktable.org")
+
+;;;###autoload
+(defun chama-clock-table (&optional arg)
+  "Toggle `clocktable.org'. With a prefix argument, open
+wastetime.org."
+  (interactive "P")
+    (if (consp arg)
+      (switch-to-buffer "clocktable.org")
+    (save-window-excursion
+      (delete-other-windows)
+      (switch-to-buffer "clocktable.org")
+      (org-dblock-update 4)
+      (beginning-of-buffer)
+      (outline-next-visible-heading 2)
+      (org-tree-to-indirect-buffer)
+      (split-window-right)
+      (outline-next-visible-heading -1)
+      (org-tree-to-indirect-buffer '4)
+      (delete-window)
+      (read-key "Press any key to exit.")
+      (kill-buffer "clocktable.org-1")
+      (kill-buffer "clocktable.org-2"))))
 
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
 
