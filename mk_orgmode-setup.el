@@ -509,7 +509,6 @@
 ;; --------------
 ;; wasteclock.org
 ;; --------------
-
 (find-file-noselect "~/Dropbox/shared-files/wasteclock.org")
 
 ;;;###autoload
@@ -526,6 +525,7 @@
        'helm-imenu)
       (unless (equal base-pos (point))
 	(org-clock-in))
+      (save-buffer) 
       (bury-buffer))))
 
 (defun check-wasteclock ()
@@ -546,7 +546,6 @@
 ;; --------------
 ;; clocktable.org
 ;; --------------
-
 (find-file-noselect "~/Dropbox/shared-files/clocktable.org")
 
 ;;;###autoload
