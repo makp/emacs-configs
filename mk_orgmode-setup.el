@@ -176,7 +176,7 @@
 ;;; Tags are useful to filter your todo list.
 (setq org-tag-alist '(("PROJECT" . ?p)
 		      ("SideProjects" . ?s)
-		      ("@TODAY" . ?t)
+		      ("@CURRENT" . ?c)
 		      ("@lineup" . ?l)
 		      ("@WAITING" . ?w)
 		      ("LitReview" . ?L)
@@ -185,7 +185,7 @@
 		      ("organizing" . ?O)
 		      ("email" . ?e)))
 
-(setq org-tags-exclude-from-inheritance '("@TODAY" "@lineup" "PROJECT" "@WAITING"))
+(setq org-tags-exclude-from-inheritance '("@CURRENT" "@lineup" "PROJECT" "@WAITING"))
 ;; These are the tags that I don't want to be inherited.
 
 ;; ======
