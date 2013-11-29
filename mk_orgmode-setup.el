@@ -138,7 +138,7 @@
 ;; TODO states
 ;; -----------
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "|" "DONE(d)")
+      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
 	(sequence "WRITE(w)" "REVISE(r)" "PROOF-READ(p)" "SUBMITTED(s)" "|" "DONE(d)")
 	(type "FIXME(f)" "BUG(b)" "LEARN(l)" "|" "FIXED(F)" "DONE(d)")))
 
