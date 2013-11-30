@@ -22,6 +22,7 @@
 (set-register ?o '(file . "~/elisp/agenda/ag-longterm.org"))
 (set-register ?t '(file . "~/elisp/agenda/ag-teaching.org"))
 (set-register ?g '(file . "~/elisp/agenda/ag-geral.org"))
+(set-register ?w '(file . "~/elisp/agenda/wasteclock.org"))
 
 ;;; Notes
 (set-register ?e '(file . "~/Documents/mydocs/notes/emacs-and-lisp/emacs.org"))
