@@ -11,8 +11,10 @@
 	  (lambda ()
 	    (orgstruct-mode)))
 
-(setq magit-repo-dirs '("~/config-files/general/emacs-config"
-			"~/Documents/mydocs/papers/in-progress/manuscripts/how-bacteria-socialize"))
+(setq magit-repo-dirs '("~/elisp/agenda"
+			"~/config-files/general/emacs-config"
+			"~/Documents/mydocs/papers/in-progress/manuscripts/how-bacteria-socialize"
+			"~/Documents/mydocs/teaching"))
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
 ;;; you to complete. If you want to create a new repository, use two
 ;;; prefix-args.
