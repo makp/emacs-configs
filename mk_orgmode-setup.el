@@ -510,39 +510,37 @@
 ;; --------------
 ;; wasteclock.org
 ;; --------------
-;; (find-file-noselect "~/Dropbox/shared-files/wasteclock.org")
+;;;###autoload
+(defun clock-wasteclock ()
+  (save-excursion 
+    (when (get-buffer "wasteclock.org")
+      (switch-to-buffer "wasteclock.org"))
+    (org-dblock-update 4)
+    (goto-char (point-min))
+    (outline-next-visible-heading 1)
+    (org-end-of-line)
+    (let ((base-pos (point)))
+      (call-interactively
+       'helm-imenu)
+      (unless (equal base-pos (point))
+	(org-clock-in))
+      (save-buffer) 
+      (bury-buffer))))
 
-;; ;;;###autoload
-;; (defun clock-wasteclock ()
-;;   (save-excursion 
-;;     (when (get-buffer "wasteclock.org")
-;;       (switch-to-buffer "wasteclock.org"))
-;;     (org-dblock-update 4)
-;;     (goto-char (point-min))
-;;     (outline-next-visible-heading 1)
-;;     (org-end-of-line)
-;;     (let ((base-pos (point)))
-;;       (call-interactively
-;;        'helm-imenu)
-;;       (unless (equal base-pos (point))
-;; 	(org-clock-in))
-;;       (save-buffer) 
-;;       (bury-buffer))))
+(defun check-wasteclock ()
+  "Open wasteclock.org and stay there."
+  (switch-to-buffer "wasteclock.org")
+  (org-dblock-update 4)
+  (outline-next-visible-heading 2))
 
-;; (defun check-wasteclock ()
-;;   "Open wasteclock.org and stay there."
-;;   (switch-to-buffer "wasteclock.org")
-;;   (org-dblock-update 4)
-;;   (outline-next-visible-heading 2))
+(defun goto-wasteclock (&optional arg)
+  "bla"
+  (interactive "P")
+  (if (consp arg)
+      (check-wasteclock)
+    (clock-wasteclock)))
 
-;; (defun goto-wasteclock (&optional arg)
-;;   "bla"
-;;   (interactive "P")
-;;   (if (consp arg)
-;;       (check-wasteclock)
-;;     (clock-wasteclock)))
-
-;; (global-set-key (kbd "\e\e w") 'goto-wasteclock)
+(global-set-key (kbd "\e\e w") 'goto-wasteclock)
 
 ;; --------------
 ;; clocktable.org
