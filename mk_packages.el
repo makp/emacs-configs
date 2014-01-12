@@ -11,7 +11,7 @@
    (or (package-installed-p package)
        (if (y-or-n-p (format "Package %s is missing. Install it? " package)) 
            (package-install package))))
- '(magit helm helm-ls-git ace-jump-mode auto-complete autopair gnuplot-mode yasnippet undo-tree multiple-cursors keyfreq highlight-parentheses region-bindings-mode dropdown-list zenburn-theme ac-math paredit popup emms w3m ess key-chord ibuffer-git))
+ '(magit helm helm-ls-git ace-jump-mode auto-complete autopair gnuplot-mode yasnippet undo-tree multiple-cursors keyfreq highlight-parentheses region-bindings-mode dropdown-list zenburn-theme ac-math paredit popup emms w3m ess key-chord ibuffer-git web-mode))
 
 (provide 'mk_packages)
 ;;; mk_packages ends here
