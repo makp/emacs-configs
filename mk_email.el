@@ -103,7 +103,8 @@
     (interactive)
     (if (member "unread" (notmuch-search-get-tags))
 	(notmuch-search-tag "-unread")
-      (notmuch-search-tag "+unread"))))
+      (notmuch-search-tag "+unread"))
+      (next-line)))
 
 (define-key notmuch-search-mode-map (kbd "g") 'notmuch-search-poll-and-refresh-view)
 
