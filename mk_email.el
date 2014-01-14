@@ -4,7 +4,6 @@
 ;;; In home, there is the configuration file for notmuch that controls
 ;;; initial tagging, etc.
 
-
 ;; =============
 ;; sending email
 ;; =============
@@ -116,6 +115,9 @@
 (setq mm-text-html-renderer 'w3m)
 ;;; this variable controls of the display of an HTML message. Here I'm
 ;;; saying to use emacs-w3m. The default value was gnus-w3m
+
+(define-key notmuch-show-mode-map (kbd "o") 'w3m-external-view-this-url)
+
 
 ;;; Search in notmuch supports wildcards (*) and operators (+, -, AND,
 ;;; NOT, XOR, OR, brackets, NEAR, ADJACENT, from: )
