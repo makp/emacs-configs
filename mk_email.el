@@ -16,9 +16,9 @@
     (message-goto-from)
     (message-beginning-of-line)
     (kill-line)
-    (insert "\"Makmiller Pedroso\" <mmpedros@ucalgary.ca>")
+    (insert "\"Makmiller Pedroso\" <mpedroso@towson.edu>")
     (message-goto-fcc)
-    (insert "~/Mail/Uni/sent-mail")
+    (insert "~/Mail/TU/Sent")
     (message-goto-subject)))
 
 (global-set-key (kbd "C-x m") 'envia-email)
@@ -111,7 +111,7 @@
 (setq message-kill-buffer-on-exit t)
 ;;; close the mail buffer after sending it. 
 
-(setq notmuch-fcc-dirs '(("mmpedros@ucalgary.ca" . "Uni/sent-mail")))
+(setq notmuch-fcc-dirs '(("mpedroso@towson.edu" . "TU/Sent")))
 
 (setq mm-text-html-renderer 'w3m)
 ;;; this variable controls of the display of an HTML message. Here I'm
