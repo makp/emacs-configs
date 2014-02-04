@@ -1,7 +1,7 @@
 ;; ======
 ;; AUCTex
 ;; ======
-(load "auctex.el" nil t t)
+;; (load "auctex.el" nil t t)
 
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
@@ -195,7 +195,7 @@ shown, then it'll be hidden."
 ;; =======
 ;; Preview
 ;; =======
-(load "preview-latex.el" nil t t)
+;; (load "preview-latex.el" nil t t)
 
 (setq preview-auto-cache-preamble t)
 
