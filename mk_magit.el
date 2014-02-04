@@ -13,12 +13,12 @@
 
 (setq magit-repo-dirs '("~/elisp/agenda"
 			"~/config-files/general/emacs-config"
-			"/home/makmiller/config-files/general/term-configs"
-			"/home/makmiller/config-files/general/x-configs"
-			"/home/makmiller/scripts/myscripts"
-			"/home/makmiller/Documents/mydocs/websites/main-website"
-			"/home/makmiller/Documents/mydocs/dossier"
-			"/home/makmiller/Documents/mydocs/papers/in-progress/manuscripts/social-evol-theory"
+			"~/config-files/general/term-configs"
+			"~/config-files/general/x-configs"
+			"~/scripts/myscripts"
+			"~/Documents/mydocs/websites/main-website"
+			"~/Documents/mydocs/dossier"
+			"~/Documents/mydocs/papers/in-progress/manuscripts/social-evol-theory"
 			"~/Documents/mydocs/teaching"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
