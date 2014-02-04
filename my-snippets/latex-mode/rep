@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: repete
+# key: r
+# --
+${1:x}_{${2:0}}, \ldots  $1_{${3:n}}$0

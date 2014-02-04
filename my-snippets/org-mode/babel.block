@@ -1,0 +1,11 @@
+# "-*- snippet -*-"
+# name : Babel code blocks
+# key : cc
+# group : org-mode
+# contributor : Mak
+# expand-evn: (yas/indent-line 'fixed)
+# --
+
+#+begin_src ${2:$$(yas/choose-value '("lisp" "sh" "C" "emacs-lisp" "R" "octave" "python" "latex" "gnuplot"))}
+$0
+#+end_src

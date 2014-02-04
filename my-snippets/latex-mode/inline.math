@@ -1,0 +1,6 @@
+# -*- snippet -*-
+# name : inserts inline math
+# key : m
+# contributor : Mak
+# --
+\$${1: math }\$$0

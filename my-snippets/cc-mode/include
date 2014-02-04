@@ -1,0 +1,9 @@
+# "-*- snippet -*-"
+# name : include for C
+# key : in
+# group : cc-mode
+# contributor : Mak
+# --
+#include <stdio.h>
+
+$0

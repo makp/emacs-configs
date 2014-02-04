@@ -1,0 +1,38 @@
+# "-*- snippet -*-"
+# name : LaTeX template for report
+# key : temp
+# group : templates
+# contributor : Mak 
+# --
+\documentclass{anotacoes}
+
+\author{${1: Author's name}}
+\title{${2: and the title!}}
+
+%\includeonly{}
+%\excludecomment{comm}
+
+\begin{document}
+
+\maketitle
+
+\dominitoc
+\tableofcontents
+
+%% ===============
+%% custom commands
+%% ===============
+
+%% ====
+%% Text
+%% ====
+
+$0
+
+%% ==========
+%% References
+%% ==========
+
+\printbibliography
+ 
+\end{document}

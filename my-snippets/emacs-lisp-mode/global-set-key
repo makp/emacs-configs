@@ -1,0 +1,7 @@
+# "-*- snippet -*-"
+# name : global-set-key
+# key : gk
+# contributor : Mak
+# --
+(global-set-key (kbd "$1") '$2)
+$0

@@ -1,0 +1,7 @@
+# "-*- snippet -*-"
+# name : load path snippet
+# key : th
+# contributor : Mak
+# --
+(add-to-list 'load-path "/home/makmiller/${1:$$(yas/choose-value
+'(".emacs.d/" "elisp/"))}$0")

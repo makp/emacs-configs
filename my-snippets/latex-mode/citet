@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: citet
+# key: c
+# expand-env: ((yas/indent-line 'fixed))
+# --
+\citet{${1:label$(unless yas/modified-p (reftex-citation 'dont-insert))}}$0

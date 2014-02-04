@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: prenote
+# key: cr
+# --
+\citep[${1:see}][${2:}]{${3:label$(unless yas/modified-p (reftex-citation 'dont-insert))}}$0

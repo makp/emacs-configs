@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: fraction
+# key: f
+# --
+\frac{${1:}}{${2:}}$0

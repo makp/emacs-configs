@@ -1,0 +1,4 @@
+# -*- snippet -*-
+#name : Add a FIXME line
+# --
+`(insert comment-start comment-start)` FIXME: $0

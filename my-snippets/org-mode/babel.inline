@@ -1,0 +1,7 @@
+# "-*- snippet -*-"
+# name : in-line code blocks
+# key : c
+# group : code blocks
+# contributor : Mak
+# --
+src_${1:$$(yas/choose-value '("emacs-lisp" "latex" "sh" "lisp"))}{${2:body}}$0

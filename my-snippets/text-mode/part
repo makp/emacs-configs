@@ -1,0 +1,10 @@
+# "-*- snippet -*-"
+# name : Headline with `='
+# key : sec
+# group : headline
+# contributor : Mak
+# --
+${1:`(insert comment-start comment-start)`} ${2:$(make-string (string-width yas-text) ?\=)}
+$1 ${2:Title}
+$1 ${2:$(make-string (string-width yas-text) ?\=)}
+$0

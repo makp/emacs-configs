@@ -1,0 +1,9 @@
+# "-*- snippet -*-"
+# name: bang line
+# key: b
+# group : shell-script-mode
+# keybinding: keybinding
+# contributor: Mak
+# --
+#!/bin/bash
+$0

@@ -1,0 +1,11 @@
+# "-*- snippet -*-"
+# name : Snippet header
+# key : temp
+# --
+# "-*- snippet -*-"
+# name : $1${2:
+# key : ${3:expand-key}}${4:
+# group : ${5:group}} 
+# contributor : ${6:Mak}
+# --
+$0

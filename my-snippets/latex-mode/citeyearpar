@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: citeyearpar
+# key: cy
+# --
+\citeyearpar{${1:label$(unless yas/modified-p (reftex-citation 'dont-insert))}}$0

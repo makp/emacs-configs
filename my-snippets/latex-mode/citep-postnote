@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: page
+# key: cp
+# --
+\citep[${2:}]{${1:label$(unless yas/modified-p (reftex-citation 'dont-insert))}}$0

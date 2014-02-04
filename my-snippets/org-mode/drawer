@@ -1,0 +1,10 @@
+# "-*- snippet -*-"
+# name : drawers
+# key : dr
+# group : org-mode
+# contributor : Mak
+# --
+:${1:$$(yas/choose-value org-drawers)}:
+$0
+:END:
+
