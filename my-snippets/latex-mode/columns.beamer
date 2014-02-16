@@ -4,7 +4,7 @@
 # group : beamer
 # contributor : Mak
 # --
-\begin{columns}
+\begin{columns}[T]
 \column{0.5\textwidth}
 $0 % \includegraphics[scale=.50]{figuras/}
 \column{0.5\textwidth}
