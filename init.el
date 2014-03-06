@@ -59,9 +59,9 @@
 		   (require 'mk_keyfreq)
 		   (require 'mk_emms-setup)))
 
-;; -----------------------------------------------
-;; org-mode, latex, and the some programming modes
-;; -----------------------------------------------
+;; --------------------------------------------
+;; org-mode, latex, and other programming modes
+;; --------------------------------------------
 (global-set-key (kbd "<f7>")
 		'(lambda ()
 		   (interactive)
@@ -72,7 +72,7 @@
 		   ;; (require 'gnuplot)
 		   (require 'mk_ess)
 		   (require 'mk_latex-setup) ; (eval-after-load "tex-mode" ')
-		   (require 'mk_eldoc)))		      
+		   (require 'mk_eldoc)))
  
 ;; -----------
 ;; Email + ERC

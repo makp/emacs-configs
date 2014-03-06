@@ -38,9 +38,8 @@
 
 (setq browse-url-browser-function 'choose-browser)
 
-(global-set-key "\C-cw" 'w3m-goto-url)
-;;; it was browse-url-at-point
-;; it's not necessary. `w3m-goto-url' can do that among other things.
+(global-set-key "\C-cw" 'browse-url-at-point)
+;; `w3m-goto-url' can do that among other things.
 
 ;; Enable cookies
 (setq w3m-use-cookies t)
