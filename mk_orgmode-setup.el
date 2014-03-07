@@ -201,7 +201,8 @@
 			     "~/elisp/agenda/ag-longterm.org"
 			     "~/elisp/agenda/ag-it.org"
 			     "~/elisp/agenda/ag-teaching.org"
-			     "~/elisp/agenda/wasteclock.org"))
+			     "~/elisp/agenda/wasteclock.org"
+			     "~/elisp/agenda/recurrent.org"))
 
 
 ;;; agenda dispatcher
@@ -576,5 +577,42 @@ wastetime.org."
       (kill-buffer "clocktable.org-2"))))
 
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
+
+;; ---------------
+;; recurrent clock
+;; ---------------
+;;;###autoload
+(defun clock-recurrent ()
+  (save-excursion 
+    (when (get-buffer "recurrent.org")
+      (switch-to-buffer "recurrent.org"))
+    (org-dblock-update 4)
+    (goto-char (point-min))
+    (outline-next-visible-heading 1)
+    (org-end-of-line)
+    (let ((base-pos (point)))
+      (call-interactively
+       'helm-imenu)
+      (unless (equal base-pos (point))
+	(org-clock-in))
+      (save-buffer) 
+      (bury-buffer))))
+
+(defun check-recurrent ()
+  "Open recurrent.org and stay there."
+  (switch-to-buffer "recurrent.org")
+  (org-dblock-update 4)
+  (outline-next-visible-heading 2))
+
+(defun goto-recurrent (&optional arg)
+  "bla"
+  (interactive "P")
+  (if (consp arg)
+      (check-recurrent)
+    (clock-recurrent) 
+    (org-save-all-org-buffers)))
+
+(global-set-key (kbd "\e\e v") 'goto-recurrent)
+
 
 (provide 'mk_orgmode-setup)
