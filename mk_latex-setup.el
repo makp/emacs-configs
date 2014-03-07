@@ -2,6 +2,7 @@
 ;; AUCTex
 ;; ======
 ;; (load "auctex.el" nil t t)
+;; Use auctex from ELPA
 
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
@@ -331,9 +332,9 @@ shown, then it'll be hidden."
 ;; ===========
 ;; Custom face
 ;; ===========
-(setq font-latex-match-reference-keywords
-      '(("citep" "[{")
-	("citet" "[{")))
+;; (setq font-latex-match-reference-keywords
+;;       '(("citep" "[{")
+;; 	("citet" "[{")))
 
 ;; ---------------
 ;; New evironments
@@ -344,9 +345,7 @@ shown, then it'll be hidden."
 ;; 	     '("Verbatim")
 ;; 	     '("align*")
 ;; 	     '("SideBySideExample")	;; from fvrb-ex package
-;; 	     '("Example")		;; 
-;; 	     '("compactenum")		;; from paralist package
-;; 	     '("inparaenum"))))
+;; 	     '("Example")))		;; 
 
 ;; ----------
 ;; New macros
