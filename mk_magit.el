@@ -18,7 +18,7 @@
 			"~/scripts/myscripts"
 			"~/Documents/mydocs/websites/main-website"
 			"~/Documents/mydocs/dossier"
-			"~/Documents/mydocs/papers/in-progress/manuscripts/social-evol-theory"
+			"~/Documents/mydocs/papers/in-progress/social"
 			"~/Documents/mydocs/teaching"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for

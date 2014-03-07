@@ -441,9 +441,14 @@
 (global-set-key (kbd "\e\ec") '(lambda ()
 				 (interactive)
 				 (let ((current-prefix-arg '(4)))
-				   (call-interactively 'org-clock-in))))
+				   (call-interactively 'org-clock-in)
+				   (org-save-all-org-buffers))))
 
-(global-set-key (kbd "\e\er") 'org-clock-out)
+(global-set-key (kbd "\e\er") '(lambda ()
+				 (interactive)
+				 (org-clock-out)
+				 (org-save-all-org-buffers)))
+
 (global-set-key (kbd "\e\eh") 'org-clock-goto)
 
 (defun timer-do-org ()
@@ -538,7 +543,8 @@
   (interactive "P")
   (if (consp arg)
       (check-wasteclock)
-    (clock-wasteclock)))
+    (clock-wasteclock)
+    (org-save-all-org-buffers)))
 
 (global-set-key (kbd "\e\e w") 'goto-wasteclock)
 
