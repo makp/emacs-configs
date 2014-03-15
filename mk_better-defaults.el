@@ -153,15 +153,15 @@
 ;; ---------
 (setq redisplay-dont-pause t)
 
-(defun mk/moving-between-windows ()
-(interactive)
-(other-window 1)
-(set-temporary-overlay-map
-  (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "o") 'mk/moving-between-windows)
-    map)))
+;; (defun mk/moving-between-windows ()
+;; (interactive)
+;; (other-window 1)
+;; (set-temporary-overlay-map
+;;   (let ((map (make-sparse-keymap)))
+;;     (define-key map (kbd "o") 'mk/moving-between-windows)
+;;     map)))
 
-(global-set-key (kbd "C-x o") 'mk/moving-between-windows)
+;; (global-set-key (kbd "C-x o") 'mk/moving-between-windows)
 
 
 ;; ========
