@@ -163,6 +163,8 @@
 
 ;; (global-set-key (kbd "C-x o") 'mk/moving-between-windows)
 
+(global-set-key (kbd "C-x C-l") 'nil)
+(global-set-key (kbd "C-x C-S-l") 'downcase-region)
 
 ;; ========
 ;; keychord
