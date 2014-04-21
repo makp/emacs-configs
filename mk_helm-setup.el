@@ -20,6 +20,9 @@
  helm-idle-delay 0.1
  helm-delete-minibuffer-contents-from-point t)
 
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-z") 'helm-select-action)
+
 ;; ==============
 ;; helm functions
 ;; ==============
