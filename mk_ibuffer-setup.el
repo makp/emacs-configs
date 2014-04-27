@@ -25,14 +25,10 @@
 		 (filename . "~/elisp/agenda/ag-it.org")))
 	       ("org files" 
 		(mode . org-mode))
-	       ("info"
-		(mode . info-mode))
 	       ("latex"
 		(or 
-		 (mode . latex-mode)))
-	       ("bibtex"
-		(or 
-		 (mode . bibtex-mode)))	    
+		 (mode . latex-mode)
+		 (mode . bibtex-mode)))
 	       ("shell"
 		(or 
 		 (mode . term-mode)))	   
@@ -40,20 +36,23 @@
 		(or
 		 (mode . perl-mode)
 		 (mode . sh-mode)
-		 (mode . conf-xdefaults-mode)))
-	       ("programming" 
+		 (mode . conf-xdefaults-mode)
+		 (mode . emacs-lisp-mode)))
+	       ("programming"
 		(or
 		 (mode . html-mode)
+		 (mode . web-mode)
 		 (mode . c-mode)
-		 (mode . emacs-lisp-mode)
 		 (mode . haskell-mode)
 		 (mode . lisp-mode)
 		 (mode . python-mode))) 
 	       ("pdfs"
-		(or 
+		(or
 		 (mode . doc-view-mode)))
 	       ("ERC"
 		(mode . erc-mode))
+	       ("info"
+		(mode . info-mode))
 	       ("dired"
 		(or
 		 (mode . dired-mode)))))))
