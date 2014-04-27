@@ -19,6 +19,7 @@
 			"~/Documents/mydocs/websites/main-website"
 			"~/Documents/mydocs/dossier"
 			"~/Documents/mydocs/papers/social"
+			"~/Documents/mydocs/papers/taxa"
 			"~/Documents/mydocs/teaching"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
