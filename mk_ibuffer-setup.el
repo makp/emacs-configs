@@ -18,11 +18,7 @@
       (quote (("default"      
 	       ("agendas"
 		(or
-		 (filename . "~/elisp/agenda/ag-geral.org")
-		 (filename . "~/elisp/agenda/ag-teaching.org")
-		 (filename . "~/elisp/agenda/ag-longterm.org")
-		 (filename . "~/elisp/agenda/ag-academic.org")
-		 (filename . "~/elisp/agenda/ag-it.org")))
+		 (filename . "/elisp/agenda/")))
 	       ("org files" 
 		(mode . org-mode))
 	       ("latex"
