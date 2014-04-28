@@ -118,6 +118,7 @@
 ;;; saying to use emacs-w3m. The default value was gnus-w3m
 
 (define-key notmuch-show-mode-map (kbd "o") 'w3m-external-view-this-url)
+(define-key notmuch-show-mode-map (kbd "T") 'w3m-toggle-inline-images)
 
 
 ;;; Search in notmuch supports wildcards (*) and operators (+, -, AND,
