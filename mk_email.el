@@ -105,7 +105,8 @@
       (notmuch-search-tag "+unread"))
       (next-line)))
 
-(define-key notmuch-search-mode-map (kbd "g") 'notmuch-search-poll-and-refresh-view)
+(define-key notmuch-search-mode-map (kbd "g") 'notmuch-poll-and-refresh-this-buffer)
+;;; g was self-insert-command
 
 (setq message-kill-buffer-on-exit t)
 ;;; close the mail buffer after sending it. 
