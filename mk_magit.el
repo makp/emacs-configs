@@ -12,16 +12,14 @@
 	    (orgstruct-mode)))
 
 (setq magit-repo-dirs '("~/elisp/agenda"
-			"~/config-files/general/emacs-config"
-			"~/config-files/general/term-configs"
-			"~/config-files/general/x-configs"
+			"~/config-files/general"
 			"~/scripts/myscripts"
 			"~/Documents/mydocs/websites/main-website"
 			"~/Documents/mydocs/dossier"
-			"~/Documents/mydocs/papers/social"
-			"~/Documents/mydocs/papers/taxa"
+			"~/Documents/mydocs/papers"
+			"~/Documents/mydocs/papers"
 			"~/Documents/mydocs/teaching"
-			"~/Documents/mydocs/tech-notes/"))
+			"~/Documents/mydocs/tech-notes"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
 ;;; you to complete. If you want to create a new repository, use two

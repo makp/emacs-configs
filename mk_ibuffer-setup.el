@@ -19,17 +19,16 @@
 	       ("agendas"
 		(or
 		 (filename . "/elisp/agenda/")))
-	       ("org files" 
+	       ("other org files" 
 		(mode . org-mode))
-	       ("latex"
+	       ("LaTeX"
 		(or 
 		 (mode . latex-mode)
 		 (mode . bibtex-mode)))
-	       ("shell"
-		(or 
-		 (mode . term-mode)))	   
 	       ("scripting"
 		(or
+		 (mode . conf-mode) 	; not working
+		 (mode . term-mode)
 		 (mode . perl-mode)
 		 (mode . sh-mode)
 		 (mode . conf-xdefaults-mode)

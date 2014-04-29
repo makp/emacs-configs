@@ -61,8 +61,6 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 
 (global-set-key (kbd "M-r") 'mark-sexp)
 
-
-
 ;;; If you want to add multiple cursors not based on continous lines
 ;;; but on keywords, use:
 (define-key region-bindings-mode-map "n" 'mc/mark-next-like-this)
