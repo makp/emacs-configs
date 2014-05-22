@@ -9,6 +9,7 @@
 (add-hook 'dired-mode-hook
 	  '(lambda ()
 	      (define-key dired-mode-map "E" 'dired-ediff-marked-files)
+	      (define-key dired-mode-map "l" 'dired-up-directory)
 	      (load "dired-x")))
 
 
