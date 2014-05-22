@@ -25,9 +25,9 @@
 (set-register ?w '(file . "~/elisp/agenda/wasteclock.org"))
 
 ;;; Notes
-(set-register ?e '(file . "~/Documents/mydocs/notes/emacs-and-lisp/emacs.org"))
-(set-register ?c '(file . "~/Documents/mydocs/notes/emacs-and-lisp/lisp.org"))
-(set-register ?l '(file . "~/Documents/mydocs/notes/linux/linux.org"))
+(set-register ?e '(file . "~/Documents/mydocs/notes/nontech-notes/english-and-spanish/english.org"))
+;; (set-register ?c '(file . "~/Documents/mydocs/notes/"))
+;; (set-register ?l '(file . "~/Documents/mydocs/notes/"))
 
 ;; (set-register ?T '(file . "~/Documents/"))
 
