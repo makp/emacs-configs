@@ -22,6 +22,7 @@
 
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
+(define-key helm-map (kbd "C-S-r") 'helm-toggle-visible-mark)
 
 ;; ==============
 ;; helm functions
