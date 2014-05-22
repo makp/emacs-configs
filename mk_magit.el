@@ -17,9 +17,8 @@
 			"~/Documents/mydocs/websites/main-website"
 			"~/Documents/mydocs/dossier"
 			"~/Documents/mydocs/papers"
-			"~/Documents/mydocs/papers"
 			"~/Documents/mydocs/teaching"
-			"~/Documents/mydocs/tech-notes"))
+			"~/Documents/mydocs/notes"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
 ;;; you to complete. If you want to create a new repository, use two
