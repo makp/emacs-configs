@@ -14,11 +14,7 @@
 (setq magit-repo-dirs '("~/elisp/agenda"
 			"~/config-files/general"
 			"~/scripts/myscripts"
-			"~/Documents/mydocs/websites/main-website"
-			"~/Documents/mydocs/dossier"
-			"~/Documents/mydocs/papers"
-			"~/Documents/mydocs/teaching"
-			"~/Documents/mydocs/notes"))
+			"~/Documents/mydocs"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
 ;;; you to complete. If you want to create a new repository, use two
