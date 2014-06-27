@@ -18,11 +18,13 @@
  ;; be idle for this many seconds, before updating. Safe value is
  ;; always >= `helm-idle-delay'.
  helm-idle-delay 0.1
- helm-delete-minibuffer-contents-from-point t)
+ helm-delete-minibuffer-contents-from-point t
+ helm-move-to-line-cycle-in-source t)
 
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 (define-key helm-map (kbd "C-S-r") 'helm-toggle-visible-mark)
+
 
 ;; ==============
 ;; helm functions
