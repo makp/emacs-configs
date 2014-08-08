@@ -39,6 +39,7 @@
 (require 'mk_session-management)
 (require 'mk_ibuffer-setup)
 (require 'mk_magit)
+(require 'mk_shell)
 (require 'mk_eshell)
 (require 'mk_misc-functions)
 
