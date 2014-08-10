@@ -1,6 +1,6 @@
-;; =============
-;; pop-up shells
-;; =============
+;; =================
+;; pop-up ansi-terms
+;; =================
 (defun mk/ansi-term-popup ()
   "Toggle an ansi-term buffer."
   (interactive)
@@ -13,5 +13,5 @@
 (global-set-key (kbd "C-x C-;") 'mk/ansi-term-popup)
 
 
-(provide 'mk_shell)
+(provide 'mk_ansi-term)
 ;;; mk-shell ends here
