@@ -19,7 +19,7 @@
      (define-key paredit-mode-map (kbd "M-r") nil)))
 
 ;; FIXME: Some of the paredit commands have been overwritten by other
-;; commands I've defined.
+;; commands.
 
 ;; =====================
 ;; highlight parenthesis

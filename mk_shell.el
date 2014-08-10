@@ -20,17 +20,26 @@
 ;;       (pop-to-buffer th-shell-popup-buffer nil t)
 ;;       (comint-send-string nil (concat "cd " dir "\n")))))
 
-(defun visit-ansi-term-buffer ()
-  "Create or visit a terminal buffer."
+(defun mk/ansi-term-popup ()
+  "Toggle an ansi-term buffer."
   (interactive)
-  (if (not (get-buffer "*ansi-term*"))
-      (progn
-        (split-window-sensibly (selected-window))
-        (other-window 1)
-        (ansi-term (getenv "SHELL")))
+  (when (not (get-buffer "*ansi-term*"))
+      (save-window-excursion (ansi-term (getenv "SHELL"))))
+  (if (equal (buffer-name) "*ansi-term*")
+      (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
 
-(global-set-key (kbd "C-x C-;") 'visit-ansi-term-buffer)
+;; (defun visit-ansi-term-buffer ()
+;;   "Create or visit a terminal buffer."
+;;   (interactive)
+;;   (if (not (get-buffer "*ansi-term*"))
+;;       (progn
+;;         (split-window-sensibly (selected-window))
+;;         (other-window 1)
+;;         (ansi-term (getenv "SHELL")))
+;;     (switch-to-buffer-other-window "*ansi-term*")))
+
+(global-set-key (kbd "C-x C-;") 'mk/ansi-term-popup)
 
 
 (provide 'mk_shell)
