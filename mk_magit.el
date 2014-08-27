@@ -2,6 +2,8 @@
 (autoload 'magit-status "magit" nil t)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(setq magit-diff-refine-hunk 'all)
+
 (add-hook 'magit-mode-hook
 	  (lambda ()
 	    (define-key magit-status-mode-map (kbd "o") 'helm-ls-git-ls)))
