@@ -13,15 +13,15 @@
 	      (load "dired-x")))
 
 
-(defun mk/dired-jump (&optional arg)
-  "With prefix arg dired-jump in another window."
-  (interactive "P")
-  (if (consp arg)
-      (progn (switch-to-buffer-other-window (current-buffer))
-	     (dired-jump))
-    (dired-jump)))
+;; (defun mk/dired-jump (&optional arg)
+;;   "With prefix arg dired-jump in another window."
+;;   (interactive "P")
+;;   (if (consp arg)
+;;       (progn (switch-to-buffer-other-window (current-buffer))
+;; 	     (dired-jump))
+;;     (dired-jump)))
 
-(global-set-key (kbd "C-x C-j") 'mk/dired-jump)
+;; (global-set-key (kbd "C-x C-j") 'mk/dired-jump)
 
 ;;;###autoload
 (defun dired-w3m-find-file ()

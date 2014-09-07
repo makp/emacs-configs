@@ -16,7 +16,6 @@
 (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
 
 ;;; C-, as universal argument
-
 (global-set-key (kbd "C-,") 'universal-argument)
 (define-key universal-argument-map (kbd "C-,") ' universal-argument-more)
 ;;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
@@ -345,13 +344,13 @@
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
-(defun mk/open-line-below ()
-  (interactive)
-  (end-of-line)
-  (newline)
-  (indent-for-tab-command))
+;; (defun mk/open-line-below ()
+;;   (interactive)
+;;   (end-of-line)
+;;   (newline)
+;;   (indent-for-tab-command))
 
-(global-set-key (kbd "C-c SPC") 'mk/open-line-below)
+;; (global-set-key (kbd "C-c SPC") 'mk/open-line-below)
 
 ;; (defun deleta-os-outros ()
 ;;   (interactive)
@@ -393,12 +392,6 @@
 
 (global-set-key (kbd "C-x C-o") 'better-delete-lines)
 
-;; (defun teste ()
-;;   (interactive)
-;;   (if (bolp)
-;;       (message "coluna zero")
-;;     (message "coluna nao eh zero")))
-
 ;; ====
 ;; Tags
 ;; ====
@@ -439,12 +432,12 @@
   (interactive)
   (delete-indentation 1))
 
-(global-set-key (kbd "M-^") 'top-join-line)
-(global-set-key (kbd "C-^") 'delete-indentation)
+;; (global-set-key (kbd "M-^") 'top-join-line)
+;; (global-set-key (kbd "C-^") 'delete-indentation)
  
-;; ===================
-;; Improved split-line
-;; ===================
+;; ===========
+;;  split-line
+;; ===========
 ;; (global-set-key  'split-line)
 ;; (global-set-key  'open-line)
 
