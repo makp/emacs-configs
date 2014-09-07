@@ -110,7 +110,7 @@ replacement for delete-other-windows"
 ;; --------------------
 ;; toggle windows split
 ;; --------------------
-(global-set-key (kbd "C-x |") 'toggle-window-split)
+(global-set-key (kbd "\e\e |") 'toggle-window-split)
 
 (defun toggle-window-split ()
   (interactive)
