@@ -23,9 +23,17 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 
 (global-set-key (kbd "C-c e") 'mk/mark-command)
 
+;; -----------------
+;; pop mark commands
+;; -----------------
 (global-set-key (kbd "C-z") 'pop-to-mark-command)
 (global-set-key (kbd "C-S-z") 'pop-global-mark)
+(global-set-key (kbd "C-M-z") 'mc/mark-pop)
 
+;; =============
+;; mark commands
+;; =============
+(global-set-key (kbd "M-r") 'mark-sexp)
 (global-set-key (kbd "C-S-r") 'set-mark-command)
 
 ;; ====================
@@ -45,21 +53,19 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 
 ;;; If you don't have an active region, you can set a rectangular
 ;;; region with:
- (global-set-key (kbd "C-x r t") 'set-rectangular-region-anchor)
+(global-set-key (kbd "C-x r t") 'set-rectangular-region-anchor)
+
+(global-set-key (kbd "C-x r n") 'mc/insert-numbers)
 
 (global-set-key (kbd "M-o") 'mc/mark-next-like-this)
 ;;; TIP: if no region is selected, it will just add a cursor on the
 ;;; next line.
 
-(global-set-key (kbd "C-M-z") 'mc/mark-pop)
-
 (global-set-key (kbd "C-<") 'mc/reverse-regions)
 ;;; TIP: with nothing selected and just one cursor, it will flip the
 ;;; sexp at point and the one below it.
 
-(global-set-key (kbd "C-x r n") 'mc/insert-numbers)
-
-(global-set-key (kbd "M-r") 'mark-sexp)
+;;; When you have cursors out of your view, press "C-'"
 
 ;;; If you want to add multiple cursors not based on continous lines
 ;;; but on keywords, use:
@@ -86,7 +92,8 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 (define-key region-bindings-mode-map "C" 'duplicate-current-line-or-region)
 (define-key region-bindings-mode-map "S" 'mc/sort-regions)
 
-(define-key region-bindings-mode-map ";" (kbd "M-;"))
+;; (define-key region-bindings-mode-map ";" (kbd "M-;"))  ;;; not working
+
 (define-key region-bindings-mode-map "w" 'kill-ring-save)
 
 ;;; 

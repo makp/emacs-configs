@@ -160,8 +160,6 @@
 ;;     (define-key map (kbd "o") 'mk/moving-between-windows)
 ;;     map)))
 
-;; (global-set-key (kbd "C-x o") 'mk/moving-between-windows)
-
 (global-set-key (kbd "C-x C-l") 'nil)
 (global-set-key (kbd "C-x C-S-l") 'downcase-region)
 
@@ -172,9 +170,12 @@
 (key-chord-mode 1)
 
 (key-chord-define-global "uu" 'fill-paragraph)
+(key-chord-define-global "UU" 'mk/unfill-paragraph)
 
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
+
+;; (key-chord-define-global "GG" ')
 
 (key-chord-define-global "cg" 'hippie-expand)
 (key-chord-define-global ",h" 'other-window)

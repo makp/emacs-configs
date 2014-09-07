@@ -13,7 +13,7 @@
 
 ;;; Config files
 (set-register ?E '(file . "~/config-files/general/emacs-config/"))
-(set-register ?b '(file . "~/Documents/mydocs/references/dissert.bib"))
+(set-register ?b '(file . "~/Documents/mydocs/tex-config/references/dissert.bib"))
 ;; (set-register ?d '(file . "~/config-files/general/emacs-config/init.el"))
 
 ;;; Agendas
