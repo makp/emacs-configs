@@ -11,9 +11,12 @@
 ;; ====
 (setq 
  helm-c-external-programs-associations
- '(("pdf" . "zathura")
+ '(("pdf" . "okular")
+   ("djvu" . "okular")
    ("docx" . "libreoffice")
-   ("rtf" . "libreoffice"))
+   ("doc" . "libreoffice")
+   ("rtf" . "libreoffice")
+   ("svg" . "inkscape"))
   helm-input-idle-delay 0.1
  ;; be idle for this many seconds, before updating. Safe value is
  ;; always >= `helm-idle-delay'.
@@ -26,31 +29,28 @@
 (define-key helm-map (kbd "C-S-r") 'helm-toggle-visible-mark)
 
 
+;; ==============================
+;; rebinding a few things to helm
+;; ==============================
+(define-key global-map [remap apropos-command] 'helm-apropos) 
+(define-key global-map [remap bookmark-jump] 'helm-pp-bookmarks)
+(define-key global-map [remap find-tag] 'helm-etags-select)
+(define-key global-map [remap occur] 'helm-occur)
+(define-key global-map [remap execute-extended-command] 'helm-M-x)
+
 ;; ==============
 ;; helm functions
 ;; ==============
-;; -------
-;; my-helm
-;; -------
-(defun my-helm ()
-  (interactive)
-  (helm
-   :prompt "Switch to: "
-   :candidate-number-limit 21                
-   :sources
-   '(helm-c-source-buffers-list			;; buffers
-     helm-c-source-recentf			;; recent files
-     helm-c-source-bookmarks			;; bookmarks
-;;; helm-c-source-files-in-current-dir
-     )))
 
-(global-set-key (kbd "C-x DEL") 'my-helm)	; C-x C-h
-
-;; ------------------------
-;; searching for file names
-;; ------------------------
 ;;; find-files
 (global-set-key (kbd "C-x h") 'helm-find-files)
+
+;;; list buffers
+(global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
+
+;;; helm for git repos
+(global-set-key (kbd "C-x f") 'helm-browse-project) ; it was set-fill-column
+(global-set-key (kbd "C-x C-f") 'helm-recentf)
 
 ;;; find
 (global-set-key (kbd "M-s f") 'helm-find)
@@ -62,7 +62,7 @@
  		  (interactive)
  		  (helm-locate-with-db '("~/elisp/locate.db"))))
 
-(global-set-key (kbd "C-c DEL") 	;C-c C-h
+(global-set-key (kbd "C-c DEL") ;C-c C-h
 		(lambda ()
 		  "locate for mydocs."
 		  (interactive)
@@ -103,16 +103,7 @@
 (global-set-key (kbd "C-c z") 'helm-all-mark-rings)
 
 ;; kill-ring
-(global-set-key (kbd "C-x c y") 'helm-show-kill-ring)
-
-;; ==============================
-;; rebinding a few things to helm
-;; ==============================
-(define-key global-map [remap apropos-command] 'helm-apropos) 
-(define-key global-map [remap bookmark-jump] 'helm-pp-bookmarks)
-(define-key global-map [remap find-tag] 'helm-etags-select)
-(define-key global-map [remap occur] 'helm-occur)
-(define-key global-map [remap execute-extended-command] 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; ======
 ;; eshell
