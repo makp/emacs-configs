@@ -143,13 +143,9 @@ replacement for delete-other-windows"
 ;; ----------------------
 ;; (setq windmove-wrap-around t)
 
-;; (global-set-key (kbd "C-S-b") 'windmove-left)
-;; (global-set-key (kbd "C-S-f") 'windmove-right)
-;; (global-set-key (kbd "C-S-n") 'windmove-down)
-;; (global-set-key (kbd "C-S-t") 'windmove-up)
-
-;; FIXME: I should choose different keybindings because that conflicts
-;; with org-mode keybindings
-
+;; (global-set-key (kbd "") 'windmove-right)
+;; (global-set-key (kbd "") 'windmove-left)
+;; (global-set-key (kbd "") 'windmove-down)
+;; (global-set-key (kbd "") 'windmove-up)
 
 (provide 'mk_windows-setup)

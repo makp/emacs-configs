@@ -176,9 +176,8 @@
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
 
-(key-chord-define-global ",h" 'hippie-expand)
-
-(key-chord-define-global "cg" 'mk/emacs-config-files)
+(key-chord-define-global "cg" 'hippie-expand)
+(key-chord-define-global ",h" 'other-window)
 
 ;; ========
 ;; ace-jump
@@ -192,10 +191,9 @@
 (define-key global-map (kbd "M-g") 'ace-jump-line-mode)
 (global-set-key (kbd "M-s g") 'goto-line)
 
-(global-set-key (kbd "M-c") 'ace-jump-char-mode)
-(global-set-key (kbd "M-C") 'capitalize-word)
-
 (key-chord-define-global "hh" 'ace-jump-mode)
+(key-chord-define-global "HH" 'ace-jump-char-mode)
+
 
 ;; ========================
 ;; duplicate line or region
@@ -427,10 +425,10 @@
 ;; =========
 ;; join-line
 ;; =========
-(defun top-join-line ()
-  "Join the current line with the line beneath it."
-  (interactive)
-  (delete-indentation 1))
+;; (defun top-join-line ()
+;;   "Join the current line with the line beneath it."
+;;   (interactive)
+;;   (delete-indentation 1))
 
 ;; (global-set-key (kbd "M-^") 'top-join-line)
 ;; (global-set-key (kbd "C-^") 'delete-indentation)

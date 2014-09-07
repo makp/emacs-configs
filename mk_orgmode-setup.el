@@ -473,7 +473,7 @@
           (lambda ()
             (local-set-key "\C-c\M-o" 'org-mime-htmlize)))
 
-(add-hook 'org-mode-hook
+ (add-hook 'org-mode-hook
           (lambda ()
             (local-set-key "\C-c\M-o" 'org-mime-org-buffer-htmlize)))
 
@@ -613,6 +613,5 @@ wastetime.org."
     (org-save-all-org-buffers)))
 
 (global-set-key (kbd "\e\e v") 'goto-recurrent)
-
 
 (provide 'mk_orgmode-setup)
