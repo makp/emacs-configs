@@ -10,7 +10,9 @@
       (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
 
-(global-set-key (kbd "C-x C-;") 'mk/ansi-term-popup)
+(global-set-key (kbd "C-x C-n") 'mk/ansi-term-popup)
+(global-set-key (kbd "C-x C-;") 'set-goal-column)
+
 
 
 (provide 'mk_ansi-term)
