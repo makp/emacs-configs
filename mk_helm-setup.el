@@ -17,12 +17,19 @@
    ("doc" . "libreoffice")
    ("rtf" . "libreoffice")
    ("svg" . "inkscape"))
-  helm-input-idle-delay 0.1
+  helm-input-idle-delay 0.01
  ;; be idle for this many seconds, before updating. Safe value is
  ;; always >= `helm-idle-delay'.
- helm-idle-delay 0.1
+ helm-idle-delay 0.01
  helm-delete-minibuffer-contents-from-point t
- helm-move-to-line-cycle-in-source t)
+ helm-move-to-line-cycle-in-source nil
+ helm-locate-command "locate %s -e -A --regex %s"
+ helm-buffers-fuzzy-matching t
+ helm-candidate-number-limit 200
+ helm-always-two-windows t
+ helm-reuse-last-window-split-state t
+ helm-buffers-favorite-modes (append helm-buffers-favorite-modes
+				     '(latex-mode org-mode)))
 
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
