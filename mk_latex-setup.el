@@ -63,12 +63,10 @@
  TeX-auto-save t			; enable parse on save 
  TeX-parse-self t)			; enable parse on load
 
-(setq-default TeX-master nil) 		; query for master file
-
-
+;; (setq-default TeX-master t)
+					
 (setq TeX-save-query nil) 
 ;; Description: autosave before compiling
-
 
 ;; ------
 ;; quotes
@@ -227,8 +225,8 @@ shown, then it'll be hidden."
 
 (setq reftex-default-bibliography
       (quote
-       ("~/Documents/mydocs/references/dissert.bib"
-	"~/Documents/mydocs/references/logic.bib")))
+       ("~/Documents/mydocs/tex-config/references/dissert.bib"
+	"~/Documents/mydocs/tex-config/references/logic.bib")))
 
 ;; So that RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
