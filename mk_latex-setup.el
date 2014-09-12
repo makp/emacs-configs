@@ -225,8 +225,8 @@ shown, then it'll be hidden."
 
 (setq reftex-default-bibliography
       (quote
-       ("~/Documents/mydocs/tex-config/references/dissert.bib"
-	"~/Documents/mydocs/tex-config/references/logic.bib")))
+       ("~/Documents/mydocs/tex-configs/references/dissert.bib"
+	"~/Documents/mydocs/tex-configs/references/logic.bib")))
 
 ;; So that RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
