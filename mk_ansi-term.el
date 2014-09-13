@@ -10,9 +10,11 @@
       (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
 
-(global-set-key (kbd "C-x C-n") 'mk/ansi-term-popup)
-(global-set-key (kbd "C-x C-;") 'set-goal-column)
+(define-key my-keys-minor-mode-map (kbd "C-x C-t") 'mk/ansi-term-popup)
 
+(define-key my-keys-minor-mode-map (kbd "C-x p") '(lambda ()
+						    (interactive)
+						    (ansi-term "/bin/zsh")))
 
 
 (provide 'mk_ansi-term)

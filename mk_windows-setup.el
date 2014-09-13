@@ -67,7 +67,7 @@
 ;; --------------
 ;; Sticky windows
 ;; --------------
-(global-set-key (kbd "C-x 9") 
+(global-set-key (kbd "C-x p") 
 		(lambda ()
 		  (interactive)
 		  (message "Sticky window")
@@ -137,6 +137,12 @@ replacement for delete-other-windows"
 	  (select-window first-win)
 	  (if this-win-2nd (other-window 1))))))
 
+
+
+(global-set-key (kbd "C-x C-n") 'bury-buffer)
+(global-set-key (kbd "C-x C-;") 'set-goal-column)
+
+(global-set-key (kbd "C-x n") 'delete-window)
 
 ;; ----------------------
 ;; moving between windows

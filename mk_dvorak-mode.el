@@ -35,12 +35,12 @@ with emacs --daemon "
 ;;; MY KEYS-MINOR-MODE-MAP
 (defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
 
-(define-key my-keys-minor-mode-map (kbd "C-x p") ' sticky-window-delete-other-windows)
+(define-key my-keys-minor-mode-map (kbd "C-x <SPC>") ' sticky-window-delete-other-windows)
 
 (define-key my-keys-minor-mode-map (kbd "C-x ,") 'split-window-below)
 (define-key my-keys-minor-mode-map (kbd "C-x C-,") 'split-window-right)
 
-(define-key my-keys-minor-mode-map (kbd "C-x C-t") 'delete-window)
+
 (define-key my-keys-minor-mode-map (kbd "C-x y") 'delete-next-window)
 (define-key my-keys-minor-mode-map (kbd "C-x C-y") 'delete-previous-window)
 

@@ -129,7 +129,6 @@
 ;; =======
 ;; Buffers
 ;; =======
-(global-set-key (kbd "C-x C-.") 'bury-buffer) ; it was uppercase region
 
 ;; -----------
 ;; auto-revert
@@ -152,14 +151,6 @@
 ;; ---------
 (setq redisplay-dont-pause t)
 
-;; (defun mk/moving-between-windows ()
-;; (interactive)
-;; (other-window 1)
-;; (set-temporary-overlay-map
-;;   (let ((map (make-sparse-keymap)))
-;;     (define-key map (kbd "o") 'mk/moving-between-windows)
-;;     map)))
-
 (global-set-key (kbd "C-x C-l") 'nil)
 (global-set-key (kbd "C-x C-S-l") 'downcase-region)
 
@@ -175,7 +166,14 @@
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
 
-;; (key-chord-define-global "GG" ')
+(key-chord-define-global "DD" '(lambda ()
+				 (interactive)
+				 (kill-buffer nil)))
+
+(key-chord-define-global "GG" '(lambda ()
+				 (interactive)
+				 (let ((current-prefix-arg '(4)))
+				   (call-interactively 'magit-status))))
 
 (key-chord-define-global "cg" 'hippie-expand)
 (key-chord-define-global ",h" 'other-window)
@@ -210,6 +208,17 @@
 (define-key ctl-x-map "." nil) ;;; I never use fill-prefix
 (define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
 
+(global-set-key (kbd "C-x C-.") 'repeat)
+
+;; (defun mk/repeat ()
+;;   (interactive)
+;;   (repeat 1)
+;;   (set-temporary-overlay-map
+;;    (let ((map (make-sparse-keymap)))
+;;      (define-key map (kbd ".") 'mk/repeat)
+;;      map)))
+
+
 ;;; Remember that Emacs natively support these commands:
 ;;; |-----------+-------------------------|
 ;;; | C-x C-k n | kmacro-name-last-macro  |
@@ -237,8 +246,8 @@
   \(fn arg char)"
   'interactive)
 
-(global-set-key (kbd "M-z") 'zap-up-to-char)
-(global-set-key (kbd "M-Z") 'zap-to-char)
+(global-set-key (kbd "C-x d") 'zap-up-to-char)
+(global-set-key (kbd "C-x C-d") 'zap-to-char)
 
 ;; ------------------
 ;; custom keybindings
