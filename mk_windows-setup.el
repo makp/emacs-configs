@@ -138,7 +138,6 @@ replacement for delete-other-windows"
 	  (if this-win-2nd (other-window 1))))))
 
 
-
 (global-set-key (kbd "C-x C-n") 'bury-buffer)
 (global-set-key (kbd "C-x C-;") 'set-goal-column)
 

@@ -202,13 +202,11 @@
 ;; ========
 ;; Macros!!
 ;; ========
-(define-key ctl-x-map "e" nil)
-(define-key ctl-x-map "e" 'kmacro-end-or-call-macro)
-
 (define-key ctl-x-map "." nil) ;;; I never use fill-prefix
 (define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
-
-(global-set-key (kbd "C-x C-.") 'repeat)
+(global-set-key (kbd "C-x C-.") 'kmacro-end-or-call-macro)
+ 
+(global-set-key (kbd "C-x C-r") 'repeat)   ; it was find-file-read-only
 
 ;; (defun mk/repeat ()
 ;;   (interactive)
@@ -278,8 +276,23 @@
 ;; some keybidings
 ;; ---------------
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
-(global-set-key (kbd "C-\\") 'eval-region)
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
+
+
+;; =====
+;; evals
+;; =====
+(global-set-key (kbd "C-\\") 'eval-region)
+
+(define-key ctl-x-map "e" nil)
+(define-key ctl-x-map "e" 'replace-last-sexp)
+
+(defun replace-last-sexp ()
+    (interactive)
+    (let ((value (eval (preceding-sexp))))
+      (kill-sexp -1)
+      (insert (format "%S" value))))
+
 
 ;; ====
 ;; Fill
