@@ -62,8 +62,8 @@
 (global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
 
 ;;; helm for git repos
-(global-set-key (kbd "C-x f") 'helm-browse-project) ; it was set-fill-column
-(global-set-key (kbd "C-x C-f") 'helm-recentf)
+(global-set-key (kbd "C-x d") 'helm-browse-project)
+(global-set-key (kbd "C-x C-d") 'helm-recentf)
 
 ;;; find
 (global-set-key (kbd "M-s f") 'helm-find)

@@ -205,7 +205,7 @@
 (define-key ctl-x-map "." nil) ;;; I never use fill-prefix
 (define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
 (global-set-key (kbd "C-x C-.") 'kmacro-end-or-call-macro)
- 
+
 (global-set-key (kbd "C-x C-r") 'repeat)   ; it was find-file-read-only
 
 ;; (defun mk/repeat ()
@@ -244,8 +244,8 @@
   \(fn arg char)"
   'interactive)
 
-(global-set-key (kbd "C-x d") 'zap-up-to-char)
-(global-set-key (kbd "C-x C-d") 'zap-to-char)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+(global-set-key (kbd "M-Z") 'zap-to-char)
 
 ;; ------------------
 ;; custom keybindings

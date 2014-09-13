@@ -67,7 +67,7 @@
 ;; --------------
 ;; Sticky windows
 ;; --------------
-(global-set-key (kbd "C-x p") 
+(global-set-key (kbd "C-x p")
 		(lambda ()
 		  (interactive)
 		  (message "Sticky window")
