@@ -1,6 +1,6 @@
 ;;; version control
 (autoload 'magit-status "magit" nil t)
-(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x o") 'magit-status)
 
 (setq magit-diff-refine-hunk 'all)
 

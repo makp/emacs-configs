@@ -90,6 +90,8 @@ replacement for delete-other-windows"
 ;; 9'. A simpler way of doing that is by calling the regular
 ;; delete-other-windown whet the prefix argument is used.
 
+(define-key my-keys-minor-mode-map (kbd "C-x <SPC>") ' sticky-window-delete-other-windows)
+
 ;; -----------------------
 ;; Transposing two buffers
 ;; -----------------------
