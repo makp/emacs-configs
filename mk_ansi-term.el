@@ -10,12 +10,15 @@
       (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
 
-(define-key my-keys-minor-mode-map (kbd "C-x C-t") 'mk/ansi-term-popup)
+(defun mk/chama-ansi-term (&optional arg)
+  "Function to call ansi-term. With a prefix argument, call a new
+  instance of ansi-term"
+  (interactive "P")
+  (if (not (consp arg))
+      (mk/ansi-term-popup)
+    (ansi-term "/bin/zsh")))
 
-(define-key my-keys-minor-mode-map (kbd "C-x p") '(lambda ()
-						    (interactive)
-						    (ansi-term "/bin/zsh")))
-
+(define-key my-keys-minor-mode-map (kbd "C-x C-t") 'mk/chama-ansi-term)
 
 (provide 'mk_ansi-term)
 ;;; mk-shell ends here
