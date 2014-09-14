@@ -166,11 +166,17 @@
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
 
+(key-chord-define-global "<<" 'beginning-of-buffer)
+(key-chord-define-global ">>" 'end-of-buffer)
 
-(key-chord-define-global "GG" '(lambda ()
-				 (interactive)
-				 (let ((current-prefix-arg '(4)))
-				   (call-interactively 'magit-status))))
+;; (key-chord-define-global "DD" '(lambda ()
+;; 				 (interactive)
+;; 				 (kill-buffer nil)))
+
+;; (key-chord-define-global "GG" '(lambda ()
+;; 				 (interactive)
+;; 				 (let ((current-prefix-arg '(4)))
+;; 				   (call-interactively 'magit-status))))
 
 (key-chord-define-global "cg" 'hippie-expand)
 (key-chord-define-global ",h" 'other-window)
