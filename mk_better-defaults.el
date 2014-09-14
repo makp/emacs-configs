@@ -166,9 +166,6 @@
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
 
-(key-chord-define-global "DD" '(lambda ()
-				 (interactive)
-				 (kill-buffer nil)))
 
 (key-chord-define-global "GG" '(lambda ()
 				 (interactive)
@@ -216,6 +213,11 @@
 ;;      (define-key map (kbd ".") 'mk/repeat)
 ;;      map)))
 
+(global-set-key (kbd "M-C") 'subword-capitalize)
+
+(global-set-key (kbd "M-c") '(lambda ()
+			       (interactive)
+			       (kill-buffer nil)))
 
 ;;; Remember that Emacs natively support these commands:
 ;;; |-----------+-------------------------|
