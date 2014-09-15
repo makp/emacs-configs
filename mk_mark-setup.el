@@ -28,7 +28,7 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 ;; -----------------
 (global-set-key (kbd "C-z") 'pop-to-mark-command)
 (global-set-key (kbd "C-S-z") 'pop-global-mark)
-(global-set-key (kbd "C-M-z") 'mc/mark-pop)
+(global-set-key (kbd "C-M-z") 'mc/mark-pop)  ; remember I can use escape here
 
 ;; =============
 ;; mark commands

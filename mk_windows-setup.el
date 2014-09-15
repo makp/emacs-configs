@@ -1,5 +1,11 @@
 ;;; windows and buffers
 
+(global-set-key (kbd "C-x c") 'bury-buffer)
+(global-set-key (kbd "C-x C-c") 'delete-window)
+
+(global-set-key (kbd "C-x C-l") 'nil)
+(global-set-key (kbd "C-x C-S-l") 'downcase-region)
+
 ;; ===========
 ;; winner-mode
 ;; ===========
@@ -62,12 +68,18 @@
 (winner-mode 1)
 
 (global-set-key (kbd "C-x p") 'winner-undo)
+
 (global-set-key (kbd "\e\ep") 'winner-undo)
 (global-set-key (kbd "\e\en") 'winner-redo)
 
 ;; --------------
 ;; Sticky windows
 ;; --------------
+(global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
+
+(global-set-key (kbd "C-x n")   'sticky-window-delete-other-windows)
+(global-set-key (kbd "C-x C-n") 'delete-other-windows)
+(global-set-key (kbd "C-x C-;") 'set-goal-column)
 
 ;;;###autoload
 (defun sticky-window-keep-window-visible ()
@@ -100,14 +112,6 @@ with `sticky-window-keep-window-visible'."
 			(if (not (window-dedicated-p window))
 				(delete-window window)))
 		  (cdr (window-list))))
-
-(global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
-
-(global-set-key (kbd "C-x C-l") 'nil)
-(global-set-key (kbd "C-x C-S-l") 'downcase-region)
-(global-set-key (kbd "C-x C-l") 'sticky-window-delete-other-windows)
-
-(global-set-key (kbd "C-x <SPC>") 'delete-other-windows)
 
 ;; -----------------------
 ;; Transposing two buffers
@@ -155,12 +159,6 @@ with `sticky-window-keep-window-visible'."
 	  (set-window-buffer (next-window) next-win-buffer)
 	  (select-window first-win)
 	  (if this-win-2nd (other-window 1))))))
-
-
-(global-set-key (kbd "C-x C-n") 'bury-buffer)
-(global-set-key (kbd "C-x C-;") 'set-goal-column)
-
-(global-set-key (kbd "C-x n") 'delete-window)
 
 ;; ----------------------
 ;; moving between windows

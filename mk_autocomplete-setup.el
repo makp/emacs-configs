@@ -19,11 +19,12 @@
 ;; ===========
 ;; Keybindings
 ;; ===========
-(define-key ac-mode-map (kbd "M-/") 'ac-quick-help) 
-;; FIXME: it doesn't work
+(define-key ac-mode-map (kbd "M-/") 'ac-quick-help)
 
 (define-key ac-mode-map (kbd "<tab>") 'auto-complete)
 (define-key ac-completing-map "\t" nil) 
+
+(define-key ac-mode-map (kbd "M-s") 'ac-isearch)
 
 ;; select candidates with C-n/C-p -- instead of M-n/M-p.
 ;; (setq ac-use-menu-map t)
