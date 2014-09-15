@@ -1,4 +1,4 @@
-;;; windows
+;;; windows and buffers
 
 ;; ===========
 ;; winner-mode
@@ -67,30 +67,42 @@
 ;; --------------
 ;; Sticky windows
 ;; --------------
-(global-set-key (kbd "C-x p")
-		(lambda ()
-		  (interactive)
-		  (message "Sticky window")
-		  (set-window-dedicated-p (selected-window) (not current-prefix-arg))))
-;; Note: a prefix argument reverts the operation (not really). Does
-;; the situation change if I define a separate function (like in the
-;; emacswiki page)?
 
+;;;###autoload
+(defun sticky-window-keep-window-visible ()
+  "Insure the buffer associated with the current window stays visible.
+This is handy for ERC buffers where you would like to see the
+conversation while you work in other windows within the frame. 
+This is intended to be used with `sticky-window-delete-window'.
+A prefix arg reverses this operation."
+  (interactive)
+  (set-window-dedicated-p (selected-window) (not current-prefix-arg)))
 
+;;;###autoload
+(defun sticky-window-delete-window ()
+  "This is intended to be a replacement for `delete-window', but
+that avoids deleting windows that have been marked as dedicated
+with `sticky-window-keep-window-visible'."
+  (interactive)
+  (let ((window (selected-window)))
+	(if (and (not current-prefix-arg) (window-dedicated-p window))
+		(error "This is a dedicated window. Use C-u prefix on this keybinding to really delete it.")
+	  (set-window-dedicated-p (selected-window) nil)
+	  (delete-window window))))
+
+;;;###autoload
 (defun sticky-window-delete-other-windows ()
   "Delete all other windows that are not marked to be visible
-with `sticky-window-keep-window-visible'. This is intended as a
-replacement for delete-other-windows"
+with `sticky-window-keep-window-visible'."
   (interactive)
   (mapcar (lambda (window)
-	    (if (not (window-dedicated-p window))
-		(delete-window window)))
-	  (cdr (window-list))))
-;; TODO: rewrite it so that I use a prefix argument to overwrite `C-x
-;; 9'. A simpler way of doing that is by calling the regular
-;; delete-other-windown whet the prefix argument is used.
+			(if (not (window-dedicated-p window))
+				(delete-window window)))
+		  (cdr (window-list))))
 
-(define-key my-keys-minor-mode-map (kbd "C-x <SPC>") ' sticky-window-delete-other-windows)
+(global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
+(global-set-key (kbd "C-x C-l") 'sticky-window-delete-other-windows)
+(global-set-key (kbd "C-x <SPC>") 'delete-other-windows)
 
 ;; -----------------------
 ;; Transposing two buffers
