@@ -548,35 +548,6 @@
 
 (global-set-key (kbd "\e\e w") 'goto-wasteclock)
 
-;; --------------
-;; clocktable.org
-;; --------------
-(find-file-noselect "~/Dropbox/shared-files/clocktable.org")
-
-;;;###autoload
-(defun chama-clock-table (&optional arg)
-  "Toggle `clocktable.org'. With a prefix argument, open
-wastetime.org."
-  (interactive "P")
-    (if (consp arg)
-      (switch-to-buffer "clocktable.org")
-    (save-window-excursion
-      (delete-other-windows)
-      (switch-to-buffer "clocktable.org")
-      (org-dblock-update 4)
-      (beginning-of-buffer)
-      (outline-next-visible-heading 2)
-      (org-tree-to-indirect-buffer)
-      (split-window-right)
-      (outline-next-visible-heading -1)
-      (org-tree-to-indirect-buffer '4)
-      (delete-window)
-      (read-key "Press any key to exit.")
-      (kill-buffer "clocktable.org-1")
-      (kill-buffer "clocktable.org-2"))))
-
-(global-set-key (kbd "\e\e m") 'chama-clock-table)
-
 ;; ---------------
 ;; recurrent clock
 ;; ---------------
@@ -612,5 +583,35 @@ wastetime.org."
     (org-save-all-org-buffers)))
 
 (global-set-key (kbd "\e\e v") 'goto-recurrent)
+
+;; ;; --------------
+;; ;; clocktable.org
+;; ;; --------------
+(find-file-noselect "~/Dropbox/shared-files/clocktable.org")
+
+;;;###autoload
+(defun chama-clock-table (&optional arg)
+  "Toggle `clocktable.org'. With a prefix argument, open
+wastetime.org."
+  (interactive "P")
+    (if (consp arg)
+      (switch-to-buffer "clocktable.org")
+    (save-window-excursion
+      (delete-other-windows)
+      (switch-to-buffer "clocktable.org")
+      (org-dblock-update 4)
+      (beginning-of-buffer)
+      (outline-next-visible-heading 2)
+      (org-tree-to-indirect-buffer)
+      (split-window-right)
+      (outline-next-visible-heading -1)
+      (org-tree-to-indirect-buffer '4)
+      (delete-window)
+      (read-key "Press any key to exit.")
+      (save-buffer)
+      (kill-buffer "clocktable.org-DAILY-1")
+      (kill-buffer "clocktable.org-DAILY (only *real* work)-1"))))
+
+(global-set-key (kbd "\e\e m") 'chama-clock-table)
 
 (provide 'mk_orgmode-setup)

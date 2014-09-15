@@ -283,7 +283,6 @@
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
 
-
 ;; =====
 ;; evals
 ;; =====
