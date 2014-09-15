@@ -229,7 +229,7 @@
 ;; ===========
 ;; column view
 ;; ===========
-(setq org-columns-default-format "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10Effort(Effort){:} %10CLOCKSUM %TAGS")
+(setq org-columns-default-format "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10Effort(Effort){:} %10CLOCKSUM_T %10CLOCKSUM %TAGS")
 
 ;; ========
 ;; clocking

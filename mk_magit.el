@@ -1,17 +1,19 @@
 ;;; version control
 (autoload 'magit-status "magit" nil t)
+
+(global-set-key (kbd "C-x p") (lambda ()
+				(interactive)
+				(let ((current-prefix-arg '(4)))
+				  (call-interactively
+				   'magit-status))))
+
 (global-set-key (kbd "C-x o") 'magit-status)
 
 (setq magit-diff-refine-hunk 'all)
 
-(add-hook 'magit-mode-hook
-	  (lambda ()
-	    (define-key magit-status-mode-map (kbd "o") 'helm-ls-git-ls)))
-;;; "o" was git submodule
-
-(add-hook 'magit-log-edit-mode-hook
-	  (lambda ()
-	    (orgstruct-mode)))
+;; (add-hook 'magit-log-edit-mode-hook
+;; 	  (lambda ()
+;; 	    (orgstruct-mode)))
 
 (setq magit-repo-dirs '("~/elisp/agenda"
 			"~/config-files/general"
