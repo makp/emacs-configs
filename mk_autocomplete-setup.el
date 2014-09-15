@@ -24,7 +24,7 @@
 (define-key ac-mode-map (kbd "<tab>") 'auto-complete)
 (define-key ac-completing-map "\t" nil) 
 
-(define-key ac-mode-map (kbd "M-s") 'ac-isearch)
+(define-key ac-completing-map (kbd "M-s") 'ac-isearch)
 
 ;; select candidates with C-n/C-p -- instead of M-n/M-p.
 ;; (setq ac-use-menu-map t)
