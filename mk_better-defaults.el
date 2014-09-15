@@ -151,9 +151,6 @@
 ;; ---------
 (setq redisplay-dont-pause t)
 
-(global-set-key (kbd "C-x C-l") 'nil)
-(global-set-key (kbd "C-x C-S-l") 'downcase-region)
-
 ;; ========
 ;; keychord
 ;; ========

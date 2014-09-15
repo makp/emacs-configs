@@ -101,7 +101,11 @@ with `sticky-window-keep-window-visible'."
 		  (cdr (window-list))))
 
 (global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
+
+(global-set-key (kbd "C-x C-l") 'nil)
+(global-set-key (kbd "C-x C-S-l") 'downcase-region)
 (global-set-key (kbd "C-x C-l") 'sticky-window-delete-other-windows)
+
 (global-set-key (kbd "C-x <SPC>") 'delete-other-windows)
 
 ;; -----------------------

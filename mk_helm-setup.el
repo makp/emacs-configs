@@ -62,8 +62,7 @@
 (global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
 
 ;;; helm for git repos
-(global-set-key (kbd "C-x d") 'helm-browse-project)
-(global-set-key (kbd "C-x C-d") 'helm-recentf)
+(global-set-key (kbd "C-x d") 'helm-ls-git-ls) 	;helm-browse-project
 
 ;;; find
 (global-set-key (kbd "M-s f") 'helm-find)
@@ -81,11 +80,15 @@
 		  (interactive)
 		  (helm-locate-with-db '("~/elisp/locate-mydocs.db"))))
 
-(global-set-key (kbd "C-c C-H")
+(global-set-key (kbd "C-x C-f")
 		(lambda ()
 		  "locate for $HOME."
 		  (interactive)
 		  (helm-locate-with-db '("~/elisp/locate-home.db"))))
+
+;;; recentf
+(global-set-key (kbd "C-x f") 'helm-recentf)
+
 
 ;; ----------------------
 ;; searching within files
@@ -103,7 +106,6 @@
 
 ;; imenu
 (global-set-key (kbd "M-s t") 'helm-imenu)
-
 
 ;; registers
 (global-set-key (kbd "C-x r h") 'helm-register)
@@ -124,8 +126,15 @@
 ;;; helm-maps
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
+
 (define-key helm-map (kbd "C-S-r") 'helm-toggle-visible-mark)
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
+(define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
+(define-key helm-map (kbd "C-S-g") (lambda ()
+				     (interactive)
+				     (let ((current-prefix-arg '(4)))
+				       (call-interactively
+					'helm-ff-run-grep))))
 
 ;;; helm-buffer-map
 ;; (define-key helm-buffer-map (kbd "") ')
