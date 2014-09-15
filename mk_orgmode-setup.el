@@ -12,7 +12,7 @@
 (setq org-special-ctrl-a/e t)	       ; C-a/C-e behavior in headlines
 (setq org-goto-auto-isearch t)	       ;  org-goto
 (setq org-return-follows-link t)       ; follow links with RET
-(setq org-pretty-entities nil)		; Use UFT8 characters
+(setq org-pretty-entities nil)	       ; Use UFT8 characters
 (setq org-special-ctrl-k t)
 ;; Description:
 ;; - When the cursor is at the beginning of a headline, kill the entire
@@ -31,7 +31,6 @@
 ;; imenu
 ;; =====
 (setq org-imenu-depth 6)
-
 
 ;; =========
 ;; refilling
