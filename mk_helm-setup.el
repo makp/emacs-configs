@@ -129,18 +129,17 @@
 
 (define-key helm-map (kbd "C-S-r") 'helm-toggle-visible-mark)
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
-(define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
-(define-key helm-map (kbd "C-S-g") (lambda ()
-				     (interactive)
-				     (let ((current-prefix-arg '(4)))
-				       (call-interactively
-					'helm-ff-run-grep))))
 
 ;;; helm-buffer-map
 ;; (define-key helm-buffer-map (kbd "") ')
 
 ;;; helm-find-files-map
-; (define-key helm-find-files-map (kbd "") ')
+(define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
+(define-key helm-find-files-map (kbd "C-S-g") (lambda ()
+				     (interactive)
+				     (let ((current-prefix-arg '(4)))
+				       (call-interactively
+					'helm-ff-run-grep))))
 
 ;; ======
 ;; eshell
