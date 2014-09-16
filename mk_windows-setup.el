@@ -3,9 +3,6 @@
 (global-set-key (kbd "C-x c") 'bury-buffer)
 (global-set-key (kbd "C-x C-c") 'delete-window)
 
-(global-set-key (kbd "C-x C-l") 'nil)
-(global-set-key (kbd "C-x C-S-l") 'downcase-region)
-
 ;; ===========
 ;; winner-mode
 ;; ===========
@@ -75,9 +72,11 @@
 ;; --------------
 (global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
 
-(global-set-key (kbd "C-x n")   'sticky-window-delete-other-windows)
-(global-set-key (kbd "C-x C-n") 'delete-other-windows)
-(global-set-key (kbd "C-x C-;") 'set-goal-column)
+(global-set-key (kbd "C-x l") 'sticky-window-delete-other-windows)
+(global-set-key (kbd "C-x C-l") 'nil)
+(global-set-key (kbd "C-x C-l") 'delete-other-windows)
+(global-set-key (kbd "C-x C-S-l") 'downcase-region)
+
 
 ;;;###autoload
 (defun sticky-window-keep-window-visible ()

@@ -129,6 +129,9 @@
 ;; =======
 ;; Buffers
 ;; =======
+(global-set-key (kbd "C-x n")   'other-window)
+(global-set-key (kbd "C-x C-n") 'bury-buffer)
+(global-set-key (kbd "C-x C-;") 'set-goal-column)
 
 ;; -----------
 ;; auto-revert
@@ -176,7 +179,7 @@
 ;; 				   (call-interactively 'magit-status))))
 
 (key-chord-define-global "cg" 'hippie-expand)
-(key-chord-define-global ",h" 'other-window)
+
 
 ;; ========
 ;; ace-jump
