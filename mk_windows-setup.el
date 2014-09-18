@@ -1,6 +1,6 @@
 ;;; windows and buffers
 
-(global-set-key (kbd "C-x c") 'bury-buffer)
+;; (global-set-key (kbd "C-x c") 'bury-buffer)
 (global-set-key (kbd "C-x C-c") 'delete-window)
 
 ;; ===========
