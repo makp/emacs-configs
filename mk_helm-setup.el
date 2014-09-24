@@ -21,7 +21,8 @@
 	("docx" . "libreoffice")
 	("doc" . "libreoffice")
 	("rtf" . "libreoffice")
-	("svg" . "inkscape"))
+	("svg" . "inkscape")
+	("mp4" . "mplayer"))
       helm-input-idle-delay 0.01
       ;; be idle for this many seconds, before updating. Safe value is
       ;; always >= `helm-idle-delay'.
