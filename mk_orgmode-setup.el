@@ -195,13 +195,13 @@
 ;; ------------
 ;; Agenda files
 ;; ------------
-(setq org-agenda-files (list "~/elisp/agenda/ag-geral.org"
-			     "~/elisp/agenda/ag-academic.org"
-			     "~/elisp/agenda/ag-longterm.org"
-			     "~/elisp/agenda/ag-it.org"
-			     "~/elisp/agenda/ag-teaching.org"
-			     "~/elisp/agenda/wasteclock.org"
-			     "~/elisp/agenda/recurrent.org"))
+(setq org-agenda-files (list "~/elisp/agendas/ag-geral.org"
+			     "~/elisp/agendas/ag-academic.org"
+			     "~/elisp/agendas/ag-longterm.org"
+			     "~/elisp/agendas/ag-it.org"
+			     "~/elisp/agendas/ag-teaching.org"
+			     "~/elisp/agendas/wasteclock.org"
+			     "~/elisp/agendas/recurrent.org"))
 
 
 ;;; agenda dispatcher
@@ -261,15 +261,15 @@
 ;; Capture
 ;; -------
 (global-set-key "\C-cc" 'org-capture)
-(setq org-directory "~/elisp/agenda/")
+(setq org-directory "~/elisp/agendas/")
 (setq org-default-notes-file (concat org-directory "/ag-it.org"))
 
 (setq org-capture-templates
-      '(("f" "FIXME" entry (file+headline "~/elisp/agenda/ag-it.org" "GENERAL FIXES")
+      '(("f" "FIXME" entry (file+headline "~/elisp/agendas/ag-it.org" "GENERAL FIXES")
 	 "** FIXME %?\n  %i\n \n")
-	("l" "LEARN" entry (file+headline "~/elisp/agenda/ag-it.org" "GENERAL FIXES")
+	("l" "LEARN" entry (file+headline "~/elisp/agendas/ag-it.org" "GENERAL FIXES")
 	 "** LEARN %?\n %i\n \n")
-	("g" "Things to do" entry (file "~/elisp/agenda/ag-geral.org")
+	("g" "Things to do" entry (file "~/elisp/agendas/ag-geral.org")
 	 "* TODO \n %a \n")))
 
 ;; Description: the first string is the key to reach the template, the

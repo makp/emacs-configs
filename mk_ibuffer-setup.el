@@ -18,7 +18,7 @@
       (quote (("default"      
 	       ("agendas"
 		(or
-		 (filename . "/elisp/agenda/")))
+		 (filename . "/elisp/agendas/")))
 	       ("other org files" 
 		(mode . org-mode))
 	       ("LaTeX"

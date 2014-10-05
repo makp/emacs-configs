@@ -15,7 +15,7 @@
 ;; 	  (lambda ()
 ;; 	    (orgstruct-mode)))
 
-(setq magit-repo-dirs '("~/elisp/agenda"
+(setq magit-repo-dirs '("~/elisp/agendas"
 			"~/config-files/general"
 			"~/scripts/myscripts"
 			"~/Documents/mydocs"))

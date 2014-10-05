@@ -17,12 +17,12 @@
 ;; (set-register ?d '(file . "~/config-files/general/emacs-config/init.el"))
 
 ;;; Agendas
-(set-register ?a '(file . "~/elisp/agenda/ag-academic.org"))
-(set-register ?i '(file . "~/elisp/agenda/ag-it.org"))
-(set-register ?o '(file . "~/elisp/agenda/ag-longterm.org"))
-(set-register ?t '(file . "~/elisp/agenda/ag-teaching.org"))
-(set-register ?g '(file . "~/elisp/agenda/ag-geral.org"))
-(set-register ?w '(file . "~/elisp/agenda/wasteclock.org"))
+(set-register ?a '(file . "~/elisp/agendas/ag-academic.org"))
+(set-register ?i '(file . "~/elisp/agendas/ag-it.org"))
+(set-register ?o '(file . "~/elisp/agendas/ag-longterm.org"))
+(set-register ?t '(file . "~/elisp/agendas/ag-teaching.org"))
+(set-register ?g '(file . "~/elisp/agendas/ag-geral.org"))
+(set-register ?w '(file . "~/elisp/agendas/wasteclock.org"))
 
 ;;; Notes
 (set-register ?e '(file . "~/Documents/mydocs/notes/nontech-notes/english-and-spanish/english.org"))
