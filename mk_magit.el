@@ -5,7 +5,10 @@
 				(interactive)
 				(let ((current-prefix-arg '(4)))
 				  (call-interactively
-				   'magit-status))))
+				   'magit-status))
+				(call-interactively 'magit-pull)
+				;; (call-interactively 'helm-ls-git-ls)
+				))
 
 (global-set-key (kbd "C-x o") 'magit-status)
 
