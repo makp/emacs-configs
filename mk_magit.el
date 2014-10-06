@@ -6,9 +6,14 @@
 				(let ((current-prefix-arg '(4)))
 				  (call-interactively
 				   'magit-status))
-				(call-interactively 'magit-pull)
-				;; (call-interactively 'helm-ls-git-ls)
-				))
+				(call-interactively 'magit-pull)))
+
+(global-set-key (kbd "C-x t") (lambda ()
+				(interactive)
+				(let ((current-prefix-arg '(4)))
+				  (call-interactively
+				   'magit-status))
+				(call-interactively 'helm-find-files)))
 
 (global-set-key (kbd "C-x o") 'magit-status)
 
