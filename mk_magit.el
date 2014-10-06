@@ -8,6 +8,15 @@
 				   'magit-status))
 				(call-interactively 'magit-pull)))
 
+(global-set-key (kbd "C-x d") 'helm-ls-git-ls) 	;helm-browse-project
+
+(global-set-key (kbd "C-x C-d") (lambda ()
+				(interactive)
+				(let ((current-prefix-arg '(4)))
+				  (call-interactively
+				   'magit-status))
+				(call-interactively 'helm-ls-git-ls)))
+
 (global-set-key (kbd "C-x t") (lambda ()
 				(interactive)
 				(let ((current-prefix-arg '(4)))

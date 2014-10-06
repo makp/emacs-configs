@@ -62,9 +62,6 @@
 ;;; list buffers
 (global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
 
-;;; helm for git repos
-(global-set-key (kbd "C-x d") 'helm-ls-git-ls) 	;helm-browse-project
-
 ;;; find
 (global-set-key (kbd "M-s f") 'helm-find)
 

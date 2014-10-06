@@ -70,7 +70,7 @@
 ;; --------------
 ;; Sticky windows
 ;; --------------
-(global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
+;; (global-set-key (kbd "C-x C-d") 'sticky-window-keep-window-visible)
 
 (global-set-key (kbd "C-x l") 'sticky-window-delete-other-windows)
 (global-set-key (kbd "C-x C-l") 'nil)
