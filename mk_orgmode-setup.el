@@ -94,6 +94,8 @@
 	    (define-key org-mode-map (kbd "C-c SPC") nil)
 	    (define-key org-mode-map (kbd "M-h") nil)
 
+	    (define-key org-mode-map (kbd "C-x p") nil)
+
 	    (define-key org-mode-map (kbd "C-c C-j") 'org-insert-todo-heading-respect-content)));; I don't use the org jump mode. 
 
 ;;; org-insert-heading
@@ -187,9 +189,9 @@
 (setq org-tags-exclude-from-inheritance '("@CURRENT" "@lineup" "PROJECT" "@WAITING"))
 ;; These are the tags that I don't want to be inherited.
 
-;; ======
-;; Agenda
-;; ======
+;; =======
+;; Agendas
+;; =======
 (global-set-key "\C-ca" 'org-agenda)
 
 ;; ------------
