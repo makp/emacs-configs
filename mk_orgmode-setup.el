@@ -555,8 +555,10 @@
 (defun mk/quick-clockin ()
   "Quick way of clocking in using TAGS."
   (interactive)
+  (unless (get-buffer "agendas")
+    (find-file-noselect "~/elisp/agendas"))
   (save-excursion
-    (set-buffer "ag-academic.org")
+    (set-buffer "agendas")
     (call-interactively 'helm-etags-select)
     (org-clock-in)
     (save-buffer)
@@ -572,9 +574,9 @@
 
 (global-set-key (kbd "\e\e v") 'mk/quick-clockin)
 
-;; ;; --------------
-;; ;; clocktable.org
-;; ;; --------------
+;; --------------
+;; clocktable.org
+;; --------------
 (find-file-noselect "~/Dropbox/shared-files/clocktable.org")
 
 ;;;###autoload

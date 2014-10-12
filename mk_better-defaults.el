@@ -221,7 +221,7 @@
 
 (global-set-key (kbd "M-C") 'subword-capitalize)
 
-(global-set-key (kbd "M-c") '(lambda ()
+(global-set-key (kbd "C-x k") '(lambda ()
 			       (interactive)
 			       (kill-buffer nil)))
 

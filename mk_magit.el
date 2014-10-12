@@ -29,6 +29,17 @@ helm-find-files in the project dir."
 				   'magit-status))
 				(call-interactively 'helm-find-files)))
 
+;;; tags
+(defun mk/find-tags ()
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively
+     'magit-status))
+  (call-interactively 'helm-etags-select))
+
+(global-set-key (kbd "M-c") 'mk/find-tags)
+
+
 (global-set-key (kbd "C-x o") 'magit-status)
 
 (setq magit-diff-refine-hunk 'all)

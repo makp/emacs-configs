@@ -87,7 +87,6 @@
 ;;; recentf
 (global-set-key (kbd "C-x f") 'helm-recentf)
 
-
 ;; ----------------------
 ;; searching within files
 ;; ----------------------
