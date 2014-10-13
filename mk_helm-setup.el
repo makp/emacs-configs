@@ -63,7 +63,15 @@
 (global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
 
 ;;; find
-(global-set-key (kbd "M-s f") 'helm-find)
+(global-set-key (kbd "C-x f") 'helm-find)
+
+;;; grep
+(global-set-key (kbd "C-x g")
+		(lambda ()
+		  (interactive)
+		  (let ((current-prefix-arg '(4)))
+		    (call-interactively
+		     'helm-do-grep))))
 
 ;;; locate
 (defun mk/locate-with-helm (&optional arg)
@@ -85,14 +93,6 @@
 ;; occur
 (global-set-key (kbd "C-S-s") 'helm-occur)
 
- ;;; grep
-(global-set-key (kbd "C-S-g")
-		(lambda ()
-		  (interactive)
-		  (let ((current-prefix-arg '(4)))
-		    (call-interactively
-		     'helm-do-grep))))
-
 ;; imenu
 (global-set-key (kbd "M-s t") 'helm-imenu)
 
@@ -107,7 +107,6 @@
 
 ;; kill-ring
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
 
 ;; ===============
 ;; helm local maps
@@ -124,7 +123,7 @@
 
 ;;; helm-find-files-map
 (define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
-(define-key helm-find-files-map (kbd "C-S-g") (lambda ()
+(define-key helm-find-files-map (kbd "C-x g") (lambda ()
 				     (interactive)
 				     (let ((current-prefix-arg '(4)))
 				       (call-interactively
