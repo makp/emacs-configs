@@ -66,23 +66,17 @@
 (global-set-key (kbd "M-s f") 'helm-find)
 
 ;;; locate
-(global-set-key (kbd "C-c h")
-		(lambda ()
-		  "locate for papers/books."
-		  (interactive)
-		  (helm-locate-with-db '("~/elisp/locate.db"))))
+(defun mk/locate-with-helm (&optional arg)
+  "locate for mydocs, pdfs, and home."
+  (interactive "p")
+  (cond
+   ((equal arg 1)  (helm-locate-with-db '("~/elisp/locate.db")))
+   ((equal arg 4)  (helm-locate-with-db '("~/elisp/locate-mydocs.db")))
+   ((equal arg 16) (helm-locate-with-db '("~/elisp/locate-home.db")))))
 
-(global-set-key (kbd "C-c DEL") ;C-c C-h
-		(lambda ()
-		  "locate for mydocs."
-		  (interactive)
-		  (helm-locate-with-db '("~/elisp/locate-mydocs.db"))))
+(global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
-(global-set-key (kbd "C-x C-f")
-		(lambda ()
-		  "locate for $HOME."
-		  (interactive)
-		  (helm-locate-with-db '("~/elisp/locate-home.db"))))
+;; (C-c h)
 
 ;;; recentf
 (global-set-key (kbd "C-x f") 'helm-recentf)
