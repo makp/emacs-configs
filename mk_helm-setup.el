@@ -76,10 +76,8 @@
 
 (global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
-;; (C-c h)
-
 ;;; recentf
-(global-set-key (kbd "C-x f") 'helm-recentf)
+(global-set-key (kbd "C-c h") 'helm-recentf)
 
 ;; ----------------------
 ;; searching within files
