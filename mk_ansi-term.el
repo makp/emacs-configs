@@ -18,7 +18,7 @@
       (mk/ansi-term-popup)
     (ansi-term "/bin/zsh")))
 
-(define-key my-keys-minor-mode-map (kbd "C-x C-p") 'mk/chama-ansi-term)
+(define-key my-keys-minor-mode-map (kbd "C-x <RET>") 'mk/chama-ansi-term)
 
 (provide 'mk_ansi-term)
 ;;; mk-shell ends here
