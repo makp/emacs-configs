@@ -20,5 +20,8 @@
 
 (define-key my-keys-minor-mode-map (kbd "C-x <RET>") 'mk/chama-ansi-term)
 
+(setq term-buffer-maximum-size 0)
+;;; 
+
 (provide 'mk_ansi-term)
 ;;; mk-shell ends here
