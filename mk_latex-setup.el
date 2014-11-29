@@ -15,6 +15,7 @@
 	  (lambda ()
 	    (define-key LaTeX-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)
 	    ;; (define-key TeX-mode-map (kbd "C-c '") nil)
+	    (define-key LaTeX-mode-map (kbd "C-x n") nil)
 	    ))
 
 (add-hook 'bibtex-mode-hook
