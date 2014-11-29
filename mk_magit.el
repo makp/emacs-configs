@@ -29,14 +29,14 @@ a list of all projects before running helm-ls-git-ls."
 		     'magit-status))
 		  (call-interactively 'helm-find-files)))
 
-(global-set-key (kbd "C-x C-p")
-		(lambda ()
-		  "Select a project and run helm-ls-git-ls."
-		  (interactive)
-		  (let ((current-prefix-arg '(4)))
-		    (call-interactively
-		     'magit-status))
-		  (call-interactively 'helm-ls-git-ls)))
+;; (global-set-key (kbd "C-x C-p")
+;; 		(lambda ()
+;; 		  "Select a project and run helm-ls-git-ls."
+;; 		  (interactive)
+;; 		  (let ((current-prefix-arg '(4)))
+;; 		    (call-interactively
+;; 		     'magit-status))
+;; 		  (call-interactively 'helm-ls-git-ls)))
 
 ;;; tags
 (defun mk/find-tags ()
