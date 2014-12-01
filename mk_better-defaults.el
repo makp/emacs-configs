@@ -2,7 +2,7 @@
 ;; setqs
 ;; =====
 (setq message-log-max t) 		; max # lines message log
-(setq case-fold-search t)		; case sensitive search
+(setq case-fold-search nil)		; case sensitive search
 (setq shell-file-name "/bin/zsh")
 
 (setq shift-select-mode nil) 		; don't use shift to mark
