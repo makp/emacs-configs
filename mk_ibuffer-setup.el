@@ -55,7 +55,8 @@
 (add-hook 'ibuffer-mode-hook
 	  (lambda ()
 	    (ibuffer-auto-mode 1) 	;update
-	    (ibuffer-switch-to-saved-filter-groups "default")))
+	    (ibuffer-switch-to-saved-filter-groups "default")
+	    (define-key ibuffer-mode-map (kbd "M-g") 'ace-jump-line-mode)))
 
 (require 'ibuf-ext)
 (dolist (ibfilter '("^\\*" "_region_"))
