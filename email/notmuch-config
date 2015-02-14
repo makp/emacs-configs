@@ -12,7 +12,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=~/Mail
+path=/home/makmiller/Mail
 
 # User configuration
 #
