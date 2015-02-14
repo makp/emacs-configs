@@ -6,6 +6,7 @@
 
 (helm-mode 1)
 (helm-adaptive-mode 1)
+(helm-autoresize-mode 1)
 
 ;; ==========
 ;; Extensions
@@ -31,7 +32,9 @@
       helm-move-to-line-cycle-in-source nil
       helm-locate-command "locate %s -e -A --regex %s"
       helm-buffers-fuzzy-matching t
-      helm-candidate-number-limit 200
+      helm-locate-fuzzy-match t
+      helm-M-x-fuzzy-match t
+      helm-candidate-number-limit 100
       helm-always-two-windows t
       helm-reuse-last-window-split-state t
       helm-buffers-favorite-modes '(latex-mode org-mode emacs-lisp-mode)
