@@ -60,6 +60,9 @@
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
 (define-key global-map [remap jump-to-register] 'helm-register)
 
+;;; helm-resume
+(global-set-key (kbd "C-c h") 'helm-resume)
+
 ;;; find-files
 (global-set-key (kbd "C-x h") 'helm-find-files)
 
@@ -93,7 +96,6 @@
 (global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
 ;;; recentf
-(global-set-key (kbd "C-c h") 'helm-recentf)
 
 ;; ----------------------
 ;; searching within files
