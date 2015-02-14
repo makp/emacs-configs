@@ -68,7 +68,7 @@
     "Toggle deleted tag for thread"
     (interactive)
     (if (member "delete" (notmuch-search-get-tags))
-	(notmuch-search-tag "-delete")
+	(notmuch-search-tag '("-delete"))
       (notmuch-search-tag '("+delete" "-unread")))
     (next-line)))
 
@@ -77,7 +77,7 @@
     "toggle deleted tag for message"
     (interactive)
     (if (member "delete" (notmuch-show-get-tags))
-	(notmuch-show-tag "-delete")
+	(notmuch-show-tag '("-delete"))
       (notmuch-show-tag '("+delete" "-unread")))))
 
 (define-key notmuch-search-mode-map "u"
@@ -85,24 +85,24 @@
     "toggle the flagged tag for thread"
     (interactive)
     (if (member "flagged" (notmuch-search-get-tags))
-	(notmuch-search-tag "-flagged")
-      (notmuch-search-tag "+flagged"))))
+	(notmuch-search-tag '("-flagged"))
+      (notmuch-search-tag '("+flagged")))))
 
 (define-key notmuch-show-mode-map "u"
   (lambda ()
     "toggle the flagged tag for message"
     (interactive)
     (if (member "flagged" (notmuch-show-get-tags))
-	(notmuch-show-tag "-flagged")
-      (notmuch-show-tag "+flagged"))))
+	(notmuch-show-tag '("-flagged"))
+      (notmuch-show-tag '("+flagged")))))
 
 (define-key notmuch-search-mode-map "d"
   (lambda ()
     "toggle the unread tag for thread"
     (interactive)
     (if (member "unread" (notmuch-search-get-tags))
-	(notmuch-search-tag "-unread")
-      (notmuch-search-tag "+unread"))
+	(notmuch-search-tag '("-unread"))
+      (notmuch-search-tag '("+unread")))
       (next-line)))
 
 (define-key notmuch-search-mode-map (kbd "g") 'notmuch-poll-and-refresh-this-buffer)
