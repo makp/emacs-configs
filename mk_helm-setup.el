@@ -24,6 +24,7 @@
 	("rtf" . "libreoffice")
 	("svg" . "inkscape")
 	("mp4" . "mplayer"))
+      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
       helm-input-idle-delay 0.01
       ;; be idle for this many seconds, before updating. Safe value is
       ;; always >= `helm-idle-delay'.
@@ -64,6 +65,10 @@
 
 ;;; list buffers
 (global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
+;;; Examples:
+;;; "*lisp,sh ^helm": buffers in lisp- or sh-mode that begin with "helm".
+;;; "@crash": buffers that contain the string "crash"
+;;; You can also select multiple buffers or select all buffers with M-a
 
 ;;; find
 (global-set-key (kbd "C-x f") 'helm-find)
@@ -81,9 +86,9 @@
   "locate for mydocs, pdfs, and home."
   (interactive "p")
   (cond
-   ((equal arg 1)  (helm-locate-with-db '("~/elisp/locate.db")))
-   ((equal arg 4)  (helm-locate-with-db '("~/elisp/locate-mydocs.db")))
-   ((equal arg 16) (helm-locate-with-db '("~/elisp/locate-home.db")))))
+   ((equal arg 1)  (helm-locate-with-db '("~/elisp/locate.db")))	; pdfs
+   ((equal arg 4)  (helm-locate-with-db '("~/elisp/locate-mydocs.db"))) ; ~/Documents/mydocs
+   ((equal arg 16) (helm-locate-with-db '("~/elisp/locate-home.db")))))	; $HOME
 
 (global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
@@ -122,7 +127,7 @@
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
 
 ;;; helm-buffer-map
-;; (define-key helm-buffer-map (kbd "") ')
+(define-key helm-buffer-map (kbd "C-S-s") 'helm-buffers-run-multi-occur)
 
 ;;; helm-find-files-map
 (define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
