@@ -7,7 +7,6 @@
 ;; =============
 ;; sending email
 ;; =============
-
 (defun envia-email (&optional arg)
   (interactive "P")
   (compose-mail)
@@ -22,20 +21,26 @@
 
 (global-set-key (kbd "C-x m") 'envia-email)
 
+;;; configuration to use msmtp
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      sendmail-program "/usr/bin/msmtp"
+      user-full-name "Makmiller Pedroso")
+
+(setq mail-envelope-from 'header
+      message-sendmail-envelope-from 'header
+      mail-specify-envelope-from t)
 
 ;; =======
 ;; notmuch
 ;; =======
 (require 'notmuch)
 
+;;; send email with `m' and reply with `r'
+
 ;; ----------------
 ;; search-mode maps
 ;; ----------------
-
-;;; send email with `m' and reply with `r'
-
 (global-set-key (kbd "M-s e n") 'notmuch)
-
 ;; (autoload 'notmuch-search "notmuch" "Notmuch search. " t)
 (global-set-key (kbd "M-s e s") 'notmuch-search)
 
@@ -59,10 +64,9 @@
                                   (interactive)
                                   (notmuch-search "tag:sent")))
 
-;; ----------
-;; operations
-;; ----------
-
+;; --------------
+;; tag operations
+;; --------------
 (define-key notmuch-search-mode-map "D"
   (lambda ()
     "Toggle deleted tag for thread"
@@ -120,10 +124,12 @@
 (define-key notmuch-show-mode-map (kbd "o") 'w3m-external-view-this-url)
 (define-key notmuch-show-mode-map (kbd "T") 'w3m-toggle-inline-images)
 
-
 ;;; Search in notmuch supports wildcards (*) and operators (+, -, AND,
 ;;; NOT, XOR, OR, brackets, NEAR, ADJACENT, from: )
 
+;; =========
+;; addresses
+;; =========
 (require 'notmuch-address)
 (setq notmuch-address-command "~/scripts/third-party-scripts/nottoomuch/nottoomuch-addresses.sh")
 (notmuch-address-message-insinuate)

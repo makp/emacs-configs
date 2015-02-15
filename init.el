@@ -85,7 +85,6 @@
 		   (setq user-mail-address "makmiller@gmail.com")
 		   (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
 		   (require 'mk_message-mode)
-		   (require 'mk_msmtp)
 		   (require 'mk_erc)
 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
 
