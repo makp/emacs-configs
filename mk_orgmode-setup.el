@@ -89,6 +89,8 @@
 	    (define-key org-mode-map (kbd "M-B") 'org-shiftmetaleft)
 	    (define-key org-mode-map (kbd "M-F") 'org-shiftmetaright)
 	    ;; (define-key org-mode-map (kbd "C-S-t") 'org-shiftup)
+
+	    (define-key org-mode-map (kbd "C-c p") nil)  ; it was orgtbl-ascii-plot
 	    
 	    (define-key org-mode-map (kbd "C-c t") 'org-shifttab)
 	    (define-key org-mode-map (kbd "C-c SPC") nil)
