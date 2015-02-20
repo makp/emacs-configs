@@ -48,6 +48,9 @@ a list of all projects before running helm-ls-git-ls."
 
 (global-set-key (kbd "M-c") 'mk/find-tags)
 
+;;; magit-pull
+(global-set-key (kbd "C-x f") 'magit-pull)
+
 
 (global-set-key (kbd "C-x o") 'magit-status)
 

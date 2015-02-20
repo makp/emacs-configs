@@ -74,7 +74,7 @@
 ;;; You can also select multiple buffers or select all buffers with M-a
 
 ;;; find
-(global-set-key (kbd "C-x f") 'helm-find)
+(global-set-key (kbd "C-x C-f") 'helm-find)
 
 ;;; grep
 (global-set-key (kbd "C-x g")
