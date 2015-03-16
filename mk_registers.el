@@ -12,9 +12,9 @@
 
 
 ;;; Config files
-(set-register ?E '(file . "~/config-files/general/emacs-config/"))
+(set-register ?E '(file . "~/config-files/general/emacs-configs/"))
 (set-register ?b '(file . "~/Documents/mydocs/tex-configs/references/dissert.bib"))
-;; (set-register ?d '(file . "~/config-files/general/emacs-config/init.el"))
+;; (set-register ?d '(file . "~/config-files/general/emacs-configs/init.el"))
 
 ;;; Agendas
 (set-register ?a '(file . "~/elisp/agendas/ag-academic.org"))
