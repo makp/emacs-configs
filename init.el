@@ -12,7 +12,7 @@
 ;; Load path
 ;; =========
 (add-to-list 'load-path "~/elisp/")
-(add-to-list 'load-path "~/config-files/general/emacs-config/")
+(add-to-list 'load-path "~/config-files/general/emacs-configs/")
 
 ;; In case of emergency
 ;; (let ((default-directory "~/elisp/bin/"))
