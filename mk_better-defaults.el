@@ -423,9 +423,9 @@
 ;; ====
 ;; Tags
 ;; ====
-(setq tags-table-list
-      '(;; 	"~/Documents/mydocs/"
-	"~/config-files/general/emacs-configs/"))
+;; (setq tags-table-list nil
+;;       '(;; 	"~/Documents/mydocs/"
+;; 	"~/config-files/general/emacs-configs/"))
 ;; Look at the TAGS files in these directories.
 
 (pending-delete-mode t)
