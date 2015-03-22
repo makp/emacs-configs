@@ -261,26 +261,26 @@ shown, then it'll be hidden."
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
 			      'TeX-command-list
-			      '("mk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
+			      '("mk" "latexmk %s" TeX-run-TeX nil t
 				:help "Run Latexmk on file"))))
 
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (add-to-list
-			      'TeX-command-list
-			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-				:help "Run zathura on file"))))
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;; 			     (add-to-list
+;; 			      'TeX-command-list
+;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
+;; 				:help "Run zathura on file"))))
 
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (add-to-list
-			      'TeX-command-list
-			      '("View DocView" "emacsclient -n -e '(find-file-other-window \"%o\")'" TeX-run-TeX nil t
-				:help "View with docview"))))
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;; 			     (add-to-list
+;; 			      'TeX-command-list
+;; 			      '("View DocView" "emacsclient -n -e '(find-file-other-window \"%o\")'" TeX-run-TeX nil t
+;; 				:help "View with docview"))))
 
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (add-to-list
-			      'TeX-command-list
-			      '("Zathura"  "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-				:help "View pdf with zathura"))))
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;; 			     (add-to-list
+;; 			      'TeX-command-list
+;; 			      '("Zathura"  "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
+;; 				:help "View pdf with zathura"))))
 
 (add-hook 'LaTeX-mode-hook '(lambda ()
 			      (add-to-list 'TeX-expand-list
