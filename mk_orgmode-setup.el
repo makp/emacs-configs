@@ -182,11 +182,12 @@
 		      ("@CURRENT" . ?c)
 		      ("@lineup" . ?l)
 		      ("@WAITING" . ?w)
-		      ("LitReview" . ?L)
-		      ("writing" . ?W)
-		      ("reading" . ?R)
-		      ("organizing" . ?O)
-		      ("email" . ?e)))
+		      ;; ("LitReview" . ?L)
+		      ;; ("writing" . ?W)
+		      ;; ("reading" . ?R)
+		      ;; ("organizing" . ?O)
+		      ;; ("email" . ?e)
+		      ))
 
 (setq org-tags-exclude-from-inheritance '("@CURRENT" "@lineup" "PROJECT" "@WAITING"))
 ;; These are the tags that I don't want to be inherited.
