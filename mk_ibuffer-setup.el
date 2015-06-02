@@ -41,9 +41,10 @@
 		 (mode . haskell-mode)
 		 (mode . lisp-mode)
 		 (mode . python-mode))) 
-	       ("pdfs"
+	       ("PDFs"
 		(or
-		 (mode . doc-view-mode)))
+		 (mode . doc-view-mode)
+		 (mode . pdf-view-mode)))
 	       ("ERC"
 		(mode . erc-mode))
 	       ("info"
