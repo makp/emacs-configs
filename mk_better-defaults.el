@@ -348,12 +348,14 @@
 ;; (quietly-read-abbrev-file)
 ;; Description: reads the abbreviations file on startup
 
-;; -------------
-;; Doc-view mode
-;; -------------
-(setq doc-view-continuous t)
-(setq doc-view-resolution 250)
-(setq doc-view-image-width 1250)
+;; ---------
+;; pdf-tools
+;; ---------
+(pdf-tools-install)
+
+;; (setq doc-view-continuous t)
+;; (setq doc-view-resolution 250)
+;; (setq doc-view-image-width 1250)
 ;;; (setq doc-view-cache-directory "/tmp/docview1000")
 
 ;; Multiple async processes 
