@@ -372,8 +372,9 @@ shown, then it'll be hidden."
     (insert out2)
     (exchange-point-and-mark))
 
-(setq LaTeX-math-list (quote (
+(setq LaTeX-math-list (quote(
 			      ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
+			      ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
 			      ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
 
 ;;; Automatically wrap $$ when in text mode
