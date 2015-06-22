@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: fraction
-# key: s
+# key:
 # --
 \sum_{${1:}}^{${2:}} $0

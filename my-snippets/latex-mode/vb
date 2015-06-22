@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 #name: General Template
-# key: v
+# key:
 # --
 \verb+${1: add code here!}+$0
