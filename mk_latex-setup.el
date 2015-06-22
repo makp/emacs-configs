@@ -357,4 +357,41 @@ shown, then it'll be hidden."
 ;;       '(("definitions" (("DP" "{"))
 ;; 	 (:weight bold :foreground "chocolate1") command)))
 
+;; -----------
+;; math-abbrev
+;; -----------
+(setq LaTeX-math-abbrev-prefix (kbd "C-S-t"))
+
+(defun LaTeX-my-leftright (charopen charclose)
+"Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
+    (interactive)
+    (setq out1 (concat "\\left" charopen " "))
+    (setq out2 (concat " \\right" charclose))
+    (insert out1)
+    (push-mark)
+    (insert out2)
+    (exchange-point-and-mark))
+
+(setq LaTeX-math-list (quote (
+			      ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
+			      ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
+
+;;; Automatically wrap $$ when in text mode
+(add-hook
+ 'LaTeX-mode-hook
+ (lambda ()
+   (let ((math (reverse (append LaTeX-math-list LaTeX-math-default))))
+     (while math
+       (let ((entry (car math))
+         value)
+     (setq math (cdr math))
+     (if (listp (cdr entry))
+         (setq value (nth 1 entry))
+       (setq value (cdr entry)))
+     (if (stringp value)
+         (fset (intern (concat "LaTeX-math-" value))
+           (list 'lambda (list 'arg) (list 'interactive "*P")
+             (list 'LaTeX-math-insert value
+                   '(null (texmathp)))))))))))
+
 (provide 'mk_latex-setup)
