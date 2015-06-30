@@ -196,7 +196,6 @@
 (key-chord-define-global "hh" 'ace-jump-mode)
 (key-chord-define-global "HH" 'ace-jump-char-mode)
 
-
 ;; ========================
 ;; duplicate line or region
 ;; ========================
@@ -425,9 +424,9 @@
 ;; ====
 ;; Tags
 ;; ====
-;; (setq tags-table-list nil
-;;       '(;; 	"~/Documents/mydocs/"
-;; 	"~/config-files/general/emacs-configs/"))
+(setq tags-table-list
+      '("/home/makmiller/Documents/mydocs/research-projects/research_social-evolution/"
+	"/home/makmiller/elisp/agendas/"))
 ;; Look at the TAGS files in these directories.
 
 (pending-delete-mode t)
