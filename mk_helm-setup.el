@@ -73,11 +73,8 @@
 ;;; "@crash": buffers that contain the string "crash"
 ;;; You can also select multiple buffers or select all buffers with M-a
 
-;;; find
-(global-set-key (kbd "C-x C-f") 'helm-find)
-
 ;;; grep
-(global-set-key (kbd "C-x g")
+(global-set-key (kbd "C-S-g")
 		(lambda ()
 		  (interactive)
 		  (let ((current-prefix-arg '(4)))
@@ -96,6 +93,10 @@
 (global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
 ;;; recentf
+(global-set-key (kbd "C-x f") 'helm-recentf)
+
+;;; find
+(global-set-key (kbd "C-x C-f") 'helm-find)
 
 ;; ----------------------
 ;; searching within files
