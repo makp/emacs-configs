@@ -16,7 +16,7 @@ a list of all projects before running helm-ls-git-ls."
     (let ((current-prefix-arg '(4)))
     (call-interactively
      'magit-status)))
-  (call-interactively 'helm-ls-git-ls)) ;helm-browse-project
+  (call-interactively 'helm-browse-project)) ;helm-ls-git-ls
 
 (global-set-key (kbd "C-x d") 'mk/browse-project)
 
@@ -60,10 +60,10 @@ a list of all projects before running helm-ls-git-ls."
 ;; 	  (lambda ()
 ;; 	    (orgstruct-mode)))
 
-(setq magit-repo-dirs '("~/elisp/agendas"
-			"~/config-files/general"
-			"~/scripts/myscripts"
-			"~/Documents/mydocs"))
+(setq magit-repository-directories '("~/elisp/agendas"
+				     "~/config-files/general"
+				     "~/scripts/myscripts"
+				     "~/Documents/mydocs"))
 
 ;;; With one prefix argument, magit will provide magit-repo-dirs for
 ;;; you to complete. If you want to create a new repository, use two
