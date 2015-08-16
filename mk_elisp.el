@@ -6,20 +6,20 @@
            (setq mode-name "El")))
 
 
-;; =======
-;; paredit
-;; =======
-(mk/add-something-to-hooks '(emacs-lisp lisp) 'paredit-mode)
+;; ;; =======
+;; ;; paredit
+;; ;; =======
+;; (mk/add-something-to-hooks '(emacs-lisp lisp) 'paredit-mode)
 
-;;; paredit customizations
-(eval-after-load 'paredit '(progn
-     (define-key paredit-mode-map (kbd "M-s") nil)
-     (define-key paredit-mode-map (kbd "C-S-d") 'paredit-splice-sexp)
-     (define-key paredit-mode-map (kbd "M-s o") nil)
-     (define-key paredit-mode-map (kbd "M-r") nil)))
+;; ;;; paredit customizations
+;; (eval-after-load 'paredit '(progn
+;;      (define-key paredit-mode-map (kbd "M-s") nil)
+;;      (define-key paredit-mode-map (kbd "C-S-d") 'paredit-splice-sexp)
+;;      (define-key paredit-mode-map (kbd "M-s o") nil)
+;;      (define-key paredit-mode-map (kbd "M-r") nil)))
 
-;; FIXME: Some of the paredit commands have been overwritten by other
-;; commands.
+;; ;; FIXME: Some of the paredit commands have been overwritten by other
+;; ;; commands.
 
 ;; =====================
 ;; highlight parenthesis

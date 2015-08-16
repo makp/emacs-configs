@@ -65,8 +65,4 @@ a list of all projects before running helm-ls-git-ls."
 				     "~/scripts/myscripts"
 				     "~/Documents/mydocs"))
 
-;;; With one prefix argument, magit will provide magit-repo-dirs for
-;;; you to complete. If you want to create a new repository, use two
-;;; prefix-args.
-
 (provide 'mk_magit)
