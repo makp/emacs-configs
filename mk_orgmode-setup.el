@@ -274,7 +274,7 @@
 	("l" "LEARN" entry (file+headline "~/elisp/agendas/ag-it.org" "GENERAL FIXES")
 	 "** LEARN %?\n %i\n \n")
 	("g" "Things to do" entry (file "~/elisp/agendas/ag-geral.org")
-	 "* TODO \n %a \n")))
+	 "** TODO \n %a \n")))
 
 ;; Description: the first string is the key to reach the template, the
 ;; second is a short description. Then follows the type of the entry
