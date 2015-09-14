@@ -230,6 +230,8 @@
 ;; the regexp to be matched. Use tags-todo to limit your search to
 ;; headlines that match both a tag *and* a TODO item.
 
+(setq org-icalendar-use-scheduled '(todo-start event-if-todo))
+
 ;; ===========
 ;; column view
 ;; ===========
@@ -580,7 +582,7 @@
 ;; --------------
 ;; clocktable.org
 ;; --------------
-(find-file-noselect "~/Dropbox/shared-files/clocktable.org")
+(find-file-noselect "/home/makmiller/elisp/agendas/clocktable.org")
 
 ;;;###autoload
 (defun chama-clock-table (&optional arg)
@@ -602,8 +604,8 @@ wastetime.org."
       (delete-window)
       (read-key "Press any key to exit.")
       (save-buffer)
-      (kill-buffer "clocktable.org-DAILY-1")
-      (kill-buffer "clocktable.org-DAILY (only *real* work)-1"))))
+      (kill-buffer "clocktable.org-DAILY (tudo)-1")
+      (kill-buffer "clocktable.org-DAILY-1"))))
 
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
 
