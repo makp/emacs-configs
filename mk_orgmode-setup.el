@@ -182,6 +182,7 @@
 		      ("@CURRENT" . ?c)
 		      ("@lineup" . ?l)
 		      ("@WAITING" . ?w)
+		      ("@Today" . ?t)
 		      ;; ("LitReview" . ?L)
 		      ;; ("writing" . ?W)
 		      ;; ("reading" . ?R)
@@ -211,15 +212,12 @@
 ;;; agenda dispatcher
 (setq org-agenda-custom-commands
       '(("h" "Coisas pra hoje"
-	 ((tags "@CURRENT")
+	 ((tags "@Today")
 	  (agenda "" ((org-agenda-ndays 1)
 		      (org-agenda-show-all-dates nil)))))
-	("d" "Coisas pra fazes outro dia"
-	 ((tags "PROJECT")
-	  (tags "@CURRENT")
-	  (tags "@lineup")
-	  (tags "SideProjects")
-	  (agenda "" ((org-agenda-ndays 13)
+	("d" "Coisas pendentes"
+	 ((tags "@CURRENT")
+	  (agenda "" ((org-agenda-ndays 1)
 		      (org-agenda-show-all-dates nil)))))
 	("A" "Monthly schedule" agenda "" ((org-agenda-ndays 21)
 			(org-agenda-show-all-dates nil)))
