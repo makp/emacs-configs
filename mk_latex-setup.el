@@ -360,7 +360,7 @@ shown, then it'll be hidden."
 ;; -----------
 ;; math-abbrev
 ;; -----------
-(setq LaTeX-math-abbrev-prefix (kbd "C-S-t"))
+(customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
 
 (defun LaTeX-my-leftright (charopen charclose)
 "Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
@@ -377,7 +377,7 @@ shown, then it'll be hidden."
 			      ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
 			      ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
 
-;;; Automatically wrap $$ when in text mode
+;;; Automatically wrap $$ when in tex mode
 (add-hook
  'LaTeX-mode-hook
  (lambda ()
