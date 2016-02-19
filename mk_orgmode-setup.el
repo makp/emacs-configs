@@ -178,7 +178,7 @@
 ;; ====
 ;;; Tags are useful to filter your todo list.
 (setq org-tag-alist '(("PROJECT" . ?p)
-		      ("SideProjects" . ?s)
+		      ("rep" . ?r)
 		      ("@CURRENT" . ?c)
 		      ("@lineup" . ?l)
 		      ("@WAITING" . ?w)
@@ -190,7 +190,7 @@
 		      ;; ("email" . ?e)
 		      ))
 
-(setq org-tags-exclude-from-inheritance '("@CURRENT" "@lineup" "PROJECT" "@WAITING"))
+(setq org-tags-exclude-from-inheritance '("@CURRENT" "@lineup" "PROJECT" "@WAITING" "rep"))
 ;; These are the tags that I don't want to be inherited.
 
 ;; =======
@@ -216,7 +216,8 @@
 	  (agenda "" ((org-agenda-ndays 1)
 		      (org-agenda-show-all-dates nil)))))
 	("n" "Coisas pendentes"
-	 ((tags "@CURRENT")
+	 ((tags "rep")
+	  (tags "@CURRENT")
 	  (agenda "" ((org-agenda-ndays 1)
 		      (org-agenda-show-all-dates nil)))))
 	("A" "Monthly schedule" agenda "" ((org-agenda-ndays 21)
