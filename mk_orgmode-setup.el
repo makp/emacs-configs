@@ -551,7 +551,7 @@
     (clock-wasteclock)
     (org-save-all-org-buffers)))
 
-(global-set-key (kbd "\e\e w") 'goto-wasteclock)
+(global-set-key (kbd "\e\e v") 'goto-wasteclock)
 
 ;; --------------
 ;; Quick clock-in
@@ -576,7 +576,7 @@
 ;;       (save-buffer) 
 ;;       (bury-buffer))
 
-(global-set-key (kbd "\e\e v") 'mk/quick-clockin)
+(global-set-key (kbd "\e\e w") 'mk/quick-clockin)
 
 ;; --------------
 ;; clocktable.org
