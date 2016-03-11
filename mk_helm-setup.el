@@ -73,14 +73,6 @@
 ;;; "@crash": buffers that contain the string "crash"
 ;;; You can also select multiple buffers or select all buffers with M-a
 
-;;; grep
-(global-set-key (kbd "C-S-g")
-		(lambda ()
-		  (interactive)
-		  (let ((current-prefix-arg '(4)))
-		    (call-interactively
-		     'helm-do-grep))))
-
 ;;; locate
 (defun mk/locate-with-helm (&optional arg)
   "locate for mydocs, pdfs, and home."
