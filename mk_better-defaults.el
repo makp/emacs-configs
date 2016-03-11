@@ -424,10 +424,10 @@
 ;; ====
 ;; Tags
 ;; ====
-(setq tags-table-list
-      '("/home/makmiller/Documents/mydocs/research-projects/research_social-evolution/"
-	"/home/makmiller/elisp/agendas/"))
+;; (setq tags-table-list
+;;       '("/home/makmiller/elisp/agendas"))
 ;; Look at the TAGS files in these directories.
+;; I don't need to set this up if I'm using helm for selecting tags
 
 (pending-delete-mode t)
 
