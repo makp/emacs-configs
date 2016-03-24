@@ -63,9 +63,9 @@
 (setq org-clock-out-remove-zero-time-clocks t)
 ;; Remove clock entries with a zero duration
 
-(setq org-clock-mode-line-total 'today)
+(setq org-clock-mode-line-total 'all)
 
-(setq org-clock-clocked-in-display 'frame-title)
+(setq org-clock-clocked-in-display 'both)
 ;;; where to display talk/time
 
 ;; =================
@@ -234,7 +234,7 @@
 ;; ===========
 ;; column view
 ;; ===========
-(setq org-columns-default-format "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10Effort(Effort){:} %10CLOCKSUM_T %10CLOCKSUM %TAGS")
+(setq org-columns-default-format "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10CLOCKSUM_T %10CLOCKSUM %10Effort(Effort) %TAGS")
 
 ;; ========
 ;; clocking
