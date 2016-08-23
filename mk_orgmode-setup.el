@@ -190,7 +190,7 @@
 		      ;; ("email" . ?e)
 		      ))
 
-(setq org-tags-exclude-from-inheritance '("@CURRENT" "@lineup" "PROJECT" "@WAITING" "rep"))
+(setq org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep"))
 ;; These are the tags that I don't want to be inherited.
 
 ;; =======
