@@ -56,8 +56,7 @@
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
 		   (require 'mk_elisp)
-		   (require 'mk_keyfreq)
-		   (require 'mk_emms-setup)))
+		   (require 'mk_keyfreq)))
 
 ;; --------------------------------------------
 ;; org-mode, latex, and other programming modes
@@ -87,6 +86,7 @@
 		   (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
 		   (require 'mk_message-mode)
 		   (require 'mk_erc)
+		   (require 'mk_emms-setup)
 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
 
 ;; =================
