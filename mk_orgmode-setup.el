@@ -471,20 +471,20 @@
 ;; ========
 ;; org-mime
 ;; ========
-(require 'org-mime)
+;; (require 'org-mime)
 
-(add-hook 'message-mode-hook
-          (lambda ()
-            (local-set-key "\C-c\M-o" 'org-mime-htmlize)))
+;; (add-hook 'message-mode-hook
+;;           (lambda ()
+;;             (local-set-key "\C-c\M-o" 'org-mime-htmlize)))
 
- (add-hook 'org-mode-hook
-          (lambda ()
-            (local-set-key "\C-c\M-o" 'org-mime-org-buffer-htmlize)))
+;;  (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (local-set-key "\C-c\M-o" 'org-mime-org-buffer-htmlize)))
 
-;; Preferred applications
-(setq org-file-apps (quote ((auto-mode . emacs) 
-			    ("\\.x?html?\\'" . default)
-			    ("\\.pdf\\'" . "/usr/bin/zathura %s"))))
+;; ;; Preferred applications
+;; (setq org-file-apps (quote ((auto-mode . emacs) 
+;; 			    ("\\.x?html?\\'" . default)
+;; 			    ("\\.pdf\\'" . "/usr/bin/zathura %s"))))
 
 ;; ;; ===========
 ;; ;; scratch.org
