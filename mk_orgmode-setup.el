@@ -217,6 +217,7 @@
 		      (org-agenda-show-all-dates nil)))))
 	("n" "Coisas pendentes"
 	 ((tags "rep")
+	  (tags "@Today")
 	  (tags "@CURRENT")
 	  (agenda "" ((org-agenda-ndays 1)
 		      (org-agenda-show-all-dates nil)))))
