@@ -90,9 +90,10 @@
 ;; -------------------
 ;; search with regexps
 ;; -------------------
-(global-set-key [(control s)] 'isearch-forward-regexp)
-(global-set-key [(control r)] 'isearch-backward-regexp)
-(global-set-key [(meta %)] 'query-replace-regexp) 
+;; (global-set-key [(control s)] 'isearch-forward-regexp)
+;; (global-set-key [(control r)] 'isearch-backward-regexp)
+;; (global-set-key [(meta %)] 'query-replace-regexp)
+
 
 ;; ===========
 ;; Minibuffers
