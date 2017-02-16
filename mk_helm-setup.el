@@ -69,7 +69,7 @@
 
 ;; helm-swoop
 (global-set-key (kbd "C-S-s") 'helm-swoop)
-(global-set-key (kbd "C-x C-s") 'helm-swoop)
+(global-set-key (kbd "C-x C-s") 'nil) 
 
 (global-set-key (kbd "M-.") 'helm-etags-select)
 
@@ -107,7 +107,7 @@
 ;; searching within files
 ;; ----------------------
 ;; multi occur
-(global-set-key (kbd "M-s o") 'helm-occur)
+(global-set-key (kbd "M-s o") 'helm-swoop)
 (global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
 ;; imenu
@@ -124,11 +124,11 @@
 
 (global-set-key (kbd "M-s t") 'mk/find-tags)
 
-;; ===================
-;; mark and kill rings
-;; ===================
+;; ===============================
+;; mark, kill rings, and registers
+;; ===============================
 ;; mark-ring
-(global-set-key (kbd "C-c z") 'helm-all-mark-rings)
+(global-set-key (kbd "M-s z") 'helm-all-mark-rings)
 
 ;; kill-ring
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)

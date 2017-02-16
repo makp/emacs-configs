@@ -45,6 +45,8 @@ a list of all projects before running helm-ls-git-ls."
 
 (global-set-key (kbd "C-x o") 'magit-status)
 
+(global-set-key (kbd "C-x d") 'magit-log-buffer-file)
+
 (setq magit-diff-refine-hunk 'all)
 
 ;; (add-hook 'magit-log-edit-mode-hook
