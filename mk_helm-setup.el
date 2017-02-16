@@ -12,6 +12,7 @@
 ;; Extensions
 ;; ==========
 (autoload 'helm-ls-git-ls "helm-ls-git" nil t)
+(require 'helm-swoop)
 
 ;; =========
 ;; Helm vars
@@ -65,6 +66,8 @@
 (define-key global-map [remap occur] 'helm-occur)
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
 (define-key global-map [remap jump-to-register] 'helm-register)
+
+(define-key global-map [remap isearch-forward] 'helm-swoop)
 
 ;;; helm-resume
 (global-set-key (kbd "C-c h") 'helm-resume)
