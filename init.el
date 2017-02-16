@@ -67,12 +67,8 @@
 		   ;; (require 'mk_chrome)
 		   (require 'mk_orgmode-setup) ; (eval-after-load "org" ')
 		   ;; (require 'mk_mobileorg)
-		   (require 'mk_emacsw3m)
-		   (require 'mk_html)
-		   ;; (require 'gnuplot)
-		   (require 'mk_ess)
 		   (require 'mk_latex-setup) ; (eval-after-load "tex-mode" ')
-		   (require 'mk_eldoc)))
+		   ))
  
 ;; -----------
 ;; Email + ERC
@@ -81,6 +77,11 @@
 		'(lambda ()
 		   (interactive)
 		   (message ">>>>> Loading my email + erc config <<<<<<<<")
+		   ;; (require 'mk_emacsw3m)
+		   ;; (require 'mk_html)
+		   ;; (require 'gnuplot)
+		   ;; (require 'mk_ess)
+		   ;; (require 'mk_eldoc)
 		   (setq user-full-name "Makmiller Pedroso")
 		   (setq user-mail-address "makmiller@gmail.com")
 		   (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
