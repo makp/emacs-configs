@@ -21,7 +21,7 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
   (push-mark (point) t nil)
   (message "Pushed mark to ring"))
 
-(global-set-key (kbd "C-c e") 'mk/mark-command)
+(global-set-key (kbd "C-r") 'mk/mark-command)
 
 ;; -----------------
 ;; pop mark commands

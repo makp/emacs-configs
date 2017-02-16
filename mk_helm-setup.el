@@ -63,14 +63,15 @@
 ;; rebinding a few things to helm
 (define-key global-map [remap apropos-command] 'helm-apropos) 
 (define-key global-map [remap bookmark-jump] 'helm-pp-bookmarks)
-(define-key global-map [remap find-tag] 'helm-etags-select)
 (define-key global-map [remap occur] 'helm-occur)
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
 (define-key global-map [remap jump-to-register] 'helm-register)
 
 ;; helm-swoop
-(global-set-key (kbd "M-s s") 'helm-swoop)
-(global-set-key (kbd "M-s b") 'helm-multi-swoop-all)
+(global-set-key (kbd "C-S-s") 'helm-swoop)
+(global-set-key (kbd "C-x C-s") 'helm-swoop)
+
+(global-set-key (kbd "M-.") 'helm-etags-select)
 
 ;;; helm-resume
 (global-set-key (kbd "C-c h") 'helm-resume)
@@ -105,13 +106,23 @@
 ;; ----------------------
 ;; searching within files
 ;; ----------------------
-;; occur
+;; multi occur
+(global-set-key (kbd "M-s o") 'helm-occur)
+(global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
 ;; imenu
-(global-set-key (kbd "M-s t") 'helm-imenu)
+(global-set-key (kbd "M-s i") 'helm-imenu)
+(global-set-key (kbd "M-s I") 'helm-imenu-in-all-buffers)
 
-;; registers
-(global-set-key (kbd "C-x r h") 'helm-register)
+;; select tag from a particular repo
+(defun mk/find-tags ()
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively
+     'magit-status))
+  (call-interactively 'helm-etags-select))
+
+(global-set-key (kbd "M-s t") 'mk/find-tags)
 
 ;; ===================
 ;; mark and kill rings
@@ -121,6 +132,9 @@
 
 ;; kill-ring
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+;; registers
+(global-set-key (kbd "M-s r") 'helm-register)
 
 ;; ===============
 ;; helm local maps
