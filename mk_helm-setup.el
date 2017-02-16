@@ -32,9 +32,15 @@
       ;; helm-delete-minibuffer-contents-from-point t
       helm-move-to-line-cycle-in-source nil
       helm-locate-command "locate %s -e -A --regex %s"
-      helm-buffers-fuzzy-matching t
-      helm-locate-fuzzy-match nil
-      helm-M-x-fuzzy-match t
+
+      ;; helm-buffers-fuzzy-matching t
+      ;; helm-locate-fuzzy-match t
+      ;; helm-M-x-fuzzy-match t
+      ;; helm-imenu-fuzzy-match t
+
+      helm-mode-fuzzy-match t
+      helm-completion-in-region-fuzzy-match t
+      
       helm-candidate-number-limit 100
       helm-always-two-windows t
       helm-reuse-last-window-split-state t

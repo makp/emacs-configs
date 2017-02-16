@@ -82,12 +82,12 @@
 		   ;; (require 'gnuplot)
 		   ;; (require 'mk_ess)
 		   ;; (require 'mk_eldoc)
-		   (setq user-full-name "Makmiller Pedroso")
-		   (setq user-mail-address "makmiller@gmail.com")
-		   (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
-		   (require 'mk_message-mode)
-		   (require 'mk_erc)
-		   (require 'mk_emms-setup)
+		   ;; (setq user-full-name "Makmiller Pedroso")
+		   ;; (setq user-mail-address "makmiller@gmail.com")
+		   ;; (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
+		   ;; (require 'mk_message-mode)
+		   ;; (require 'mk_erc)
+		   ;; (require 'mk_emms-setup)
 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
 
 ;; =================
