@@ -43,8 +43,8 @@
       helm-completion-in-region-fuzzy-match t
       
       helm-candidate-number-limit 100
-      helm-always-two-windows t
-      helm-reuse-last-window-split-state t
+      helm-always-two-windows nil
+      helm-reuse-last-window-split-state nil
       helm-buffers-favorite-modes '(latex-mode org-mode emacs-lisp-mode)
       ;; (append helm-buffers-favorite-modes 
       ;; '(latex-mode org-mode)
@@ -55,6 +55,7 @@
 
 ;; helm-completing-read-handlers-alist controls where helm completion
 ;; is used.
+
 
 ;; ===========
 ;; Global maps
@@ -67,7 +68,9 @@
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
 (define-key global-map [remap jump-to-register] 'helm-register)
 
-(define-key global-map [remap isearch-forward] 'helm-swoop)
+;; helm-swoop
+(global-set-key (kbd "M-s s") 'helm-swoop)
+(global-set-key (kbd "M-s b") 'helm-multi-swoop-all)
 
 ;;; helm-resume
 (global-set-key (kbd "C-c h") 'helm-resume)
@@ -103,7 +106,6 @@
 ;; searching within files
 ;; ----------------------
 ;; occur
-(global-set-key (kbd "C-S-s") 'helm-occur)
 
 ;; imenu
 (global-set-key (kbd "M-s t") 'helm-imenu)
@@ -131,7 +133,7 @@
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
 
 ;;; helm-buffer-map
-(define-key helm-buffer-map (kbd "C-S-s") 'helm-buffers-run-multi-occur)
+(define-key helm-buffer-map (kbd "M-s s") 'helm-buffers-run-multi-occur)
 
 ;;; helm-find-files-map
 (define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)

@@ -20,6 +20,9 @@
 (define-key universal-argument-map (kbd "C-,") ' universal-argument-more)
 ;;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
 
+;; Use C-s for saving buffers
+(define-key global-map [remap isearch-forward] 'save-buffer)
+
 ;;; solving some conflicts
 (add-hook 'flyspell-mode-hook
 	  (lambda ()
