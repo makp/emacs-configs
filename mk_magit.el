@@ -4,12 +4,12 @@
 (global-set-key (kbd "C-x p") (lambda ()
 				(interactive)
 				(let ((current-prefix-arg '(4)))
-				  (call-interactively
-				   'magit-status))
-				(call-interactively 'magit-pull)
-				(read-key)
-				(call-interactively 'helm-browse-project)))
+				  (call-interactively 'magit-status))
+				(call-interactively 'magit-pull)))
 
+;; (read-key)
+;; (call-interactively 'helm-browse-project)
+;; 
 (defun mk/browse-project (&optional arg)
   "Function for browsing projects. If prefix is non-nil, provide
 a list of all projects before running helm-ls-git-ls."
@@ -30,15 +30,6 @@ a list of all projects before running helm-ls-git-ls."
 		    (call-interactively
 		     'magit-status))
 		  (call-interactively 'helm-find-files)))
-
-;; (global-set-key (kbd "C-x C-p")
-;; 		(lambda ()
-;; 		  "Select a project and run helm-ls-git-ls."
-;; 		  (interactive)
-;; 		  (let ((current-prefix-arg '(4)))
-;; 		    (call-interactively
-;; 		     'magit-status))
-;; 		  (call-interactively 'helm-ls-git-ls)))
 
 ;;; magit-pull
 (global-set-key (kbd "C-x g") 'magit-pull)
