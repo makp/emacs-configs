@@ -13,6 +13,8 @@
 ;; ==========
 (autoload 'helm-ls-git-ls "helm-ls-git" nil t)
 (require 'helm-swoop)
+(setq helm-swoop-split-with-multiple-windows t
+      helm-swoop-split-direction 'split-window-vertically)
 
 ;; =========
 ;; Helm vars
@@ -67,10 +69,6 @@
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
 (define-key global-map [remap jump-to-register] 'helm-register)
 
-;; helm-swoop
-(global-set-key (kbd "C-S-s") 'helm-swoop)
-(global-set-key (kbd "C-x C-s") 'nil) 
-
 (global-set-key (kbd "M-.") 'helm-etags-select)
 
 ;;; helm-resume
@@ -106,27 +104,26 @@
 ;; ----------------------
 ;; searching within files
 ;; ----------------------
-;; multi occur
-(global-set-key (kbd "M-s o") 'helm-swoop)
+;; occur
+(global-set-key (kbd "M-s s") 'helm-swoop)
+(global-set-key (kbd "M-s o") 'helm-occur)
 (global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
-
-
-;; grep the current repository
+;; grep current repository
 (global-set-key (kbd "M-s g") '(lambda ()
 				 (interactive)
 				 (let ((current-prefix-arg '(4)))
 				   (call-interactively 'helm-grep-do-git-grep))))
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
-(global-set-key (kbd "M-s I") 'helm-imenu-in-all-buffers)
 
-;; select tag from a particular repo
-(defun mk/find-tags ()
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively
-     'magit-status))
+;; tags
+(defun mk/find-tags (&optional arg)
+  "Select tag. When prefix arg is non-nil, ask user to choose a
+particular repo"
+  (interactive "P")
+  (when (consp arg) 
+    (call-interactively 'magit-status))
   (call-interactively 'helm-etags-select))
 
 (global-set-key (kbd "M-s t") 'mk/find-tags)
@@ -154,7 +151,7 @@
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
 
 ;;; helm-buffer-map
-(define-key helm-buffer-map (kbd "M-s s") 'helm-buffers-run-multi-occur)
+(define-key helm-buffer-map (kbd "M-s o") 'helm-buffers-run-multi-occur)
 
 ;;; helm-find-files-map
 (define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
