@@ -91,9 +91,9 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 (define-key region-bindings-mode-map "C" 'duplicate-current-line-or-region)
 (define-key region-bindings-mode-map "S" 'mc/sort-regions)
 
-;; (define-key region-bindings-mode-map ";" (kbd "M-;"))  ;;; not working
-
 (define-key region-bindings-mode-map "w" 'kill-ring-save)
+
+(define-key region-bindings-mode-map ";" 'comment-dwim)
 
 ;;; 
 (provide 'mk_mark-setup)
