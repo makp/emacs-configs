@@ -110,6 +110,13 @@
 (global-set-key (kbd "M-s o") 'helm-swoop)
 (global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
+
+
+;; grep the current repository
+(global-set-key (kbd "M-s g") '(lambda ()
+				 (interactive)
+				 (let ((current-prefix-arg '(4)))
+				   (call-interactively 'helm-grep-do-git-grep))))
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
 (global-set-key (kbd "M-s I") 'helm-imenu-in-all-buffers)
@@ -151,7 +158,7 @@
 
 ;;; helm-find-files-map
 (define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
-(define-key helm-find-files-map (kbd "C-x g") (lambda ()
+(define-key helm-find-files-map (kbd "M-s g") (lambda ()
 				     (interactive)
 				     (let ((current-prefix-arg '(4)))
 				       (call-interactively
