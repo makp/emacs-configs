@@ -1,13 +1,5 @@
 ;;; The intuition behind *ibuffer* is to have a buffer menu that lets
-;;; you operate on buffers much in the same manner as Dired. Some
-;;; operations:
-
-;;; * ‘M-s a C-s’ - Do incremental search in the marked buffers.
-;;; * ‘M-s a C-M-s’ - Isearch for regexp in the marked buffers.
-;;; * ‘U’ - Replace by regexp in each of the marked buffers.
-;;; * ‘Q’ - Query replace in each of the marked buffers.
-;;; * ‘I’ - As above, with a regular expression.
-;;; * '=' - Show differences between an unsaved buffer and the file on disk.
+;;; you operate on buffers much in the same manner as Dired.
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
@@ -56,8 +48,7 @@
 (add-hook 'ibuffer-mode-hook
 	  (lambda ()
 	    (ibuffer-auto-mode 1) 	;update
-	    (ibuffer-switch-to-saved-filter-groups "default")
-	    (define-key ibuffer-mode-map (kbd "M-g") 'ace-jump-line-mode)))
+	    (ibuffer-switch-to-saved-filter-groups "default")))
 
 (require 'ibuf-ext)
 (dolist (ibfilter '("^\\*" "_region_"))
@@ -100,6 +91,13 @@
 
 (define-key ibuffer-mode-map "e" 'ibuffer-ediff-marked-buffers)
 
+(define-key ibuffer-mode-map "g" (lambda () 
+				   (interactive)
+				   (call-interactively 'ace-jump-line-mode)))
+
+;; (ibuffer-visit-buffer)
+;; (call-interactively 'magit-status)
+
 (define-key ibuffer-mode-map (kbd "U") 'ibuffer-unmark-all)
 ;;; to be consistent with dired-mode. It was ibuffer.*regexp
 
@@ -108,6 +106,6 @@
   (ibuffer-visit-buffer)
   (call-interactively 'magit-status))
 
-(define-key ibuffer-mode-map (kbd "G") 'mk/open-magit-status-from-ibuffer)
+(define-key ibuffer-mode-map (kbd "o") 'mk/open-magit-status-from-ibuffer)
 
 (provide 'mk_ibuffer-setup)
