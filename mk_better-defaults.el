@@ -199,7 +199,10 @@
 
 (global-set-key (kbd "M-s l") 'goto-line)
 
-(key-chord-define-global "hh" 'ace-jump-mode)
+(global-ace-isearch-mode +1)
+(setq ace-isearch-function 'ace-jump-word-mode)
+(key-chord-define-global "hh" 'isearch-forward)
+
 (key-chord-define-global "HH" 'ace-jump-char-mode)
 
 ;; ========================

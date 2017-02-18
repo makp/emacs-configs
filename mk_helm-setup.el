@@ -37,6 +37,8 @@
       helm-move-to-line-cycle-in-source nil
       helm-locate-command "locate %s -e -A --regex %s"
 
+
+      helm-follow-mode-persistent t
       ;; helm-buffers-fuzzy-matching t
       ;; helm-locate-fuzzy-match t
       ;; helm-M-x-fuzzy-match t
