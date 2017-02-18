@@ -91,12 +91,9 @@
 
 (define-key ibuffer-mode-map "e" 'ibuffer-ediff-marked-buffers)
 
-(define-key ibuffer-mode-map "g" (lambda () 
+(define-key ibuffer-mode-map "l" (lambda ()
 				   (interactive)
 				   (call-interactively 'ace-jump-line-mode)))
-
-;; (ibuffer-visit-buffer)
-;; (call-interactively 'magit-status)
 
 (define-key ibuffer-mode-map (kbd "U") 'ibuffer-unmark-all)
 ;;; to be consistent with dired-mode. It was ibuffer.*regexp
@@ -106,6 +103,6 @@
   (ibuffer-visit-buffer)
   (call-interactively 'magit-status))
 
-(define-key ibuffer-mode-map (kbd "o") 'mk/open-magit-status-from-ibuffer)
+(define-key ibuffer-mode-map (kbd "g") 'mk/open-magit-status-from-ibuffer)
 
 (provide 'mk_ibuffer-setup)

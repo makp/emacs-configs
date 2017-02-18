@@ -1,8 +1,9 @@
 (autoload 'magit-status "magit" nil t)
 
-(add-hook 'magit-mode-hook 
+(add-hook 'magit-status-mode-hook 
 	  (lambda ()
-	    (define-key magit-status-mode-map (kbd "C-b") 'helm-browse-project)))
+	    (define-key magit-status-mode-map (kbd "C-b") 'helm-browse-project)
+	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
 (global-set-key (kbd "C-x p")
 		'(lambda ()
@@ -32,9 +33,15 @@ a list of all projects before running helm-ls-git-ls."
 		     'magit-status))
 		  (call-interactively 'helm-find-files)))
 
-(global-set-key (kbd "C-x o") 'magit-status)
+(global-set-key (kbd "M-g") 'magit-status)
 (global-set-key (kbd "C-x g") 'magit-pull)
-(global-set-key (kbd "C-x d") 'magit-log-buffer-file)
+(global-set-key (kbd "C-x d") 'mk/show-diffs)
+
+(defun mk/show-diffs (&optional arg) 
+  (interactive "P")
+  (when (consp arg)
+    (magit-log-buffer-file))
+  (magit-diff-buffer-file))
 
 (setq magit-diff-refine-hunk 'all)
 
