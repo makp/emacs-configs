@@ -215,6 +215,26 @@ shown, then it'll be hidden."
 					; when appearing on screen
 ;; preview-scale-from-face
 
+;; ===========
+;; helm-bibtex
+;; ===========
+(autoload 'helm-bibtex "helm-bibtex" "" t)
+
+(global-set-key (kbd "C-c r") 'helm-bibtex)
+
+(with-eval-after-load 'helm-bibtex
+  (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
+  (helm-add-action-to-source "Insert citation" 'helm-bibtex-insert-citation helm-source-bibtex 0))
+
+(setq bibtex-completion-bibliography
+      '("~/Documents/mydocs/tex-configs/references/dissert.bib"
+	"~/Documents/mydocs/tex-configs/references/logic.bib")
+      bibtex-completion-cite-default-as-initial-input t
+      bibtex-completion-cite-prompt-for-optional-arguments nil
+      bibtex-completion-cite-commands '("citet" "citep"))
+
+;; (setq bibtex-completion-cite-default-command "citet")
+
 ;; ======
 ;; RefTeX
 ;; ======
@@ -236,9 +256,9 @@ shown, then it'll be hidden."
 
 (add-hook 'reftex-mode-hook
 	  (lambda ()
-	   (define-key reftex-mode-map (kbd "C-c r") 'reftex-citation)
-	   (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-	   (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)))
+	    ;; (define-key reftex-mode-map (kbd "C-c r") 'reftex-citation)
+	    (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
+	    (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)))
 
 (defun my-reftex-toc ()
   "Reloads toc."

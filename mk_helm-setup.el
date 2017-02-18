@@ -46,7 +46,7 @@
       helm-completion-in-region-fuzzy-match t
       
       helm-candidate-number-limit 100
-      helm-autoresize-max-height 15
+      helm-autoresize-max-height 25
       
       helm-buffers-favorite-modes '(latex-mode org-mode emacs-lisp-mode)
       ;; (append helm-buffers-favorite-modes 
