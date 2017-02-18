@@ -14,7 +14,8 @@
 (autoload 'helm-ls-git-ls "helm-ls-git" nil t)
 (require 'helm-swoop)
 (setq helm-swoop-split-with-multiple-windows t
-      helm-swoop-split-direction 'split-window-vertically)
+      helm-swoop-split-direction 'split-window-vertically
+      helm-swoop-pre-input-function (lambda () ""))
 
 ;; =========
 ;; Helm vars
@@ -45,8 +46,8 @@
       helm-completion-in-region-fuzzy-match t
       
       helm-candidate-number-limit 100
-      helm-always-two-windows nil
-      helm-reuse-last-window-split-state nil
+      helm-autoresize-max-height 15
+      
       helm-buffers-favorite-modes '(latex-mode org-mode emacs-lisp-mode)
       ;; (append helm-buffers-favorite-modes 
       ;; '(latex-mode org-mode)
@@ -105,15 +106,21 @@
 ;; searching within files
 ;; ----------------------
 ;; occur
-(global-set-key (kbd "M-s s") 'helm-swoop)
+(global-set-key (kbd "C-x C-s") 'helm-swoop)
 (global-set-key (kbd "M-s o") 'helm-occur)
 (global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
 ;; grep current repository
-(global-set-key (kbd "M-s g") '(lambda ()
-				 (interactive)
-				 (let ((current-prefix-arg '(4)))
-				   (call-interactively 'helm-grep-do-git-grep))))
+(global-set-key (kbd "M-s g") 'mk/grep-project)
+
+(defun mk/grep-project (&optional arg)
+  "If prefix arg is non-nil, call magit-status first."
+  (interactive "P")
+  (when (consp arg)
+    (call-interactively 'magit-status))
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'helm-grep-do-git-grep)))
+  
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
 

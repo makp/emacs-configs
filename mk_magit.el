@@ -1,4 +1,3 @@
-;;; version control
 (autoload 'magit-status "magit" nil t)
 
 (add-hook 'magit-mode-hook 
