@@ -263,7 +263,7 @@
 ;; ------------------
 ;; custom keybindings
 ;; ------------------
-(global-set-key (kbd "M-?") 'mark-paragraph)
+(global-set-key (kbd "M-R") 'mark-paragraph)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
 ;; ===========
