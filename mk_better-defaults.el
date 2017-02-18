@@ -195,6 +195,8 @@
 (setq ace-jump-mode-case-fold nil)
 
 (define-key global-map (kbd "M-l") 'ace-jump-line-mode)
+(global-set-key (kbd "M-L") 'downcase-dwim)
+
 (global-set-key (kbd "M-s l") 'goto-line)
 
 (key-chord-define-global "hh" 'ace-jump-mode)
