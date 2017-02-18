@@ -75,8 +75,6 @@
 (global-set-key (kbd "C-x l") 'sticky-window-delete-other-windows)
 (global-set-key (kbd "C-x C-l") 'nil)
 (global-set-key (kbd "C-x C-l") 'delete-other-windows)
-(global-set-key (kbd "C-x C-S-l") 'downcase-region)
-
 
 ;;;###autoload
 (defun sticky-window-keep-window-visible ()
