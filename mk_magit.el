@@ -1,6 +1,10 @@
 ;;; version control
 (autoload 'magit-status "magit" nil t)
 
+(add-hook 'magit-mode-hook 
+	  (lambda ()
+	    (define-key magit-status-mode-map (kbd "C-b") 'helm-browse-project)))
+
 (global-set-key (kbd "C-x p")
 		'(lambda ()
 		   (interactive)
@@ -8,10 +12,6 @@
 		     (call-interactively 'magit-status))
 		   (call-interactively 'magit-pull)))
 
-
-(define-key magit-status-mode-map (kbd "C-b") 'helm-browse-project)
-
-;; 
 (defun mk/browse-project (&optional arg)
   "Function for browsing projects. If prefix is non-nil, provide
 a list of all projects before running helm-ls-git-ls."
