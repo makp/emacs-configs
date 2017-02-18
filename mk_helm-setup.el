@@ -156,7 +156,7 @@ particular repo"
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
-(define-key helm-map (kbd "C-S-r") 'helm-toggle-visible-mark)
+(define-key helm-map (kbd "C-x C-r") 'helm-toggle-visible-mark)
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
 
 ;;; helm-buffer-map

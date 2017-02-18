@@ -33,7 +33,9 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 ;; mark commands
 ;; =============
 (global-set-key (kbd "M-r") 'mark-sexp)
-(global-set-key (kbd "C-S-r") 'set-mark-command)
+(global-set-key (kbd "C-x C-r") 'set-mark-command)   ; it was find-file-read-only
+(global-set-key (kbd "C-S-r") 'mark-paragraph)
+;; (global-set-key (kbd "M-R")
 
 ;; ====================
 ;; region-bindings-mode

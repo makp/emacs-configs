@@ -200,8 +200,12 @@
 (global-set-key (kbd "M-s l") 'goto-line)
 
 (global-ace-isearch-mode +1)
-(setq ace-isearch-function 'ace-jump-word-mode)
+(setq ace-isearch-function 'ace-jump-word-mode
+      ace-isearch-input-length 2
+      ace-isearch-jump-delay 0.1)
+
 (key-chord-define-global "hh" 'isearch-forward)
+
 
 (key-chord-define-global "HH" 'ace-jump-char-mode)
 
@@ -216,8 +220,6 @@
 (define-key ctl-x-map "." nil) ;;; I never use fill-prefix
 (define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
 (global-set-key (kbd "C-x C-.") 'kmacro-end-or-call-macro)
-
-(global-set-key (kbd "C-x C-r") 'repeat)   ; it was find-file-read-only
 
 ;; (defun mk/repeat ()
 ;;   (interactive)
@@ -263,10 +265,6 @@
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "M-Z") 'zap-to-char)
 
-;; ------------------
-;; custom keybindings
-;; ------------------
-(global-set-key (kbd "M-R") 'mark-paragraph)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
 ;; ===========
