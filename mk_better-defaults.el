@@ -202,7 +202,7 @@
 (global-ace-isearch-mode +1)
 (setq ace-isearch-function 'ace-jump-word-mode
       ace-isearch-input-length 2
-      ace-isearch-jump-delay 0.1)
+      ace-isearch-jump-delay 0.2)
 
 (key-chord-define-global "hh" 'isearch-forward)
 
