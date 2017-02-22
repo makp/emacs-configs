@@ -63,7 +63,7 @@
 (setq org-clock-out-remove-zero-time-clocks t)
 ;; Remove clock entries with a zero duration
 
-(setq org-clock-mode-line-total 'auto)
+(setq org-clock-mode-line-total 'today)
 
 (setq org-clock-clocked-in-display 'both)
 ;;; where to display talk/time
