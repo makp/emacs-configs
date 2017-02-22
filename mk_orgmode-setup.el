@@ -205,8 +205,7 @@
 			     "~/elisp/agendas/ag-academic.org"
 			     "~/elisp/agendas/ag-longterm.org"
 			     "~/elisp/agendas/ag-it.org"
-			     "~/elisp/agendas/ag-teaching.org"
-			     "~/elisp/agendas/wasteclock.org"))
+			     "~/elisp/agendas/ag-teaching.org"))
 
 
 ;;; agenda dispatcher
