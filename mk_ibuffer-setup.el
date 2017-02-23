@@ -57,8 +57,8 @@
 ;;; some setqs
 (setq
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
- ibuffer-expert t) ;; don't ask for confirmation of "dangerous" operations.
-
+ ibuffer-expert t ;; don't ask for confirmation of "dangerous" operations.
+ ibuffer-old-time 50)
 ;; Use human readable Size column instead of original one
 (define-ibuffer-column size-h
   (:name "Size" :inline t)
