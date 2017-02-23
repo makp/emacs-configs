@@ -431,6 +431,8 @@
 ;; =====
 (setq org-timer-default-timer 25)
 
+(setq org-time-clocksum-format (quote (:days "%dd" :minutes "%dm" :require-minutes t)))
+
 ;; (add-hook 'org-clock-in-hook '(lambda () 
 ;; 				(if (not org-timer-current-timer) 
 ;; 				    (org-timer-set-timer '(16)))))
