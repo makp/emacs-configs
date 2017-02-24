@@ -63,7 +63,7 @@
 (setq org-clock-out-remove-zero-time-clocks t)
 ;; Remove clock entries with a zero duration
 
-(setq org-clock-mode-line-total 'today)
+(setq org-clock-mode-line-total 'all)
 
 (setq org-clock-clocked-in-display 'both)
 ;;; where to display talk/time
@@ -381,8 +381,8 @@
 	 ;; add a custom reftex cite format to insert links
          (reftex-set-cite-format
           '((?b . "[[bib:%l][%l-bib]]")
-            (?t . "[[bib:%l][%a (%y)]]")
-	    (?h . "+ [[bib:%l][%a %y %t]]\n  ")))))
+            (?t . "[[bib:%l][%2a (%y)]]")
+	    (?h . "[[bib:%l][%2a %y %t]]\n  ")))))
 
   (define-key org-mode-map (kbd "C-c r") 'reftex-citation))
 
