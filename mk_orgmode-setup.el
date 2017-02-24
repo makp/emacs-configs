@@ -382,7 +382,7 @@
          (reftex-set-cite-format
           '((?b . "[[bib:%l][%l-bib]]")
             (?t . "[[bib:%l][%2a (%y)]]")
-	    (?h . "[[bib:%l][%2a %y %t]]\n  ")))))
+	    (?h . "[[bib:%l][%A %y %t]]\n  "))))))
 
   (define-key org-mode-map (kbd "C-c r") 'reftex-citation))
 
