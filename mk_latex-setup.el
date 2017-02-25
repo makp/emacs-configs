@@ -235,6 +235,27 @@ shown, then it'll be hidden."
 
 ;; (setq bibtex-completion-cite-default-command "citet")
 
+
+(defun mk/bibtex-completion-format-citation-for-org (keys)
+  "Formatter for inserting bibtex refs in org-mode references."
+  (s-join ", " (cl-loop
+                for key in keys
+                for entry = (bibtex-completion-get-entry key)
+                for author = (bibtex-completion-shorten-authors
+                              (or (bibtex-completion-get-value "author" entry)
+                                  (bibtex-completion-get-value "editor" entry)))
+                for year = (bibtex-completion-get-value "year" entry)
+		for title = (bibtex-completion-get-value "title" entry) 
+		collect (format "[[bib:%s][%s (%s) %s]]" key author year title))))
+
+(setq bibtex-completion-format-citation-functions
+   '((org-mode . mk/bibtex-completion-format-citation-for-org)
+     (latex-mode . bibtex-completion-format-citation-cite)
+     (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+     (default . bibtex-completion-format-citation-default)))
+
+
+
 ;; ======
 ;; RefTeX
 ;; ======

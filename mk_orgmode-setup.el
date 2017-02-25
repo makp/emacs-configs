@@ -372,27 +372,27 @@
 ;; ------
 ;; reftex
 ;; ------
-(defun org-mode-reftex-setup ()
-  (load-library "reftex")
-  (and (buffer-file-name)
-       (file-exists-p (buffer-file-name))
-       (progn
-         (reftex-parse-all)
-	 ;; add a custom reftex cite format to insert links
-         (reftex-set-cite-format
-          '((?b . "[[bib:%l][%l-bib]]")
-            (?t . "[[bib:%l][%2a (%y)]]")
-	    (?h . "[[bib:%l][%A %y %t]]\n  ")))))
-  (define-key org-mode-map (kbd "C-c r") 'reftex-citation))
+;; (defun org-mode-reftex-setup ()
+;;   (load-library "reftex")
+;;   (and (buffer-file-name)
+;;        (file-exists-p (buffer-file-name))
+;;        (progn
+;;          (reftex-parse-all)
+;; 	 ;; add a custom reftex cite format to insert links
+;;          (reftex-set-cite-format
+;;           '((?b . "[[bib:%l][%l-bib]]")
+;;             (?t . "[[bib:%l][%2a (%y)]]")
+;; 	    (?h . "[[bib:%l][%A %y %t]]\n  ")))))
+;;   (define-key org-mode-map (kbd "C-c r") 'reftex-citation))
 
-;;; Notes:
-;;; 1. using load-library instead of (reftex-mode t) is good because
-;;;    in that way org-mode keybindings are not overwritten by the
-;;;    reftex mode -- e.g., C-c ] which is bound to org-remove-file.
-;;; 2. this code will only work after I load my auctex config
-;;;    (otherwise reftex won't load my default bib file.
+;; ;;; Notes:
+;; ;;; 1. using load-library instead of (reftex-mode t) is good because
+;; ;;;    in that way org-mode keybindings are not overwritten by the
+;; ;;;    reftex mode -- e.g., C-c ] which is bound to org-remove-file.
+;; ;;; 2. this code will only work after I load my auctex config
+;; ;;;    (otherwise reftex won't load my default bib file.
 
-(add-hook 'org-mode-hook 'org-mode-reftex-setup)
+;; (add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
 ;; -------
 ;; preview
