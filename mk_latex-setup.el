@@ -231,7 +231,7 @@ shown, then it'll be hidden."
 	"~/Documents/mydocs/tex-configs/references/logic.bib")
       bibtex-completion-cite-default-as-initial-input t
       bibtex-completion-cite-prompt-for-optional-arguments nil
-      bibtex-completion-cite-commands '("citet" "citep"))
+      bibtex-completion-cite-commands '("citep" "citet"))
 
 ;; (setq bibtex-completion-cite-default-command "citet")
 
@@ -247,6 +247,8 @@ shown, then it'll be hidden."
                 for year = (bibtex-completion-get-value "year" entry)
 		for title = (bibtex-completion-get-value "title" entry) 
 		collect (format "[[bib:%s][%s (%s) %s]]" key author year title))))
+
+;; check the function bibtex-completion-format-citation-cite for ideas
 
 (setq bibtex-completion-format-citation-functions
    '((org-mode . mk/bibtex-completion-format-citation-for-org)
