@@ -267,7 +267,7 @@
 ;; -------
 (global-set-key "\C-cc" 'org-capture)
 (setq org-directory "~/elisp/agendas/")
-(setq org-default-notes-file (concat org-directory "/ag-it.org"))
+(setq org-default-notes-file (concat org-directory "ag-it.org"))
 
 (setq org-capture-templates
       '(("a" "Academic" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
