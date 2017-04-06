@@ -220,10 +220,11 @@
 	  (tags "@CURRENT")
 	  (agenda "" ((org-agenda-ndays 1)
 		      (org-agenda-show-all-dates nil)))))
-	("A" "Monthly schedule" agenda "" ((org-agenda-ndays 21)
+	("A" "Monthly schedule" agenda "" ((org-agenda-ndays 31)
 			(org-agenda-show-all-dates nil)))
-	("c" "Today schedule" agenda "" ((org-agenda-ndays 1)
-					 (org-agenda-overriding-header "Today")))))
+	;; ("c" "Today schedule" agenda "" ((org-agenda-ndays 1)
+	;; 				 (org-agenda-overriding-header "Today")))
+	))
 
 ;; Description: the second parameter is the search type, followed by
 ;; the regexp to be matched. Use tags-todo to limit your search to
@@ -276,17 +277,6 @@
 	 "** TODO %?\n %i\n")
 	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
 	 "** TODO %?\n %i\n")))
-
-;; Description: the first string is the key to reach the template, the
-;; second is a short description. Then follows the type of the entry
-;; and a definition of the target location for storing the note.
-;; Finally, the template itself, a string with %-scapes to fill in
-;; information based on time and context. Here are some options:
-;; %a the link created with org-store-link
-;; %i the region when remember is called with C-u
-;; %t timestamp (date only)
-;; %T timestamp (date + time)
-;; %u, %U like above but inactive.
 
 ;; =============
 ;; inline images
