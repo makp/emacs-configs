@@ -274,7 +274,7 @@
 	 "** TODO %?\n  %i\n")
 	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
 	 "** TODO %?\n %i\n")
-	("g" "Geral" entry (file "~/elisp/agendas/ag-geral.org")
+	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
 	 "** TODO %?\n %i\n")))
 
 ;; Description: the first string is the key to reach the template, the
