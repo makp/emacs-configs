@@ -205,7 +205,8 @@
 			     "~/elisp/agendas/ag-academic.org"
 			     "~/elisp/agendas/ag-longterm.org"
 			     "~/elisp/agendas/ag-it.org"
-			     "~/elisp/agendas/ag-teaching.org"))
+			     "~/elisp/agendas/ag-teaching.org"
+			     "~/elisp/agendas/gcal.org"))
 
 
 ;;; agenda dispatcher
@@ -271,12 +272,19 @@
 (setq org-default-notes-file (concat org-directory "ag-it.org"))
 
 (setq org-capture-templates
-      '(("a" "Academic" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
+      '(("c" "Gcal" entry (file  "~/elisp/agendas/gcal.org")
+	 "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+	("a" "Academic" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
 	 "** TODO %?\n  %i\n")
 	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
 	 "** TODO %?\n %i\n")
 	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
 	 "** TODO %?\n %i\n")))
+
+;; ----
+;; gcal
+;; ----
+(require 'mk_gcal)
 
 ;; =============
 ;; inline images
