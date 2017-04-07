@@ -332,7 +332,7 @@
    (latex . t)
    ;; (R . t)
    (C . t)
-   (octave . t)
+   ;; (octave . t)
    (gnuplot . t)))
 
 (setq org-src-fontify-natively t)
@@ -480,10 +480,10 @@
 ;;           (lambda ()
 ;;             (local-set-key "\C-c\M-o" 'org-mime-org-buffer-htmlize)))
 
-;; ;; Preferred applications
-;; (setq org-file-apps (quote ((auto-mode . emacs) 
-;; 			    ("\\.x?html?\\'" . default)
-;; 			    ("\\.pdf\\'" . "/usr/bin/zathura %s"))))
+;; Preferred applications
+(setq org-file-apps (quote ((auto-mode . emacs) 
+			    ("\\.x?html?\\'" . default)
+			    ("\\.pdf\\'" . "/usr/bin/okular %o"))))
 
 ;; ;; ===========
 ;; ;; scratch.org
