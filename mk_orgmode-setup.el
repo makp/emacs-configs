@@ -322,7 +322,7 @@
    (python . t)
    (sh . t)
    (latex . t)
-   (R . t)
+   ;; (R . t)
    (C . t)
    (octave . t)
    (gnuplot . t)))
