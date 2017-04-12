@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 #name : Org-mode blocks
+#key: block
 # --
 
 #+BEGIN_${1:_$(upcase yas/text)}
