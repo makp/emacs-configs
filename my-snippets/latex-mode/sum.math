@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: summation
+# name: summation symbol
 # key:
 # --
 \sum_{${1:}}^{${2:}} $0
