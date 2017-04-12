@@ -602,8 +602,8 @@ wastetime.org."
       (delete-window)
       (read-key "Press any key to exit.")
       (save-buffer)
-      (kill-buffer "clocktable.org-DAILY (tudo)-1")
-      (kill-buffer "clocktable.org-DAILY-1"))))
+      (kill-buffer "clocktable.org-Past-1")
+      (kill-buffer "clocktable.org-Today-1"))))
 
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
 
