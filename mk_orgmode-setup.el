@@ -213,23 +213,18 @@
 (setq org-agenda-custom-commands
       '(("h" "Coisas pra hoje"
 	 ((tags "@Today")
-	  (agenda "" ((org-agenda-ndays 1)
+	  (agenda "" ((org-agenda-span 1)
 		      (org-agenda-show-all-dates nil)))))
 	("n" "Coisas pendentes"
 	 ((tags "rep")
 	  (tags "@Today")
 	  (tags "@CURRENT")
-	  (agenda "" ((org-agenda-ndays 1)
+	  (agenda "" ((org-agenda-span 7)
 		      (org-agenda-show-all-dates nil)))))
-	("A" "Monthly schedule" agenda "" ((org-agenda-ndays 31)
-			(org-agenda-show-all-dates nil)))
-	;; ("c" "Today schedule" agenda "" ((org-agenda-ndays 1)
-	;; 				 (org-agenda-overriding-header "Today")))
-	))
+	("A" "Monthly schedule" agenda "" ((org-agenda-span 31)
+			(org-agenda-show-all-dates nil)))))
 
-;; Description: the second parameter is the search type, followed by
-;; the regexp to be matched. Use tags-todo to limit your search to
-;; headlines that match both a tag *and* a TODO item.
+;; (org-agenda-overriding-header "")
 
 (setq org-icalendar-use-scheduled '(todo-start event-if-todo))
 
