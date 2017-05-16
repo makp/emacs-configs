@@ -201,11 +201,11 @@
 ;; ------------
 ;; Agenda files
 ;; ------------
-(setq org-agenda-files (list "~/elisp/agendas/ag-geral.org"
-			     "~/elisp/agendas/ag-academic.org"
+(setq org-agenda-files (list "~/elisp/agendas/ag-academic.org"
 			     "~/elisp/agendas/ag-longterm.org"
-			     "~/elisp/agendas/ag-it.org"
 			     "~/elisp/agendas/ag-teaching.org"
+			     "~/elisp/agendas/ag-it.org"
+			     "~/elisp/agendas/ag-geral.org"
 			     "~/elisp/agendas/gcal.org"))
 
 
