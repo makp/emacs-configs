@@ -179,10 +179,12 @@
 ;;; Tags are useful to filter your todo list.
 (setq org-tag-alist '(("PROJECT" . ?p)
 		      ("rep" . ?r)
-		      ("@CURRENT" . ?c)
 		      ("@lineup" . ?l)
 		      ("@WAITING" . ?w)
 		      ("@Today" . ?t)
+		      ("paper1" . ?1)
+		      ("paper2" . ?2)
+		      ("paper3" . ?3)
 		      ;; ("LitReview" . ?L)
 		      ;; ("writing" . ?W)
 		      ;; ("reading" . ?R)
@@ -215,13 +217,23 @@
 	 ((tags "@Today")
 	  (agenda "" ((org-agenda-span 1)
 		      (org-agenda-show-all-dates nil)))))
+	("p" "My papers"
+	 ((tags-todo "paper1")
+	  (tags-todo "paper2")
+	  (tags-todo "paper3")))
+	("l" tags-todo "+paper1+paper2+paper3")
 	("n" "Coisas pendentes"
-	 ((tags "rep")
-	  (tags "@Today")
-	  (tags "@CURRENT")
-	  (agenda "" ((org-agenda-span 7)
+	 ((tags "@Today")
+	  (agenda "" ((org-agenda-span 1)
+		      (org-agenda-show-all-dates nil)))
+	  (tags "@lineup")
+	  (tags "@WAITING")))
+	("w" "Agenda pra semana"
+	 ((agenda "" ((org-agenda-span 7)
 		      (org-agenda-show-all-dates nil)))))
-	("A" "Monthly schedule" agenda "" ((org-agenda-span 31)
+	("r" "Coisas repetitivas"
+	 ((tags "rep")))
+	("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
 			(org-agenda-show-all-dates nil)))))
 
 ;; (org-agenda-overriding-header "")
