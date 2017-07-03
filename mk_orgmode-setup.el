@@ -185,7 +185,8 @@
 		      ("paper1" . ?1)
 		      ("paper2" . ?2)
 		      ("paper3" . ?3)
-		      ("paper4" . ?4)))
+		      ("paper4" . ?4)
+		      ("paper5" . ?5)))
 
 (setq org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep"))
 ;; These are the tags that I don't want to be inherited.
@@ -216,7 +217,8 @@
 	 ((tags-todo "paper1")
 	  (tags-todo "paper2")
 	  (tags-todo "paper3")
-	  (tags-todo "paper4")))
+	  (tags-todo "paper4")
+	  (tags-todo "paper5")))
 	("n" "Coisas pendentes"
 	 ((tags "@Today")
 	  (agenda "" ((org-agenda-span 1)
