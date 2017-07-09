@@ -235,6 +235,8 @@
 
 ;; (org-agenda-overriding-header "")
 
+(setq org-priority-faces '((?A . (:foreground "yellow"))))
+
 (setq org-icalendar-use-scheduled '(todo-start event-if-todo))
 
 ;; ===========
