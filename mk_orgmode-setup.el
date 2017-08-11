@@ -281,7 +281,7 @@
 
 (setq org-capture-templates
       '(("c" "Gcal" entry (file  "~/elisp/agendas/gcal.org")
-	 "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+	 "* %?\n\n%^T\n\n")
 	("a" "Academic" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
 	 "** TODO %?\n  %i\n")
 	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
