@@ -2,7 +2,6 @@
 
 (add-hook 'magit-status-mode-hook 
 	  (lambda ()
-	    (define-key magit-status-mode-map (kbd "C-b") 'helm-browse-project)
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
 (global-set-key (kbd "C-x p")
