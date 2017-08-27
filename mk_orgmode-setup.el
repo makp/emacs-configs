@@ -56,17 +56,15 @@
 ;; ========
 ;; clocking
 ;; ========
-(setq org-clock-persist t)
 (org-clock-persistence-insinuate)
 ;; Save the clock history across Emacs sessions.
 
-(setq org-clock-out-remove-zero-time-clocks t)
-;; Remove clock entries with a zero duration
+(setq org-clock-persist t
+      org-clock-out-remove-zero-time-clocks t ;; Remove clock entries with a zero duration
+      org-clock-mode-line-total 'all)
 
-(setq org-clock-mode-line-total 'all)
-
-(setq org-clock-clocked-in-display 'both)
-;;; where to display talk/time
+(setq org-clock-clocked-in-display 'frame-title)
+(setq org-timer-display 'mode-line)
 
 ;; =================
 ;; Structure editing
