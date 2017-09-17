@@ -12,6 +12,11 @@
 	      (define-key dired-mode-map "l" 'dired-up-directory)
 	      (load "dired-x")))
 
+(require 'dired-details)
+;; (setq-default dired-details-hidden-string "---")
+(dired-details-install)
+
+
 
 ;; (defun mk/dired-jump (&optional arg)
 ;;   "With prefix arg dired-jump in another window."
