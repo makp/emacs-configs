@@ -9,7 +9,7 @@
 	    (ibuffer-auto-mode 1))) ;auto-update
 (setq
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
- ;; ibuffer-expert t ;; don't ask for confirmation of "dangerous" operations.
+ ibuffer-expert t ;; don't ask for confirmation of "dangerous" operations.
  ibuffer-filter-group-name-face 'font-lock-variable-name-face ;;
  ibuffer-old-time 50)
 
