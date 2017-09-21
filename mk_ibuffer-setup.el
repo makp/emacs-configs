@@ -68,10 +68,7 @@
               " "
               (mode 16 16 :left :elide)
               " "
-              filename-and-process)))
-
-
-
+              (vc-status 16 16 :left))))
 
 ;; (eval-after-load 'ibuffer '(require 'ibuffer-git))
 
