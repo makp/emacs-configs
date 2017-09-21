@@ -12,8 +12,9 @@
 	      (define-key dired-mode-map "l" 'dired-up-directory)
 	      (load "dired-x")))
 
+;; Use ')'/'(' to hide/show dired details
 (require 'dired-details)
-;; (setq-default dired-details-hidden-string "---")
+(setq-default dired-details-hidden-string "") ; make it cleaner
 (dired-details-install)
 
 
