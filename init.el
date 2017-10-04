@@ -24,7 +24,7 @@
 ;; ===========
 ;; color theme
 ;; ===========
-(load-theme 'zenburn t)
+(load-theme 'gruvbox-dark-medium t)
 
 ;; ===========
 ;; core config
