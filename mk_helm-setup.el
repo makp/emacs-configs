@@ -38,26 +38,29 @@
       helm-locate-command "locate %s -e -A --regex %s"
 
       helm-follow-mode-persistent t
+      helm-ff-auto-update-initial-value t
 
       helm-mode-fuzzy-match t
       ;; helm-buffers-fuzzy-matching t
       ;; helm-locate-fuzzy-match t
       ;; helm-M-x-fuzzy-match t
       ;; helm-imenu-fuzzy-match t
-
+      
       helm-completion-in-region-fuzzy-match t
       
       helm-candidate-number-limit 100
       helm-autoresize-max-height 25
+
       
-      helm-buffers-favorite-modes '(latex-mode org-mode emacs-lisp-mode)
+      ;; helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(blah))
       ;; (append helm-buffers-favorite-modes 
       ;; '(latex-mode org-mode)
       helm-ls-git-status-command 'magit-status  ;
       helm-ff-skip-boring-files t
-      helm-boring-file-regexp-list '("_region_.*")
+      helm-boring-file-regexp-list (append helm-boring-file-regexp-list '("_region_.*" "\\.git$"))
       helm-boring-buffer-regexp-list
-      '("*Help*" "*Completions*" "*Ibuffer*" "*toc*" "\\*Minibuf"))
+      (append helm-boring-buffer-regexp-list 
+	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*")))
 
 ;; helm-completing-read-handlers-alist controls where helm completion
 ;; is used.
