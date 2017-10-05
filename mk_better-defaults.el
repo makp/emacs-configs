@@ -185,6 +185,17 @@
 (key-chord-define-global "cg" 'hippie-expand)
 
 
+;; --------
+;; avy-mode
+;; --------
+(require 'avy)
+(define-key global-map (kbd "M-l") 'avy-goto-line)
+
+(setq avy-keys (nconc (number-sequence ?a ?z)
+		      (number-sequence ?A ?Z)
+		      (number-sequence ?1 ?9)
+		      '(?0)))
+
 ;; ========
 ;; ace-jump
 ;; ========
@@ -194,7 +205,7 @@
 ;;; don't ignore case
 (setq ace-jump-mode-case-fold nil)
 
-(define-key global-map (kbd "M-l") 'ace-jump-line-mode)
+;; (define-key global-map (kbd "M-l") 'ace-jump-line-mode)
 (global-set-key (kbd "M-L") 'downcase-dwim)
 
 (global-set-key (kbd "M-s l") 'goto-line)

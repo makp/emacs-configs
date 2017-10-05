@@ -14,10 +14,12 @@
  '(ac-math
    ace-isearch
    ace-jump-mode
+   ace-window
    aggressive-indent
    auctex 
    auto-complete
    autopair
+   avy
    dired-details
    dropdown-list
    ess

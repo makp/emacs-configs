@@ -1,5 +1,10 @@
 ;;; windows and buffers
 
+(require 'ace-window)
+(setq aw-keys '( ?d ?h ?t ?n ?l ?u ?e ?o))
+;; (global-set-key (kbd "") 'ace-window)
+
+
 ;; (global-set-key (kbd "C-x c") 'bury-buffer)
 (global-set-key (kbd "C-x C-c") 'delete-window)
 
