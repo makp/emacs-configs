@@ -70,6 +70,7 @@ Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
 
 ;;; If you want to add multiple cursors not based on continous lines
 ;;; but on keywords, use:
+(define-key region-bindings-mode-map "g" 'keyboard-quit)
 (define-key region-bindings-mode-map "n" 'mc/mark-next-like-this)
 (define-key region-bindings-mode-map "t" 'mc/mark-previous-like-this)
 (define-key region-bindings-mode-map "N" 'mc/unmark-next-like-this)
