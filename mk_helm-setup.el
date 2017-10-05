@@ -39,25 +39,23 @@
 
       helm-follow-mode-persistent t
       helm-ff-auto-update-initial-value t
+      helm-ff-transformer-show-only-basename t
 
       helm-mode-fuzzy-match t
+      helm-completion-in-region-fuzzy-match t
       ;; helm-buffers-fuzzy-matching t
       ;; helm-locate-fuzzy-match t
       ;; helm-M-x-fuzzy-match t
       ;; helm-imenu-fuzzy-match t
       
-      helm-completion-in-region-fuzzy-match t
-      
       helm-candidate-number-limit 100
       helm-autoresize-max-height 25
 
-      
-      ;; helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(blah))
-      ;; (append helm-buffers-favorite-modes 
-      ;; '(latex-mode org-mode)
       helm-ls-git-status-command 'magit-status  ;
+
       helm-ff-skip-boring-files t
       helm-boring-file-regexp-list (append helm-boring-file-regexp-list '("_region_.*" "\\.git$"))
+      helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(LaTeX-mode))
       helm-boring-buffer-regexp-list
       (append helm-boring-buffer-regexp-list 
 	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*")))
