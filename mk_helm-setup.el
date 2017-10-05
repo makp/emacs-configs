@@ -58,7 +58,7 @@
       helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(LaTeX-mode))
       helm-boring-buffer-regexp-list
       (append helm-boring-buffer-regexp-list 
-	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*")))
+	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*")))
 
 ;; helm-completing-read-handlers-alist controls where helm completion
 ;; is used.
