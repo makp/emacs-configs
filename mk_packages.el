@@ -11,8 +11,7 @@
    (or (package-installed-p package)
        (if (y-or-n-p (format "Package %s is missing. Install it? " package)) 
            (package-install package))))
- '(
-   ac-math
+ '(ac-math
    ace-isearch
    ace-jump-mode
    aggressive-indent
@@ -45,8 +44,7 @@
    web-mode
    yaml-mode
    yasnippet
-   zenburn-theme
-   ))
+   zenburn-theme))
 
 (provide 'mk_packages)
 ;;; mk_packages ends here

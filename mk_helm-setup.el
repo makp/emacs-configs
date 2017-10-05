@@ -37,14 +37,14 @@
       helm-move-to-line-cycle-in-source nil
       helm-locate-command "locate %s -e -A --regex %s"
 
-
       helm-follow-mode-persistent t
+
+      helm-mode-fuzzy-match t
       ;; helm-buffers-fuzzy-matching t
       ;; helm-locate-fuzzy-match t
       ;; helm-M-x-fuzzy-match t
       ;; helm-imenu-fuzzy-match t
 
-      helm-mode-fuzzy-match t
       helm-completion-in-region-fuzzy-match t
       
       helm-candidate-number-limit 100
@@ -54,9 +54,10 @@
       ;; (append helm-buffers-favorite-modes 
       ;; '(latex-mode org-mode)
       helm-ls-git-status-command 'magit-status  ;
-      helm-boring-file-regexp-list '("\\.git$")
+      helm-ff-skip-boring-files t
+      helm-boring-file-regexp-list '("_region_.*")
       helm-boring-buffer-regexp-list
-      '("*Help*" "*Completions*" "*Ibuffer*" "*toc*"))
+      '("*Help*" "*Completions*" "*Ibuffer*" "*toc*" "\\*Minibuf"))
 
 ;; helm-completing-read-handlers-alist controls where helm completion
 ;; is used.
