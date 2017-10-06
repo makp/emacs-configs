@@ -12,6 +12,7 @@
 ;; Extensions
 ;; ==========
 (autoload 'helm-ls-git-ls "helm-ls-git" nil t)
+
 (require 'helm-swoop)
 (setq helm-swoop-split-with-multiple-windows t
       helm-swoop-split-direction 'split-window-vertically
@@ -114,17 +115,27 @@
 (global-set-key (kbd "M-s o") 'helm-occur)
 (global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
-;; grep current repository
-(global-set-key (kbd "M-s g") 'mk/grep-project)
-
+;; git-grep
 (defun mk/grep-project (&optional arg)
-  "If prefix arg is non-nil, call magit-status first."
+  "git-grep the whole repository. If prefix arg is non-nil, ask
+for a git repo first."
   (interactive "P")
-  (when (consp arg)
-    (call-interactively 'magit-status))
+  (when (consp arg) 
+    (call-interactively 'magit-status)
+    (goto-line 3)) 
   (let ((current-prefix-arg '(4)))
     (call-interactively 'helm-grep-do-git-grep)))
-  
+
+(global-set-key (kbd "M-s g") 'mk/grep-project)
+
+(define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
+
+(eval-after-load 'helm-ls-git
+  '(define-key helm-ls-git-map (kbd "M-s g") 'helm-ff-run-git-grep))
+
+
+
+
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
 
@@ -166,11 +177,6 @@ particular repo"
 
 ;;; helm-find-files-map
 (define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
-(define-key helm-find-files-map (kbd "M-s g") (lambda ()
-				     (interactive)
-				     (let ((current-prefix-arg '(4)))
-				       (call-interactively
-					'helm-ff-run-grep))))
 
 ;; ======
 ;; eshell
