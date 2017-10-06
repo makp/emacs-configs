@@ -4,6 +4,8 @@
 	  (lambda ()
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
+(global-set-key (kbd "C-x g") 'magit-pull)
+
 (global-set-key (kbd "C-x p")
 		'(lambda ()
 		   (interactive)
@@ -12,13 +14,12 @@
 		   (call-interactively 'magit-pull)))
 
 (defun mk/browse-project (&optional arg)
-  "Function for browsing projects. If prefix is non-nil, provide
-a list of all projects before running helm-ls-git-ls."
+  "Function for browsing git repos. If prefix is non-nil, provide
+a list of all repos before running helm-browse-project."
   (interactive "P")
   (when (consp arg) 		       
-    (let ((current-prefix-arg '(4)))
-      (call-interactively
-       'magit-status)))
+    ;; (let ((current-prefix-arg '(4))))
+    (call-interactively 'magit-status))
   (call-interactively 'helm-browse-project)) ;helm-ls-git-ls
 
 (global-set-key (kbd "C-x b") 'mk/browse-project)
@@ -32,15 +33,20 @@ a list of all projects before running helm-ls-git-ls."
 		     'magit-status))
 		  (call-interactively 'helm-find-files)))
 
-(global-set-key (kbd "M-g") 'magit-status)
-(global-set-key (kbd "C-x g") 'magit-pull)
-(global-set-key (kbd "C-x d") 'mk/show-diffs)
+(defun mk/git-status (&optional arg)
+  (interactive "P")
+  (call-interactively 'magit-status)
+  (goto-line 4))
+
+(global-set-key (kbd "M-g") 'mk/git-status)
 
 (defun mk/show-diffs (&optional arg) 
   (interactive "P")
   (when (consp arg)
     (magit-log-buffer-file))
   (magit-diff-buffer-file))
+
+(global-set-key (kbd "C-x d") 'mk/show-diffs)
 
 (setq magit-diff-refine-hunk 'all)
 
