@@ -370,7 +370,7 @@
 ;; ---------
 ;; pdf-tools
 ;; ---------
-;; (pdf-tools-install)
+(pdf-tools-install)
 
 ;; (setq doc-view-continuous t)
 ;; (setq doc-view-resolution 250)

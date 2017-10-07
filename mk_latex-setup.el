@@ -40,12 +40,15 @@
  ;; 
  TeX-view-program-list
  '(("DVI Viewer" "okular %o") 
-;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
+   ;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
    ("PDF Viewer" "okular --unique %u")
    ("HTML Viewer" "firefox %o")))
 ;; Description: about the options with okular, %n is the line of the
 ;; cursor and %b is the source file; the --unique option keeps a
 ;; single version of okular running
+
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+;; revert the PDF-buffer only after the TeX compilation has finished
 
 ;; ------------------
 ;; Sectioning command
@@ -251,11 +254,10 @@ shown, then it'll be hidden."
 ;; check the function bibtex-completion-format-citation-cite for ideas
 
 (setq bibtex-completion-format-citation-functions
-   '((org-mode . mk/bibtex-completion-format-citation-for-org)
-     (latex-mode . bibtex-completion-format-citation-cite)
-     (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
-     (default . bibtex-completion-format-citation-default)))
-
+      '((org-mode . mk/bibtex-completion-format-citation-for-org)
+	(latex-mode . bibtex-completion-format-citation-cite)
+	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+	(default . bibtex-completion-format-citation-default)))
 
 
 ;; ======
@@ -298,8 +300,8 @@ shown, then it'll be hidden."
 (setq
  TeX-source-correlate-mode t
  TeX-source-specials-mode t)
-;; Description: TeX-source-correlate-mode toggles support for
-;; forward/inverse search
+;; TeX-source-correlate-mode toggles support for forward/inverse
+;; search
 
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
