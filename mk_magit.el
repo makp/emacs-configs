@@ -22,7 +22,7 @@ a list of all repos before running helm-browse-project."
     (call-interactively 'magit-status))
   (call-interactively 'helm-browse-project)) ;helm-ls-git-ls
 
-(global-set-key (kbd "C-x b") 'mk/browse-project)
+(global-set-key (kbd "C-x DEL") 'mk/browse-project)
 
 (global-set-key (kbd "C-x t")
 		(lambda ()

@@ -84,7 +84,7 @@
 (global-set-key (kbd "C-x h") 'helm-find-files)
 
 ;;; list buffers
-(global-set-key (kbd "C-x DEL") 'helm-buffers-list)	; C-x C-h
+(global-set-key (kbd "C-x b") 'helm-buffers-list)	; C-x C-h
 ;;; Examples:
 ;;; "*lisp,sh ^helm": buffers in lisp- or sh-mode that begin with "helm".
 ;;; "@crash": buffers that contain the string "crash"
