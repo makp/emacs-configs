@@ -72,7 +72,7 @@
 ;; ------------
 ;; line display
 ;; ------------
-;; (setq-default global-visual-line-mode t)
+(setq-default global-visual-line-mode t)
 ;; Description: enables "word wrapping". This mode redefines C-a C-n
 ;; and C-k to operate on screen lines rather than logical lines
 
