@@ -13,6 +13,10 @@
 		     (call-interactively 'magit-status))
 		   (call-interactively 'magit-pull)))
 
+;; ==============
+;; helm and magit
+;; ==============
+
 (defun mk/browse-project (&optional arg)
   "Function for browsing git repos. If prefix is non-nil, provide
 a list of all repos before running helm-browse-project."
@@ -32,6 +36,29 @@ a list of all repos before running helm-browse-project."
 		    (call-interactively
 		     'magit-status))
 		  (call-interactively 'helm-find-files)))
+
+
+
+(require 'helm-ls-git)
+
+(setq helm-ls-git-status-command 'magit-status-internal)
+
+(define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep)
+
+;; git-grep
+(defun mk/grep-project (&optional arg)
+  "git-grep the whole repository. If prefix arg is non-nil, ask
+for a git repo first."
+  (interactive "P")
+  (when (consp arg)
+    (call-interactively 'magit-status)
+    (goto-line 3))
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'helm-grep-do-git-grep)))
+
+(global-set-key (kbd "M-s g") 'mk/grep-project)
+
+(define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
 
 (defun mk/git-status (&optional arg)
   (interactive "P")

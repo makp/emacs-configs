@@ -9,10 +9,8 @@
 (helm-autoresize-mode 1)
 
 ;; ==========
-;; Extensions
+;; helm-swoop
 ;; ==========
-(require 'helm-ls-git)
-
 (require 'helm-swoop)
 (setq helm-swoop-split-with-multiple-windows t
       helm-swoop-split-direction 'split-window-vertically
@@ -51,8 +49,6 @@
       
       helm-candidate-number-limit 100
       helm-autoresize-max-height 25
-
-      helm-ls-git-status-command 'magit-status-internal  ;
 
       helm-ff-skip-boring-files t
       helm-boring-file-regexp-list (append helm-boring-file-regexp-list '("_region_.*" "\\.git$"))
@@ -109,24 +105,6 @@
 ;; occur
 (global-set-key (kbd "C-x C-s") 'helm-swoop)
 (global-set-key (kbd "M-s o") 'helm-occur)
-
-;; git-grep
-(defun mk/grep-project (&optional arg)
-  "git-grep the whole repository. If prefix arg is non-nil, ask
-for a git repo first."
-  (interactive "P")
-  (when (consp arg)
-    (call-interactively 'magit-status)
-    (goto-line 3))
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'helm-grep-do-git-grep)))
-
-(global-set-key (kbd "M-s g") 'mk/grep-project)
-
-(define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
-
-
-(define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep)
 
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
