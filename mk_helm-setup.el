@@ -61,10 +61,6 @@
       (append helm-boring-buffer-regexp-list 
 	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*")))
 
-;; helm-completing-read-handlers-alist controls where helm completion
-;; is used.
-
-
 ;; ===========
 ;; Global maps
 ;; ===========
@@ -120,9 +116,9 @@
   "git-grep the whole repository. If prefix arg is non-nil, ask
 for a git repo first."
   (interactive "P")
-  (when (consp arg) 
+  (when (consp arg)
     (call-interactively 'magit-status)
-    (goto-line 3)) 
+    (goto-line 3))
   (let ((current-prefix-arg '(4)))
     (call-interactively 'helm-grep-do-git-grep)))
 
@@ -133,9 +129,6 @@ for a git repo first."
 (eval-after-load 'helm-ls-git
   '(define-key helm-ls-git-map (kbd "M-s g") 'helm-ff-run-git-grep))
 
-
-
-
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
 
@@ -144,7 +137,7 @@ for a git repo first."
   "Select tag. When prefix arg is non-nil, ask user to choose a
 particular repo"
   (interactive "P")
-  (when (consp arg) 
+  (when (consp arg)
     (call-interactively 'magit-status))
   (call-interactively 'helm-etags-select))
 
@@ -165,18 +158,11 @@ particular repo"
 ;; ===============
 ;; helm local maps
 ;; ===============
-;;; helm-maps
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
-
 (define-key helm-map (kbd "C-x C-r") 'helm-toggle-visible-mark)
 (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
-
-;;; helm-buffer-map
-(define-key helm-buffer-map (kbd "M-s o") 'helm-buffers-run-multi-occur)
-
-;;; helm-find-files-map
-(define-key helm-find-files-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
+(define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
 
 ;; ======
 ;; eshell
