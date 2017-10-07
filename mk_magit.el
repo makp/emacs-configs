@@ -44,6 +44,7 @@ a list of all repos before running helm-browse-project."
 (setq helm-ls-git-status-command 'magit-status-internal)
 
 (define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep)
+(define-key helm-ls-git-buffer-map (kbd "M-s g") 'helm-ls-git-run-grep)
 
 ;; git-grep
 (defun mk/grep-project (&optional arg)
