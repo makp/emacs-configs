@@ -109,7 +109,6 @@
 ;; occur
 (global-set-key (kbd "C-x C-s") 'helm-swoop)
 (global-set-key (kbd "M-s o") 'helm-occur)
-(global-set-key (kbd "M-s O") 'helm-multi-swoop-current-mode)
 
 ;; git-grep
 (defun mk/grep-project (&optional arg)

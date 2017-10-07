@@ -1,10 +1,5 @@
 ;;; windows and buffers
 
-(require 'ace-window)
-(setq aw-keys '( ?d ?h ?t ?n ?l ?u ?e ?o))
-;; (global-set-key (kbd "") 'ace-window)
-
-
 ;; (global-set-key (kbd "C-x c") 'bury-buffer)
 (global-set-key (kbd "C-x C-c") 'delete-window)
 
@@ -169,5 +164,9 @@ with `sticky-window-keep-window-visible'."
 ;; (global-set-key (kbd "") 'windmove-left)
 ;; (global-set-key (kbd "") 'windmove-down)
 ;; (global-set-key (kbd "") 'windmove-up)
+
+;; (require 'ace-window)
+;; (setq aw-keys '( ?d ?h ?t ?n ?l ?u ?e ?o))
+;; (global-set-key (kbd "") 'ace-window)
 
 (provide 'mk_windows-setup)
