@@ -52,7 +52,7 @@
       helm-candidate-number-limit 100
       helm-autoresize-max-height 25
 
-      helm-ls-git-status-command 'magit-status  ;
+      helm-ls-git-status-command 'magit-status-internal  ;
 
       helm-ff-skip-boring-files t
       helm-boring-file-regexp-list (append helm-boring-file-regexp-list '("_region_.*" "\\.git$"))
