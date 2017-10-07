@@ -347,6 +347,11 @@
 ;; ------------------------
 (setq ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
 
+;; ----------
+;; save-place
+;; ----------
+(save-place-mode 1)
+
 ;; ------
 ;; Abbrev
 ;; ------
