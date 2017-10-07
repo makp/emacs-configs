@@ -11,7 +11,7 @@
 ;; ==========
 ;; Extensions
 ;; ==========
-(autoload 'helm-ls-git-ls "helm-ls-git" nil t)
+(require 'helm-ls-git)
 
 (require 'helm-swoop)
 (setq helm-swoop-split-with-multiple-windows t
@@ -125,8 +125,8 @@ for a git repo first."
 
 (define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
 
-(eval-after-load 'helm-ls-git
-  '(define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep))
+
+(define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep)
 
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
