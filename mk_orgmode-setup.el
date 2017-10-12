@@ -280,11 +280,13 @@
 (setq org-capture-templates
       '(("c" "Gcal" entry (file  "~/elisp/agendas/gcal.org")
 	 "* %?\n\n%^T\n\n")
-	("a" "Academic" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
+	("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
 	 "** TODO %?\n  %i\n")
 	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
 	 "** TODO %?\n %i\n")
 	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
+	 "** TODO %?\n %i\n")
+	("e" "Emacs IT stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
 	 "** TODO %?\n %i\n")))
 
 ;; ----
