@@ -4,14 +4,14 @@
 	  (lambda ()
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
-(global-set-key (kbd "C-x g") 'magit-pull)
+(global-set-key (kbd "C-x g") 'magit-fetch)
 
 (global-set-key (kbd "C-x p")
 		'(lambda ()
 		   (interactive)
 		   (let ((current-prefix-arg '(4)))
 		     (call-interactively 'magit-status))
-		   (call-interactively 'magit-pull)))
+		   (call-interactively 'magit-fetch)))
 
 ;; ==============
 ;; helm and magit
