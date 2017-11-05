@@ -18,6 +18,10 @@
   (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
 ;; ibuffer mode maps
+
+(define-key ibuffer-mode-map (kbd "C-i") 'ibuffer-toggle-filter-group)
+
+
 (define-key ibuffer-mode-map "l" (lambda ()
 				   (interactive)
 				   (call-interactively 'ace-jump-line-mode)))
