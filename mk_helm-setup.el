@@ -37,7 +37,7 @@
       helm-locate-command "locate %s -e -A --regex %s"
 
       helm-follow-mode-persistent t
-      helm-ff-auto-update-initial-value t
+      helm-ff-auto-update-initial-value nil
       helm-ff-transformer-show-only-basename t
 
       helm-mode-fuzzy-match t
