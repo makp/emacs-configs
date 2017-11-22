@@ -4,7 +4,10 @@
 	  (lambda ()
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
-(global-set-key (kbd "C-x g") 'magit-fetch)
+(global-set-key (kbd "C-x g") '(lambda ()
+				 (interactive)
+				 (call-interactively 'magit-status)
+				 (call-interactively 'magit-fetch)))
 
 (global-set-key (kbd "C-x p")
 		'(lambda ()
