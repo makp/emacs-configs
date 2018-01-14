@@ -64,7 +64,7 @@
 (global-set-key (kbd "<f7>")
 		'(lambda ()
 		   (interactive)
-		   ;; (require 'mk_chrome)
+		   (require 'mk_chrome)
 		   (require 'mk_orgmode-setup) ; (eval-after-load "org" ')
 		   ;; (require 'mk_mobileorg)
 		   (require 'mk_latex-setup) ; (eval-after-load "tex-mode" ')
