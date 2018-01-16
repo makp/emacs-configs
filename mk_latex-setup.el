@@ -260,6 +260,7 @@ shown, then it'll be hidden."
 	(markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
 	(default . bibtex-completion-format-citation-default)))
 
+(setq bibtex-completion-pdf-field "File")
 
 ;; ======
 ;; RefTeX
