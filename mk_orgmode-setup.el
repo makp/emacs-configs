@@ -130,7 +130,7 @@
 (setq org-link-abbrev-alist
       '(("gg" . "http://www.google.com/search?q=")
 	("gmap"	  . "http://maps.google.com/maps?q=%s")
-	("bib" . "~/Documents/mydocs/tex-configs/references/dissert.bib::%s")))
+	("bib" . "~/Documents/mydocs/tex-configs/references/evol.bib::%s")))
 
 ;; ==========
 ;; TODO items
