@@ -112,6 +112,11 @@
 ;; -------
 ;; (setq org-drawers '("NOTES" "PROPERTIES" "CLOCK" "LOGBOOK" "REFERENCES" "EMAIL" "PROGRESS"))
 
+;; -------
+;; org ids
+;; -------
+(require 'org-id)
+(setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
 ;; ==========
 ;; hyperlinks
@@ -231,7 +236,7 @@
 	("r" "Coisas repetitivas"
 	 ((tags "rep")))
 	("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
-			(org-agenda-show-all-dates nil)))))
+						(org-agenda-show-all-dates nil)))))
 
 ;; (org-agenda-overriding-header "")
 
