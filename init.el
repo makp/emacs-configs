@@ -77,7 +77,7 @@
 		'(lambda ()
 		   (interactive)
 		   (message ">>>>> Loading my email + erc config <<<<<<<<")
-		   ;; (require 'mk_html)
+		   (require 'mk_web-devel)
 		   ;; (require 'gnuplot)
 		   ;; (require 'mk_ess)
 		   ;; (require 'mk_eldoc)
