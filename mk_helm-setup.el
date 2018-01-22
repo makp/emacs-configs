@@ -103,8 +103,8 @@
 ;; searching within files
 ;; ----------------------
 ;; occur
-(global-set-key (kbd "C-x C-s") 'helm-swoop)
-(global-set-key (kbd "M-s o") 'helm-occur)
+(global-set-key (kbd "M-s o") 'helm-swoop)
+(global-set-key (kbd "C-x C-s") 'helm-occur)
 
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
