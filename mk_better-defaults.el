@@ -506,5 +506,8 @@
 
 (setq-default line-spacing (nth contador lista-espacos))   ;; declaring the default value for line spacing
 
+;; epub
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+
 (provide 'mk_better-defaults)
 ;;; mk-better-defaults.el ends here
