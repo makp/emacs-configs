@@ -56,6 +56,7 @@
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
 		   (require 'mk_elisp)
+		   (require 'mk_web-devel)
 		   (require 'mk_keyfreq)))
 
 ;; --------------------------------------------
@@ -77,7 +78,6 @@
 		'(lambda ()
 		   (interactive)
 		   (message ">>>>> Loading my email + erc config <<<<<<<<")
-		   (require 'mk_web-devel)
 		   ;; (require 'gnuplot)
 		   ;; (require 'mk_ess)
 		   ;; (require 'mk_eldoc)
