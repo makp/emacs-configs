@@ -190,7 +190,9 @@
 		      ("paper3" . ?3)
 		      ("paper4" . ?4)
 		      ("paper5" . ?5)
-		      ("paper6" . ?6)))
+		      ("paper6" . ?6)
+		      ("export". ?e)
+		      ("noexport" . ?n)))
 
 (setq org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep"))
 ;; These are the tags that I don't want to be inherited.
