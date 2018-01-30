@@ -46,9 +46,8 @@
 ;;; interpretations as sub/superscript.
 
 (setq org-export-with-toc nil
-      org-export-with-section-numbers nil)
-
-
+      org-export-with-section-numbers nil
+      org-export-initial-scope 'subtree)
 
 ;; ===============
 ;; latex exporting
