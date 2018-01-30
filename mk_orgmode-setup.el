@@ -45,6 +45,10 @@
 ;;; Description: the braces are *required* in order to trigger
 ;;; interpretations as sub/superscript.
 
+(setq org-export-with-toc nil
+      org-export-with-section-numbers nil)
+
+
 
 ;; ===============
 ;; latex exporting
