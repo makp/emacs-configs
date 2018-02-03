@@ -509,5 +509,10 @@
 ;; epub
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
+;; ========
+;; flycheck
+;; ========
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 (provide 'mk_better-defaults)
 ;;; mk-better-defaults.el ends here
