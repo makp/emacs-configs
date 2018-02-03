@@ -87,9 +87,9 @@
   "locate for mydocs, pdfs, and home."
   (interactive "p")
   (cond
-   ((equal arg 1)  (helm-locate-with-db '("~/elisp/locate.db")))	; pdfs
-   ((equal arg 4)  (helm-locate-with-db '("~/elisp/locate-mydocs.db"))) ; ~/Documents/mydocs
-   ((equal arg 16) (helm-locate-with-db '("~/elisp/locate-home.db")))))	; $HOME
+   ((equal arg 1)  (helm-locate-with-db '("/home/makmiller/elisp/locate.db")))	; pdfs
+   ((equal arg 4)  (helm-locate-with-db '("/home/makmiller/elisp/locate-mydocs.db"))) ; ~/Documents/mydocs
+   ((equal arg 16) (helm-locate-with-db '("/home/makmiller/elisp/locate-home.db")))))	; $HOME
 
 (global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
