@@ -106,6 +106,10 @@
 (global-set-key (kbd "M-s o") 'helm-swoop)
 (global-set-key (kbd "C-x C-s") 'helm-occur)
 
+;; grep
+(require 'wgrep)
+;; wgrep allows you to edit grep buffers
+
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)
 

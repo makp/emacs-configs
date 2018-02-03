@@ -43,6 +43,7 @@
    undo-tree
    w3m
    web-mode
+   wgrep
    yaml-mode
    yasnippet
    zenburn-theme))
