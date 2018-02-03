@@ -54,14 +54,14 @@
       helm-boring-file-regexp-list (append helm-boring-file-regexp-list '("_region_.*" "\\.git$"))
       helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(LaTeX-mode))
       helm-boring-buffer-regexp-list
-      (append helm-boring-buffer-regexp-list 
+      (append helm-boring-buffer-regexp-list
 	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*")))
 
 ;; ===========
 ;; Global maps
 ;; ===========
 ;; rebinding a few things to helm
-(define-key global-map [remap apropos-command] 'helm-apropos) 
+(define-key global-map [remap apropos-command] 'helm-apropos)
 (define-key global-map [remap bookmark-jump] 'helm-pp-bookmarks)
 (define-key global-map [remap occur] 'helm-occur)
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
@@ -76,7 +76,7 @@
 (global-set-key (kbd "C-x h") 'helm-find-files)
 
 ;;; list buffers
-(global-set-key (kbd "C-x b") 'helm-buffers-list)	; C-x C-h
+(global-set-key (kbd "C-x b") 'helm-mini)	; C-x C-h
 ;;; Examples:
 ;;; "*lisp,sh ^helm": buffers in lisp- or sh-mode that begin with "helm".
 ;;; "@crash": buffers that contain the string "crash"

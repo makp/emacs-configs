@@ -9,17 +9,18 @@
 (mapc
  (lambda (package)
    (or (package-installed-p package)
-       (if (y-or-n-p (format "Package %s is missing. Install it? " package)) 
+       (if (y-or-n-p (format "Package %s is missing. Install it? " package))
            (package-install package))))
  '(ac-math
    ace-jump-mode
    aggressive-indent
-   auctex 
+   auctex
    auto-complete
    autopair
    dired-details
    dropdown-list
    ess
+   flycheck
    fuzzy
    gnuplot-mode
    gruvbox-theme
@@ -32,7 +33,7 @@
    ibuffer-vc
    key-chord
    keyfreq
-   magit 
+   magit
    multiple-cursors
    nov
    org-gcal
