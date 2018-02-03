@@ -81,12 +81,6 @@
 ;; toggle line highlighting
 (global-hl-line-mode t)
 
-;; (defadvice hi-lock-set-pattern (around use-overlays activate)
-;;   (let ((font-lock-fontified nil))
-;;     ad-do-it))
-;;; to make hl-line-mode compatible with hi-lock-mode
-
-
 ;; ===========
 ;; Minibuffers
 ;; ===========
@@ -501,7 +495,7 @@
 ;; ========
 ;; flycheck
 ;; ========
-(add-hook 'after-init-hook #'global-flycheck-mode)
+(global-flycheck-mode)
 
 (provide 'mk_better-defaults)
-;;; mk-better-defaults.el ends here
+;;; mk_better-defaults.el ends here
