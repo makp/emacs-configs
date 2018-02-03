@@ -55,7 +55,7 @@
 ;; ------------------
 (setq LaTeX-section-hook
       '(LaTeX-section-heading
-	LaTeX-section-title 
+	LaTeX-section-title
 	;; LaTeX-section-toc
 	LaTeX-section-section
 	LaTeX-section-label))
