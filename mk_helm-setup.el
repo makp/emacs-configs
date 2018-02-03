@@ -106,7 +106,7 @@
 (global-set-key (kbd "C-x C-s") 'helm-occur)
 
 ;; grep
-(require 'wgrep)
+(require 'wgrep-helm)
 (global-set-key (kbd "M-s a") 'helm-do-grep-ag)
 
 ;; wgrep allows you to edit grep buffers
