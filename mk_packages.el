@@ -20,6 +20,7 @@
    dired-details
    dropdown-list
    ;; ess
+   elpy
    flycheck
    fuzzy
    gnuplot-mode
@@ -34,6 +35,7 @@
    key-chord
    keyfreq
    magit
+   markdown-mode
    multiple-cursors
    nov
    org-gcal
