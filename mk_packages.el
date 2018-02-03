@@ -28,7 +28,6 @@
    helm
    helm-bibtex
    helm-ls-git
-   ;; helm-swoop
    highlight-parentheses
    ibuffer-git
    ibuffer-vc
@@ -46,6 +45,7 @@
    w3m
    web-mode
    wgrep
+   wgrep-helm
    yaml-mode
    yasnippet
    zenburn-theme))
