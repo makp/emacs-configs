@@ -45,8 +45,8 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (display-time)
 (setq
- initial-scratch-message nil 
- inhibit-splash-screen 0 
+ initial-scratch-message nil
+ inhibit-splash-screen 0
  column-number-mode t
  echo-keystrokes 0.1) 			;see what you're typing
 
@@ -131,8 +131,8 @@
 ;; --------
 ;; uniquify
 ;; --------
-(require 'uniquify) 
-(setq 
+(require 'uniquify)
+(setq
  uniquify-buffer-name-style 'post-forward
  uniquify-separator ":")
 
