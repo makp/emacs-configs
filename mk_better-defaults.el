@@ -496,6 +496,8 @@
 ;; flycheck
 ;; ========
 (global-flycheck-mode)
+(setq flycheck-emacs-lisp-load-path 'inherit)
+;; use load-path for checking syntax
 
 (provide 'mk_better-defaults)
 ;;; mk_better-defaults.el ends here
