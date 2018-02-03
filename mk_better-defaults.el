@@ -44,7 +44,6 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (display-time)
-(setq-default visible-bell)
 (setq
  initial-scratch-message nil 
  inhibit-splash-screen 0 
@@ -52,6 +51,7 @@
  echo-keystrokes 0.1) 			;see what you're typing
 
 (blink-cursor-mode 1)
+(setq visible-bell t)
 
 
 ;; Note: you can choose your inial buffer with (initial-buffer-choice
