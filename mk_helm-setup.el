@@ -11,10 +11,10 @@
 ;; ==========
 ;; helm-swoop
 ;; ==========
-(require 'helm-swoop)
-(setq helm-swoop-split-with-multiple-windows t
-      helm-swoop-split-direction 'split-window-vertically
-      helm-swoop-pre-input-function (lambda () ""))
+;; (require 'helm-swoop)
+;; (setq helm-swoop-split-with-multiple-windows t
+;;       helm-swoop-split-direction 'split-window-vertically
+;;       helm-swoop-pre-input-function (lambda () ""))
 
 ;; =========
 ;; Helm vars

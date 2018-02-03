@@ -26,7 +26,7 @@
    helm
    helm-bibtex
    helm-ls-git
-   helm-swoop
+   ;; helm-swoop
    highlight-parentheses
    ibuffer-git
    ibuffer-vc
