@@ -103,11 +103,12 @@
 ;; searching within files
 ;; ----------------------
 ;; occur
-(global-set-key (kbd "M-s o") 'helm-swoop)
 (global-set-key (kbd "C-x C-s") 'helm-occur)
 
 ;; grep
 (require 'wgrep)
+(global-set-key (kbd "M-s a") 'helm-do-grep-ag)
+
 ;; wgrep allows you to edit grep buffers
 
 ;; imenu
