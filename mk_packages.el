@@ -19,7 +19,7 @@
    autopair
    dired-details
    dropdown-list
-   ess
+   ;; ess
    flycheck
    fuzzy
    gnuplot-mode
