@@ -51,6 +51,8 @@
  column-number-mode t
  echo-keystrokes 0.1) 			;see what you're typing
 
+(blink-cursor-mode 1)
+
 
 ;; Note: you can choose your inial buffer with (initial-buffer-choice
 ;; ...)
