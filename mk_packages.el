@@ -34,6 +34,7 @@
    keyfreq
    magit 
    multiple-cursors
+   nov
    org-gcal
    pdf-tools
    popup
