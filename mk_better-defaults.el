@@ -75,29 +75,16 @@
 ;; line display
 ;; ------------
 (setq-default global-visual-line-mode t)
-;; Description: enables "word wrapping". This mode redefines C-a C-n
-;; and C-k to operate on screen lines rather than logical lines
 
 (setq-default truncate-lines t)
 
-;; hl-line-mode
+;; toggle line highlighting
 (global-hl-line-mode t)
 
-(defadvice hi-lock-set-pattern (around use-overlays activate)
-  (let ((font-lock-fontified nil))
-    ad-do-it))
+;; (defadvice hi-lock-set-pattern (around use-overlays activate)
+;;   (let ((font-lock-fontified nil))
+;;     ad-do-it))
 ;;; to make hl-line-mode compatible with hi-lock-mode
-
-;; ==========
-;; navigation
-;; ==========
-
-;; -------------------
-;; search with regexps
-;; -------------------
-;; (global-set-key [(control s)] 'isearch-forward-regexp)
-;; (global-set-key [(control r)] 'isearch-backward-regexp)
-;; (global-set-key [(meta %)] 'query-replace-regexp)
 
 
 ;; ===========
