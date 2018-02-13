@@ -1,4 +1,4 @@
-;;; my auto-complete setup
+;;; Code:
 (require 'auto-complete-config)
 (ac-config-default)
 
@@ -31,7 +31,7 @@
 
 (define-key ac-completing-map (kbd "TAB") 'ac-expand)
 
-(define-key ac-completing-map "\t" nil) 
+(define-key ac-completing-map "\t" nil)
 (define-key ac-completing-map (kbd "M-s") 'ac-isearch)
 
 
@@ -78,3 +78,4 @@
 (add-to-list 'ac-modes 'org-mode)
 
 (provide 'mk_autocomplete-setup)
+;;; mk_autocomplete-setup.el ends here
