@@ -40,6 +40,7 @@
    markdown-mode
    multiple-cursors
    nov
+   org-plus-contrib
    org-gcal
    pdf-tools
    popup
