@@ -73,9 +73,13 @@
 ;; Structure editing
 ;; =================
 
+
+
 ;; ----------------------------
 ;; no arrow keys and shift-tabs
 ;; ----------------------------
+
+(setq org-adapt-indentation nil)
 
 (add-hook 'org-mode-hook
 	  (lambda ()
