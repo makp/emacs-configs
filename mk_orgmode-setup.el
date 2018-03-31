@@ -213,6 +213,7 @@
 ;; Agenda files
 ;; ------------
 (setq org-agenda-files (list "~/elisp/agendas/ag-academic.org"
+			     "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"
 			     "~/elisp/agendas/ag-longterm.org"
 			     "~/elisp/agendas/ag-teaching.org"
 			     "~/elisp/agendas/ag-it.org"

@@ -18,6 +18,7 @@
 
 ;;; Agendas
 (set-register ?a '(file . "~/elisp/agendas/ag-academic.org"))
+(set-register ?e '(file . "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"))
 (set-register ?i '(file . "~/elisp/agendas/ag-it.org"))
 (set-register ?o '(file . "~/elisp/agendas/ag-longterm.org"))
 (set-register ?t '(file . "~/elisp/agendas/ag-teaching.org"))
@@ -25,7 +26,7 @@
 (set-register ?w '(file . "~/elisp/agendas/wasteclock.org"))
 
 ;;; Notes
-(set-register ?e '(file . "~/Documents/mydocs/notes/nontech-notes/english-and-spanish/english.org"))
+(set-register ?E '(file . "~/Documents/mydocs/notes/nontech-notes/english-and-spanish/english.org"))
 ;; (set-register ?c '(file . "~/Documents/mydocs/notes/"))
 ;; (set-register ?l '(file . "~/Documents/mydocs/notes/"))
 
