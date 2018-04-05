@@ -351,7 +351,7 @@
  '((emacs-lisp . t)
    (lisp . t)
    (python . t)
-   (sh . t)
+   (shell . t)
    (latex . t)
    ;; (R . t)
    (C . t)
