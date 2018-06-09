@@ -40,13 +40,16 @@
       helm-ff-auto-update-initial-value nil
       helm-ff-transformer-show-only-basename t
 
-      helm-mode-fuzzy-match t
-      helm-completion-in-region-fuzzy-match t
+      ;; helm-mode-fuzzy-match t
+      ;; helm-completion-in-region-fuzzy-match t
+
       ;; helm-buffers-fuzzy-matching t
-      ;; helm-locate-fuzzy-match t
-      ;; helm-M-x-fuzzy-match t
+      ;; helm-lisp-fuzzy-completion t
+      helm-locate-fuzzy-match t
+      helm-M-x-fuzzy-match t
       ;; helm-imenu-fuzzy-match t
-      
+      ;; helm-apropos-fuzzy-match t
+
       helm-candidate-number-limit 100
       helm-autoresize-max-height 25
 
