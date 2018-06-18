@@ -603,20 +603,20 @@
 ;; --------------
 ;; clocktable.org
 ;; --------------
+
 (find-file-noselect "/home/makmiller/elisp/agendas/clocktable.org")
 
-;;;###autoload
 (defun chama-clock-table (&optional arg)
   "Toggle `clocktable.org'. With a prefix argument, open
 wastetime.org."
   (interactive "P")
-    (if (consp arg)
+  (if (consp arg)
       (switch-to-buffer "clocktable.org")
     (save-window-excursion
       (delete-other-windows)
       (switch-to-buffer "clocktable.org")
       (org-dblock-update 4)
-      (beginning-of-buffer)
+      (goto-char (point-min))
       (outline-next-visible-heading 2)
       (org-tree-to-indirect-buffer)
       (split-window-right)
@@ -631,3 +631,4 @@ wastetime.org."
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
 
 (provide 'mk_orgmode-setup)
+;;; mk_orgmode-setup.el ends here
