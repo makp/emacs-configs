@@ -604,6 +604,8 @@
 ;; clocktable.org
 ;; --------------
 
+(copy-file "/home/makmiller/config-files/general/emacs-configs/template_clocktable.org"
+	   "/home/makmiller/elisp/agendas/clocktable.org" t)
 (find-file-noselect "/home/makmiller/elisp/agendas/clocktable.org")
 
 (defun chama-clock-table (&optional arg)
@@ -616,6 +618,7 @@ wastetime.org."
       (delete-other-windows)
       (switch-to-buffer "clocktable.org")
       (org-dblock-update 4)
+      (save-buffer)
       (goto-char (point-min))
       (outline-next-visible-heading 2)
       (org-tree-to-indirect-buffer)
@@ -624,9 +627,8 @@ wastetime.org."
       (org-tree-to-indirect-buffer '4)
       (delete-window)
       (read-key "Press any key to exit.")
-      (save-buffer)
-      (kill-buffer "clocktable.org-Past-1")
-      (kill-buffer "clocktable.org-Today-1"))))
+      (kill-buffer "clocktable.org-Today-1")
+      (kill-buffer "clocktable.org-Yesterday-1"))))
 
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
 

@@ -1,0 +1,11 @@
+#+TITLE: Clock Table
+#+STARTUP: showall
+
+* Today
+#+BEGIN: clocktable :maxlevel 5 :scope agenda-with-archives :link t :block today :compact t :emphasize nil :formula % :indent nil :fileskip0 t
+#+END:
+
+
+* Yesterday
+#+BEGIN: clocktable :maxlevel 5 :scope agenda-with-archives :link t :block yesterday :compact t :emphasize nil :formula % :indent nil :fileskip0 t
+#+END:
