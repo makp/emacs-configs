@@ -1,16 +1,15 @@
 ;; "-*- emacs-lisp -*-"
 ;; Main Emacs config file
 
-(eval-when-compile
-  (require 'cl))
-;; Macros are evaluated at compile time and Elisp does not need to
-;; know about them at runtime.
+;; =====================
+;; Common Lisp emulation
+;; =====================
+;; Resource:
+;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
 
+;; (require 'cl-lib)
+;; cl-macs
 
-;; ====================
-;; Separate custom file
-;; ====================
-;; TODO
 
 ;; =========
 ;; Load path
@@ -75,24 +74,24 @@
 		   (require 'mk_latex-setup) ; (eval-after-load "tex-mode" ')
 		   (require 'mk_emacsw3m)
 		   (require 'mk_python)))
- 
+
 ;; -----------
 ;; Email + ERC
 ;; -----------
-(global-set-key (kbd "<f8>")
-		'(lambda ()
-		   (interactive)
-		   (message ">>>>> Loading my email + erc config <<<<<<<<")
-		   ;; (require 'gnuplot)
-		   ;; (require 'mk_ess)
-		   ;; (require 'mk_eldoc)
-		   ;; (setq user-full-name "Makmiller Pedroso")
-		   ;; (setq user-mail-address "makmiller@gmail.com")
-		   ;; (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
-		   ;; (require 'mk_message-mode)
-		   ;; (require 'mk_erc)
-		   ;; (require 'mk_emms-setup)
-		   (message ">>>>> End of my email + erc config <<<<<<<<")))
+;; (global-set-key (kbd "<f8>")
+;; 		'(lambda ()
+;; 		   (interactive)
+;; 		   (message ">>>>> Loading my email + erc config <<<<<<<<")
+;; 		   ;; (require 'gnuplot)
+;; 		   ;; (require 'mk_ess)
+;; 		   ;; (require 'mk_eldoc)
+;; 		   ;; (setq user-full-name "Makmiller Pedroso")
+;; 		   ;; (setq user-mail-address "makmiller@gmail.com")
+;; 		   ;; (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
+;; 		   ;; (require 'mk_message-mode)
+;; 		   ;; (require 'mk_erc)
+;; 		   ;; (require 'mk_emms-setup)
+;; 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
 
 ;; =================
 ;; eval-after-load's
