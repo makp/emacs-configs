@@ -1,7 +1,11 @@
 ;; "-*- emacs-lisp -*-"
 ;; Main Emacs config file
 
-(require 'cl)
+(eval-when-compile
+  (require 'cl))
+;; Macros are evaluated at compile time and Elisp does not need to
+;; know about them at runtime.
+
 
 ;; ====================
 ;; Separate custom file
