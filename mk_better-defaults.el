@@ -24,14 +24,12 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 
 ;;; solving some conflicts
-(add-hook 'flyspell-mode-hook
-	  (lambda ()
-	    (define-key flyspell-mode-map (kbd "C-,") nil)))
+(eval-after-load "flyspell"
+  '(define-key flyspell-mode-map (kbd "C-,") nil))
 
-(add-hook 'org-mode-hook
-	  (lambda ()
-	    (define-key org-mode-map (kbd "C-,") nil)))  ; it was org-cycle-agenda-files
-
+(eval-after-load "org-mode"
+  '(define-key org-mode-map (kbd "C-,") nil))
+;; it was org-cycle-agenda-files
 
 ;; =======================
 ;; General display options
