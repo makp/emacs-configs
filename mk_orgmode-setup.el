@@ -1,10 +1,15 @@
-(message ">>>>> custom org-mode setup triggered <<<<<<")
+;;; mk_orgmode-setup.el --- config for org mode
 
-;(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; info directory
 ;; (add-to-list 'Info-default-directory-list "~/...")
-
 
 ;; =====
 ;; setqs
