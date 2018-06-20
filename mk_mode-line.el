@@ -1,3 +1,11 @@
+;;; mk_mode-line.el --- Config for the mode line
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
 (setq-default mode-line-format
 	      (list
 	       "%@"
@@ -10,15 +18,16 @@
 	       ;; line and column
 	       "(" ;; '%02' to set to 2 chars at least; prevents flickering
 	       (propertize "%02l" 'face 'font-lock-type-face) ","
-	       (propertize "%02c" 'face 'font-lock-type-face) 
+	       (propertize "%02c" 'face 'font-lock-type-face)
 	       ") "
 
 	       ;; relative position, size of file
-	       "["
-	       (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
-	       "/"
+	       ;; "["
+	       ;; (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
+	       ;; "/"
 	       (propertize "%I" 'face 'font-lock-constant-face) ;; size
-	       "] "
+	       " "
+	       ;; "] "
 
 	       ;; the current major mode for the buffer.
 	       "["
@@ -35,7 +44,7 @@
 	       '(:eval (when buffer-read-only
 			 (concat ","  (propertize "RO"
 						  'face 'font-lock-type-face
-						  'help-echo "Buffer is read-only"))))  
+						  'help-echo "Buffer is read-only"))))
 
 	       "]"
 
@@ -53,4 +62,5 @@
 	       ))
 
 (provide 'mk_mode-line)
+
 ;;; mk_mode-line.el ends here
