@@ -28,7 +28,7 @@
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "/usr/bin/firefox")
+      browse-url-generic-program "/usr/bin/google-chrome-stable")
 
 (defun choose-browser (url &rest args)
   (interactive "sURL: ")
