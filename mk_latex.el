@@ -1,3 +1,12 @@
+;;; mk_latex.el --- Config for TeX
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
 ;; ======
 ;; AUCTex
 ;; ======
@@ -431,15 +440,17 @@ shown, then it'll be hidden."
    (let ((math (reverse (append LaTeX-math-list LaTeX-math-default))))
      (while math
        (let ((entry (car math))
-         value)
-     (setq math (cdr math))
-     (if (listp (cdr entry))
-         (setq value (nth 1 entry))
-       (setq value (cdr entry)))
-     (if (stringp value)
-         (fset (intern (concat "LaTeX-math-" value))
-           (list 'lambda (list 'arg) (list 'interactive "*P")
-             (list 'LaTeX-math-insert value
-                   '(null (texmathp)))))))))))
+             value)
+	 (setq math (cdr math))
+	 (if (listp (cdr entry))
+             (setq value (nth 1 entry))
+	   (setq value (cdr entry)))
+	 (if (stringp value)
+             (fset (intern (concat "LaTeX-math-" value))
+		   (list 'lambda (list 'arg) (list 'interactive "*P")
+			 (list 'LaTeX-math-insert value
+			       '(null (texmathp)))))))))))
 
-(provide 'mk_latex-setup)
+(provide 'mk_latex)
+
+;;; mk_latex.el ends here
