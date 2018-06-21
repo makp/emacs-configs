@@ -63,6 +63,12 @@
   '(define-key org-mode-map (kbd "C-,") nil))
 ;; it was org-cycle-agenda-files
 
+;; =====================
+;; highlight parenthesis
+;; =====================
+(require 'highlight-parentheses)
+(highlight-parentheses-mode t)
+
 ;; =======================
 ;; General display options
 ;; =======================
