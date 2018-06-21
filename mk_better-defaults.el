@@ -61,12 +61,8 @@
 (global-set-key (kbd "C-s") 'save-buffer)
 
 ;;; solving some conflicts
-(eval-after-load "flyspell"
-  '(define-key flyspell-mode-map (kbd "C-,") nil))
-
-(eval-after-load "org-mode"
-  '(define-key org-mode-map (kbd "C-,") nil))
-;; it was org-cycle-agenda-files
+(with-eval-after-load 'flyspell
+  (define-key flyspell-mode-map (kbd "C-,") nil))
 
 ;; =====================
 ;; highlight parenthesis
