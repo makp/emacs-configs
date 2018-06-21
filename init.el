@@ -27,6 +27,7 @@
 (require 'mk_ibuffer-setup)
 (require 'mk_magit)
 (require 'mk_misc-functions)
+(require 'mk_mark-setup)
 
 ;; =================
 ;; eval-after-load's
@@ -43,13 +44,11 @@
 ;; =========
 ;; autoloads
 ;; =========
-
 (global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
 (autoload 'mk/eshell-popup "mk_eshell" t nil)
 
 (global-set-key (kbd "C-x <RET>") 'mk/chama-ansi-term)
 (autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
-
 
 
 ;; =======
@@ -61,7 +60,6 @@
 (global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
-		   (require 'mk_mark-setup)
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
 		   (require 'mk_web-devel)
