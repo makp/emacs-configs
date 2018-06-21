@@ -2,7 +2,6 @@
 ;; helper functions
 ;; ================
 
-;;;###autoload
 (defun mk/add-something-to-hooks (mode-list something)		       
   "Helper function to add a callback to multiple hooks.
 For instance: (mk/add-something-to-hooks '(lisp emacs-lisp) 'do-X)."
@@ -43,7 +42,6 @@ region-end is used. Adds the duplicated text to the kill ring."
 ;; ===========================
 ;; ediff marked files in dired
 ;; ===========================
-;;;###autoload
 (defun dired-ediff-marked-files ()
   "Run ediff on marked ediff files."
   (interactive)
@@ -63,7 +61,6 @@ region-end is used. Adds the duplicated text to the kill ring."
   "Mode to set for indirect buffers.")
 (make-variable-buffer-local 'indirect-mode-name)
 
-;;;###autoload
 (defun indirect-region (start end) 
   "Edit the current region in another buffer. If the buffer-local
 variable `indirect-mode-name' is not set, prompt for mode name to
@@ -91,7 +88,6 @@ value of said variable as argument to a funcall."
 ;; =======================
 ;; cycling thru diff fonts
 ;; =======================
-;;;###autoload
 (defun cycle-font (num)
   "Change font in current frame.
 Each time this is called, font cycles thru a predefined set of fonts.
@@ -121,7 +117,6 @@ See `cycle-font'."
 ;; ==============================
 ;; cycling thru interline spacing
 ;; ==============================
-;;;###autoload
 (defun toggle-line-spacing () 
   "Toggle between different line spacing"
   (interactive)
@@ -144,7 +139,6 @@ See `cycle-font'."
   (insert str)
   (eshell-send-input nil t t))
 
-;;;###autoload 
 (defun mk/update-git-dirs-eshell ()
   "Update git dirs using eshell."
   (interactive)
@@ -156,7 +150,6 @@ See `cycle-font'."
       (mk/run-str-in-eshell  "cd .. \n")
       (message "ALL DONE!!"))))
 
-;;;###autoload
 (defun mk/recursive-directories (dir)
   "Return all directories below DIR."
   (let (directs)
@@ -174,7 +167,6 @@ See `cycle-font'."
 ;; ------------------------
 ;; better beginning-of-line
 ;; ------------------------
-;;;###autoload
 (defun mk/smarter-beginning-of-line ()
   "Move point to beginning-of-line or first non-whitespace
 character or first non-whitespace after a comment sign."
@@ -192,7 +184,6 @@ character or first non-whitespace after a comment sign."
      ((and (<= oldpos indentpos) (> oldpos (line-beginning-position))) (beginning-of-line))
      (t (beginning-of-line-text)))))
 
-;;;###autoload
 (defun mk/unfill-paragraph ()
   "Takes a multi-line paragraph and makes it into a single line of text."
   (interactive)
@@ -202,7 +193,6 @@ character or first non-whitespace after a comment sign."
 ;; ------------------
 ;; emacs config files
 ;; ------------------
-;;;###autoload
 (defun mk/emacs-config-files ()
   (interactive)
   (save-excursion
