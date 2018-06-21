@@ -1,3 +1,12 @@
+;;; mk_eshell.el --- Config for the eshell
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
 (require 'eshell)
 (require 'em-smart)
 (setq eshell-where-to-jump 'begin
@@ -47,7 +56,6 @@ as cwd."
 	(insert dir)
 	(eshell-send-input)))))
 
-(global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
 (global-set-key (kbd "C-x a") 'async-shell-command)
 
 ;; ====================
@@ -204,3 +212,5 @@ current directory in BOOKMARK. Completion is available."))
 ;; (global-set-key (kbd "") 'mk/eshell-execute-current-line)
 
 (provide 'mk_eshell)
+
+;;; mk_eshell.el ends here

@@ -1,11 +1,12 @@
 ;; =================
 ;; pop-up ansi-terms
 ;; =================
+
 (defun mk/ansi-term-popup ()
   "Toggle an ansi-term buffer."
   (interactive)
   (when (not (get-buffer "*ansi-term*"))
-      (save-window-excursion (ansi-term (getenv "SHELL"))))
+    (save-window-excursion (ansi-term (getenv "SHELL"))))
   (if (equal (buffer-name) "*ansi-term*")
       (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
@@ -17,8 +18,6 @@
   (if (not (consp arg))
       (mk/ansi-term-popup)
     (ansi-term "/bin/zsh")))
-
-(define-key my-keys-minor-mode-map (kbd "C-x <RET>") 'mk/chama-ansi-term)
 
 (setq term-buffer-maximum-size 0)
 ;;; 

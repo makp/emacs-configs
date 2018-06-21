@@ -41,6 +41,18 @@
 (require 'mk_eshell)
 (require 'mk_misc-functions)
 
+;; =========
+;; autoloads
+;; =========
+
+(global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
+(autoload 'mk/eshell-popup "mk_eshell" t nil)
+
+(global-set-key (kbd "C-x <RET>") 'mk/chama-ansi-term)
+(autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
+
+
+
 ;; =======
 ;; modules
 ;; =======

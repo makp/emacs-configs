@@ -1,3 +1,12 @@
+;;; mk_magit.el --- Magit config
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
 (autoload 'magit-status "magit" nil t)
 
 (add-hook 'magit-status-mode-hook 
@@ -93,3 +102,5 @@ for a git repo first."
 
 
 (provide 'mk_magit)
+
+;;; mk_magit.el ends here
