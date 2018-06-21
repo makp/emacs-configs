@@ -416,17 +416,17 @@ shown, then it'll be hidden."
 ;; -----------
 ;; math-abbrev
 ;; -----------
-(customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
+;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
 
 (defun LaTeX-my-leftright (charopen charclose)
-"Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
-    (interactive)
-    (setq out1 (concat "\\left" charopen " "))
-    (setq out2 (concat " \\right" charclose))
-    (insert out1)
-    (push-mark)
-    (insert out2)
-    (exchange-point-and-mark))
+  "Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
+  (interactive)
+  (setq out1 (concat "\\left" charopen " "))
+  (setq out2 (concat " \\right" charclose))
+  (insert out1)
+  (push-mark)
+  (insert out2)
+  (exchange-point-and-mark))
 
 (setq LaTeX-math-list (quote(
 			      ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
