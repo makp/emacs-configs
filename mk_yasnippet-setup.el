@@ -65,7 +65,8 @@
 (setq-default mode-require-final-newline nil)
 ;; to avoid new lines to be inserted after a yasnippet
 
-(add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+;; (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+;; solution not working
 
 
 ;;; Inter-field navigation
