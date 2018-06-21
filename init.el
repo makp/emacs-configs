@@ -12,18 +12,13 @@
 (add-to-list 'load-path "~/elisp/")
 (add-to-list 'load-path "~/config-files/general/emacs-configs/")
 
-;; In case of emergency
-;; (let ((default-directory "~/elisp/bin/"))
-;;   (normal-top-level-add-to-load-path '("."))
-;;   (normal-top-level-add-subdirs-to-load-path))
-
 ;; ===========
 ;; core config
 ;; ===========
 (require 'mk_packages)
 (require 'mk_mode-line)
 (require 'mk_better-defaults)
-(require 'mk_dvorak-mode)
+(require 'mk_keybindings-dvorak)
 (require 'mk_helm-setup)
 (require 'mk_registers)
 (require 'mk_windows-setup)

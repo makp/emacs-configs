@@ -1,39 +1,47 @@
-;; FIXME: this file is a mess!!! 
+;;; mk_keybindings.el --- Custom global keybindings
 
-;; The regular keyboard-translate doesn't work with Emacs daemon. You
-;; should instead use (define-key key-translation-map ...). However
-;; that breaks the prefix arg (bug #9417)
+;;; Commentary:
 
-;;; SWAP SOME KEYS
+;; This custom keybindings are suppose to facilitate the use of the
+;; Dvorak keyboard with Emacs.
 
-(defun bug-do-emacs ()
-  "Emacs' bug 9417. 'key-translation-map' does not work properly
-with emacs --daemon "
-  (interactive)
+;;; Code:
 
-  (keyboard-translate ?\C-h ?\C-?)
-  
-  (keyboard-translate ?\C-t ?\C-p)
-  (keyboard-translate ?\C-p ?\C-t)
 
-  (keyboard-translate ?\C-u ?\C-x)
-  (keyboard-translate ?\C-x ?\C-u))
+;; Swap some key bindings
 
-(bug-do-emacs) 				; this won't work with emacs --daemon
+;; 
 
-(global-set-key (kbd "<f5>") 'bug-do-emacs)
+;; (defun bug-do-emacs ()
+;;   "Swap a few keybindings. This is a workaround Emacs bug 9417.
+;; The function (define-key key-translation-map ...) works with
+;; Emacs daemon, but this function breaks the prefix arg with EMACS
+;; daemon (bug #9417)."
+;;   (interactive)
 
-;; (define-key key-translation-map (kbd "C-t") (kbd "C-p"))
-;; (define-key key-translation-map (kbd "C-p") (kbd "C-t"))
+;;   (keyboard-translate ?\C-h ?\C-?)
 
-;; (define-key key-translation-map [?\C-x] [?\C-u])
-;; (define-key key-translation-map [?\C-u] [?\C-x])
+;;   (keyboard-translate ?\C-t ?\C-p)
+;;   (keyboard-translate ?\C-p ?\C-t)
+
+;;   (keyboard-translate ?\C-u ?\C-x)
+;;   (keyboard-translate ?\C-x ?\C-u))
+
+;; (global-set-key (kbd "<f5>") 'bug-do-emacs)
+
+(define-key key-translation-map [?\C-h] [?\C-?])
 
 (define-key key-translation-map (kbd "M-p") (kbd "M-t"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-p"))
 
-;;; MY KEYS-MINOR-MODE-MAP
-(defvar my-keys-minor-mode-map (make-keymap) "my-keys-minor-mode keymap.")
+(define-key key-translation-map (kbd "C-x") (kbd "C-u"))
+(define-key key-translation-map (kbd "C-u") (kbd "C-x"))
+
+(define-key key-translation-map (kbd "C-t") (kbd "C-p"))
+(define-key key-translation-map (kbd "C-p") (kbd "C-t"))
+
+(defvar my-keys-minor-mode-map (make-keymap) "Define a couple of
+global keybindings to be used with a Dvorak keyboard.")
 
 
 (define-key my-keys-minor-mode-map (kbd "C-x ,") 'split-window-below)
@@ -72,4 +80,8 @@ with emacs --daemon "
         (add-to-list 'minor-mode-map-alist mykeys))))
 (ad-activate 'load)
 
-(provide 'mk_dvorak-mode)
+
+
+(provide 'mk_keybindings)
+
+;;; mk_keybindings.el ends here
