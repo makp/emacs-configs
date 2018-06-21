@@ -17,29 +17,33 @@
 ;;   (normal-top-level-add-to-load-path '("."))
 ;;   (normal-top-level-add-subdirs-to-load-path))
 
-(require 'mk_packages)
-
-;; ===========
-;; color theme
-;; ===========
-(load-theme 'gruvbox-dark-medium t)
-
 ;; ===========
 ;; core config
 ;; ===========
+(require 'mk_packages)
 (require 'mk_mode-line)
 (require 'mk_better-defaults)
 (require 'mk_dvorak-mode)
-(require 'mk_registers)
 (require 'mk_helm-setup)
+(require 'mk_registers)
 (require 'mk_windows-setup)
 (require 'mk_dired)
 (require 'mk_session-management)
 (require 'mk_ibuffer-setup)
 (require 'mk_magit)
-(require 'mk_ansi-term)
-(require 'mk_eshell)
 (require 'mk_misc-functions)
+
+;; =================
+;; eval-after-load's
+;; =================
+(with-eval-after-load 'cc-mode
+  (require 'mk_cc))
+(with-eval-after-load 'elisp-mode
+  (require 'mk_elisp))
+(with-eval-after-load 'tex-mode
+  (require 'mk_latex))
+(with-eval-after-load 'python-mode
+  (require 'mk_python))
 
 ;; =========
 ;; autoloads
@@ -65,7 +69,6 @@
 		   (require 'mk_mark-setup)
 		   (require 'mk_yasnippet-setup)
 		   (require 'mk_autocomplete-setup)
-		   (require 'mk_elisp)
 		   (require 'mk_web-devel)
 		   (require 'mk_keyfreq)))
 
@@ -76,11 +79,10 @@
 		'(lambda ()
 		   (interactive)
 		   (require 'mk_chrome)
-		   (require 'mk_orgmode-setup) ; (eval-after-load "org" ')
+		   (require 'mk_orgmode-setup)
 		   ;; (require 'mk_mobileorg)
-		   (require 'mk_latex-setup) ; (eval-after-load "tex-mode" ')
 		   (require 'mk_emacsw3m)
-		   (require 'mk_python)))
+		   ))
 
 ;; -----------
 ;; Email + ERC
@@ -98,11 +100,6 @@
 ;; 		   ;; (require 'mk_message-mode)
 ;; 		   ;; (require 'mk_erc)
 ;; 		   ;; (require 'mk_emms-setup)
-;; 		   (message ">>>>> End of my email + erc config <<<<<<<<")))
+;; ))
 
-;; =================
-;; eval-after-load's
-;; =================
-(eval-after-load 'cc-mode '(require 'mk_cc))
-
-;;; end of init.el
+;;; init.el ends here

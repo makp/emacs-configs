@@ -29,6 +29,11 @@
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
+;; ===========
+;; color theme
+;; ===========
+(load-theme 'gruvbox-dark-medium t)
+
 
 ;; =====
 ;; setqs
