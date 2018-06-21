@@ -1,3 +1,35 @@
+;;; mk_better-defaults.el --- Better defaults for Emacs
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
+;; =====================
+;; Common Lisp emulation
+;; =====================
+;; Resource:
+;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
+
+;; (require 'cl-lib)
+;; cl-macs
+
+
+;; ==================
+;; Garbage collection
+;; ==================
+(setq gc-cons-threshold 100000000) 	; in bytes
+;; The default amount was 800KB. If you specify a larger value,
+;; garbage collection will happen less often. This reduces the amount
+;; of time spent garbage collecting, but increases total memory use.
+;;
+;; References:
+;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
+
+
 ;; =====
 ;; setqs
 ;; =====

@@ -1,15 +1,10 @@
-;; "-*- emacs-lisp -*-"
-;; Main Emacs config file
+;;; init.el --- Initialization file
 
-;; =====================
-;; Common Lisp emulation
-;; =====================
-;; Resource:
-;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
+;;; Commentary:
 
-;; (require 'cl-lib)
-;; cl-macs
+;; 
 
+;;; Code:
 
 ;; =========
 ;; Load path
