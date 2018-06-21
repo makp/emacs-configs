@@ -1,4 +1,4 @@
-;;; mk_keybindings.el --- Custom global keybindings
+;;; mk_keybindings-dvorak.el --- Custom global keybindings for Dvorak keyboard
 
 ;;; Commentary:
 
@@ -16,7 +16,11 @@
 ;;   "Swap a few keybindings. This is a workaround Emacs bug 9417.
 ;; The function (define-key key-translation-map ...) works with
 ;; Emacs daemon, but this function breaks the prefix arg with EMACS
-;; daemon (bug #9417)."
+;; daemon (bug #9417).
+;; Refs:
+;; http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-09/msg00010.html
+;; https://stackoverflow.com/questions/7747167/emacs-daemon-swapping-keys
+;; "
 ;;   (interactive)
 
 ;;   (keyboard-translate ?\C-h ?\C-?)
@@ -82,6 +86,6 @@ global keybindings to be used with a Dvorak keyboard.")
 
 
 
-(provide 'mk_keybindings)
+(provide 'mk_keybindings-dvorak)
 
-;;; mk_keybindings.el ends here
+;;; mk_keybindings-dvorak.el ends here
