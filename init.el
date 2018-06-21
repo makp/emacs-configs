@@ -74,7 +74,6 @@
 		   (interactive)
 		   ;; (require 'mk_chrome)
 		   (require 'mk_orgmode-setup)
-		   ;; (require 'mk_mobileorg)
 		   (require 'mk_emacsw3m)))
 
 ;; -----------
