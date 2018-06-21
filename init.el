@@ -58,18 +58,17 @@
 ;; -------------------------
 ;; mark + yas + autocomplete
 ;; -------------------------
-(global-set-key (kbd "<f6>")
+(global-set-key (kbd "<f5>")
 		'(lambda ()
 		   (interactive)
+		   (require 'mk_company)
 		   (require 'mk_yasnippet-setup)
-		   (require 'mk_autocomplete-setup)
-		   (require 'mk_web-devel)
-		   (require 'mk_keyfreq)))
+		   (require 'mk_web-devel)))
 
 ;; --------------------------------------------
 ;; org-mode, latex, and other programming modes
 ;; --------------------------------------------
-(global-set-key (kbd "<f7>")
+(global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
 		   ;; (require 'mk_chrome)
@@ -79,19 +78,20 @@
 ;; -----------
 ;; Email + ERC
 ;; -----------
-;; (global-set-key (kbd "<f8>")
-;; 		'(lambda ()
-;; 		   (interactive)
-;; 		   (message ">>>>> Loading my email + erc config <<<<<<<<")
-;; 		   ;; (require 'gnuplot)
-;; 		   ;; (require 'mk_ess)
-;; 		   ;; (require 'mk_eldoc)
-;; 		   ;; (setq user-full-name "Makmiller Pedroso")
-;; 		   ;; (setq user-mail-address "makmiller@gmail.com")
-;; 		   ;; (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
-;; 		   ;; (require 'mk_message-mode)
-;; 		   ;; (require 'mk_erc)
-;; 		   ;; (require 'mk_emms-setup)
-;; ))
+(global-set-key (kbd "<f7>")
+		'(lambda ()
+		   (interactive)
+		   (require 'mk_autocomplete-setup)
+		   (require 'mk_keyfreq)
+		   ;; (require 'gnuplot)
+		   ;; (require 'mk_ess)
+		   ;; (require 'mk_eldoc)
+		   ;; (setq user-full-name "Makmiller Pedroso")
+		   ;; (setq user-mail-address "makmiller@gmail.com")
+		   ;; (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
+		   ;; (require 'mk_message-mode)
+		   ;; (require 'mk_erc)
+		   ;; (require 'mk_emms-setup)
+		   ))
 
 ;;; init.el ends here
