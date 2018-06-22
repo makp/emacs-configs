@@ -16,7 +16,6 @@
 ;; (require 'cl-lib)
 ;; cl-macs
 
-
 ;; =======================
 ;; Enable some keybindings
 ;; =======================
@@ -75,7 +74,14 @@
 
 (setq visible-bell t)
 
-(global-auto-revert-mode t) ;; Reload file if it changes
+;; (setq-default truncate-lines nil)
+
+(setq sentence-end-double-space nil) ;Relevant for using M-k/e/a
+
+(setq enable-recursive-minibuffers t)
+;; If this variable is nil, you cannot invoke minibuffer commands when
+;; the minibuffer window is active, not even if you switch to another
+;; window to do it.
 
 
 ;; ===========
@@ -97,46 +103,36 @@
 ;; Enable some modes
 ;; =================
 
-;; Modes that ship with Emacs
+;; Minor global modes that ship with Emacs
 (global-subword-mode 1)
 (blink-cursor-mode 1)
 (global-font-lock-mode 1)
-(global-hl-line-mode t)			;toggle line highlighting
+(global-hl-line-mode t)	      ;toggle line highlighting
+;; (mouse-avoidance-mode 'cat-and-mouse)
+
+(global-auto-revert-mode 1) ;Reload file when it changes
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose t)
+
+(global-visual-line-mode 1)
+;; The visual-line-mode turns on word-wrapping and rebinds C-a, C-e,
+;; and C-k to operate on visual lines instead of logical lines.
+
+
 (show-paren-mode 1)
+(setq
+ show-paren-delay 0	      ;disactivate delay when matching parentheses
+ show-paren-style 'mixed)
+;; The var 'show-paren-style' controls what gets highlighted. Possible
+;; values: parenthesis, expression, and mixed
+
+(pending-delete-mode 1)
 
 
 ;; ;; highlight parenthesis
 ;; (require 'highlight-parentheses)
 ;; (highlight-parentheses-mode t)
 
-
-;; ;; --------------
-;; ;; mouse behavior
-;; ;; --------------
-;; (mouse-avoidance-mode nil)
-;; (setq mouse-avoidance-mode 'banish)
-;; ;; Description: move the mouse to the upper-right corner on any key
-;; ;; press
-
-
-;; ------------
-;; line display
-;; ------------
-(setq-default global-visual-line-mode t)
-
-(setq-default truncate-lines t)
-
-
-;; ===========
-;; Minibuffers
-;; ===========
-(setq enable-recursive-minibuffers t)
-;; Turn recursive editing in the mini buffer.
-
-;; (if (require 'miniedit nil t)
-;;     (miniedit-install))
-;; Description: binds C-M-e in a minibuffer so that you can edit the
-;; contents of the minibuffer before submitting it.
 
 ;; =========
 ;; undo-tree
@@ -157,9 +153,6 @@
         (set-marker m nil))
     ad-do-it))
 
-;; =======
-;; Buffers
-;; =======
 ;; (global-set-key (kbd "C-x n") 'other-window)
 (global-set-key (kbd "C-S-n") 'other-window)
 (global-set-key (kbd "C-S-t") '(lambda () (interactive) (other-window -1)))
@@ -170,8 +163,6 @@
 ;; -----------
 ;; auto-revert
 ;; -----------
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
 
 ;; --------
 ;; uniquify
@@ -286,8 +277,8 @@
 ;; ---------
 ;; sentences
 ;; ---------
-(setq sentence-end-double-space nil)
-;;; this is relevant for using M-k/e/a
+
+
 
 ;; --------------
 ;; zap-up-to-char
@@ -307,10 +298,6 @@
 ;; Parentheses
 ;; ===========
 
-(setq
- show-paren-delay 0	     ; disactivates delay matching parentheses
- show-paren-style 'parenthesis) ; values: parenthesis, expression, and
-					; mixed 
 (global-set-key (kbd "C-c p") "(")
 (global-set-key (kbd "C-c y") "[")   
 (global-set-key (kbd "C-c f") "{")
@@ -437,7 +424,7 @@
 ;; Look at the TAGS files in these directories.
 ;; I don't need to set this up if I'm using helm for selecting tags
 
-(pending-delete-mode t)
+
 
 ;; (global-set-key (kbd "C-j") nil)
 ;; (local-set-key (kbd "C-j") 'universal-argument)
