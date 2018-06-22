@@ -32,8 +32,8 @@
 ;;; Install missing packages
 
 (defvar mk/pkg-list '(ac-math ace-jump-mode aggressive-indent
-			      auctex auto-complete autopair
-			      company company-auctex company-math
+			      auctex auto-complete company
+			      company-auctex company-math
 			      dired-details dropdown-list elpy
 			      flycheck fuzzy gnuplot-mode
 			      gruvbox-theme helm helm-bibtex
