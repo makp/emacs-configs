@@ -12,6 +12,10 @@
           (lambda()
             (setq mode-name "El")))
 
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (highlight-parentheses-mode t)))
+
 (provide 'mk_elisp)
 
 ;;; mk_elisp.el ends here

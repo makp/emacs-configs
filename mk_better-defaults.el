@@ -146,12 +146,15 @@
 ;; ---------------------
 ;; Highlight parentheses
 ;; ---------------------
-;; Enables highlight-parentheses on all buffers
-(define-globalized-minor-mode global-highlight-parentheses-mode
-  highlight-parentheses-mode
-  (lambda ()
-    (highlight-parentheses-mode t)))
-(global-highlight-parentheses-mode t)
+
+;; The code below enables the minor mode highlight-parentheses on all
+;; buffers:
+
+;; (define-globalized-minor-mode global-highlight-parentheses-mode
+;;   highlight-parentheses-mode
+;;   (lambda ()
+;;     (highlight-parentheses-mode t)))
+;; (global-highlight-parentheses-mode t)
 
 
 ;; ---------
