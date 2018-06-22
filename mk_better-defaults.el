@@ -102,11 +102,13 @@
 (global-unset-key (kbd "C-x C-p")) 	;it was mark-page
 
 
-;; =================
-;; Enable some modes
-;; =================
+;; ==================
+;; Global minor modes
+;; ==================
 
-;; Minor global modes that ship with Emacs
+;; ------------------------------------
+;; Minor global modes shiped with Emacs
+;; ------------------------------------
 (global-subword-mode 1)
 (blink-cursor-mode 1)
 (global-font-lock-mode 1)
@@ -123,15 +125,16 @@
 ;; The visual-line-mode turns on word-wrapping and rebinds C-a, C-e,
 ;; and C-k to operate on visual lines instead of logical lines.
 
+(pending-delete-mode 1)
 
 (show-paren-mode 1)
-(setq
+(setq-default
  show-paren-delay 0	      ;disactivate delay when matching parentheses
  show-paren-style 'mixed)
 ;; The var 'show-paren-style' controls what gets highlighted. Possible
 ;; values: parenthesis, expression, and mixed
 
-(pending-delete-mode 1)
+(electric-pair-mode 1)
 
 
 ;; ---------------------
@@ -282,12 +285,6 @@
 (global-set-key (kbd "C-c p") "(")
 (global-set-key (kbd "C-c y") "[")
 (global-set-key (kbd "C-c f") "{")
-
-;; --------
-;; autopair
-;; --------
-(require 'autopair)
-(autopair-global-mode)
 
 ;; ---------------
 ;; some keybidings
