@@ -37,8 +37,8 @@
 			      dropdown-list elpy flycheck fuzzy
 			      gnuplot-mode gruvbox-theme helm
 			      helm-bibtex helm-ls-git
-			      highlight-parentheses ibuffer-git
-			      ibuffer-vc key-chord keyfreq magit
+			      highlight-parentheses ibuffer-vc
+			      key-chord keyfreq magit
 			      markdown-mode multiple-cursors nov
 			      org-plus-contrib org-gcal pdf-tools
 			      popup region-bindings-mode
@@ -47,7 +47,7 @@
 			      zenburn-theme)
   "The list of packages installed at launch.")
 
-;; ess
+;; ess, ibuffer-git
 
 ;; Fetch the list of packages available
 (unless package-archive-contents

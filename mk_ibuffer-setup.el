@@ -1,19 +1,26 @@
-;;; The intuition behind *ibuffer* is to have a buffer menu that lets
-;;; you operate on buffers much in the same manner as Dired.
+;;; mk_ibuffer-setup.el --- Custom config ibuffer
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List buffers." t)
 
 (add-hook 'ibuffer-mode-hook
 	  (lambda ()
-	    (ibuffer-auto-mode 1))) ;auto-update
-(setq
+	    (ibuffer-auto-mode 1)
+	    (visual-line-mode nil))) ;auto-update
+
+(setq-default
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
  ibuffer-expert t ;; don't ask for confirmation of "dangerous" operations.
  ibuffer-filter-group-name-face 'font-lock-variable-name-face ;;
  ibuffer-old-time 50)
 
-(require 'ibuf-ext)
+;; (require 'ibuf-ext)
 (dolist (ibfilter '("^\\*" "_region_"))
   (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
@@ -45,25 +52,36 @@
    (t (format "%8d" (buffer-size)))))
 
 ;; ibuffer-vc
-(require 'ibuffer-vc)
-(require 'ibuffer-git)
-
 (add-hook 'ibuffer-hook
 	  (lambda ()
 	    (ibuffer-vc-set-filter-groups-by-vc-root)
 	    (unless (eq ibuffer-sorting-mode 'alphabetic)
 	      (ibuffer-do-sort-by-alphabetic))))
 
-;; Type '`' to switch through different ibuffer-formats
+;; The following code uses `force-mode-line-update' to cause
+;; `vc-state' to work properly. Source:
+;; https://emacs.stackexchange.com/questions/35758/vc-status-behavior-in-ibuffer-vc/41024#41024
+(defun vc-state-refresh-post-command-hook ()
+  "Check if command in `this-command' was executed, then run `vc-refresh-state'"
+  (when (memq this-command '(other-window kill-buffer))
+    (vc-refresh-state)))
+
+(add-hook 'after-save-hook 'vc-refresh-state)
+(add-hook 'after-revert-hook 'vc-refresh-state)
+(add-hook 'post-command-hook #'vc-state-refresh-post-command-hook)
+
+
+;; Type '`' to switch through different ibuffer-formats. Use "," to
+;; change how files are sorted.
 (setq ibuffer-formats
-      '((mark modified read-only git-status-mini " "
+      '((mark modified read-only vc-status-mini " "
 	      (name 18 18 :left :elide)
 	      " "
 	      (size-h 9 -1 :right)
 	      " "
-	      (mode 16 16 :left :elide)
+	      (mode 4 4 :left :elide)
 	      " "
-	      (git-status 8 8 :left)
+	      (vc-status 12 12 :left)
 	      " "
 	      filename-and-process)
 	(mark modified read-only vc-status-mini " "
@@ -71,70 +89,11 @@
 	      " "
 	      (size-h 9 -1 :right)
 	      " "
-	      (mode 16 16 :left :elide)
+	      (mode 4 4 :left :elide)
 	      " "
-	      (vc-status 16 16 :left))))
+	      (vc-status 12 12 :left))))
 
 
-
-;; (setq ibuffer-formats
-;;       '((mark modified read-only git-status-mini " "
-;;  	      (name 18 18 :left :elide)
-;;  	      " "
-;;  	      (size-h 9 -1 :right)
-;;  	      " "
-;;  	      (mode 16 16 :left :elide)
-;;  	      " "
-;;  	      (git-status 8 8 :left)
-;;  	      " " filename-and-process)))
-
-
-
-;; (setq ibuffer-saved-filter-groups
-;;       (quote (("default"      
-;; 	       ("agendas"
-;; 		 (filename . "/home/makmiller/elisp/agendas/"))
-;; 	       ("other org files" 
-;; 		(mode . org-mode))
-;; 	       ("LaTeX"
-;; 		(or 
-;; 		 (mode . latex-mode)
-;; 		 (mode . bibtex-mode)))
-;; 	       ("scripting"
-;; 		(or
-;; 		 (mode . conf-mode) 	; not working
-;; 		 (mode . term-mode)
-;; 		 (mode . perl-mode)
-;; 		 (mode . sh-mode)
-;; 		 (mode . conf-xdefaults-mode)
-;; 		 (mode . emacs-lisp-mode)))
-;; 	       ("programming"
-;; 		(or
-;; 		 (mode . html-mode)
-;; 		 (mode . web-mode)
-;; 		 (mode . c-mode)
-;; 		 (mode . haskell-mode)
-;; 		 (mode . lisp-mode)
-;; 		 (mode . python-mode))) 
-;; 	       ("PDFs"
-;; 		(or
-;; 		 (mode . doc-view-mode)
-;; 		 (mode . pdf-view-mode)))
-;; 	       ("ERC"
-;; 		(mode . erc-mode))
-;; 	       ("info"
-;; 		(mode . info-mode))
-;; 	       ("dired"
-;; 		(or
-;; 		 (mode . dired-mode)))))))
-
-;; (add-hook 'ibuffer-mode-hook
-;; 	  (lambda ()
-;; 	    (ibuffer-switch-to-saved-filter-groups "default")))
-
-
-
-;; ;;;###autoload
 ;; (defun ibuffer-ediff-marked-buffers ()
 ;;   (interactive)
 ;;   (let* ((marked-buffers (ibuffer-get-marked-buffers))
@@ -146,4 +105,7 @@
 
 ;; (define-key ibuffer-mode-map "e" 'ibuffer-ediff-marked-buffers)
 
+
 (provide 'mk_ibuffer-setup)
+
+;;; mk_ibuffer-setup.el ends here
