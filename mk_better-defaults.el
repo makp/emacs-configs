@@ -155,11 +155,6 @@
         (set-marker p nil)
         (set-marker m nil))
     ad-do-it))
-
-;; (global-set-key (kbd "C-x n") 'other-window)
-(global-set-key (kbd "C-S-n") 'other-window)
-(global-set-key (kbd "C-S-t") '(lambda () (interactive) (other-window -1)))
-;; auto-revert
 ;; -----------
 
 ;; ---------

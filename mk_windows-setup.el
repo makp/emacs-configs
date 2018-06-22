@@ -1,6 +1,17 @@
-;;; windows and buffers
+;;; mk_windows-setup.el --- Custom window setup
 
-;; (global-set-key (kbd "C-x c") 'bury-buffer)
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
+
+;; (global-set-key (kbd "C-x n") 'other-window)
+(global-set-key (kbd "C-S-f") 'other-window)
+(global-set-key (kbd "C-S-b") '(lambda () (interactive) (other-window -1)))
+
 (global-set-key (kbd "C-x C-c") 'delete-window)
 
 ;; ===========
@@ -170,3 +181,5 @@ with `sticky-window-keep-window-visible'."
 ;; (global-set-key (kbd "") 'ace-window)
 
 (provide 'mk_windows-setup)
+
+;;; mk_windows-setup.el ends here
