@@ -132,30 +132,34 @@
 (pending-delete-mode 1)
 
 
-;; ;; highlight parenthesis
-;; (require 'highlight-parentheses)
-;; (highlight-parentheses-mode t)
+;; ---------------------
+;; Highlight parentheses
+;; ---------------------
+;; Enables highlight-parenthesis on all buffers
+(define-globalized-minor-mode global-highlight-parentheses-mode
+  highlight-parentheses-mode
+  (lambda ()
+    (highlight-parentheses-mode t)))
+(global-highlight-parentheses-mode t)
 
 
-;; =========
+;; ---------
 ;; undo-tree
-;; =========
-(require 'undo-tree)
-
+;; ---------
 (global-undo-tree-mode)
 
-;; keep region when undoing in region
-(defadvice undo-tree-undo (around keep-region activate)
-  (if (use-region-p)
-      (let ((m (set-marker (make-marker) (mark)))
-            (p (set-marker (make-marker) (point))))
-        ad-do-it
-        (goto-char p)
-        (set-mark m)
-        (set-marker p nil)
-        (set-marker m nil))
-    ad-do-it))
-;; -----------
+;; ;; keep region when undoing in region
+;; (defadvice undo-tree-undo (around keep-region activate)
+;;   (if (use-region-p)
+;;       (let ((m (set-marker (make-marker) (mark)))
+;;             (p (set-marker (make-marker) (point))))
+;;         ad-do-it
+;;         (goto-char p)
+;;         (set-mark m)
+;;         (set-marker p nil)
+;;         (set-marker m nil))
+;;     ad-do-it))
+
 
 ;; ---------
 ;; redisplay
