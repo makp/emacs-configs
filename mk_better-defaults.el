@@ -156,21 +156,8 @@
 ;; (global-set-key (kbd "C-x n") 'other-window)
 (global-set-key (kbd "C-S-n") 'other-window)
 (global-set-key (kbd "C-S-t") '(lambda () (interactive) (other-window -1)))
-
-(global-set-key (kbd "C-x C-n") 'bury-buffer)
-(global-set-key (kbd "C-x C-;") 'set-goal-column)
-
-;; -----------
 ;; auto-revert
 ;; -----------
-
-;; --------
-;; uniquify
-;; --------
-(require 'uniquify)
-(setq
- uniquify-buffer-name-style 'post-forward
- uniquify-separator ":")
 
 ;; ---------
 ;; redisplay
@@ -258,9 +245,7 @@
 
 (global-set-key (kbd "M-C") 'subword-capitalize)
 
-(global-set-key (kbd "C-x k") '(lambda ()
-			       (interactive)
-			       (kill-buffer nil)))
+
 
 ;;; Remember that Emacs natively support these commands:
 ;;; |-----------+-------------------------|
