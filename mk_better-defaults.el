@@ -431,21 +431,10 @@
 ;; (global-set-key  'split-line)
 ;; (global-set-key  'open-line)
 
-;; ============
-;; Line spacing
-;; ============
-;; (setq lista-espacos (list 0 0.35 0.5 0.75)	;; list of different values
-;;       ;; for line-spacing
-;;       contador 1				;; the default value
-;;       comprimento (length lista-espacos))
-
-;; (setq-default line-spacing (nth contador lista-espacos))   ;; declaring the default value for line spacing
-
 ;; epub
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 (setq nov-text-width 80)
-
 
 ;; ==============================
 ;; Spell checker and dictionaries

@@ -7,16 +7,13 @@
 ;;; Code:
 
 
-;; ======
-;; AUCTex
-;; ======
-;; (load "auctex.el" nil t t)
-;; Use auctex from ELPA
-
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
 			      'TeX-macro-global "~/texmf/tex/latex/")))
 
+
+(add-hook 'LaTeX-mode-hook (lambda ()
+			     (setq line-spacing .35)))
 ;; --------------
 ;; better C-a/C-e
 ;; --------------
