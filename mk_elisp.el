@@ -2,7 +2,9 @@
 
 ;;; Commentary:
 
-;; 
+;; TODO: Bind a few built-in funcs: find-func, find-library,
+;; find-function.
+
 
 ;;; Code:
 
