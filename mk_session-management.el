@@ -1,3 +1,12 @@
+;;; mk_session-management.el --- Custom config for session management
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
 ;; ========
 ;; savehist
 ;; ========
@@ -18,8 +27,10 @@
 ;; =========
 ;; saveplace
 ;; =========
-(require 'saveplace)
-(setq-default save-place t)
+(save-place-mode 1)
 (setq save-place-file "~/.emacs.d/saved-places")
+(setq save-place-forget-unreadable-files nil)
 
 (provide 'mk_session-management)
+
+;;; mk_session-management.el ends here
