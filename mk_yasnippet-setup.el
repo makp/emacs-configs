@@ -1,14 +1,40 @@
-;; =========
-;; Yasnippet
-;; =========
-(require 'yasnippet)
-(require 'dropdown-list)
+;;; mk_yasnippet-setup.el --- Custum setup for Yasnippets
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
 
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
 
-(setq yas-snippet-dirs '("~/config-files/general/emacs-configs/my-snippets"))
+(setq-default yas-snippet-dirs '("~/config-files/general/emacs-configs/my-snippets"))
+;; My impression is that this line has to appear before
+;; yas-global-mode is loaded because, otherwise, my snippets are not
+;; loaded.
 
 (yas-global-mode 1)
+
+;; (setq-default yas-trigger-key "TAB")
+;; The key bound to `yas-expand' when `yas-minor-mode' is active.
+
+(setq-default yas-indent-line 'fixed)
+;; This variable controls indenting. The default value, "auto", causes
+;; your snippet to be indented according to the mode the buffer it was
+;; inserted in.
+
+(setq-default yas-wrap-around-region t)
+;; If non-nil, snippet expansion wraps around selected region.
+
+(setq-default mode-require-final-newline nil)
+;; to avoid new lines to be inserted after a yasnippet
+
+
+;; (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+;; solution not working
+
+(setq-default yas-prompt-functions '(shk-yas/helm-prompt yas-dropdown-prompt))
 
 (defun shk-yas/helm-prompt (prompt choices &optional display-fn)
   "Use helm to select a snippet."
@@ -30,19 +56,6 @@
 	  (cdr (assoc result rmap))))
     nil))
 
-(setq yas-prompt-functions '(shk-yas/helm-prompt yas-dropdown-prompt))
-
-(setq yas-trigger-key "TAB")
-;; The key bound to `yas-expand' when `yas-minor-mode' is active.
-
-(setq yas-indent-line 'fixed)
-;; This variable controls indenting. The default value, "auto", causes
-;; your snippet to be indented according to the mode the buffer it was
-;; inserted in.
-
-(setq yas-wrap-around-region t)
-;; If non-nil, snippet expansion wraps around selected region.
-
 ;; --------------------
 ;; interaction with yas
 ;; --------------------
@@ -60,14 +73,6 @@
 ;; 	    (setq yas-trigger-key [tab])
 ;; 	    (add-to-list 'org-tab-first-hook 'yas-org-very-safe-expand)
 ;; 	    (define-key yas-keymap [tab] 'yas-next-field)))
-
-
-(setq-default mode-require-final-newline nil)
-;; to avoid new lines to be inserted after a yasnippet
-
-;; (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
-;; solution not working
-
 
 ;;; Inter-field navigation
 ;; (defun yas-goto-end-of-active-field ()
@@ -90,3 +95,6 @@
 ;; (define-key yas-keymap (kbd "C-a") 'yas-goto-start-of-active-field)
 
 (provide 'mk_yasnippet-setup)
+
+;;; mk_yasnippet-setup.el ends here
+
