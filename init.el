@@ -31,6 +31,18 @@
 (require 'mk_keybindings-dvorak)
 
 
+;; ========
+;; Terminal
+;; ========
+(global-set-key (kbd "C-x a") 'async-shell-command)
+
+(global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
+(autoload 'mk/eshell-popup "mk_eshell" t nil)
+
+(global-set-key (kbd "C-x <RET>") 'mk/chama-ansi-term)
+(autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
+
+
 ;; =================
 ;; eval-after-load's
 ;; =================
@@ -42,17 +54,6 @@
   (require 'mk_latex))
 (with-eval-after-load 'python-mode
   (require 'mk_python))
-
-;; ========
-;; Terminal
-;; ========
-(global-set-key (kbd "C-x a") 'async-shell-command)
-
-(global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
-(autoload 'mk/eshell-popup "mk_eshell" t nil)
-
-(global-set-key (kbd "C-x <RET>") 'mk/chama-ansi-term)
-(autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
 
 
 ;; =======
@@ -84,7 +85,7 @@
 (global-set-key (kbd "<f7>")
 		'(lambda ()
 		   (interactive)
-		   (require 'mk_autocomplete-setup)
+		   ;; (require 'mk_autocomplete-setup)
 		   (require 'mk_keyfreq)
 		   ;; (require 'gnuplot)
 		   ;; (require 'mk_ess)

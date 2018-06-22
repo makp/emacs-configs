@@ -32,15 +32,14 @@
 ;;; Install missing packages
 
 (defvar mk/pkg-list '(ac-math ace-jump-mode aggressive-indent
-			      auctex auto-complete company
-			      company-auctex company-math
-			      dired-details dropdown-list elpy
-			      flycheck fuzzy gnuplot-mode
-			      gruvbox-theme helm helm-bibtex
-			      helm-ls-git highlight-parentheses
-			      ibuffer-git ibuffer-vc key-chord
-			      keyfreq magit markdown-mode
-			      multiple-cursors nov
+			      auctex company company-auctex
+			      company-math dired-details
+			      dropdown-list elpy flycheck fuzzy
+			      gnuplot-mode gruvbox-theme helm
+			      helm-bibtex helm-ls-git
+			      highlight-parentheses ibuffer-git
+			      ibuffer-vc key-chord keyfreq magit
+			      markdown-mode multiple-cursors nov
 			      org-plus-contrib org-gcal pdf-tools
 			      popup region-bindings-mode
 			      undo-tree w3m web-mode wgrep
