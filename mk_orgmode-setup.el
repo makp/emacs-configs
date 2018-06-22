@@ -96,8 +96,8 @@
 (add-hook 'org-mode-hook
 	  (lambda ()
 	    ;; for promoting and demoting headings
-	    (define-key org-mode-map (kbd "C-S-f") 'org-metaright)
-	    (define-key org-mode-map (kbd "C-S-b") 'org-metaleft)
+	    (define-key org-mode-map (kbd "C-S-n") 'org-metaright)
+	    (define-key org-mode-map (kbd "C-S-t") 'org-metaleft)
 	    
 	    ;; (define-key org-mode-map (kbd "M-T") 'org-metadown)
 	    ;; (define-key org-mode-map (kbd "M-N") 'org-metaup)
