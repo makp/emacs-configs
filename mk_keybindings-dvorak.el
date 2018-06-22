@@ -54,6 +54,9 @@
 ;; C-h as backspace
 (define-key key-translation-map [?\C-h] [?\C-?])
 
+;; 
+(global-set-key (kbd "M-h") 'backward-kill-word)
+
 ;; Universal argument
 (global-set-key (kbd "C-,") 'universal-argument)
 (define-key universal-argument-map (kbd "C-,") 'universal-argument-more)

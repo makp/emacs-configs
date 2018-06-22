@@ -101,13 +101,19 @@
 
 (global-unset-key (kbd "C-x C-p")) 	;it was mark-page
 
+(global-set-key (kbd "M-n") 'forward-paragraph)
+(global-set-key (kbd "M-p") 'backward-paragraph)
+
+
+;; (global-set-key (kbd "C-x C-;") 'set-goal-column)
+
 
 ;; ==================
 ;; Global minor modes
 ;; ==================
 
 ;; ------------------------------------
-;; Minor global modes shiped with Emacs
+;; Global minor modes shiped with Emacs
 ;; ------------------------------------
 (global-subword-mode 1)
 (blink-cursor-mode 1)
@@ -165,9 +171,6 @@
 ;;         (set-marker m nil))
 ;;     ad-do-it))
 
-;; (global-set-key (kbd "C-x C-;") 'set-goal-column)
-
-
 ;; ========
 ;; keychord
 ;; ========
@@ -198,7 +201,6 @@
 ;; ========
 ;; ace-jump
 ;; ========
-;; (require 'ace-jump-mode)
 (setq ace-jump-mode-scope 'window)
 
 ;;; don't ignore case
@@ -267,16 +269,14 @@
 ;; --------------
 ;; zap-up-to-char
 ;; --------------
-(autoload 'zap-up-to-char "misc"
-  "Kill up to, but not including ARGth occurrence of CHAR.
-  
-  \(fn arg char)"
-  'interactive)
+;; (autoload 'zap-up-to-char "misc"
+;;   "Kill up to, but not including ARGth occurrence of CHAR.
+
+;;   \(fn arg char)"
+;;   'interactive)
 
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "M-Z") 'zap-to-char)
-
-(global-set-key (kbd "M-h") 'backward-kill-word)
 
 ;; ===========
 ;; Parentheses
@@ -329,20 +329,17 @@
 ;;; (setq doc-view-cache-directory "/tmp/docview1000")
 
 ;; Multiple async processes 
-(defadvice shell-command (after shell-in-new-buffer (command &optional output-buffer error-buffer))
-  (when (get-buffer "*Async Shell Command*")
-    (with-current-buffer "*Async Shell Command*"
-      (rename-uniquely))))
-(ad-activate 'shell-command)
+;; (defadvice shell-command (after shell-in-new-buffer (command &optional output-buffer error-buffer))
+;;   (when (get-buffer "*Async Shell Command*")
+;;     (with-current-buffer "*Async Shell Command*"
+;;       (rename-uniquely))))
+;; (ad-activate 'shell-command)
 
 ;; What is exactly the difference between set-face-attribute and
 ;; modify-face?
 
 (setq emerge-diff-options "--ignore-all-space")
 ;; Description: emerge doesn't care about differences in whitespace
-
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
 
 ;; (defun mk/open-line-below ()
 ;;   (interactive)
@@ -404,18 +401,18 @@
 ;; (require 'epa-file)
 ;; (epa-file-enable)
 
-;; ===========
-;; lock screen
-;; ===========
-(defun mk-lock-screen ()
-  (interactive)
-  (async-shell-command "sudo openvt -sw -- vlock -a"))
+;; ;; ===========
+;; ;; lock screen
+;; ;; ===========
+;; (defun mk-lock-screen ()
+;;   (interactive)
+;;   (async-shell-command "sudo openvt -sw -- vlock -a"))
 
-(global-set-key (kbd "\e\el") 
-		(lambda ()
-		  (interactive)
-		  (mk-lock-screen)
-		  (winner-undo)))
+;; (global-set-key (kbd "\e\el") 
+;; 		(lambda ()
+;; 		  (interactive)
+;; 		  (mk-lock-screen)
+;; 		  (winner-undo)))
 
 ;; =========
 ;; join-line
@@ -437,19 +434,17 @@
 ;; ============
 ;; Line spacing
 ;; ============
-(setq lista-espacos (list 0 0.35 0.5 0.75)	;; list of different values
-      ;; for line-spacing
-      contador 1				;; the default value
-      comprimento (length lista-espacos))
+;; (setq lista-espacos (list 0 0.35 0.5 0.75)	;; list of different values
+;;       ;; for line-spacing
+;;       contador 1				;; the default value
+;;       comprimento (length lista-espacos))
 
-(setq-default line-spacing (nth contador lista-espacos))   ;; declaring the default value for line spacing
+;; (setq-default line-spacing (nth contador lista-espacos))   ;; declaring the default value for line spacing
 
 ;; epub
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 (setq nov-text-width 80)
-
-
 
 
 ;; ==============================
@@ -459,20 +454,28 @@
 ;; --------
 ;; Flyspell
 ;; --------
-(setq flyspell-sort-corrections nil)
-;; Description: use likeness rather than alphabetical ordering with
+;; Use likeness rather than alphabetical ordering
+(setq-default flyspell-sort-corrections nil)
 
-(setq flyspell-auto-correct-binding (kbd "C-'"))
 
-;;; solving some conflicts
+(setq-default flyspell-auto-correct-binding (kbd "C-'"))
+
 (with-eval-after-load 'flyspell
   (define-key flyspell-mode-map (kbd "C-,") nil))
+
+
+;; ========
+;; flycheck
+;; ========
+(global-flycheck-mode)
+(setq flycheck-emacs-lisp-load-path 'inherit)
+;; use load-path for checking syntax
 
 
 ;; ------------------------
 ;; Personal dictionary path
 ;; ------------------------
-(setq ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
+(setq-default ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
 
 ;; ------
 ;; Abbrev
@@ -489,12 +492,6 @@
 ;; (quietly-read-abbrev-file)
 ;; Description: reads the abbreviations file on startup
 
-;; ========
-;; flycheck
-;; ========
-(global-flycheck-mode)
-(setq flycheck-emacs-lisp-load-path 'inherit)
-;; use load-path for checking syntax
 
 (provide 'mk_better-defaults)
 ;;; mk_better-defaults.el ends here
