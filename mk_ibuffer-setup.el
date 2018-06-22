@@ -63,7 +63,8 @@
 ;; https://emacs.stackexchange.com/questions/35758/vc-status-behavior-in-ibuffer-vc/41024#41024
 (defun vc-state-refresh-post-command-hook ()
   "Check if command in `this-command' was executed, then run `vc-refresh-state'"
-  (when (memq this-command '(other-window kill-buffer))
+  (when (memq this-command '(other-window kill-buffer magit-push-popup))
+    (message "Refreshing vc-state...")
     (vc-refresh-state)))
 
 (add-hook 'after-save-hook 'vc-refresh-state)
