@@ -43,9 +43,11 @@
 (with-eval-after-load 'python-mode
   (require 'mk_python))
 
-;; =========
-;; autoloads
-;; =========
+;; ========
+;; Terminal
+;; ========
+(global-set-key (kbd "C-x a") 'async-shell-command)
+
 (global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
 (autoload 'mk/eshell-popup "mk_eshell" t nil)
 

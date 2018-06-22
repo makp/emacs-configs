@@ -56,8 +56,6 @@ as cwd."
 	(insert dir)
 	(eshell-send-input)))))
 
-(global-set-key (kbd "C-x a") 'async-shell-command)
-
 ;; ====================
 ;; completion functions
 ;; ====================
