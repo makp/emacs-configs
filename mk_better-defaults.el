@@ -114,8 +114,10 @@
 ;; (mouse-avoidance-mode 'cat-and-mouse)
 
 (global-auto-revert-mode 1) ;Reload file when it changes
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose t)
+(setq-default auto-revert-verbose t)
+(setq-default global-auto-revert-non-file-buffers t)
+;; Note that this could lead to excessive auto-reverts.
+
 
 (global-visual-line-mode 1)
 ;; The visual-line-mode turns on word-wrapping and rebinds C-a, C-e,
@@ -135,7 +137,7 @@
 ;; ---------------------
 ;; Highlight parentheses
 ;; ---------------------
-;; Enables highlight-parenthesis on all buffers
+;; Enables highlight-parentheses on all buffers
 (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
   (lambda ()
@@ -160,16 +162,12 @@
 ;;         (set-marker m nil))
 ;;     ad-do-it))
 
+;; (global-set-key (kbd "C-x C-;") 'set-goal-column)
 
-;; ---------
-;; redisplay
-;; ---------
-(setq redisplay-dont-pause t)
 
 ;; ========
 ;; keychord
 ;; ========
-(require 'key-chord)
 (key-chord-mode 1)
 
 (key-chord-define-global "uu" 'fill-paragraph)
@@ -181,6 +179,9 @@
 (key-chord-define-global "<<" 'beginning-of-buffer)
 (key-chord-define-global ">>" 'end-of-buffer)
 
+(key-chord-define-global "cg" 'hippie-expand)
+
+
 ;; (key-chord-define-global "DD" '(lambda ()
 ;; 				 (interactive)
 ;; 				 (kill-buffer nil)))
@@ -190,12 +191,11 @@
 ;; 				 (let ((current-prefix-arg '(4)))
 ;; 				   (call-interactively 'magit-status))))
 
-(key-chord-define-global "cg" 'hippie-expand)
 
 ;; ========
 ;; ace-jump
 ;; ========
-(require 'ace-jump-mode)
+;; (require 'ace-jump-mode)
 (setq ace-jump-mode-scope 'window)
 
 ;;; don't ignore case
@@ -280,7 +280,7 @@
 ;; ===========
 
 (global-set-key (kbd "C-c p") "(")
-(global-set-key (kbd "C-c y") "[")   
+(global-set-key (kbd "C-c y") "[")
 (global-set-key (kbd "C-c f") "{")
 
 ;; --------
@@ -401,11 +401,6 @@
 ;; Look at the TAGS files in these directories.
 ;; I don't need to set this up if I'm using helm for selecting tags
 
-
-
-;; (global-set-key (kbd "C-j") nil)
-;; (local-set-key (kbd "C-j") 'universal-argument)
-
 ;; ===
 ;; gpg
 ;; ===
@@ -435,7 +430,7 @@
 
 ;; (global-set-key (kbd "M-^") 'top-join-line)
 ;; (global-set-key (kbd "C-^") 'delete-indentation)
- 
+
 ;; ===========
 ;;  split-line
 ;; ===========
@@ -457,9 +452,6 @@
 
 (setq nov-text-width 80)
 
-;;; solving some conflicts
-(with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-,") nil))
 
 
 
@@ -474,6 +466,11 @@
 ;; Description: use likeness rather than alphabetical ordering with
 
 (setq flyspell-auto-correct-binding (kbd "C-'"))
+
+;;; solving some conflicts
+(with-eval-after-load 'flyspell
+  (define-key flyspell-mode-map (kbd "C-,") nil))
+
 
 ;; ------------------------
 ;; Personal dictionary path
