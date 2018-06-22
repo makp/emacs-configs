@@ -52,11 +52,6 @@
 (put 'suspend-frame 'disabled t)
 (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
 
-;;; C-, as universal argument
-(global-set-key (kbd "C-,") 'universal-argument)
-(define-key universal-argument-map (kbd "C-,") ' universal-argument-more)
-;;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
-
 (global-set-key (kbd "M-s s") 'isearch-forward)
 (global-set-key (kbd "C-s") 'save-buffer)
 

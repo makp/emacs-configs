@@ -12,6 +12,10 @@
 
 ;; 
 
+;; ================
+;; Swap keybindings
+;; ================
+
 ;; (defun bug-do-emacs ()
 ;;   "Swap a few keybindings. This is a workaround Emacs bug 9417.
 ;; The function (define-key key-translation-map ...) works with
@@ -33,8 +37,6 @@
 
 ;; (global-set-key (kbd "<f5>") 'bug-do-emacs)
 
-(define-key key-translation-map [?\C-h] [?\C-?])
-
 (define-key key-translation-map (kbd "M-p") (kbd "M-t"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-p"))
 
@@ -43,6 +45,21 @@
 
 (define-key key-translation-map (kbd "C-t") (kbd "C-p"))
 (define-key key-translation-map (kbd "C-p") (kbd "C-t"))
+
+
+;; ========================
+;; Change a few keybindings
+;; ========================
+
+;; C-h as backspace
+(define-key key-translation-map [?\C-h] [?\C-?])
+
+;; Universal argument
+(global-set-key (kbd "C-,") 'universal-argument)
+(define-key universal-argument-map (kbd "C-,") 'universal-argument-more)
+;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
+
+
 
 (defvar my-keys-minor-mode-map (make-keymap) "Define a couple of
 global keybindings to be used with a Dvorak keyboard.")
