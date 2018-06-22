@@ -83,6 +83,9 @@
 ;; the minibuffer window is active, not even if you switch to another
 ;; window to do it.
 
+;; (setq redisplay-dont-pause t)
+;; This var is obsolete since Emacs 24.5
+
 
 ;; ===========
 ;; Keybindings
@@ -259,12 +262,6 @@
 ;;; | C-x C-k C-f | kmacro-set-format     |
 ;;; |-------------+-----------------------|
 
-;; ---------
-;; sentences
-;; ---------
-
-
-
 ;; --------------
 ;; zap-up-to-char
 ;; --------------
@@ -307,15 +304,11 @@
 (define-key ctl-x-map "e" 'replace-last-sexp)
 
 (defun replace-last-sexp ()
-    (interactive)
-    (let ((value (eval (preceding-sexp))))
-      (kill-sexp -1)
-      (insert (format "%S" value))))
+  (interactive)
+  (let ((value (eval (preceding-sexp))))
+    (kill-sexp -1)
+    (insert (format "%S" value))))
 
-
-;; ====
-;; Fill
-;; ====
 
 ;; ---------
 ;; auto-fill
