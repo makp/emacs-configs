@@ -17,39 +17,49 @@
 ;; cl-macs
 
 
-;; ==================
-;; Garbage collection
-;; ==================
-(setq gc-cons-threshold 100000000) 	; in bytes
-;; The default amount was 800KB. If you specify a larger value,
-;; garbage collection will happen less often. This reduces the amount
-;; of time spent garbage collecting, but increases total memory use.
-;;
-;; References:
-;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
-;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
+
+
+;; =========================
+;; Enabling some keybindings
+;; =========================
+(put 'narrow-to-region 'disabled nil)	;
+(put 'downcase-region 'disabled nil)	;C-x C-l
+(put 'upcase-region 'disabled nil)	;C-x C-u
+(put 'set-goal-column 'disabled nil) 	;C-x C-n
+(put 'scroll-left 'disabled nil) 	;C-x <
+(put 'suspend-frame 'disabled t)
+
 
 ;; ===========
 ;; color theme
 ;; ===========
-(load-theme 'gruvbox-dark-medium t)
-
+(load-theme 'gruvbox-dark-soft t)
+;; (load-theme 'zenburn t)
 
 ;; =====
 ;; setqs
 ;; =====
-(setq message-log-max t) 		; max # lines message log
-(setq case-fold-search nil)		; case sensitive search
-(setq shell-file-name "/bin/zsh")
+;; Garbage collection
+(setq gc-cons-threshold 100000000) 	; in bytes
+;; The default amount was 800KB. If you specify a larger value,
+;; garbage collection will happen less often. This reduces the amount
+;; of time spent garbage collecting, but increases total memory use.
+;; References: ;;
+;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
-(setq shift-select-mode nil) 		; don't use shift to mark
-(set-default 'indicate-empty-lines t) 	; show empty lines after
-					; buffer end
+
+(setq message-log-max t) 		;max # lines message log
+(setq case-fold-search nil)		;case sensitive search
+(setq shell-file-name "/bin/zsh")	;default shell
+
+(setq shift-select-mode nil) 		;don't use shift to mark
+(set-default 'indicate-empty-lines t) 	;show empty lines after buffer
+					;ends
 (global-subword-mode 1)
 
 ;; getting rid of suspend-frame
 (global-unset-key (kbd "C-x C-z"))
-(put 'suspend-frame 'disabled t)
 (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
 
 (global-set-key (kbd "M-s s") 'isearch-forward)
@@ -432,14 +442,6 @@
 (global-aggressive-indent-mode 1)
 ;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
-;; =========================
-;; Enabling some keybindings
-;; =========================
-(put 'narrow-to-region 'disabled nil)	; 
-(put 'downcase-region 'disabled nil)	; `C-x C-l'
-(put 'upcase-region 'disabled nil)	; `C-x C-u'
-(put 'set-goal-column 'disabled nil) 	; `C-x C-n'
-(put 'scroll-left 'disabled nil) 	; `C-x <'
 
 ;; =====
 ;; ediff
