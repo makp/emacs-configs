@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+(display-time)
+
 (setq-default mode-line-format
 	      (list
 	       "%@"

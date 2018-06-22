@@ -11,8 +11,9 @@
 ;; info directory
 ;; (add-to-list 'Info-default-directory-list "~/...")
 
+(with-eval-after-load 'org-mode
+  (define-key org-mode-map (kbd "C-,") nil))
 
-(define-key org-mode-map (kbd "C-,") nil)
 ;; it was org-cycle-agenda-files
 
 

@@ -17,11 +17,9 @@
 ;; cl-macs
 
 
-
-
-;; =========================
-;; Enabling some keybindings
-;; =========================
+;; =======================
+;; Enable some keybindings
+;; =======================
 (put 'narrow-to-region 'disabled nil)	;
 (put 'downcase-region 'disabled nil)	;C-x C-l
 (put 'upcase-region 'disabled nil)	;C-x C-u
@@ -29,12 +27,23 @@
 (put 'scroll-left 'disabled nil) 	;C-x <
 (put 'suspend-frame 'disabled t)
 
+;; ==========
+;; Appearance
+;; ==========
 
-;; ===========
-;; color theme
-;; ===========
+;; -----------
+;; Color theme
+;; -----------
 (load-theme 'gruvbox-dark-soft t)
 ;; (load-theme 'zenburn t)
+
+;; ----------
+;; Frame look
+;; ----------
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
 
 ;; =====
 ;; setqs
@@ -48,70 +57,67 @@
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
-
 (setq message-log-max t) 		;max # lines message log
 (setq case-fold-search nil)		;case sensitive search
 (setq shell-file-name "/bin/zsh")	;default shell
-
 (setq shift-select-mode nil) 		;don't use shift to mark
+
 (set-default 'indicate-empty-lines t) 	;show empty lines after buffer
 					;ends
-(global-subword-mode 1)
 
-;; getting rid of suspend-frame
-(global-unset-key (kbd "C-x C-z"))
-(global-set-key (kbd "C-x C-z") 'repeat-complex-command)
+(fset 'yes-or-no-p 'y-or-n-p)	;Don't ask me to type "yes" or "no"
 
-(global-set-key (kbd "M-s s") 'isearch-forward)
-(global-set-key (kbd "C-s") 'save-buffer)
-
-;;; solving some conflicts
-(with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-,") nil))
-
-;; =====================
-;; highlight parenthesis
-;; =====================
-(require 'highlight-parentheses)
-(highlight-parentheses-mode t)
-
-;; =======================
-;; General display options
-;; =======================
-
-;; ----------
-;; Frame look
-;; ----------
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(display-time)
 (setq
  initial-scratch-message nil
  inhibit-splash-screen 0
  column-number-mode t
- echo-keystrokes 0.1) 			;see what you're typing
+ echo-keystrokes 0.1) 			;see unfinished commands
 
-(blink-cursor-mode 1)
 (setq visible-bell t)
 
+(global-auto-revert-mode t) ;; Reload file if it changes
 
-;; Note: you can choose your inial buffer with (initial-buffer-choice
-;; ...)
 
-(global-unset-key (kbd "C-x C-p"))
+;; ===========
+;; Keybindings
+;; ===========
 
-;; --------------
-;; font-lock-mode
-;; --------------
+;; Get rid of suspend-frame
+(global-unset-key (kbd "C-x C-z"))
+;; (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
+
+;; Bind save-buffer to an easier keystroke
+(global-set-key (kbd "M-s s") 'isearch-forward)
+(global-set-key (kbd "C-s") 'save-buffer)
+
+(global-unset-key (kbd "C-x C-p")) 	;it was mark-page
+
+
+;; =================
+;; Enable some modes
+;; =================
+
+;; Modes that ship with Emacs
+(global-subword-mode 1)
+(blink-cursor-mode 1)
 (global-font-lock-mode 1)
+(global-hl-line-mode t)			;toggle line highlighting
+(show-paren-mode 1)
 
-;; --------------
-;; mouse behavior
-;; --------------
-(setq mouse-avoidance-mode 'banish)
-;; Description: move the mouse to the upper-right corner on any key
-;; press
+
+;; ;; highlight parenthesis
+;; (require 'highlight-parentheses)
+;; (highlight-parentheses-mode t)
+
+
+;; ;; --------------
+;; ;; mouse behavior
+;; ;; --------------
+;; (mouse-avoidance-mode nil)
+;; (setq mouse-avoidance-mode 'banish)
+;; ;; Description: move the mouse to the upper-right corner on any key
+;; ;; press
+
 
 ;; ------------
 ;; line display
@@ -120,8 +126,6 @@
 
 (setq-default truncate-lines t)
 
-;; toggle line highlighting
-(global-hl-line-mode t)
 
 ;; ===========
 ;; Minibuffers
@@ -129,10 +133,8 @@
 (setq enable-recursive-minibuffers t)
 ;; Turn recursive editing in the mini buffer.
 
-(fset 'yes-or-no-p 'y-or-n-p) ; so I don't have to type "yes" or "no"
-
-(if (require 'miniedit nil t)
-    (miniedit-install))
+;; (if (require 'miniedit nil t)
+;;     (miniedit-install))
 ;; Description: binds C-M-e in a minibuffer so that you can edit the
 ;; contents of the minibuffer before submitting it.
 
@@ -158,15 +160,16 @@
 ;; =======
 ;; Buffers
 ;; =======
-(global-set-key (kbd "C-x n")   'other-window)
+;; (global-set-key (kbd "C-x n") 'other-window)
+(global-set-key (kbd "C-S-n") 'other-window)
+(global-set-key (kbd "C-S-t") '(lambda () (interactive) (other-window -1)))
+
 (global-set-key (kbd "C-x C-n") 'bury-buffer)
 (global-set-key (kbd "C-x C-;") 'set-goal-column)
 
 ;; -----------
 ;; auto-revert
 ;; -----------
-(global-auto-revert-mode t) ;; Description: enable reloading when the
-			    ;; file changes.
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
@@ -303,7 +306,6 @@
 ;; ===========
 ;; Parentheses
 ;; ===========
-(show-paren-mode 1)
 
 (setq
  show-paren-delay 0	     ; disactivates delay matching parentheses
@@ -325,9 +327,8 @@
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
 
-;; =====
+
 ;; evals
-;; =====
 (global-set-key (kbd "C-\\") 'eval-region)
 
 (define-key ctl-x-map "e" nil)
@@ -355,37 +356,6 @@
 
 ;; (global-set-key (kbd "C-c SPC") 'fill-region-as-paragraph)
 
-;; ==============================
-;; Spell checker and dictionaries
-;; ==============================
-;
-;; --------
-;; Flyspell
-;; --------
-(setq flyspell-sort-corrections nil)
-;; Description: use likeness rather than alphabetical ordering with
-
-(setq flyspell-auto-correct-binding (kbd "C-'"))
-
-;; ------------------------
-;; Personal dictionary path
-;; ------------------------
-(setq ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
-
-;; ------
-;; Abbrev
-;; ------
-;; (setq abbrev-file-name             
-;;       "~/elisp/cache/abbrev-defs")
-
-;; Description: abbrev file
-
-;; (setq save-abbrevs t)
-;; Description: save abbrevs when files are saved you will be asked
-;; before the abbreviations are saved
-
-;; (quietly-read-abbrev-file)
-;; Description: reads the abbreviations file on startup
 
 ;; ---------
 ;; pdf-tools
@@ -443,7 +413,7 @@
 ;; =====
 
 ;;; list-colors-display sorted by hue
-(setq list-colors-sort 'hsv )
+(setq list-colors-sort 'hsv)
 
 ;;; improved version of delete-blank-lines
 (defun better-delete-lines (&optional arg)
@@ -522,6 +492,44 @@
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 (setq nov-text-width 80)
+
+;;; solving some conflicts
+(with-eval-after-load 'flyspell
+  (define-key flyspell-mode-map (kbd "C-,") nil))
+
+
+
+;; ==============================
+;; Spell checker and dictionaries
+;; ==============================
+
+;; --------
+;; Flyspell
+;; --------
+(setq flyspell-sort-corrections nil)
+;; Description: use likeness rather than alphabetical ordering with
+
+(setq flyspell-auto-correct-binding (kbd "C-'"))
+
+;; ------------------------
+;; Personal dictionary path
+;; ------------------------
+(setq ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
+
+;; ------
+;; Abbrev
+;; ------
+;; (setq abbrev-file-name
+;;       "~/elisp/cache/abbrev-defs")
+
+;; Description: abbrev file
+
+;; (setq save-abbrevs t)
+;; Description: save abbrevs when files are saved you will be asked
+;; before the abbreviations are saved
+
+;; (quietly-read-abbrev-file)
+;; Description: reads the abbreviations file on startup
 
 ;; ========
 ;; flycheck
