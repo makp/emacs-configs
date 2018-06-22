@@ -11,8 +11,11 @@
 
 (add-hook 'ibuffer-mode-hook
 	  (lambda ()
-	    (ibuffer-auto-mode 1)
-	    (visual-line-mode nil))) ;auto-update
+	    (ibuffer-auto-mode 1)))	;auto-update
+
+(add-hook 'ibuffer-hook
+	  (lambda ()
+	    (setq truncate-lines 1)))
 
 (setq-default
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
@@ -20,14 +23,12 @@
  ibuffer-filter-group-name-face 'font-lock-variable-name-face ;;
  ibuffer-old-time 50)
 
-;; (require 'ibuf-ext)
+(require 'ibuf-ext)
 (dolist (ibfilter '("^\\*" "_region_"))
   (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
 ;; ibuffer mode maps
-
 (define-key ibuffer-mode-map (kbd "C-i") 'ibuffer-toggle-filter-group)
-
 
 (define-key ibuffer-mode-map "l" (lambda ()
 				   (interactive)
@@ -63,8 +64,7 @@
 ;; https://emacs.stackexchange.com/questions/35758/vc-status-behavior-in-ibuffer-vc/41024#41024
 (defun vc-state-refresh-post-command-hook ()
   "Check if command in `this-command' was executed, then run `vc-refresh-state'"
-  (when (memq this-command '(other-window kill-buffer magit-push-popup))
-    (message "Refreshing vc-state...")
+  (when (memq this-command '(other-window kill-buffer ibuffer))
     (vc-refresh-state)))
 
 (add-hook 'after-save-hook 'vc-refresh-state)
@@ -80,7 +80,7 @@
 	      " "
 	      (size-h 9 -1 :right)
 	      " "
-	      (mode 4 4 :left :elide)
+	      (mode 6 6 :left :elide)
 	      " "
 	      (vc-status 12 12 :left)
 	      " "
@@ -90,7 +90,7 @@
 	      " "
 	      (size-h 9 -1 :right)
 	      " "
-	      (mode 4 4 :left :elide)
+	      (mode 6 6 :left :elide)
 	      " "
 	      (vc-status 12 12 :left))))
 
