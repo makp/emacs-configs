@@ -6,9 +6,34 @@
 
 ;;; Code:
 
-(add-hook 'ibuffer-mode-hook
+(require 'ibuf-ext)
+(require 'ibuffer-vc)
+(require 'ibuffer-git)
+
+
+(add-hook 'ibuffer-hook
 	  (lambda ()
+	    (mk/vc-refresh)
 	    (ibuffer-auto-mode 1)))	;auto-update
+
+
+(defun mk/vc-refresh ()
+  "Refresh vc-status of all buffers."
+  (interactive)
+  (dolist (b (buffer-list))
+    (with-current-buffer b
+      (vc-refresh-state))))
+
+;; ;; https://emacs.stackexchange.com/questions/35758/vc-status-behavior-in-ibuffer-vc/41024#41024
+;; (defun vc-state-refresh-post-command-hook ()
+;;   "Check if command in `this-command' was executed, then run `vc-refresh-state'"
+;;   (when (memq this-command '(other-window kill-buffer))
+;;     (vc-refresh-state)
+;;     (message "Refreshing vc-state...")))
+
+;; (add-hook 'after-save-hook 'vc-refresh-state)
+;; (add-hook 'after-revert-hook 'vc-refresh-state)
+;; (add-hook 'post-command-hook #'vc-state-refresh-post-command-hook)
 
 (setq-default
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
@@ -16,7 +41,6 @@
  ibuffer-filter-group-name-face 'font-lock-variable-name-face ;;
  ibuffer-old-time 50)
 
-(require 'ibuf-ext)
 (dolist (ibfilter '("^\\*" "_region_"))
   (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
@@ -52,40 +76,29 @@
 	    (unless (eq ibuffer-sorting-mode 'alphabetic)
 	      (ibuffer-do-sort-by-alphabetic))))
 
-;; The following code uses `force-mode-line-update' to cause
-;; `vc-state' to work properly. Source:
-;; https://emacs.stackexchange.com/questions/35758/vc-status-behavior-in-ibuffer-vc/41024#41024
-(defun vc-state-refresh-post-command-hook ()
-  "Check if command in `this-command' was executed, then run `vc-refresh-state'"
-  (when (memq this-command '(other-window kill-buffer ibuffer))
-    (vc-refresh-state)))
-
-(add-hook 'after-save-hook 'vc-refresh-state)
-(add-hook 'after-revert-hook 'vc-refresh-state)
-(add-hook 'post-command-hook #'vc-state-refresh-post-command-hook)
-
-
 ;; Type '`' to switch through different ibuffer-formats. Use "," to
 ;; change how files are sorted.
 (setq ibuffer-formats
       '((mark modified read-only vc-status-mini " "
 	      (name 18 18 :left :elide)
 	      " "
-	      (size-h 9 -1 :right)
+	      (size-h 9 -1 :center)
 	      " "
 	      (mode 6 6 :left :elide)
 	      " "
-	      (vc-status 12 12 :left)
+	      (vc-status 10 10 :left)
+	      " "
+	      (git-status 8 8 :left)
 	      " "
 	      filename-and-process)
 	(mark modified read-only vc-status-mini " "
 	      (name 18 18 :left :elide)
 	      " "
-	      (size-h 9 -1 :right)
+	      (size-h 9 -1 :center)
 	      " "
 	      (mode 6 6 :left :elide)
 	      " "
-	      (vc-status 12 12 :left))))
+	      (git-status 8 8 :center))))
 
 
 ;; (defun ibuffer-ediff-marked-buffers ()
