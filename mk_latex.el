@@ -356,13 +356,13 @@ shown, then it'll be hidden."
  TeX-newline-function 'reindent-then-newline-and-indent
  TeX-PDF-mode t)
 
-(defun reverse-sync-no-mouse ()
-  (interactive)
-  (async-shell-command "~/myscripts/simulating-key-presses.sh")
-  ;; (winner-undo)
-  (message "Reverse synctex synchronization without the rodent"))
+;; (defun reverse-sync-no-mouse ()
+;;   (interactive)
+;;   (async-shell-command "~/myscripts/simulating-key-presses.sh")
+;;   ;; (winner-undo)
+;;   (message "Reverse synctex synchronization without the rodent"))
 
-(global-set-key (kbd "s-C-.") 'reverse-sync-no-mouse)
+;; (global-set-key (kbd "s-C-.") 'reverse-sync-no-mouse)
 
 ;; ----------------
 ;; TeX-command-list
