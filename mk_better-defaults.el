@@ -143,6 +143,16 @@
 (electric-pair-mode 1)
 
 
+;; Activate auto-fill mode for all text mode buffers
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;; The auto fill mode is a minor mode in which lines are broken
+;; automatically when they become too wide. Breaking happens only when
+;; you type a <SPC> or <RET>.
+
+;; (global-set-key (kbd "C-c SPC") 'fill-region-as-paragraph)
+
+
+
 ;; ---------------------
 ;; Highlight parentheses
 ;; ---------------------
@@ -310,18 +320,6 @@
 
 
 ;; ---------
-;; auto-fill
-;; ---------
-(add-hook 'text-mode-hook 'turn-on-auto-fill) ; enable auto-fill-mode
-;; Description: activate Auto-Fill mode for all text mode buffers.
-;; "Auto Fill" mode is a minor mode in which lines are broken
-;; automatically when they become too wide. Breaking happens only when
-;; you type a <SPC> or <RET>.
-
-;; (global-set-key (kbd "C-c SPC") 'fill-region-as-paragraph)
-
-
-;; ---------
 ;; pdf-tools
 ;; ---------
 (pdf-tools-install)
@@ -434,40 +432,30 @@
 ;; (global-set-key  'split-line)
 ;; (global-set-key  'open-line)
 
-;; epub
+;; epub viewer (nov)
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+(setq-default nov-text-width 80)
 
-(setq nov-text-width 80)
 
-;; ==============================
-;; Spell checker and dictionaries
-;; ==============================
+;; =====================
+;; Flyspell and flycheck
+;; =====================
 
 ;; --------
 ;; Flyspell
 ;; --------
-;; Use likeness rather than alphabetical ordering
-(setq-default flyspell-sort-corrections nil)
-
-
-(setq-default flyspell-auto-correct-binding (kbd "C-'"))
+(setq-default flyspell-auto-correct-binding (kbd "C-'")
+	      ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
 
 (with-eval-after-load 'flyspell
   (define-key flyspell-mode-map (kbd "C-,") nil))
 
-
-;; ========
+;; --------
 ;; flycheck
-;; ========
+;; --------
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
 (global-flycheck-mode)
-(setq flycheck-emacs-lisp-load-path 'inherit)
-;; use load-path for checking syntax
 
-
-;; ------------------------
-;; Personal dictionary path
-;; ------------------------
-(setq-default ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
 
 ;; ------
 ;; Abbrev
