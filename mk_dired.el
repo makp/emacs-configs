@@ -5,12 +5,10 @@
 (setq dired-isearch-filenames t ;; search limits to file names
       dired-dwim-target t)      ;; move files more easily with split panes
 
-
 (add-hook 'dired-mode-hook
 	  '(lambda ()
-	      (define-key dired-mode-map "E" 'dired-ediff-marked-files)
-	      (define-key dired-mode-map "l" 'dired-up-directory)
-	      (load "dired-x")))
+	     (define-key dired-mode-map "E" 'dired-ediff-marked-files)
+	     (define-key dired-mode-map "l" 'dired-up-directory)))
 
 ;; Use ')'/'(' to hide/show dired details
 (require 'dired-details)
@@ -18,18 +16,21 @@
 (dired-details-install)
 
 
+;; dired-x
+(require 'dired-x)
+;; (autoload 'mk/dired-jump "dired-x" t nil)
+;; If dired-x is autoloaded, the keybinding C-x C-j below gets
+;; overwritten.
 
-;; (defun mk/dired-jump (&optional arg)
-;;   "With prefix arg dired-jump in another window."
-;;   (interactive "P")
-;;   (if (consp arg)
-;;       (progn (switch-to-buffer-other-window (current-buffer))
-;; 	     (dired-jump))
-;;     (dired-jump)))
+(defun mk/dired-jump (&optional arg)
+  "With ARG dired-jump in another window."
+  (interactive "P")
+  (if (consp arg)
+      (dired-jump-other-window)
+    (dired-jump)))
 
-;; (global-set-key (kbd "C-x C-j") 'mk/dired-jump)
+(global-set-key (kbd "C-x C-j") 'mk/dired-jump)
 
-;;;###autoload
 (defun dired-w3m-find-file ()
   (interactive)
   (require'w3m)
