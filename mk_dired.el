@@ -1,19 +1,21 @@
+;;; mk_dired.el --- Custom dired config
+
+;;; Commentary:
+
+;; 
+
+;;; Code:
+
+
+(setq-default dired-isearch-filenames t ;; search limits to file names
+	      dired-dwim-target t)      ;; move files more easily with split panes
+
 (add-hook 'dired-mode-hook
-         (lambda()
-           (setq mode-name "Dir")))
-
-(setq dired-isearch-filenames t ;; search limits to file names
-      dired-dwim-target t)      ;; move files more easily with split panes
-
-(add-hook 'dired-mode-hook
-	  '(lambda ()
-	     (define-key dired-mode-map "E" 'dired-ediff-marked-files)
-	     (define-key dired-mode-map "l" 'dired-up-directory)))
-
-;; Use ')'/'(' to hide/show dired details
-(require 'dired-details)
-(setq-default dired-details-hidden-string "") ; make it cleaner
-(dired-details-install)
+	  (lambda ()
+	    (setq truncate-lines 1) 	;not working (6-23-18)!
+	    (setq mode-name "Dir")
+	    (define-key dired-mode-map "E" 'dired-ediff-marked-files)
+	    (define-key dired-mode-map "l" 'dired-up-directory)))
 
 
 ;; dired-x
@@ -31,7 +33,10 @@
 
 (global-set-key (kbd "C-x C-j") 'mk/dired-jump)
 
+
+;; Does this work?
 (defun dired-w3m-find-file ()
+  "Browse file with Emacs-w3m."
   (interactive)
   (require'w3m)
   (let ((file (dired-get-filename)))
@@ -55,3 +60,5 @@
 
 
 (provide 'mk_dired)
+
+;;; mk_dired.el ends here
