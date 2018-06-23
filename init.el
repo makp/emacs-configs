@@ -22,7 +22,6 @@
 (require 'mk_registers)
 (require 'mk_windows-setup)
 (require 'mk_buffers-setup)
-(require 'mk_dired)
 (require 'mk_session-management)
 (require 'mk_ibuffer-setup)
 (require 'mk_magit)
@@ -31,9 +30,10 @@
 (require 'mk_keybindings-dvorak)
 
 
-;; ========
-;; Terminal
-;; ========
+;; =========
+;; Autoloads
+;; =========
+;; Terminals
 (global-set-key (kbd "C-x a") 'async-shell-command)
 
 (global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
@@ -42,6 +42,9 @@
 (global-set-key (kbd "C-x <RET>") 'mk/chama-ansi-term)
 (autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
 
+;; Dired
+(global-set-key (kbd "C-x C-j") 'mk/dired-jump)
+(autoload 'mk/dired-jump "mk_dired" t nil)
 
 ;; =================
 ;; eval-after-load's
@@ -54,6 +57,8 @@
   (require 'mk_latex))
 (with-eval-after-load 'python-mode
   (require 'mk_python))
+(with-eval-after-load 'dired
+  (require 'mk_dired))
 
 
 ;; =======

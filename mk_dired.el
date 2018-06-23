@@ -20,9 +20,6 @@
 
 ;; dired-x
 (require 'dired-x)
-;; (autoload 'mk/dired-jump "dired-x" t nil)
-;; If dired-x is autoloaded, the keybinding C-x C-j below gets
-;; overwritten.
 
 (defun mk/dired-jump (&optional arg)
   "With ARG dired-jump in another window."
@@ -32,6 +29,7 @@
     (dired-jump)))
 
 (global-set-key (kbd "C-x C-j") 'mk/dired-jump)
+;; I need this line because dired-x contains a definition of C-x C-j.
 
 
 ;; Does this work?
