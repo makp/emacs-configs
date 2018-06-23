@@ -23,7 +23,6 @@
 (require 'mk_windows-setup)
 (require 'mk_buffers-setup)
 (require 'mk_session-management)
-(require 'mk_ibuffer-setup)
 (require 'mk_magit)
 (require 'mk_misc-functions)
 (require 'mk_mark-setup)
@@ -46,6 +45,7 @@
 (global-set-key (kbd "C-x C-j") 'mk/dired-jump)
 (autoload 'mk/dired-jump "mk_dired" t nil)
 
+
 ;; =================
 ;; eval-after-load's
 ;; =================
@@ -59,6 +59,8 @@
   (require 'mk_python))
 (with-eval-after-load 'dired
   (require 'mk_dired))
+(with-eval-after-load 'ibuffer
+  (require 'mk_ibuffer-setup))
 
 
 ;; =======

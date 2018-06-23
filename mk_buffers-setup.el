@@ -6,16 +6,17 @@
 
 ;;; Code:
 
-(global-set-key (kbd "C-x k") '(lambda ()
-				 (interactive)
-				 (kill-buffer nil)))
+(global-set-key (kbd "C-x k") (lambda ()
+				(interactive)
+				(kill-buffer nil)))
 
 ;; (global-set-key (kbd "C-x c") 'bury-buffer)
 (global-set-key (kbd "C-x C-n") 'bury-buffer)
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Make buffer names unique
-(setq
+(setq-default
  uniquify-buffer-name-style 'post-forward
  uniquify-separator ":")
 
