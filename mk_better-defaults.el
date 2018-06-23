@@ -127,7 +127,7 @@
 ;; Note that this could lead to excessive auto-reverts.
 
 
-(global-visual-line-mode 1)
+;; (global-visual-line-mode 1)
 ;; The visual-line-mode turns on word-wrapping and rebinds C-a, C-e,
 ;; and C-k to operate on visual lines instead of logical lines.
 
@@ -342,7 +342,7 @@
 ;; modify-face?
 
 (setq emerge-diff-options "--ignore-all-space")
-;; Description: emerge doesn't care about differences in whitespace
+;; Emerge doesn't care about differences in whitespace
 
 ;; (defun mk/open-line-below ()
 ;;   (interactive)

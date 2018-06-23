@@ -12,7 +12,6 @@
 
 (add-hook 'dired-mode-hook
 	  (lambda ()
-	    (setq truncate-lines 1) 	;not working (6-23-18)!
 	    (setq mode-name "Dir")
 	    (define-key dired-mode-map "E" 'dired-ediff-marked-files)
 	    (define-key dired-mode-map "l" 'dired-up-directory)))

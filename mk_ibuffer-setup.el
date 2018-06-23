@@ -13,10 +13,6 @@
 	  (lambda ()
 	    (ibuffer-auto-mode 1)))	;auto-update
 
-(add-hook 'ibuffer-hook
-	  (lambda ()
-	    (setq truncate-lines 1)))
-
 (setq-default
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
  ibuffer-expert t ;; don't ask for confirmation of "dangerous" operations.
