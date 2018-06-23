@@ -21,11 +21,11 @@
 ;; =====
 ;; setqs
 ;; =====
-(setq org-special-ctrl-a/e t)	       ; C-a/C-e behavior in headlines
-(setq org-goto-auto-isearch t)	       ;  org-goto
-(setq org-return-follows-link t)       ; follow links with RET
-(setq org-pretty-entities nil)	       ; Use UFT8 characters
-(setq org-special-ctrl-k t)
+(setq-default org-special-ctrl-a/e t)	       ; C-a/C-e behavior in headlines
+(setq-default org-goto-auto-isearch t)	       ;  org-goto
+(setq-default org-return-follows-link t)       ; follow links with RET
+(setq-default org-pretty-entities nil)	       ; Use UFT8 characters
+(setq-default org-special-ctrl-k t)
 ;; Description:
 ;; - When the cursor is at the beginning of a headline, kill the entire
 ;;   line and possible the folded subtree below the line.
@@ -38,6 +38,9 @@
 (add-hook 'org-mode-hook
 	  (lambda()
 	    (flyspell-mode 1)))
+
+(add-hook 'org-mode-hook (lambda ()
+			   (setq line-spacing .2)))
 
 ;; =====
 ;; imenu
