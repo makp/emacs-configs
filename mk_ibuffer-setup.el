@@ -17,7 +17,7 @@
  ibuffer-filter-group-name-face 'font-lock-variable-name-face ;;
  ibuffer-old-time 50)
 
-(dolist (ibfilter '("^\\*" "_region_" "magit-process:.*" "magit:.*"))
+(dolist (ibfilter '("^\\*" "_region_" "magit-process:.*" "magit-diff.*" "magit:.*"))
   (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
 
