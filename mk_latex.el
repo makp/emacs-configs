@@ -13,7 +13,7 @@
 
 
 (add-hook 'LaTeX-mode-hook (lambda ()
-			     (setq line-spacing .35)))
+			     (setq line-spacing .1)))
 ;; --------------
 ;; better C-a/C-e
 ;; --------------
