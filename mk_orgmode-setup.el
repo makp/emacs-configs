@@ -11,8 +11,8 @@
 ;; info directory
 ;; (add-to-list 'Info-default-directory-list "~/...")
 
-(with-eval-after-load 'org-mode
-  (define-key org-mode-map (kbd "C-,") nil))
+;; (with-eval-after-load 'org-mode
+;;   )
 
 ;; it was org-cycle-agenda-files
 
@@ -98,6 +98,7 @@
 
 (add-hook 'org-mode-hook
 	  (lambda ()
+	    (define-key org-mode-map (kbd "C-,") nil)
 	    ;; for promoting and demoting headings
 	    (define-key org-mode-map (kbd "C-S-n") 'org-metaright)
 	    (define-key org-mode-map (kbd "C-S-t") 'org-metaleft)
