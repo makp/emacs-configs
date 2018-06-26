@@ -19,7 +19,7 @@
 ;; =========
 ;; Helm vars
 ;; =========
-(setq-default helm-c-external-programs-associations
+(setq-default helm-external-programs-associations
 	      '(("pdf" . "okular")
 		("djvu" . "okular")
 		("docx" . "libreoffice")
