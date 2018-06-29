@@ -1,3 +1,13 @@
+;;; mk_helm-setup.el --- Custom setup for Helm
+
+;;; Commentary:
+
+;; TODO:
+;; - Remove certain types of files from tags search such as _region_.tex.
+
+;;; Code:
+
+
 ;;; helm setup
 
 ;; (require 'helm-config)
@@ -8,13 +18,6 @@
 (helm-adaptive-mode 1)
 (helm-autoresize-mode 1)
 
-;; ==========
-;; helm-swoop
-;; ==========
-;; (require 'helm-swoop)
-;; (setq helm-swoop-split-with-multiple-windows t
-;;       helm-swoop-split-direction 'split-window-vertically
-;;       helm-swoop-pre-input-function (lambda () ""))
 
 ;; =========
 ;; Helm vars
@@ -87,7 +90,8 @@
 
 ;;; locate
 (defun mk/locate-with-helm (&optional arg)
-  "locate for mydocs, pdfs, and home."
+  "Run locate in different folders (mydocs, pdfs, and home)
+depending on the value of ARG."
   (interactive "p")
   (cond
    ((equal arg 1)  (helm-locate-with-db (expand-file-name "locate.db" "~/elisp"))) ; pdfs
@@ -119,8 +123,7 @@
 
 ;; tags
 (defun mk/find-tags (&optional arg)
-  "Select tag. When prefix arg is non-nil, ask user to choose a
-particular repo"
+  "Select tag. When ARG is non-nil, ask user to select a particular repo."
   (interactive "P")
   (when (consp arg)
     (call-interactively 'magit-status))
@@ -171,9 +174,10 @@ particular repo"
   (let ((prec (pcomplete-arg 'last -1)))
     (cond ((string= "sudo" prec)
            (while (pcomplete-here*
-                    (funcall pcomplete-command-completion-function)
-                    (pcomplete-arg 'last) t))))))
+                   (funcall pcomplete-command-completion-function)
+                   (pcomplete-arg 'last) t))))))
 
 
 (provide 'mk_helm-setup)
+
 ;;; mk_helm-setup.el ends here
