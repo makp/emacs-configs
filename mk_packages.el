@@ -32,17 +32,17 @@
 ;;; Install missing packages
 
 (defvar mk/pkg-list '(avy aggressive-indent auctex company
-			  company-auctex company-math
-			  dropdown-list elpy flycheck fuzzy
-			  gnuplot-mode gruvbox-theme helm
-			  helm-bibtex helm-ls-git
-			  highlight-parentheses ibuffer-vc
-			  ibuffer-git key-chord keyfreq magit
-			  markdown-mode multiple-cursors nov
+			  company-auctex company-math elpy
+			  flycheck fuzzy gnuplot-mode
+			  gruvbox-theme helm helm-bibtex
+			  helm-ls-git highlight-parentheses
+			  ibuffer-vc ibuffer-git key-chord
+			  keyfreq magit markdown-mode
+			  multiple-cursors nov org
 			  org-plus-contrib org-gcal pdf-tools
-			  popup region-bindings-mode undo-tree
-			  w3m web-mode wgrep wgrep-helm yaml-mode
-			  yasnippet zenburn-theme)
+			  region-bindings-mode undo-tree w3m
+			  web-mode wgrep wgrep-helm yaml-mode
+			  yasnippet)
   "The list of packages installed at launch.")
 
 ;; ess, ibuffer-git
