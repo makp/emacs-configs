@@ -14,7 +14,7 @@
 
 (global-set-key (kbd "<tab>") 'company-complete) ;TAB
 (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle) ;C-i
-;; (define-key company-active-map (kbd "") 'company-search-toggle-filtering)
+(define-key company-active-map (kbd "M-s") 'company-search-candidates)
 
 ;; ========
 ;; Backends
