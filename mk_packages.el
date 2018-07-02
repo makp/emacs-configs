@@ -31,7 +31,7 @@
 
 ;;; Install missing packages
 
-(defvar mk/pkg-list '(ac-math ace-jump-mode aggressive-indent
+(defvar mk/pkg-list '(ac-math avy aggressive-indent
 			      auctex company company-auctex
 			      company-math dropdown-list elpy
 			      flycheck fuzzy gnuplot-mode
