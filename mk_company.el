@@ -10,11 +10,13 @@
 (global-company-mode)
 
 (setq company-idle-delay 0)
-(setq company-minimum-prefix-length 1)
+(setq company-minimum-prefix-length 2)
 
 (global-set-key (kbd "<tab>") 'company-complete) ;TAB
 (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle) ;C-i
+(define-key company-active-map (kbd "C-s") 'nil)
 (define-key company-active-map (kbd "M-s") 'company-search-candidates)
+
 
 ;; ========
 ;; Backends
