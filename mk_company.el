@@ -16,6 +16,7 @@
 (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle) ;C-i
 (define-key company-active-map (kbd "C-s") 'nil)
 (define-key company-active-map (kbd "M-s") 'company-search-candidates)
+(define-key company-active-map (kbd "C-m") nil)
 
 
 ;; ========
