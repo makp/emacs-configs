@@ -1,4 +1,4 @@
-;;; mk_latex.el --- Config for TeX
+;;; mk_latex.el --- Custom config for LaTeX
 
 ;;; Commentary:
 
@@ -7,13 +7,13 @@
 ;;; Code:
 
 
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (add-to-list
-			      'TeX-macro-global "~/texmf/tex/latex/")))
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (setq line-spacing .1)
+	    (add-to-list
+	     'TeX-macro-global "~/texmf/tex/latex/"))) ;lists the directories where TeX style files are.
 
 
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (setq line-spacing .1)))
 ;; --------------
 ;; better C-a/C-e
 ;; --------------
@@ -29,8 +29,6 @@
 	    (define-key bibtex-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)))
 
 
-;; Description: TeX-macro-global lists the directories where TeX style
-;; files are. Is this necessary?
 
 ;; ---------------
 ;; default viewers
