@@ -210,38 +210,21 @@
 ;; 				 (let ((current-prefix-arg '(4)))
 ;; 				   (call-interactively 'magit-status))))
 
-
-;; ========
-;; ace-jump
-;; ========
-(setq ace-jump-mode-scope 'window)
-
-;;; don't ignore case
-(setq ace-jump-mode-case-fold nil)
-
-(define-key global-map (kbd "M-l") 'ace-jump-line-mode)
-(global-set-key (kbd "M-L") 'downcase-dwim)
-
-(global-set-key (kbd "M-s l") 'goto-line)
-
-(key-chord-define-global "hh" 'ace-jump-word-mode)
-(key-chord-define-global "HH" 'ace-jump-char-mode)
-
-;; (global-ace-isearch-mode +1)
-;; (setq ace-isearch-function 'ace-jump-word-mode
-;;       ace-isearch-input-length 2
-;;       ace-isearch-jump-delay 0.3)
-
 ;; ========
 ;; avy-mode
 ;; ========
 ;; (require 'avy)
-;; (define-key global-map (kbd "M-l") 'avy-goto-line)
 
-;; (setq avy-keys (nconc (number-sequence ?a ?z)
-;; 		      (number-sequence ?A ?Z)
-;; 		      (number-sequence ?1 ?9)
-;; 		      '(?0)))
+(define-key global-map (kbd "M-l") 'avy-goto-line)
+(global-set-key (kbd "M-L") 'downcase-dwim)
+
+(setq-default avy-keys (nconc (number-sequence ?a ?z)
+			      (number-sequence ?A ?Z)
+			      (number-sequence ?1 ?9)
+			      '(?0)))
+
+(key-chord-define-global "hh" 'avy-goto-word-1)
+(key-chord-define-global "HH" 'avy-goto-char-timer)
 
 ;; ========================
 ;; duplicate line or region
