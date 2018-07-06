@@ -9,8 +9,8 @@
 ;; (add-hook 'after-init-hook 'global-company-mode)
 (global-company-mode)
 
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)
+(setq-default company-idle-delay 0.25)
+(setq-default company-minimum-prefix-length 3)
 
 (global-set-key (kbd "<tab>") 'company-complete-common-or-cycle) ;TAB
 (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
