@@ -36,8 +36,8 @@
 			  flycheck fuzzy gnuplot-mode
 			  gruvbox-theme helm helm-bibtex
 			  helm-ls-git highlight-parentheses
-			  ibuffer-vc ibuffer-git key-chord
-			  keyfreq magit markdown-mode
+			  hl-todo ibuffer-vc ibuffer-git
+			  key-chord keyfreq magit markdown-mode
 			  multiple-cursors nov org
 			  org-plus-contrib org-gcal pdf-tools
 			  region-bindings-mode undo-tree w3m
