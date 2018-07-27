@@ -217,7 +217,7 @@
 			     "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"
 			     "~/elisp/agendas/ag-longterm.org"
 			     "~/elisp/agendas/ag-teaching.org"
-			     "~/elisp/agendas/ag-it.org"
+			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"
 			     "~/elisp/agendas/ag-geral.org"
 			     "~/elisp/agendas/gcal.org"))
 
@@ -291,7 +291,7 @@
 ;; -------
 (global-set-key "\C-cc" 'org-capture)
 (setq org-directory "~/elisp/agendas/")
-(setq org-default-notes-file (concat org-directory "ag-it.org"))
+(setq org-default-notes-file (concat org-directory "ag-geral.org"))
 
 (setq org-capture-templates
       '(("c" "Gcal" entry (file  "~/elisp/agendas/gcal.org")
@@ -302,7 +302,7 @@
 	 "** TODO %?\n %i\n")
 	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
 	 "** TODO %?\n %i\n")
-	("e" "Emacs IT stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
+	("e" "Emacs IT stuff" entry (file+headline "~/Documents/mydocs/notes/tech-notes/ag-it.org" "EMACS")
 	 "** TODO %?\n %i\n")))
 
 ;; ----
