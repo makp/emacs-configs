@@ -19,7 +19,7 @@
 ;;; Agendas
 (set-register ?a '(file . "~/elisp/agendas/ag-academic.org"))
 (set-register ?e '(file . "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"))
-(set-register ?i '(file . "~/elisp/agendas/ag-it.org"))
+(set-register ?i '(file . "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 (set-register ?o '(file . "~/elisp/agendas/ag-longterm.org"))
 (set-register ?t '(file . "~/elisp/agendas/ag-teaching.org"))
 (set-register ?g '(file . "~/elisp/agendas/ag-geral.org"))
