@@ -94,10 +94,10 @@ for a git repo first."
 ;; 	  (lambda ()
 ;; 	    (orgstruct-mode)))
 
-(setq magit-repository-directories '(("~/elisp/agendas" . 0)
-				     ("~/config-files/general" . 1)
-				     ("~/scripts/myscripts" . 0)
-				     ("~/Documents/mydocs" . 2)))
+(setq-default magit-repository-directories '(("~/elisp/agendas" . 0)
+					     ("~/config-files/general" . 1)
+					     ("~/scripts/myscripts" . 0)
+					     ("~/Documents/mydocs" . 3)))
 
 
 
