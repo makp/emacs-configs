@@ -14,6 +14,8 @@
 ;;; Config files
 (set-register ?E '(file . "~/config-files/general/emacs-configs/"))
 (set-register ?b '(file . "~/Documents/mydocs/tex-configs/references/evol.bib"))
+(set-register ?p '(file . "~/Documents/mydocs/tex-configs/references/my-pubs.bib"))
+
 ;; (set-register ?d '(file . "~/config-files/general/emacs-configs/init.el"))
 
 ;;; Agendas
@@ -26,7 +28,7 @@
 (set-register ?w '(file . "~/elisp/agendas/wasteclock.org"))
 
 ;;; Notes
-(set-register ?E '(file . "~/Documents/mydocs/notes/nontech-notes/english-and-spanish/english.org"))
+;; (set-register ?E '(file . "~/Documents/mydocs/notes/nontech-notes/english-and-spanish/english.org"))
 ;; (set-register ?c '(file . "~/Documents/mydocs/notes/"))
 ;; (set-register ?l '(file . "~/Documents/mydocs/notes/"))
 
