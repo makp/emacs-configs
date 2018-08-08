@@ -113,10 +113,8 @@ depending on the value of ARG."
 (global-set-key (kbd "C-x C-s") 'helm-occur)
 
 ;; grep
-(require 'wgrep-helm)
+(require 'wgrep-helm)			; wgrep allows you to edit grep buffers
 (global-set-key (kbd "M-s a") 'helm-do-grep-ag)
-
-;; wgrep allows you to edit grep buffers
 
 ;; imenu
 (global-set-key (kbd "M-s i") 'helm-imenu)

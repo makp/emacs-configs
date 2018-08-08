@@ -13,6 +13,9 @@
 	    (add-to-list
 	     'TeX-macro-global "~/texmf/tex/latex/"))) ;lists the directories where TeX style files are.
 
+;; biber path
+(add-to-list 'load-path "/usr/bin/vendor_perl/")
+
 
 ;; --------------
 ;; better C-a/C-e
