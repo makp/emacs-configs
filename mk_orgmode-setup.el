@@ -214,12 +214,12 @@
 ;; Agenda files
 ;; ------------
 (setq org-agenda-files (list "~/elisp/agendas/ag-academic.org"
-			     "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"
 			     "~/elisp/agendas/ag-longterm.org"
 			     "~/elisp/agendas/ag-teaching.org"
-			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"
 			     "~/elisp/agendas/ag-geral.org"
-			     "~/elisp/agendas/gcal.org"))
+			     "~/elisp/agendas/gcal.org"
+			     "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"
+			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
 
 ;;; agenda dispatcher
