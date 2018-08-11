@@ -354,10 +354,11 @@
    (python . t)
    (shell . t)
    (latex . t)
-   ;; (R . t)
    (C . t)
+   ;; (R . t)
    ;; (octave . t)
-   (gnuplot . t)))
+   ;; (gnuplot . t)
+   ))
 
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
