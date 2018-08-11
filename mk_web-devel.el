@@ -1,6 +1,9 @@
 (require 'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+
+(define-key web-mode-map (kbd "C-c C-v") 'browse-url-of-file)
 
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
