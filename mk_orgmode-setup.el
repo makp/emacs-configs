@@ -218,7 +218,7 @@
 			     "~/elisp/agendas/ag-teaching.org"
 			     "~/elisp/agendas/ag-geral.org"
 			     "~/elisp/agendas/gcal.org"
-			     "~/Documents/mydocs/research-projects/research_social-evolution/ag-evolution.org"
+			     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
 			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
 
