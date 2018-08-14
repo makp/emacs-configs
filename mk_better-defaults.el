@@ -122,7 +122,7 @@
 ;; (mouse-avoidance-mode 'cat-and-mouse)
 
 (global-auto-revert-mode 1) ;Reload file when it changes
-(setq-default auto-revert-verbose t)
+(setq-default auto-revert-verbose nil)
 (setq-default global-auto-revert-non-file-buffers t)
 ;; Note that this could lead to excessive auto-reverts.
 
