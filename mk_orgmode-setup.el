@@ -219,6 +219,7 @@
 			     "~/elisp/agendas/ag-geral.org"
 			     "~/elisp/agendas/gcal.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
+			     "~/Documents/mydocs/research-projects/research_social-evolution/group-redundancy/ag-group-redundancy.org"
 			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
 
