@@ -74,7 +74,8 @@
 		   (interactive)
 		   (require 'mk_company)
 		   (require 'mk_yasnippet-setup)
-		   (require 'mk_web-devel)))
+		   (require 'mk_web-devel)
+		   (pdf-tools-install)))
 
 ;; --------------------------------------------
 ;; org-mode, latex, and other programming modes

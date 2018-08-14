@@ -302,11 +302,9 @@
     (insert (format "%S" value))))
 
 
-;; ---------
-;; pdf-tools
-;; ---------
-(pdf-tools-install)
-
+;; --------
+;; doc-view
+;; --------
 ;; (setq doc-view-continuous t)
 ;; (setq doc-view-resolution 250)
 ;; (setq doc-view-image-width 1250)
