@@ -131,7 +131,7 @@
 ;; The visual-line-mode turns on word-wrapping and rebinds C-a, C-e,
 ;; and C-k to operate on visual lines instead of logical lines.
 
-(pending-delete-mode 1)
+(pending-delete-mode -1)
 
 (show-paren-mode 1)
 (setq-default
