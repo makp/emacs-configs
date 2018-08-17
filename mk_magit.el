@@ -11,11 +11,12 @@
 	  (lambda ()
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
-(global-set-key (kbd "C-x g") '(lambda ()
-				 (interactive)
-				 (call-interactively 'magit-fetch)
-				 (call-interactively 'magit-status)
-				 (magit-section-show-level-3-all)))
+
+(global-set-key (kbd "M-g") '(lambda ()
+			       (interactive)
+			       (call-interactively 'magit-fetch)
+			       (call-interactively 'magit-status)
+			       (magit-section-show-level-3-all)))
 
 (global-set-key (kbd "C-x p")
 		'(lambda ()
@@ -71,13 +72,6 @@ for a git repo first."
 (global-set-key (kbd "M-s g") 'mk/grep-project)
 
 (define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
-
-(defun mk/git-status (&optional arg)
-  (interactive "P")
-  (call-interactively 'magit-status)
-  (goto-line 4))
-
-(global-set-key (kbd "M-g") 'mk/git-status)
 
 (defun mk/show-diffs (&optional arg) 
   (interactive "P")
