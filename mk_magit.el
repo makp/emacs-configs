@@ -7,25 +7,22 @@
 ;;; Code:
 
 
+;; main global key bindings
+(defun mk/fetch(&optional arg)
+  (interactive "P")
+  (call-interactively 'magit-status)
+  (call-interactively 'magit-fetch)
+  (magit-section-show-level-3-all))
+
+(global-set-key (kbd "C-x p") 'mk/fetch)
+(global-set-key (kbd "C-x d") 'magit-diff-buffer-file)
+
+
+;; local keybindings
 (add-hook 'magit-status-mode-hook 
 	  (lambda ()
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
 
-
-(global-set-key (kbd "M-g") '(lambda ()
-			       (interactive)
-			       (call-interactively 'magit-fetch)
-			       (call-interactively 'magit-status)
-			       (magit-section-show-level-3-all)))
-
-(global-set-key (kbd "C-x p")
-		'(lambda ()
-		   (interactive)
-		   (let ((current-prefix-arg '(4)))
-		     (call-interactively 'magit-status))
-		   (call-interactively 'magit-fetch)))
-
-(global-set-key (kbd "C-x d") 'magit-diff-buffer-file)
 
 ;; ==============
 ;; helm and magit
