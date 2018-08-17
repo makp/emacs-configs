@@ -7,8 +7,6 @@
 ;;; Code:
 
 
-(autoload 'magit-status "magit" nil t)
-
 (add-hook 'magit-status-mode-hook 
 	  (lambda ()
 	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
