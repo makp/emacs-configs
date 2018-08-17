@@ -63,8 +63,7 @@ a list of all repos before running helm-browse-project."
 for a git repo first."
   (interactive "P")
   (when (consp arg)
-    (call-interactively 'magit-status)
-    (goto-line 3))
+    (call-interactively 'magit-status))
   (let ((current-prefix-arg '(4)))
     (call-interactively 'helm-grep-do-git-grep)))
 
