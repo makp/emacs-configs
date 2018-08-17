@@ -25,6 +25,8 @@
 		     (call-interactively 'magit-status))
 		   (call-interactively 'magit-fetch)))
 
+(global-set-key (kbd "C-x d") 'magit-diff-buffer-file)
+
 ;; ==============
 ;; helm and magit
 ;; ==============
@@ -72,14 +74,6 @@ for a git repo first."
 (global-set-key (kbd "M-s g") 'mk/grep-project)
 
 (define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
-
-(defun mk/show-diffs (&optional arg) 
-  (interactive "P")
-  (when (consp arg)
-    (magit-log-buffer-file))
-  (magit-diff-buffer-file))
-
-(global-set-key (kbd "C-x d") 'mk/show-diffs)
 
 (setq magit-diff-refine-hunk 'all)
 
