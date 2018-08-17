@@ -13,8 +13,9 @@
 
 (global-set-key (kbd "C-x g") '(lambda ()
 				 (interactive)
+				 (call-interactively 'magit-fetch)
 				 (call-interactively 'magit-status)
-				 (call-interactively 'magit-fetch)))
+				 (magit-section-show-level-3-all)))
 
 (global-set-key (kbd "C-x p")
 		'(lambda ()
