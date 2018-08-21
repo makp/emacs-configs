@@ -39,8 +39,8 @@
 ;; ---------
 ;; Bookmarks
 ;; ---------
-(setq
- bookmark-default-file "~/Dropbox/shared-files/emacs-bookmarks"
- bookmark-save-flag 1)			; autosave each change
+;; (setq
+;;  bookmark-default-file "~/Dropbox/shared-files/emacs-bookmarks"
+;;  bookmark-save-flag 1)			; autosave each change
 
 (provide 'mk_registers)
