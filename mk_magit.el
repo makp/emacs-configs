@@ -17,6 +17,8 @@
 (global-set-key (kbd "C-x p") 'mk/fetch)
 (global-set-key (kbd "C-x d") 'magit-diff-buffer-file)
 
+(global-set-key (kbd "C-x g") 'magit-status)
+
 
 ;; local keybindings
 (add-hook 'magit-status-mode-hook 
