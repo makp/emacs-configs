@@ -39,10 +39,10 @@
 			  hl-todo ibuffer-vc ibuffer-git
 			  key-chord keyfreq lua-mode magit
 			  markdown-mode multiple-cursors nov org
-			  org-plus-contrib org-gcal pdf-tools
-			  region-bindings-mode undo-tree w3m
-			  web-mode wgrep wgrep-helm yaml-mode
-			  yasnippet)
+			  org-plus-contrib org-gcal org-ref
+			  pdf-tools region-bindings-mode
+			  undo-tree w3m web-mode wgrep wgrep-helm
+			  yaml-mode yasnippet)
   "The list of packages installed at launch.")
 
 ;; ess, ibuffer-git
