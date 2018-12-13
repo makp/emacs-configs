@@ -93,7 +93,6 @@
 (global-set-key (kbd "<f7>")
 		'(lambda ()
 		   (interactive)
-		   ;; (require 'mk_autocomplete-setup)
 		   (require 'mk_keyfreq)
 		   ;; (require 'gnuplot)
 		   ;; (require 'mk_ess)
@@ -106,4 +105,10 @@
 		   ;; (require 'mk_emms-setup)
 		   ))
 
-;;; init.el ends here
+(global-set-key (kbd "<f8>")
+		'(lambda ()
+		   (interactive)
+		   (hl-todo-mode)
+		   (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
+		   (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
+		   (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur)))
