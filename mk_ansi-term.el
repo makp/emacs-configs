@@ -6,7 +6,7 @@
   "Toggle an ansi-term buffer."
   (interactive)
   (when (not (get-buffer "*ansi-term*"))
-    (save-window-excursion (ansi-term (getenv "SHELL"))))
+    (save-window-excursion (ansi-term "/usr/bin/fish")))
   (if (equal (buffer-name) "*ansi-term*")
       (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
