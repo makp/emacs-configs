@@ -17,7 +17,7 @@
   (interactive "P")
   (if (not (consp arg))
       (mk/ansi-term-popup)
-    (ansi-term "/bin/zsh")))
+    (ansi-term "/usr/bin/fish")))
 
 (setq term-buffer-maximum-size 0)
 ;;; 
