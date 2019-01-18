@@ -239,9 +239,7 @@ shown, then it'll be hidden."
 (setq bibtex-completion-bibliography
       '("~/Documents/mydocs/tex-configs/references/logic.bib"
 	"~/Documents/mydocs/tex-configs/references/dissert.bib"
-	"~/Documents/mydocs/tex-configs/references/evol.bib"
-	"~/Documents/mydocs/tex-configs/references/my-pubs.bib"
-	"~/Documents/mydocs/tex-configs/references/teaching.bib")
+	"~/Documents/mydocs/tex-configs/references/evol.bib")
       bibtex-completion-cite-default-as-initial-input t
       bibtex-completion-cite-prompt-for-optional-arguments nil
       bibtex-completion-cite-commands '("citep" "citet"))
