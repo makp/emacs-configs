@@ -220,7 +220,7 @@
 			     "~/elisp/agendas/gcal.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
-			     "~/Documents/mydocs/research-projects/research_social-evolution/group-redundancy/ag-group-redundancy.org"
+			     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
 			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
 
