@@ -278,10 +278,6 @@
 ;; Parentheses
 ;; ===========
 
-(global-set-key (kbd "C-c p") "(")
-(global-set-key (kbd "C-c y") "[")
-(global-set-key (kbd "C-c f") "{")
-
 ;; ---------------
 ;; some keybidings
 ;; ---------------
