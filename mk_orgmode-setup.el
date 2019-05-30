@@ -467,7 +467,7 @@
 
 (add-hook 'org-timer-done-hook
 	  '(lambda()
-	     (message "END OF TIME BURST!!")))
+	     (message "END OF TIME BURST (%s)!" (current-time-string))))
 
 (global-set-key (kbd "\e\ec") '(lambda ()
 				 (interactive)
