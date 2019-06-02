@@ -84,6 +84,8 @@
 ;; ===============
 ;; latex exporting
 ;; ===============
+(setq org-latex-pdf-process (list "latexmk %s"))
+
 (setq org-export-with-LaTeX-fragments 'dvipng)
 ;;; All LaTeX fragments are converted into images and inlined into the
 ;;; document
