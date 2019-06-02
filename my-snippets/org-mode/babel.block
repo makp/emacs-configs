@@ -6,6 +6,6 @@
 # expand-evn: (yas/indent-line 'fixed)
 # --
 
-#+begin_src ${2:$$(yas/choose-value '("lisp" "sh" "C" "emacs-lisp" "R" "octave" "python" "latex" "gnuplot"))}
+#+begin_src ${2:$$(yas/choose-value '("mathematica" "mathematica :results graphics :file filename.png" "latex" "emacs-lisp" "lisp" "sh" "octave" "python"))}
 $0
 #+end_src
