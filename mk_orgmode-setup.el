@@ -357,15 +357,26 @@
    (shell . t)
    (latex . t)
    (C . t)
+   (mathematica . t)
    ;; (R . t)
    ;; (octave . t)
    ;; (gnuplot . t)
    ))
 
+
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
-
 (setq org-confirm-babel-evaluate nil)
+
+(autoload 'wolfram-mode "wolfram-mode" nil t)
+(autoload 'run-wolfram "wolfram-mode" nil t)
+(setq wolfram-program "/usr/local/bin/MathKernel")
+(add-to-list 'auto-mode-alist '("\.m$" . wolfram-mode))
+(setq wolfram-path "~/.Mathematica/Applications")
+
+(add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
+(setq org-babel-mathematica-command "wolframscript -script") ; originally was mathematicascript
+
 
 
 ;; -----------------------
