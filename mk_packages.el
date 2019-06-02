@@ -42,7 +42,7 @@
 			  org-plus-contrib org-gcal org-ref
 			  pdf-tools region-bindings-mode
 			  undo-tree w3m web-mode wgrep wgrep-helm
-			  yaml-mode yasnippet wolfram)
+			  yaml-mode yasnippet wolfram-mode)
   "The list of packages installed at launch.")
 
 ;; ess, ibuffer-git
