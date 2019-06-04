@@ -353,6 +353,9 @@ shown, then it'll be hidden."
  TeX-newline-function 'reindent-then-newline-and-indent
  TeX-PDF-mode t)
 
+;; automatically insert opening and closing symbols for inline eqn
+(setq TeX-electric-math (cons "$" "$"))
+
 ;; (defun reverse-sync-no-mouse ()
 ;;   (interactive)
 ;;   (async-shell-command "~/myscripts/simulating-key-presses.sh")
@@ -428,24 +431,6 @@ shown, then it'll be hidden."
 ;; 			     ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
 ;; 			     ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
 
-;; ;;; Automatically wrap $$ when in tex mode
-;; ;; FIXME: not working
-;; (add-hook
-;;  'LaTeX-mode-hook
-;;  (lambda ()
-;;    (let ((math (reverse (append LaTeX-math-list LaTeX-math-default))))
-;;      (while math
-;;        (let ((entry (car math))
-;;              value)
-;; 	 (setq math (cdr math))
-;; 	 (if (listp (cdr entry))
-;;              (setq value (nth 1 entry))
-;; 	   (setq value (cdr entry)))
-;; 	 (if (stringp value)
-;;              (fset (intern (concat "LaTeX-math-" value))
-;; 		   (list 'lambda (list 'arg) (list 'interactive "*P")
-;; 			 (list 'LaTeX-math-insert value
-;; 			       '(null (texmathp)))))))))))
 
 (provide 'mk_latex)
 
