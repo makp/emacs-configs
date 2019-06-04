@@ -24,8 +24,7 @@
 	  (lambda ()
 	    (define-key LaTeX-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)
 	    (define-key LaTeX-mode-map (kbd "C-c g") 'pdf-sync-forward-search)
-	    (define-key LaTeX-mode-map (kbd "C-x n") nil)
-	    ))
+	    (define-key LaTeX-mode-map (kbd "C-x n") nil)))
 
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
@@ -426,10 +425,10 @@ shown, then it'll be hidden."
 ;;   (insert out2)
 ;;   (exchange-point-and-mark))
 
-;; (setq LaTeX-math-list (quote(
-;; 			     ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
-;; 			     ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
-;; 			     ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
+(setq LaTeX-math-list
+      '((?8 "infty" "Misc Symbol" 8734)))
+
+
 ;; LaTeX-math-abbrev-prefix wraps $$ around symbol when in text mode
 ;; (from StackExchange TeX)
 (add-hook
