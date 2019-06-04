@@ -14,7 +14,7 @@
 	     'TeX-macro-global "~/texmf/tex/latex/"))) ;lists the directories where TeX style files are.
 
 ;; biber path
-(add-to-list 'load-path "/usr/bin/vendor_perl/")
+;; (add-to-list 'load-path "/usr/bin/vendor_perl/")
 
 
 ;; --------------
@@ -46,7 +46,7 @@
  ;; Case you want to use Doc-View as a the pdf viewer, use the command
  ;; 
  TeX-view-program-list
- '(("DVI Viewer" "okular %o") 
+ '(("DVI Viewer" "okular %o")
    ;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
    ("PDF Viewer" "okular --unique %u")
    ("HTML Viewer" "firefox %o")))
@@ -71,12 +71,12 @@
 ;; Parsing
 ;; -------
 (setq
- TeX-auto-save t			; enable parse on save 
- TeX-parse-self t)			; enable parse on load
+ TeX-auto-save t   ;; enable parse on save
+ TeX-parse-self t) ;; enable parse on load
 
 ;; (setq-default TeX-master t)
 					
-(setq TeX-save-query nil) 
+(setq TeX-save-query nil)
 ;; Description: autosave before compiling
 
 ;; ------
@@ -84,38 +84,38 @@
 ;; ------
 
 ;;; double quotes
-(defadvice TeX-insert-quote (around wrap-region activate)
-  (cond
-   (mark-active
-    (let ((skeleton-end-newline nil))
-      (skeleton-insert `(nil ,TeX-open-quote _ ,TeX-close-quote) -1)))
-   ((looking-at (regexp-opt (list TeX-open-quote TeX-close-quote)))
-    (forward-char (length TeX-open-quote)))
-   (t
-    ad-do-it)))
-(put 'TeX-insert-quote 'delete-selection nil)
+;; (defadvice TeX-insert-quote (around wrap-region activate)
+;;   (cond
+;;    (mark-active
+;;     (let ((skeleton-end-newline nil))
+;;       (skeleton-insert `(nil ,TeX-open-quote _ ,TeX-close-quote) -1)))
+;;    ((looking-at (regexp-opt (list TeX-open-quote TeX-close-quote)))
+;;     (forward-char (length TeX-open-quote)))
+;;    (t
+;;     ad-do-it)))
+;; (put 'TeX-insert-quote 'delete-selection nil)
 ;;; Description: this allows me to add quotes to regions. This also
 ;;; makes the ‘"’ key “move over” existing quotation marks. E.g., if
 ;;; point is at the beginning of ``word'', hitting " places it at the
 ;;; first letter.
 
 ;;; single quotes
-(defun TeX-insert-single-quote (arg)
-  (interactive "p")
-  (cond
-   (mark-active
-    (let ((skeleton-end-newline nil))
-      (skeleton-insert
-       `(nil ?` _ ?') -1)))
-   ((or (looking-at "\\<")
-	(looking-back "^\\|\\s-\\|`"))
-    (insert "`"))
-   (t
-    (self-insert-command arg))))
+;; (defun TeX-insert-single-quote (arg)
+;;   (interactive "p")
+;;   (cond
+;;    (mark-active
+;;     (let ((skeleton-end-newline nil))
+;;       (skeleton-insert
+;;        `(nil ?` _ ?') -1)))
+;;    ((or (looking-at "\\<")
+;; 	(looking-back "^\\|\\s-\\|`"))
+;;     (insert "`"))
+;;    (t
+;;     (self-insert-command arg))))
 
-(add-hook 'LaTeX-mode-hook
-	  '(lambda ()
-	     (local-set-key "'" 'TeX-insert-single-quote)))
+;; (add-hook 'LaTeX-mode-hook
+;; 	  '(lambda ()
+;; 	     (local-set-key "'" 'TeX-insert-single-quote)))
 
 ;; ---------
 ;; auto-fill
@@ -132,7 +132,7 @@
 ;; ---------
 ;; math-mode
 ;; ---------
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode 
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode
 
 ;; ======================
 ;; fold and outline modes
@@ -151,7 +151,7 @@
 (setq TeX-fold-preserve-comments t)
 ;; Description: foldable items in your comments are not folded
 
-(setq TeX-fold-env-spec-list 
+(setq TeX-fold-env-spec-list
       '(("[comment]" ("comment"))))
 ;; Description: environments taken into consideration in fold mode
 
@@ -256,7 +256,7 @@ shown, then it'll be hidden."
                               (or (bibtex-completion-get-value "author" entry)
                                   (bibtex-completion-get-value "editor" entry)))
                 for year = (bibtex-completion-get-value "year" entry)
-		for title = (bibtex-completion-get-value "title" entry) 
+		for title = (bibtex-completion-get-value "title" entry)
 		collect (format "[[bib:%s][%s (%s) %s]]" key author year title))))
 
 ;; check the function bibtex-completion-format-citation-cite for ideas
@@ -276,7 +276,7 @@ shown, then it'll be hidden."
 (add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
 
 (setq reftex-plug-into-AUCTeX t)	; integrate RefTeX with AUCTeX
-(setq reftex-cite-format 'natbib)  	; natbib 
+(setq reftex-cite-format 'natbib)  	; natbib
 
 (setq reftex-default-bibliography
       (quote
@@ -416,39 +416,44 @@ shown, then it'll be hidden."
 ;; -----------
 ;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
 
-(defun LaTeX-my-leftright (charopen charclose)
-  "Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
-  (interactive)
-  (setq out1 (concat "\\left" charopen " "))
-  (setq out2 (concat " \\right" charclose))
-  (insert out1)
-  (push-mark)
-  (insert out2)
-  (exchange-point-and-mark))
+;; FIXME: not working
+;; (defun LaTeX-my-leftright (charopen charclose)
+;;   "Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
+;;   (interactive)
+;;   (setq out1 (concat "\\left" charopen " "))
+;;   (setq out2 (concat " \\right" charclose))
+;;   (insert out1)
+;;   (push-mark)
+;;   (insert out2)
+;;   (exchange-point-and-mark))
 
-(setq LaTeX-math-list (quote(
-			      ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
-			      ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
-			      ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
+;; (setq LaTeX-math-list (quote(
+;; 			     ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
+;; 			     ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
+;; 			     ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
 
-;;; Automatically wrap $$ when in tex mode
-(add-hook
- 'LaTeX-mode-hook
- (lambda ()
-   (let ((math (reverse (append LaTeX-math-list LaTeX-math-default))))
-     (while math
-       (let ((entry (car math))
-             value)
-	 (setq math (cdr math))
-	 (if (listp (cdr entry))
-             (setq value (nth 1 entry))
-	   (setq value (cdr entry)))
-	 (if (stringp value)
-             (fset (intern (concat "LaTeX-math-" value))
-		   (list 'lambda (list 'arg) (list 'interactive "*P")
-			 (list 'LaTeX-math-insert value
-			       '(null (texmathp)))))))))))
+;; ;;; Automatically wrap $$ when in tex mode
+;; ;; FIXME: not working
+;; (add-hook
+;;  'LaTeX-mode-hook
+;;  (lambda ()
+;;    (let ((math (reverse (append LaTeX-math-list LaTeX-math-default))))
+;;      (while math
+;;        (let ((entry (car math))
+;;              value)
+;; 	 (setq math (cdr math))
+;; 	 (if (listp (cdr entry))
+;;              (setq value (nth 1 entry))
+;; 	   (setq value (cdr entry)))
+;; 	 (if (stringp value)
+;;              (fset (intern (concat "LaTeX-math-" value))
+;; 		   (list 'lambda (list 'arg) (list 'interactive "*P")
+;; 			 (list 'LaTeX-math-insert value
+;; 			       '(null (texmathp)))))))))))
 
 (provide 'mk_latex)
 
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
 ;;; mk_latex.el ends here
