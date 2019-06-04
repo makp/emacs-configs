@@ -83,39 +83,35 @@
 ;; quotes
 ;; ------
 
-;;; double quotes
-;; (defadvice TeX-insert-quote (around wrap-region activate)
-;;   (cond
-;;    (mark-active
-;;     (let ((skeleton-end-newline nil))
-;;       (skeleton-insert `(nil ,TeX-open-quote _ ,TeX-close-quote) -1)))
-;;    ((looking-at (regexp-opt (list TeX-open-quote TeX-close-quote)))
-;;     (forward-char (length TeX-open-quote)))
-;;    (t
-;;     ad-do-it)))
-;; (put 'TeX-insert-quote 'delete-selection nil)
-;;; Description: this allows me to add quotes to regions. This also
-;;; makes the ‘"’ key “move over” existing quotation marks. E.g., if
-;;; point is at the beginning of ``word'', hitting " places it at the
-;;; first letter.
+;; wrap active region in double quotes (from EmacsWiki)
+(defadvice TeX-insert-quote (around wrap-region activate)
+  (cond
+   (mark-active
+    (let ((skeleton-end-newline nil))
+      (skeleton-insert `(nil ,TeX-open-quote _ ,TeX-close-quote) -1)))
+   ((looking-at (regexp-opt (list TeX-open-quote TeX-close-quote)))
+    (forward-char (length TeX-open-quote)))
+   (t
+    ad-do-it)))
+(put 'TeX-insert-quote 'delete-selection nil)
 
-;;; single quotes
-;; (defun TeX-insert-single-quote (arg)
-;;   (interactive "p")
-;;   (cond
-;;    (mark-active
-;;     (let ((skeleton-end-newline nil))
-;;       (skeleton-insert
-;;        `(nil ?` _ ?') -1)))
-;;    ((or (looking-at "\\<")
-;; 	(looking-back "^\\|\\s-\\|`"))
-;;     (insert "`"))
-;;    (t
-;;     (self-insert-command arg))))
+;; wrap active region with single quotes (from EmacsWiki)
+(defun TeX-insert-single-quote (arg)
+  (interactive "p")
+  (cond
+   (mark-active
+    (let ((skeleton-end-newline nil))
+      (skeleton-insert
+       `(nil ?` _ ?') -1)))
+   ((or (looking-at "\\<")
+	(looking-back "^\\|\\s-\\|`"))
+    (insert "`"))
+   (t
+    (self-insert-command arg))))
 
-;; (add-hook 'LaTeX-mode-hook
-;; 	  '(lambda ()
-;; 	     (local-set-key "'" 'TeX-insert-single-quote)))
+(add-hook 'LaTeX-mode-hook
+	  '(lambda ()
+	     (local-set-key "'" 'TeX-insert-single-quote)))
 
 ;; ---------
 ;; auto-fill
