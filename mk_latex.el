@@ -124,11 +124,6 @@
 	  (lambda()
 	    (flyspell-mode 1)))
 
-;; ---------
-;; math-mode
-;; ---------
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode
-
 ;; ======================
 ;; fold and outline modes
 ;; ======================
@@ -412,6 +407,11 @@ shown, then it'll be hidden."
 ;; =========
 ;; Math mode
 ;; =========
+
+;; ---------
+;; math-mode
+;; ---------
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode
 
 ;; -----------
 ;; math-abbrev
