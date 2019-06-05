@@ -131,7 +131,7 @@
 ;; fold and outline modes
 ;; ======================
 
-;; loading fold and outline modes
+;; load fold and outline modes
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (TeX-fold-mode 1)
 			     (outline-minor-mode 1)))
@@ -140,22 +140,22 @@
 ;; fold
 ;; ----
 
-(setq TeX-fold-preserve-comments t)
-;; Foldable items in your comments are not folded
+;; (setq TeX-fold-preserve-comments t)
+;; ;; Foldable items in your comments are not folded
 
-(setq TeX-fold-env-spec-list
-      '(("[comment]" ("comment"))))
-;; Environments taken into consideration in fold mode
+;; (setq TeX-fold-env-spec-list
+;;       '(("[comment]" ("comment"))))
+;; ;; Environments taken into consideration in fold mode
 
-(setq TeX-fold-macro-spec-list
-      '(("[f]" ("footnote"))
-	("[c]" ("cite" "citet" "citep" "citeyearpar"))
-	("[l]" ("label"))
-	("[r]" ("ref" "pageref" "eqref"))
-	("[1]:||*" ("item"))
-	("..." ("dots"))
-	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
-;; Macros taken into consideration in fold mode
+;; (setq TeX-fold-macro-spec-list
+;;       '(("[f]" ("footnote"))
+;; 	("[c]" ("cite" "citet" "citep" "citeyearpar"))
+;; 	("[l]" ("label"))
+;; 	("[r]" ("ref" "pageref" "eqref"))
+;; 	("[1]:||*" ("item"))
+;; 	("..." ("dots"))
+;; 	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
+;; ;; Macros taken into consideration in fold mode
 
 ;; -------
 ;; outline
