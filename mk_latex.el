@@ -317,12 +317,6 @@ shown, then it'll be hidden."
 ;; (add-hook 'LaTeX-mode-hook (lambda ()
 ;; 			     (add-to-list
 ;; 			      'TeX-command-list
-;; 			      '("View DocView" "emacsclient -n -e '(find-file-other-window \"%o\")'" TeX-run-TeX nil t
-;; 				:help "View with docview"))))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
 ;; 			      '("Zathura"  "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
 ;; 				:help "View pdf with zathura"))))
 
