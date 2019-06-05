@@ -135,7 +135,7 @@
 
 ;; loading fold and outline modes
 (add-hook 'LaTeX-mode-hook (lambda ()
-			     ;; (TeX-fold-mode 1)
+			     (TeX-fold-mode 1)
 			     (outline-minor-mode 1)))
 
 
