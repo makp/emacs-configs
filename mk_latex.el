@@ -2,7 +2,13 @@
 
 ;;; Commentary:
 
-;; 
+;;
+
+;; TODO list:
+
+;; Write a function to do reverse-sync without the mouse using
+;; pdftools. I could write a bash script and call it with
+;; async-shell-command.
 
 ;;; Code:
 
@@ -338,13 +344,6 @@ shown, then it'll be hidden."
 ;; automatically insert opening and closing symbols for inline eqn
 (setq TeX-electric-math (cons "$" "$"))
 
-;; (defun reverse-sync-no-mouse ()
-;;   (interactive)
-;;   (async-shell-command "~/myscripts/simulating-key-presses.sh")
-;;   ;; (winner-undo)
-;;   (message "Reverse synctex synchronization without the rodent"))
-
-;; (global-set-key (kbd "s-C-.") 'reverse-sync-no-mouse)
 
 ;; ----------------
 ;; TeX-command-list
