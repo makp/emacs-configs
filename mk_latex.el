@@ -342,19 +342,6 @@ shown, then it'll be hidden."
 (setq TeX-electric-math (cons "$" "$"))
 
 
-;; ----------------
-;; TeX-command-list
-;; ----------------
-;; (eval-after-load "tex"
-;;   '(add-to-list 'TeX-command-list
-;; 		'("postscript" "/usr/bin/ps4pdf %s" TeX-run-command nil t) t))
-
-;; (eval-after-load "tex"
-;;   '(add-to-list 'TeX-command-list
-;; 		'("ps2pdf" "ps2pdf %f" TeX-run-command nil t) t))
-
-
-;;; I'm using this line but I shouldn't have to
 ;; (require 'latex-mode-expansions)
 
 ;; (setq LaTeX-paragraph-commands '("minisec"))
