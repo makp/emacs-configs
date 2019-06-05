@@ -314,12 +314,6 @@ shown, then it'll be hidden."
 ;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
 ;; 				:help "Run zathura on file"))))
 
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
-;; 			      '("Zathura"  "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-;; 				:help "View pdf with zathura"))))
-
 (add-hook 'LaTeX-mode-hook '(lambda ()
 			      (add-to-list 'TeX-expand-list
 					   '("%u" Okular-make-url))))
