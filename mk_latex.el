@@ -409,24 +409,32 @@ shown, then it'll be hidden."
 ;;       '(("definitions" (("DP" "{"))
 ;; 	 (:weight bold :foreground "chocolate1") command)))
 
+;; =========
+;; Math mode
+;; =========
+
 ;; -----------
 ;; math-abbrev
 ;; -----------
 ;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
 
-;; FIXME: not working
-;; (defun LaTeX-my-leftright (charopen charclose)
-;;   "Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
-;;   (interactive)
-;;   (setq out1 (concat "\\left" charopen " "))
-;;   (setq out2 (concat " \\right" charclose))
-;;   (insert out1)
-;;   (push-mark)
-;;   (insert out2)
-;;   (exchange-point-and-mark))
+;; NOTE: the default associations are stored in the var
+;; LaTeX-math-default.
+
+(defun LaTeX-my-leftright (charopen charclose)
+  "Inserts the pattern '\leftC \rightD' where C is the open input
+char and D the closed, and places the cursor in the center."
+  (interactive)
+  (setq out1 (concat "\\left" charopen))
+  (setq out2 (concat " \\right" charclose))
+  (insert out1)
+  (push-mark)
+  (insert out2)
+  (exchange-point-and-mark))
 
 (setq LaTeX-math-list
-      '((?8 "infty" "Misc Symbol" 8734)))
+      '((?8 "infty" "Misc Symbol" 8734)
+	("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil))) ;it was langle originally
 
 
 ;; LaTeX-math-abbrev-prefix wraps $$ around symbol when in text mode
