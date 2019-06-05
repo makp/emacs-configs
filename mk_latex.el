@@ -136,17 +136,16 @@
 			     (TeX-fold-mode 1)
 			     (outline-minor-mode 1)))
 
-
-(add-hook 'outline-minor-mode-hook
-	  (lambda () (local-set-key (kbd "C-S-c")
-				    outline-mode-prefix-map)))
+;; ----
+;; fold
+;; ----
 
 (setq TeX-fold-preserve-comments t)
-;; Description: foldable items in your comments are not folded
+;; Foldable items in your comments are not folded
 
 (setq TeX-fold-env-spec-list
       '(("[comment]" ("comment"))))
-;; Description: environments taken into consideration in fold mode
+;; Environments taken into consideration in fold mode
 
 (setq TeX-fold-macro-spec-list
       '(("[f]" ("footnote"))
@@ -156,7 +155,15 @@
 	("[1]:||*" ("item"))
 	("..." ("dots"))
 	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
-;; Description: macros taken into consideration in fold mode
+;; Macros taken into consideration in fold mode
+
+;; -------
+;; outline
+;; -------
+
+(add-hook 'outline-minor-mode-hook
+	  (lambda () (local-set-key (kbd "C-S-c")
+				    outline-mode-prefix-map)))
 
 (defmacro define-context-key (keymap key dispatch)
   "Define KEY in KEYMAP to execute according to DISPATCH.
