@@ -46,18 +46,15 @@
  '((output-dvi "DVI Viewer")
    (output-pdf "PDF Viewer")
    (output-html "HTML Viewer"))
- ;; Description: the first element of the TeX-view-program-selection is
- ;; one or more predicates defined by TeX-view-predicate-list/buitin.
- ;; Case you want to use Doc-View as a the pdf viewer, use the command
- ;; 
+ ;; The 1st element of the TeX-view-program-selection is one or more
+ ;; predicates defined by TeX-view-predicate-list/buitin.
  TeX-view-program-list
  '(("DVI Viewer" "okular %o")
    ;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
    ("PDF Viewer" "okular --unique %u")
    ("HTML Viewer" "firefox %o")))
-;; Description: about the options with okular, %n is the line of the
-;; cursor and %b is the source file; the --unique option keeps a
-;; single version of okular running
+;; Okular switches: %n is the line of the cursor; %b is source file;
+;; --unique keeps a single version of okular running.
 
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 ;; revert the PDF-buffer only after the TeX compilation has finished
