@@ -200,29 +200,6 @@ shown, then it'll be hidden."
   (when (th-outline-context-p)
     'org-cycle))
 
-;; =======
-;; Preview
-;; =======
-;; (load "preview-latex.el" nil t t)
-
-(setq preview-auto-cache-preamble t)
-
-(setq preview-image-type 'dvipng)
-
-(setq preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "showlabels")))
-;; Description: displaymath: all displayed math is subject to preview
-;; processing; textmath: text math is subject to preview graphics: all
-;; \includegraphics commands to preview sections
-
-;; (setq
-;; preview-inner-environments (quote ("Bmatrix" "Vmatrix" "aligned" "array" "bmatrix" "cases" "gathered" "matrix" "pmatrix" "smallmatrix" "split" "subarray" "vmatrix")))
-;;; Environments not to be previewed on their own.
-
-(setq preview-preserve-indentation nil)
-(setq preview-scale-function 1.2)
-					; when appearing on screen
-;; preview-scale-from-face
-
 ;; ===========
 ;; helm-bibtex
 ;; ===========
@@ -343,10 +320,6 @@ shown, then it'll be hidden."
  TeX-newline-function 'reindent-then-newline-and-indent
  TeX-PDF-mode t)
 
-;; automatically insert opening and closing symbols for inline eqn
-(setq TeX-electric-math (cons "$" "$"))
-
-
 ;; (setq LaTeX-paragraph-commands '("minisec"))
 
 ;; ===========
@@ -378,9 +351,12 @@ shown, then it'll be hidden."
 ;;       '(("definitions" (("DP" "{"))
 ;; 	 (:weight bold :foreground "chocolate1") command)))
 
-;; =========
-;; Math mode
-;; =========
+;; ====
+;; Math
+;; ====
+
+;; automatically insert opening and closing symbols for inline eqn
+(setq TeX-electric-math (cons "$" "$"))
 
 ;; ---------
 ;; math-mode
@@ -390,10 +366,7 @@ shown, then it'll be hidden."
 ;; -----------
 ;; math-abbrev
 ;; -----------
-;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
-
-;; NOTE: the default associations are stored in the var
-;; LaTeX-math-default.
+;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd ""))
 
 (defun LaTeX-my-leftright (charopen charclose)
   "Inserts the pattern '\leftC \rightD' where C is the open input
@@ -429,6 +402,27 @@ char and D the closed, and places the cursor in the center."
 		   (list 'lambda (list 'arg) (list 'interactive "*P")
 			 (list 'LaTeX-math-insert value
 			       '(null (texmathp)))))))))))
+
+;; -------
+;; Preview
+;; -------
+(setq preview-auto-cache-preamble t)
+
+(setq preview-image-type 'dvipng)
+
+;; (setq preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "showlabels")))
+;; all displayed math is subject to preview
+
+;; (setq
+;; preview-inner-environments (quote ("Bmatrix" "Vmatrix" "aligned" "array" "bmatrix" "cases" "gathered" "matrix" "pmatrix" "smallmatrix" "split" "subarray" "vmatrix")))
+;;; Environments not to be previewed on their own.
+
+(setq preview-preserve-indentation nil)
+(setq preview-scale-function 1.2)
+					; when appearing on screen
+;; preview-scale-from-face
+
+
 
 
 (provide 'mk_latex)
