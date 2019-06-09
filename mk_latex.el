@@ -300,7 +300,7 @@ shown, then it'll be hidden."
 ;; So that RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
 ;; works.
-(setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
+;; (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 
 (add-hook 'reftex-mode-hook
 	  (lambda ()
@@ -424,7 +424,6 @@ char and D the closed, and places the cursor in the center."
 
 (setq preview-preserve-indentation nil)
 (setq preview-scale-function 1.2)
-					; when appearing on screen
 ;; preview-scale-from-face
 
 
