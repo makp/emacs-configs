@@ -347,8 +347,6 @@ shown, then it'll be hidden."
 (setq TeX-electric-math (cons "$" "$"))
 
 
-;; (require 'latex-mode-expansions)
-
 ;; (setq LaTeX-paragraph-commands '("minisec"))
 
 ;; ===========
