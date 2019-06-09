@@ -154,6 +154,42 @@ shown, then it'll be hidden."
 ;; Okular switches: %n is the line of the cursor; %b is source file;
 ;; --unique keeps a single version of okular running.
 
+;; -----------------------
+;; Forward/backward search
+;; -----------------------
+(setq
+ TeX-source-correlate-mode t
+ TeX-source-specials-mode t)
+;; TeX-source-correlate-mode toggles support for forward/inverse
+;; search
+
+(add-hook 'LaTeX-mode-hook (lambda ()
+			     (add-to-list
+			      'TeX-command-list
+			      '("mk" "latexmk %s" TeX-run-TeX nil t
+				:help "Run Latexmk on file"))))
+
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;; 			     (add-to-list
+;; 			      'TeX-command-list
+;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
+;; 				:help "Run zathura on file"))))
+
+(add-hook 'LaTeX-mode-hook '(lambda ()
+			      (add-to-list 'TeX-expand-list
+					   '("%u" Okular-make-url))))
+
+(defun Okular-make-url () (concat
+			   "file://"
+			   (expand-file-name (funcall file (TeX-output-extension) t)
+					     (file-name-directory (TeX-master-file)))
+			   "#src:"
+			   (TeX-current-line)
+			   (expand-file-name (TeX-master-directory))
+			   "./"
+			   (TeX-current-file-name-master-relative)))
+
+
 ;; ======
 ;; macros
 ;; ======
@@ -281,40 +317,6 @@ shown, then it'll be hidden."
 ;; (setq reftex-toc-keep-other-windows t
 ;;       reftex-toc-split-windows-horizontally nil)
 
-;; =======================
-;; Forward/backward search
-;; =======================
-(setq
- TeX-source-correlate-mode t
- TeX-source-specials-mode t)
-;; TeX-source-correlate-mode toggles support for forward/inverse
-;; search
-
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (add-to-list
-			      'TeX-command-list
-			      '("mk" "latexmk %s" TeX-run-TeX nil t
-				:help "Run Latexmk on file"))))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
-;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-;; 				:help "Run zathura on file"))))
-
-(add-hook 'LaTeX-mode-hook '(lambda ()
-			      (add-to-list 'TeX-expand-list
-					   '("%u" Okular-make-url))))
-
-(defun Okular-make-url () (concat
-			   "file://"
-			   (expand-file-name (funcall file (TeX-output-extension) t)
-					     (file-name-directory (TeX-master-file)))
-			   "#src:"
-			   (TeX-current-line)
-			   (expand-file-name (TeX-master-directory))
-			   "./"
-			   (TeX-current-file-name-master-relative)))
 
 ;;; 
 (setq
