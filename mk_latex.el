@@ -19,7 +19,7 @@
 
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    ;; (setq line-spacing .1)
+	    (setq line-spacing 1)
 	    (add-to-list
 	     'TeX-macro-global "~/texmf/tex/latex/"))) ; specify location TeX style files
 
