@@ -13,11 +13,15 @@
 ;;; Code:
 
 
+;; -----------
+;; style files
+;; -----------
+
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (setq line-spacing .1)
+	    ;; (setq line-spacing .1)
 	    (add-to-list
-	     'TeX-macro-global "~/texmf/tex/latex/"))) ;lists the directories where TeX style files are.
+	     'TeX-macro-global "~/texmf/tex/latex/"))) ; specify location TeX style files
 
 ;; --------------
 ;; better C-a/C-e
@@ -55,6 +59,8 @@
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 ;; revert the PDF-buffer only after the TeX compilation has finished
 
+(setq TeX-save-query nil) ;; autosave before compiling
+
 ;; ------------------
 ;; Sectioning command
 ;; ------------------
@@ -73,9 +79,7 @@
  TeX-parse-self t) ;; enable parse on load
 
 ;; (setq-default TeX-master t)
-					
-(setq TeX-save-query nil)
-;; Description: autosave before compiling
+
 
 ;; ------
 ;; quotes
