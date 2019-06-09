@@ -26,6 +26,7 @@
  TeX-auto-save t   ;; enable parse on save
  TeX-parse-self t) ;; enable parse on load
 
+(setq-default TeX-master nil) 		;query you the master file
 
 ;; ==========
 ;; navigation
