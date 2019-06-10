@@ -40,7 +40,7 @@
 			  key-chord keyfreq lua-mode magit
 			  markdown-mode multiple-cursors nov org
 			  org-plus-contrib org-gcal org-ref
-			  pdf-tools region-bindings-mode
+			  pdf-tools poporg region-bindings-mode
 			  undo-tree w3m visual-fill-column
 			  web-mode wgrep wgrep-helm yaml-mode
 			  yasnippet wolfram-mode)
