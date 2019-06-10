@@ -189,7 +189,7 @@
 ;; ========
 (key-chord-mode 1)
 
-(key-chord-define-global "uu" 'fill-paragraph)
+;; (key-chord-define-global "uu" 'fill-paragraph)
 (key-chord-define-global "UU" 'mk/unfill-paragraph)
 
 (key-chord-define-global "hj" 'kill-whole-line)
