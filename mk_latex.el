@@ -101,6 +101,7 @@ shown, then it'll be hidden."
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    ;; (turn-on-auto-fill)
+	    (visual-line-mode)
 	    (setq line-spacing 1)))
 
 
