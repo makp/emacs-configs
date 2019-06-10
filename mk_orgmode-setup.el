@@ -57,7 +57,8 @@
 	    (flyspell-mode 1)))
 
 (add-hook 'org-mode-hook (lambda ()
-			   (setq line-spacing .2)))
+			   (setq line-spacing 1)
+			   (visual-fill-column-mode)))
 
 ;; =====
 ;; imenu
