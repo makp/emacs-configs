@@ -144,7 +144,7 @@
 
 
 ;; Activate auto-fill mode for all text mode buffers
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
 ;; The auto fill mode is a minor mode in which lines are broken
 ;; automatically when they become too wide. Breaking happens only when
 ;; you type a <SPC> or <RET>.
