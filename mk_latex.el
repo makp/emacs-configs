@@ -102,6 +102,7 @@ shown, then it'll be hidden."
 	  (lambda ()
 	    ;; (turn-on-auto-fill)
 	    (visual-line-mode)
+	    (visual-fill-column-mode)
 	    (setq line-spacing 1)))
 
 
