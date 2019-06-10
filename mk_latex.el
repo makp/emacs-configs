@@ -2,20 +2,35 @@
 
 ;;; Commentary:
 
-;; 
+;;
+
+;; TODO list:
+
+;; Write a function to do reverse-sync without the mouse using
+;; pdftools. I could write a bash script and call it with
+;; async-shell-command.
 
 ;;; Code:
 
 
+;; =======
+;; parsing
+;; =======
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (setq line-spacing .1)
 	    (add-to-list
-	     'TeX-macro-global "~/texmf/tex/latex/"))) ;lists the directories where TeX style files are.
+	     'TeX-macro-global "~/texmf/tex/latex/") ; specify location TeX style files
+	    (flyspell-mode 1)))
 
-;; biber path
-(add-to-list 'load-path "/usr/bin/vendor_perl/")
+(setq
+ TeX-auto-save t   ;; enable parse on save
+ TeX-parse-self t) ;; enable parse on load
 
+(setq-default TeX-master nil) 		;query you the master file
+
+;; ==========
+;; navigation
+;; ==========
 
 ;; --------------
 ;; better C-a/C-e
@@ -24,146 +39,22 @@
 	  (lambda ()
 	    (define-key LaTeX-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)
 	    (define-key LaTeX-mode-map (kbd "C-c g") 'pdf-sync-forward-search)
-	    (define-key LaTeX-mode-map (kbd "C-x n") nil)
-	    ))
+	    (define-key LaTeX-mode-map (kbd "C-x n") nil)))
 
 (add-hook 'bibtex-mode-hook
 	  (lambda ()
 	    (define-key bibtex-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)))
 
-
-
-;; ---------------
-;; default viewers
-;; ---------------
-(setq
- TeX-view-program-selection
- '((output-dvi "DVI Viewer")
-   (output-pdf "PDF Viewer")
-   (output-html "HTML Viewer"))
- ;; Description: the first element of the TeX-view-program-selection is
- ;; one or more predicates defined by TeX-view-predicate-list/buitin.
- ;; Case you want to use Doc-View as a the pdf viewer, use the command
- ;; 
- TeX-view-program-list
- '(("DVI Viewer" "okular %o") 
-   ;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
-   ("PDF Viewer" "okular --unique %u")
-   ("HTML Viewer" "firefox %o")))
-;; Description: about the options with okular, %n is the line of the
-;; cursor and %b is the source file; the --unique option keeps a
-;; single version of okular running
-
-(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
-;; revert the PDF-buffer only after the TeX compilation has finished
-
-;; ------------------
-;; Sectioning command
-;; ------------------
-(setq LaTeX-section-hook
-      '(LaTeX-section-heading
-	LaTeX-section-title
-	;; LaTeX-section-toc
-	LaTeX-section-section
-	LaTeX-section-label))
-
 ;; -------
-;; Parsing
+;; outline
 ;; -------
-(setq
- TeX-auto-save t			; enable parse on save 
- TeX-parse-self t)			; enable parse on load
-
-;; (setq-default TeX-master t)
-					
-(setq TeX-save-query nil) 
-;; Description: autosave before compiling
-
-;; ------
-;; quotes
-;; ------
-
-;;; double quotes
-(defadvice TeX-insert-quote (around wrap-region activate)
-  (cond
-   (mark-active
-    (let ((skeleton-end-newline nil))
-      (skeleton-insert `(nil ,TeX-open-quote _ ,TeX-close-quote) -1)))
-   ((looking-at (regexp-opt (list TeX-open-quote TeX-close-quote)))
-    (forward-char (length TeX-open-quote)))
-   (t
-    ad-do-it)))
-(put 'TeX-insert-quote 'delete-selection nil)
-;;; Description: this allows me to add quotes to regions. This also
-;;; makes the ‘"’ key “move over” existing quotation marks. E.g., if
-;;; point is at the beginning of ``word'', hitting " places it at the
-;;; first letter.
-
-;;; single quotes
-(defun TeX-insert-single-quote (arg)
-  (interactive "p")
-  (cond
-   (mark-active
-    (let ((skeleton-end-newline nil))
-      (skeleton-insert
-       `(nil ?` _ ?') -1)))
-   ((or (looking-at "\\<")
-	(looking-back "^\\|\\s-\\|`"))
-    (insert "`"))
-   (t
-    (self-insert-command arg))))
 
 (add-hook 'LaTeX-mode-hook
-	  '(lambda ()
-	     (local-set-key "'" 'TeX-insert-single-quote)))
-
-;; ---------
-;; auto-fill
-;; ---------
-(add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
-
-;; --------
-;; flyspell
-;; --------
-(add-hook 'LaTeX-mode-hook
-	  (lambda()
-	    (flyspell-mode 1)))
-
-;; ---------
-;; math-mode
-;; ---------
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode 
-
-;; ======================
-;; fold and outline modes
-;; ======================
-
-;; loading fold and outline modes
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     ;; (TeX-fold-mode 1)
-			     (outline-minor-mode 1)))
-
+	  (lambda () (outline-minor-mode 1)))
 
 (add-hook 'outline-minor-mode-hook
 	  (lambda () (local-set-key (kbd "C-S-c")
 				    outline-mode-prefix-map)))
-
-(setq TeX-fold-preserve-comments t)
-;; Description: foldable items in your comments are not folded
-
-(setq TeX-fold-env-spec-list 
-      '(("[comment]" ("comment"))))
-;; Description: environments taken into consideration in fold mode
-
-(setq TeX-fold-macro-spec-list
-      '(("[f]" ("footnote"))
-	("[c]" ("cite" "citet" "citep" "citeyearpar"))
-	("[l]" ("label"))
-	("[r]" ("ref" "pageref" "eqref"))
-	("[1]:||*" ("item"))
-	("..." ("dots"))
-	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
-;; Description: macros taken into consideration in fold mode
 
 (defmacro define-context-key (keymap key dispatch)
   "Define KEY in KEYMAP to execute according to DISPATCH.
@@ -202,28 +93,153 @@ shown, then it'll be hidden."
   (when (th-outline-context-p)
     'org-cycle))
 
-;; =======
-;; Preview
-;; =======
-;; (load "preview-latex.el" nil t t)
 
-(setq preview-auto-cache-preamble t)
+;; ==========
+;; appearance
+;; ==========
 
-(setq preview-image-type 'dvipng)
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    ;; (turn-on-auto-fill)
+	    (visual-line-mode)
+	    (setq line-spacing 1)))
 
-(setq preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "showlabels")))
-;; Description: displaymath: all displayed math is subject to preview
-;; processing; textmath: text math is subject to preview graphics: all
-;; \includegraphics commands to preview sections
 
-;; (setq
-;; preview-inner-environments (quote ("Bmatrix" "Vmatrix" "aligned" "array" "bmatrix" "cases" "gathered" "matrix" "pmatrix" "smallmatrix" "split" "subarray" "vmatrix")))
-;;; Environments not to be previewed on their own.
+;; ---------
+;; fold mode
+;; ---------
+(add-hook 'LaTeX-mode-hook (lambda ()
+			     (TeX-fold-mode 1)))
 
-(setq preview-preserve-indentation nil)
-(setq preview-scale-function 1.2)
-					; when appearing on screen
-;; preview-scale-from-face
+
+;; (setq TeX-fold-preserve-comments t)
+;; ;; Foldable items in your comments are not folded
+
+;; (setq TeX-fold-env-spec-list
+;;       '(("[comment]" ("comment"))))
+;; ;; Environments taken into consideration in fold mode
+
+;; (setq TeX-fold-macro-spec-list
+;;       '(("[f]" ("footnote"))
+;; 	("[c]" ("cite" "citet" "citep" "citeyearpar"))
+;; 	("[l]" ("label"))
+;; 	("[r]" ("ref" "pageref" "eqref"))
+;; 	("[1]:||*" ("item"))
+;; 	("..." ("dots"))
+;; 	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
+;; ;; Macros taken into consideration in fold mode
+
+
+;; ======
+;; output
+;; ======
+(add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
+;; revert the PDF-buffer only after the TeX compilation has finished
+
+(setq TeX-save-query nil) ;; autosave before compiling
+
+;; ---------------
+;; default viewers
+;; ---------------
+(setq
+ TeX-view-program-selection
+ '((output-dvi "DVI Viewer")
+   (output-pdf "PDF Viewer")
+   (output-html "HTML Viewer"))
+ ;; The 1st element of the TeX-view-program-selection is one or more
+ ;; predicates defined by TeX-view-predicate-list/buitin.
+ TeX-view-program-list
+ '(("DVI Viewer" "okular %o")
+   ;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
+   ("PDF Viewer" "okular --unique %u")
+   ("HTML Viewer" "firefox %o")))
+;; Okular switches: %n is the line of the cursor; %b is source file;
+;; --unique keeps a single version of okular running.
+
+;; -----------------------
+;; Forward/backward search
+;; -----------------------
+(setq
+ TeX-source-correlate-mode t
+ TeX-source-specials-mode t)
+;; TeX-source-correlate-mode toggles support for forward/inverse
+;; search
+
+(add-hook 'LaTeX-mode-hook (lambda ()
+			     (add-to-list
+			      'TeX-command-list
+			      '("mk" "latexmk %s" TeX-run-TeX nil t
+				:help "Run Latexmk on file"))))
+
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;; 			     (add-to-list
+;; 			      'TeX-command-list
+;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
+;; 				:help "Run zathura on file"))))
+
+(add-hook 'LaTeX-mode-hook '(lambda ()
+			      (add-to-list 'TeX-expand-list
+					   '("%u" Okular-make-url))))
+
+(defun Okular-make-url () (concat
+			   "file://"
+			   (expand-file-name (funcall file (TeX-output-extension) t)
+					     (file-name-directory (TeX-master-file)))
+			   "#src:"
+			   (TeX-current-line)
+			   (expand-file-name (TeX-master-directory))
+			   "./"
+			   (TeX-current-file-name-master-relative)))
+
+
+;; ======
+;; macros
+;; ======
+
+;; ------------------
+;; sectioning command
+;; ------------------
+(setq LaTeX-section-hook
+      '(LaTeX-section-heading
+	LaTeX-section-title
+	;; LaTeX-section-toc
+	LaTeX-section-section
+	LaTeX-section-label))
+
+;; ======
+;; quotes
+;; ======
+
+;; wrap active region in double quotes (from EmacsWiki)
+(defadvice TeX-insert-quote (around wrap-region activate)
+  (cond
+   (mark-active
+    (let ((skeleton-end-newline nil))
+      (skeleton-insert `(nil ,TeX-open-quote _ ,TeX-close-quote) -1)))
+   ((looking-at (regexp-opt (list TeX-open-quote TeX-close-quote)))
+    (forward-char (length TeX-open-quote)))
+   (t
+    ad-do-it)))
+(put 'TeX-insert-quote 'delete-selection nil)
+
+;; wrap active region with single quotes (from EmacsWiki)
+(defun TeX-insert-single-quote (arg)
+  (interactive "p")
+  (cond
+   (mark-active
+    (let ((skeleton-end-newline nil))
+      (skeleton-insert
+       `(nil ?` _ ?') -1)))
+   ((or (looking-at "\\<")
+	(looking-back "^\\|\\s-\\|`"))
+    (insert "`"))
+   (t
+    (self-insert-command arg))))
+
+(add-hook 'LaTeX-mode-hook
+	  '(lambda ()
+	     (local-set-key "'" 'TeX-insert-single-quote)))
+
 
 ;; ===========
 ;; helm-bibtex
@@ -256,7 +272,7 @@ shown, then it'll be hidden."
                               (or (bibtex-completion-get-value "author" entry)
                                   (bibtex-completion-get-value "editor" entry)))
                 for year = (bibtex-completion-get-value "year" entry)
-		for title = (bibtex-completion-get-value "title" entry) 
+		for title = (bibtex-completion-get-value "title" entry)
 		collect (format "[[bib:%s][%s (%s) %s]]" key author year title))))
 
 ;; check the function bibtex-completion-format-citation-cite for ideas
@@ -272,11 +288,11 @@ shown, then it'll be hidden."
 ;; ======
 ;; RefTeX
 ;; ======
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
-(add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
 
 (setq reftex-plug-into-AUCTeX t)	; integrate RefTeX with AUCTeX
-(setq reftex-cite-format 'natbib)  	; natbib 
+(setq reftex-cite-format 'natbib)  	; natbib
 
 (setq reftex-default-bibliography
       (quote
@@ -286,7 +302,7 @@ shown, then it'll be hidden."
 ;; So that RefTeX also recognizes \addbibresource. Note that you
 ;; can't use $HOME in path for \addbibresource but that "~"
 ;; works.
-(setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
+;; (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 
 (add-hook 'reftex-mode-hook
 	  (lambda ()
@@ -303,52 +319,6 @@ shown, then it'll be hidden."
 ;; (setq reftex-toc-keep-other-windows t
 ;;       reftex-toc-split-windows-horizontally nil)
 
-;; =======================
-;; Forward/backward search
-;; =======================
-(setq
- TeX-source-correlate-mode t
- TeX-source-specials-mode t)
-;; TeX-source-correlate-mode toggles support for forward/inverse
-;; search
-
-(add-hook 'LaTeX-mode-hook (lambda ()
-			     (add-to-list
-			      'TeX-command-list
-			      '("mk" "latexmk %s" TeX-run-TeX nil t
-				:help "Run Latexmk on file"))))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
-;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-;; 				:help "Run zathura on file"))))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
-;; 			      '("View DocView" "emacsclient -n -e '(find-file-other-window \"%o\")'" TeX-run-TeX nil t
-;; 				:help "View with docview"))))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
-;; 			      '("Zathura"  "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-;; 				:help "View pdf with zathura"))))
-
-(add-hook 'LaTeX-mode-hook '(lambda ()
-			      (add-to-list 'TeX-expand-list
-					   '("%u" Okular-make-url))))
-
-(defun Okular-make-url () (concat
-			   "file://"
-			   (expand-file-name (funcall file (TeX-output-extension) t)
-					     (file-name-directory (TeX-master-file)))
-			   "#src:"
-			   (TeX-current-line)
-			   (expand-file-name (TeX-master-directory))
-			   "./"
-			   (TeX-current-file-name-master-relative)))
 
 ;;; 
 (setq
@@ -356,29 +326,6 @@ shown, then it'll be hidden."
  TeX-show-compilation nil
  TeX-newline-function 'reindent-then-newline-and-indent
  TeX-PDF-mode t)
-
-;; (defun reverse-sync-no-mouse ()
-;;   (interactive)
-;;   (async-shell-command "~/myscripts/simulating-key-presses.sh")
-;;   ;; (winner-undo)
-;;   (message "Reverse synctex synchronization without the rodent"))
-
-;; (global-set-key (kbd "s-C-.") 'reverse-sync-no-mouse)
-
-;; ----------------
-;; TeX-command-list
-;; ----------------
-;; (eval-after-load "tex"
-;;   '(add-to-list 'TeX-command-list
-;; 		'("postscript" "/usr/bin/ps4pdf %s" TeX-run-command nil t) t))
-
-;; (eval-after-load "tex"
-;;   '(add-to-list 'TeX-command-list
-;; 		'("ps2pdf" "ps2pdf %f" TeX-run-command nil t) t))
-
-
-;;; I'm using this line but I shouldn't have to
-;; (require 'latex-mode-expansions)
 
 ;; (setq LaTeX-paragraph-commands '("minisec"))
 
@@ -411,44 +358,82 @@ shown, then it'll be hidden."
 ;;       '(("definitions" (("DP" "{"))
 ;; 	 (:weight bold :foreground "chocolate1") command)))
 
+;; ====
+;; Math
+;; ====
+
+;; automatically insert opening and closing symbols for inline eqn
+(setq TeX-electric-math (cons "$" "$"))
+
+;; ---------
+;; math-mode
+;; ---------
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode
+
 ;; -----------
 ;; math-abbrev
 ;; -----------
-;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd "C-S-t"))
+;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd ""))
 
 (defun LaTeX-my-leftright (charopen charclose)
-  "Inserts the pattern '\leftC  \rightD' where C is the open input char and D the closed, and places the cursor in the center."
+  "Inserts the pattern '\leftC \rightD' where C is the open input
+char and D the closed, and places the cursor in the center."
   (interactive)
-  (setq out1 (concat "\\left" charopen " "))
+  (setq out1 (concat "\\left" charopen))
   (setq out2 (concat " \\right" charclose))
   (insert out1)
   (push-mark)
   (insert out2)
   (exchange-point-and-mark))
 
-(setq LaTeX-math-list (quote(
-			      ("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil)
-			      ("[" (lambda ()(interactive)(LaTeX-my-leftright "[" "]")) "" nil)
-			      ("{" (lambda ()(interactive)(LaTeX-my-leftright "\\{" "\\}")) "" nil))))
+(setq LaTeX-math-list
+      '((?8 "infty" "Misc Symbol" 8734)
+	("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil))) ;it was langle originally
 
-;;; Automatically wrap $$ when in tex mode
+
+;; LaTeX-math-abbrev-prefix wraps $$ around symbol when in text mode
+;; (from StackExchange TeX)
 (add-hook
  'LaTeX-mode-hook
  (lambda ()
    (let ((math (reverse (append LaTeX-math-list LaTeX-math-default))))
      (while math
        (let ((entry (car math))
-             value)
+	     value)
 	 (setq math (cdr math))
 	 (if (listp (cdr entry))
-             (setq value (nth 1 entry))
+	     (setq value (nth 1 entry))
 	   (setq value (cdr entry)))
 	 (if (stringp value)
-             (fset (intern (concat "LaTeX-math-" value))
+	     (fset (intern (concat "LaTeX-math-" value))
 		   (list 'lambda (list 'arg) (list 'interactive "*P")
 			 (list 'LaTeX-math-insert value
 			       '(null (texmathp)))))))))))
 
+;; -------
+;; Preview
+;; -------
+(setq preview-auto-cache-preamble t)
+
+(setq preview-image-type 'dvipng)
+
+;; (setq preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "showlabels")))
+;; all displayed math is subject to preview
+
+;; (setq
+;; preview-inner-environments (quote ("Bmatrix" "Vmatrix" "aligned" "array" "bmatrix" "cases" "gathered" "matrix" "pmatrix" "smallmatrix" "split" "subarray" "vmatrix")))
+;;; Environments not to be previewed on their own.
+
+(setq preview-preserve-indentation nil)
+(setq preview-scale-function 1.2)
+;; preview-scale-from-face
+
+
+
+
 (provide 'mk_latex)
 
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
 ;;; mk_latex.el ends here
