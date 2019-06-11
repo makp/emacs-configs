@@ -31,11 +31,8 @@
 ;; ============
 (add-hook 'magit-status-mode-hook
 	  (lambda ()
-	    (define-key magit-status-mode-map "t" 'magit-section-backward)))
-
-(add-hook 'magit-status-mode-hook
-          (lambda ()
-	    (setq truncate-lines t)))
+	    (define-key magit-status-mode-map "t" 'magit-section-backward)
+	    (setq truncate-lines nil)))
 
 (setq magit-diff-refine-hunk 'all)
 
