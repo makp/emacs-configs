@@ -127,10 +127,6 @@
 ;; Note that this could lead to excessive auto-reverts.
 
 
-;; (global-visual-line-mode 1)
-;; The visual-line-mode turns on word-wrapping and rebinds C-a, C-e,
-;; and C-k to operate on visual lines instead of logical lines.
-
 (pending-delete-mode -1)
 
 (show-paren-mode 1)
@@ -142,15 +138,11 @@
 
 (electric-pair-mode 1)
 
-
-;; Activate auto-fill mode for all text mode buffers
-;; (add-hook 'text-mode-hook 'turn-on-auto-fill)
-;; The auto fill mode is a minor mode in which lines are broken
-;; automatically when they become too wide. Breaking happens only when
-;; you type a <SPC> or <RET>.
+(add-hook 'text-mode-hook
+	  (lambda ()
+	    (global-visual-line-mode 1))) ;; activate visual-line-mode for all text mode buffers
 
 ;; (global-set-key (kbd "C-c SPC") 'fill-region-as-paragraph)
-
 
 
 ;; ---------------------
