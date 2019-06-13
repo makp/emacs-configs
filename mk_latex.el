@@ -323,7 +323,6 @@ shown, then it'll be hidden."
 ;; RefTeX
 ;; ======
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-;; (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
 
 (setq reftex-plug-into-AUCTeX t)	; integrate RefTeX with AUCTeX
 (setq reftex-cite-format 'natbib)  	; natbib
