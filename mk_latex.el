@@ -13,11 +13,7 @@
 ;;; Code:
 
 
-(setq
- TeX-electric-sub-and-superscript t
- TeX-show-compilation nil
- TeX-newline-function 'reindent-then-newline-and-indent
- TeX-PDF-mode t)
+(setq TeX-newline-function 'reindent-then-newline-and-indent)
 
 ;; =======
 ;; parsing
@@ -176,7 +172,9 @@ shown, then it'll be hidden."
 (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
 ;; revert the PDF-buffer only after the TeX compilation has finished
 
-(setq TeX-save-query nil) ;; autosave before compiling
+(setq TeX-save-query nil ;; autosave before compiling
+      TeX-show-compilation nil
+      TeX-PDF-mode t)
 
 ;; ---------------
 ;; default viewers
@@ -365,7 +363,8 @@ shown, then it'll be hidden."
 ;; ====
 
 ;; automatically insert opening and closing symbols for inline eqn
-(setq TeX-electric-math (cons "$" "$"))
+(setq TeX-electric-math (cons "$" "$")
+      TeX-electric-sub-and-superscript t)
 
 ;; ---------
 ;; math-mode
