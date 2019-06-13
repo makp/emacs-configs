@@ -106,6 +106,8 @@ shown, then it'll be hidden."
 	    (setq line-spacing 1)))
 
 
+;; (setq LaTeX-paragraph-commands '("environment"))
+
 ;; ---------
 ;; fold mode
 ;; ---------
@@ -129,6 +131,37 @@ shown, then it'll be hidden."
 ;; 	("..." ("dots"))
 ;; 	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
 ;; ;; Macros taken into consideration in fold mode
+
+
+;; -----------
+;; Custom face
+;; -----------
+;; (setq font-latex-match-reference-keywords
+;;       '(("citep" "[{")
+;; 	("citet" "[{")))
+
+;; ---------------
+;; New evironments
+;; ---------------
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (LaTeX-add-environments
+;; 	     '("Verbatim")
+;; 	     '("align*")
+;; 	     '("SideBySideExample")	;; from fvrb-ex package
+;; 	     '("Example")))		;; 
+
+;; ----------
+;; New macros
+;; ----------
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (TeX-add-symbols '("DP" 1))))
+
+;; (setq font-latex-user-keyword-classes
+;;       '(("definitions" (("DP" "{"))
+;; 	 (:weight bold :foreground "chocolate1") command)))
+
 
 
 ;; ======
@@ -328,36 +361,6 @@ shown, then it'll be hidden."
  TeX-newline-function 'reindent-then-newline-and-indent
  TeX-PDF-mode t)
 
-;; (setq LaTeX-paragraph-commands '("minisec"))
-
-;; ===========
-;; Custom face
-;; ===========
-;; (setq font-latex-match-reference-keywords
-;;       '(("citep" "[{")
-;; 	("citet" "[{")))
-
-;; ---------------
-;; New evironments
-;; ---------------
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (LaTeX-add-environments
-;; 	     '("Verbatim")
-;; 	     '("align*")
-;; 	     '("SideBySideExample")	;; from fvrb-ex package
-;; 	     '("Example")))		;; 
-
-;; ----------
-;; New macros
-;; ----------
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (TeX-add-symbols '("DP" 1))))
-
-;; (setq font-latex-user-keyword-classes
-;;       '(("definitions" (("DP" "{"))
-;; 	 (:weight bold :foreground "chocolate1") command)))
 
 ;; ====
 ;; Math
@@ -428,8 +431,6 @@ char and D the closed, and places the cursor in the center."
 (setq preview-preserve-indentation nil)
 (setq preview-scale-function 1.2)
 ;; preview-scale-from-face
-
-
 
 
 (provide 'mk_latex)
