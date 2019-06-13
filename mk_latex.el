@@ -13,6 +13,12 @@
 ;;; Code:
 
 
+(setq
+ TeX-electric-sub-and-superscript t
+ TeX-show-compilation nil
+ TeX-newline-function 'reindent-then-newline-and-indent
+ TeX-PDF-mode t)
+
 ;; =======
 ;; parsing
 ;; =======
@@ -275,6 +281,39 @@ shown, then it'll be hidden."
 	     (local-set-key "'" 'TeX-insert-single-quote)))
 
 
+;; ======
+;; RefTeX
+;; ======
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+
+(setq reftex-plug-into-AUCTeX t)	; integrate RefTeX with AUCTeX
+(setq reftex-cite-format 'natbib)  	; natbib
+
+(setq reftex-default-bibliography
+      (quote
+       ("~/Documents/mydocs/tex-configs/references/dissert.bib"
+	"~/Documents/mydocs/tex-configs/references/logic.bib")))
+
+;; So that RefTeX also recognizes \addbibresource. Note that you
+;; can't use $HOME in path for \addbibresource but that "~"
+;; works.
+;; (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
+
+(add-hook 'reftex-mode-hook
+	  (lambda ()
+	    ;; (define-key reftex-mode-map (kbd "C-c r") 'reftex-citation)
+	    (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
+	    (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)))
+
+(defun my-reftex-toc ()
+  "Reloads toc."
+  (interactive)
+  (reftex-toc)
+  (reftex-toc-rescan))
+
+;; (setq reftex-toc-keep-other-windows t
+;;       reftex-toc-split-windows-horizontally nil)
+
 ;; ===========
 ;; helm-bibtex
 ;; ===========
@@ -319,47 +358,7 @@ shown, then it'll be hidden."
 
 (setq bibtex-completion-pdf-field "File")
 
-;; ======
-;; RefTeX
-;; ======
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-
-(setq reftex-plug-into-AUCTeX t)	; integrate RefTeX with AUCTeX
-(setq reftex-cite-format 'natbib)  	; natbib
-
-(setq reftex-default-bibliography
-      (quote
-       ("~/Documents/mydocs/tex-configs/references/dissert.bib"
-	"~/Documents/mydocs/tex-configs/references/logic.bib")))
-
-;; So that RefTeX also recognizes \addbibresource. Note that you
-;; can't use $HOME in path for \addbibresource but that "~"
-;; works.
-;; (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
-
-(add-hook 'reftex-mode-hook
-	  (lambda ()
-	    ;; (define-key reftex-mode-map (kbd "C-c r") 'reftex-citation)
-	    (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-	    (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)))
-
-(defun my-reftex-toc ()
-  "Reloads toc."
-  (interactive)
-  (reftex-toc)
-  (reftex-toc-rescan))
-
-;; (setq reftex-toc-keep-other-windows t
-;;       reftex-toc-split-windows-horizontally nil)
-
-
 ;;; 
-(setq
- TeX-electric-sub-and-superscript t
- TeX-show-compilation nil
- TeX-newline-function 'reindent-then-newline-and-indent
- TeX-PDF-mode t)
-
 
 ;; ====
 ;; Math
