@@ -32,7 +32,7 @@
 ;;; Install missing packages
 
 (defvar mk/pkg-list '(avy aggressive-indent auctex company
-			  company-auctex company-math elpy
+			  company-auctex company-math define-word elpy
 			  flycheck fuzzy gnuplot-mode
 			  gruvbox-theme helm helm-bibtex
 			  helm-ls-git highlight-parentheses
@@ -40,7 +40,7 @@
 			  key-chord keyfreq lua-mode magit
 			  markdown-mode multiple-cursors nov org
 			  org-plus-contrib org-gcal org-ref
-			  pdf-tools poporg region-bindings-mode
+			  pdf-tools poporg region-bindings-mode synosaurus
 			  undo-tree w3m visual-fill-column
 			  web-mode wgrep wgrep-helm yaml-mode
 			  yasnippet wolfram-mode)

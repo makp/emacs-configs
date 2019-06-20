@@ -406,12 +406,17 @@
 (setq-default nov-text-width 80)
 
 
-;; =====================
-;; Flyspell and flycheck
-;; =====================
+;; ============
+;; dictionaries
+;; ============
+
+;; ---------
+;; thesaurus
+;; ---------
+(setq synosaurus-choose-method 'popup) 	;instead of ido
 
 ;; --------
-;; Flyspell
+;; flyspell
 ;; --------
 (setq-default flyspell-auto-correct-binding (kbd "C-'")
 	      ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
@@ -419,9 +424,11 @@
 (with-eval-after-load 'flyspell
   (define-key flyspell-mode-map (kbd "C-,") nil))
 
-;; --------
+
+
+;; ========
 ;; flycheck
-;; --------
+;; ========
 (setq-default flycheck-emacs-lisp-load-path 'inherit)
 (global-flycheck-mode)
 
