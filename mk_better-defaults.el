@@ -410,10 +410,14 @@
 ;; dictionaries
 ;; ============
 
+(global-set-key (kbd "<f9> d") 'define-word-at-point)
+
 ;; ---------
 ;; thesaurus
 ;; ---------
-(setq synosaurus-choose-method 'popup) 	;instead of ido
+(setq-default synosaurus-choose-method 'popup) 	;instead of ido
+(global-set-key (kbd "<f9> l") 'synosaurus-lookup)
+
 
 ;; --------
 ;; flyspell
