@@ -59,6 +59,12 @@
 (setq message-log-max t) 		;max # lines message log
 (setq case-fold-search nil)		;case sensitive search
 (setq shell-file-name "/bin/zsh")	;default shell
+
+(setenv "PATH" (concat "/home/makmiller/scripts/myscripts:/usr/bin/vendor_perl" ":" (getenv "PATH")))
+(setenv "EDITOR" (concat "~/scripts/myscripts/edit.sh" (getenv "EDITOR")))
+(setenv "VISUAL" (concat "~/scripts/myscripts/edit.sh" (getenv "VISUAL")))
+(setenv "ALTERNATE_EDITOR" (concat "emacs" (getenv "ALTERNATE_EDITOR")))
+
 (setq shift-select-mode nil) 		;don't use shift to mark
 
 (set-default 'indicate-empty-lines t) 	;show empty lines after buffer
