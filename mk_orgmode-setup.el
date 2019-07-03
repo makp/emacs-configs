@@ -132,7 +132,7 @@
 ;; ==========
 ;; hyperlinks
 ;; ==========
-(global-set-key (kbd "C-c l") 'org-store-link) 
+(global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-S-l") 'org-insert-link-global)
 (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
 
@@ -313,7 +313,7 @@
 ;; ----
 ;; gcal
 ;; ----
-(require 'mk_gcal)
+;; (require 'mk_gcal)
 
 ;; =============
 ;; inline images
