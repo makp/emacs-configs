@@ -98,11 +98,11 @@
 	      " "
 	      filename-and-process)
 	(mark modified read-only vc-status-mini " "
-	      (name 18 18 :left :elide)
+	      (name 45 45 :left :elide)
 	      " "
 	      (size-h 9 -1 :center)
 	      " "
-	      (mode 6 6 :left :elide)
+	      (mode 3 3 :left :elide)
 	      " "
 	      (git-status 8 8 :center))))
 
