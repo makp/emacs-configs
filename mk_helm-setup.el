@@ -30,7 +30,8 @@
 		("rtf" . "libreoffice")
 		("svg" . "inkscape")
 		("mp4" . "mplayer")
-		("nb" . "mathematica"))
+		("nb" . "mathematica")
+		("wl" . "mathematica"))
 	      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
 	      helm-input-idle-delay 0.01
 	      ;; be idle for this many seconds, before updating. Safe value is
