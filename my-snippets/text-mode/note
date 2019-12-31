@@ -1,0 +1,4 @@
+# -*- snippet -*-
+#name : Add a NOTE
+# --
+`(insert comment-start comment-start)` NOTE: $0
