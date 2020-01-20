@@ -49,6 +49,10 @@
 ;; - When in the middle of the headline text, kill the headline up to the tags.
 ;; - When after the headline text, kill the tags.
 
+
+(setq org-fontify-quote-and-verse-blocks 1) ; add special face to #+begin_quote blocks
+
+
 ;; ========
 ;; flyspell
 ;; ========
