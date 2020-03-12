@@ -376,20 +376,18 @@ shown, then it'll be hidden."
 ;; -----------
 ;; (customize-set-variable 'LaTeX-math-abbrev-prefix (kbd ""))
 
-(defun LaTeX-my-leftright (charopen charclose)
-  "Inserts the pattern '\leftC \rightD' where C is the open input
-char and D the closed, and places the cursor in the center."
+(defun mk/LaTeX-leftright (charopen charclose)
+  "Insert CHAROPEN and CHARCLOSE, and place the cursor in the middle."
   (interactive)
-  (setq out1 (concat "\\left" charopen))
-  (setq out2 (concat " \\right" charclose))
-  (insert out1)
+  (insert charopen)
   (push-mark)
-  (insert out2)
+  (insert charclose)
   (exchange-point-and-mark))
 
 (setq LaTeX-math-list
       '((?8 "infty" "Misc Symbol" 8734)
-	("(" (lambda ()(interactive)(LaTeX-my-leftright "(" ")")) "" nil))) ;it was langle originally
+	("<" (lambda ()(interactive)(mk/LaTeX-leftright "\\langle" "\\rangle")) "Angled brackets" nil)
+	("(" (lambda ()(interactive)(mk/LaTeX-leftright "\\left(" "\\right)")) "" nil))) ;it was langle originally
 
 
 ;; LaTeX-math-abbrev-prefix wraps $$ around symbol when in text mode
