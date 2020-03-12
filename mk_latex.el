@@ -386,8 +386,8 @@ shown, then it'll be hidden."
 
 (setq LaTeX-math-list
       '((?8 "infty" "Misc Symbol" 8734)
-	("<" (lambda ()(interactive)(mk/LaTeX-leftright "\\langle" "\\rangle")) "Angled brackets" nil)
-	("(" (lambda ()(interactive)(mk/LaTeX-leftright "\\left(" "\\right)")) "" nil))) ;it was langle originally
+	("<" (lambda ()(interactive)(mk/LaTeX-leftright "\\langle " "\\rangle")) "Angled brackets" nil)
+	("(" (lambda ()(interactive)(mk/LaTeX-leftright "\\left( " "\\right)")) "" nil))) ;it was langle originally
 
 
 ;; LaTeX-math-abbrev-prefix wraps $$ around symbol when in text mode
