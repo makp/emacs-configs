@@ -31,8 +31,8 @@
 ;; to avoid new lines to be inserted after a yasnippet
 
 
-;; (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
-;; solution not working
+(add-to-list 'warning-suppress-types '(yasnippet backquote-change))
+;; supress warning when using backquote expansions
 
 (setq-default yas-prompt-functions '(shk-yas/helm-prompt yas-dropdown-prompt))
 
