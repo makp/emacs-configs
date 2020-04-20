@@ -31,6 +31,7 @@
 ;; to avoid new lines to be inserted after a yasnippet
 
 
+(require 'warnings)
 (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
 ;; supress warning when using backquote expansions
 
