@@ -55,7 +55,7 @@
   (require 'mk_elisp))
 (with-eval-after-load 'tex-mode
   (require 'mk_latex))
-(with-eval-after-load 'python-mode
+(with-eval-after-load 'python
   (require 'mk_python))
 (with-eval-after-load 'dired
   (require 'mk_dired))
