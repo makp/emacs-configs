@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 
-;; TODO:
+;; TODO: look into a pkg for automatic code formatting -- possibly blacken; ein -- nb within Emacs.
 
 ;;; Code:
 
