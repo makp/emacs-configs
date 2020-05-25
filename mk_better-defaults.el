@@ -33,8 +33,8 @@
 ;; -----------
 ;; Color theme
 ;; -----------
-(load-theme 'gruvbox-dark-soft t)
-;; (load-theme 'zenburn t)
+;; (load-theme 'gruvbox-dark-soft t)
+(load-theme 'zenburn t)
 
 ;; ----------
 ;; Frame look

@@ -74,7 +74,8 @@
 		      wgrep-helm
 		      yaml-mode
 		      yasnippet
-		      wolfram-mode)
+		      wolfram-mode
+		      zenburn-theme)
   "The list of packages installed at launch.")
 
 (mapc #'(lambda (package)
