@@ -60,7 +60,7 @@
 (setq case-fold-search nil)		;case sensitive search
 (setq shell-file-name "/bin/zsh")	;default shell
 
-(setenv "PATH" (concat "/home/makmiller/scripts/myscripts:/usr/bin/vendor_perl" ":" (getenv "PATH")))
+(setenv "PATH" (concat "/home/makmiller/scripts/myscripts:/usr/bin/vendor_perl:/home/makmiller/.local/bin" ":" (getenv "PATH")))
 (setenv "EDITOR" (concat "~/scripts/myscripts/edit.sh" (getenv "EDITOR")))
 (setenv "VISUAL" (concat "~/scripts/myscripts/edit.sh" (getenv "VISUAL")))
 (setenv "ALTERNATE_EDITOR" (concat "emacs" (getenv "ALTERNATE_EDITOR")))
