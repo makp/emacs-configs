@@ -96,7 +96,6 @@
 		'(lambda ()
 		   (interactive)
 		   (require 'mk_keyfreq)
-		   ;; (require 'gnuplot)
 		   ;; (require 'mk_ess)
 		   ;; (require 'mk_eldoc)
 		   ;; (setq user-full-name "Makmiller Pedroso")

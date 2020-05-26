@@ -43,7 +43,6 @@
 		      ;; ess
 		      flycheck
 		      fuzzy
-		      gnuplot-mode
 		      ;; gruvbox-theme
 		      helm
 		      helm-bibtex

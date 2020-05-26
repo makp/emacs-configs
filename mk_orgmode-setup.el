@@ -372,8 +372,6 @@
    (C . t)
    (mathematica . t)
    ;; (R . t)
-   ;; (octave . t)
-   ;; (gnuplot . t)
    ))
 
 
