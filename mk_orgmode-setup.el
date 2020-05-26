@@ -14,15 +14,15 @@
   (define-key org-mode-map (kbd "C-,") nil) ;was org-cycle-agenda-files
 
   ;; for promoting and demoting headings
-  (define-key org-mode-map (kbd "C-S-n") 'org-metaright)
-  (define-key org-mode-map (kbd "C-S-t") 'org-metaleft)
+  ;; (define-key org-mode-map (kbd "C-S-n") 'org-metaright)
+  ;; (define-key org-mode-map (kbd "C-S-t") 'org-metaleft)
   
   ;; (define-key org-mode-map (kbd "M-T") 'org-metadown)
   ;; (define-key org-mode-map (kbd "M-N") 'org-metaup)
 
   ;; demoting and demoting a heading and its subtrees
-  (define-key org-mode-map (kbd "M-B") 'org-shiftmetaleft)
-  (define-key org-mode-map (kbd "M-F") 'org-shiftmetaright)
+  ;; (define-key org-mode-map (kbd "M-B") 'org-shiftmetaleft)
+  ;; (define-key org-mode-map (kbd "M-F") 'org-shiftmetaright)
   ;; (define-key org-mode-map (kbd "C-S-t") 'org-shiftup)
 
   (define-key org-mode-map (kbd "C-c p") nil)  ; it was orgtbl-ascii-plot
