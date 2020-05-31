@@ -382,7 +382,7 @@
 (autoload 'wolfram-mode "wolfram-mode" nil t)
 (autoload 'run-wolfram "wolfram-mode" nil t)
 (setq wolfram-program "WolframKernel")
-(add-to-list 'auto-mode-alist '("\.m$" . wolfram-mode))
+(add-to-list 'auto-mode-alist '("\.wl$" . wolfram-mode))
 (setq wolfram-path "~/.Mathematica/Applications")
 
 (add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
