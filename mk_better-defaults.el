@@ -111,6 +111,8 @@
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
 
+(global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
+
 ;; (global-set-key (kbd "C-x C-;") 'set-goal-column)
 
 

@@ -102,9 +102,6 @@ depending on the value of ARG."
 
 (global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
 
-;;; recentf
-(global-set-key (kbd "C-x f") 'helm-recentf)
-
 ;;; find
 (global-set-key (kbd "C-x C-f") 'helm-find)
 
