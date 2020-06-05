@@ -190,13 +190,13 @@
 (key-chord-mode 1)
 
 ;; (key-chord-define-global "uu" 'fill-paragraph)
-(key-chord-define-global "UU" 'mk/unfill-paragraph)
+;; (key-chord-define-global "UU" 'mk/unfill-paragraph)
 
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
 
-(key-chord-define-global "<<" 'beginning-of-buffer)
-(key-chord-define-global ">>" 'end-of-buffer)
+;; (key-chord-define-global "<<" 'beginning-of-buffer)
+;; (key-chord-define-global ">>" 'end-of-buffer)
 
 (key-chord-define-global "cg" 'hippie-expand)
 
