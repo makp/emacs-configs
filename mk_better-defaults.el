@@ -213,8 +213,6 @@
 ;; ========
 ;; avy-mode
 ;; ========
-;; (require 'avy)
-
 (define-key global-map (kbd "M-l") 'avy-goto-line)
 (global-set-key (kbd "M-L") 'downcase-dwim)
 
