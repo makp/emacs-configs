@@ -413,15 +413,10 @@ shown, then it'll be hidden."
 ;; Preview
 ;; -------
 (setq preview-auto-cache-preamble t)
-
 (setq preview-image-type 'dvipng)
+(with-eval-after-load 'preview (setq preview-default-option-list (delete "footnotes" preview-default-option-list)))
 
-;; (setq preview-default-option-list (quote ("displaymath" "floats" "graphics" "textmath" "showlabels")))
-;; all displayed math is subject to preview
-
-;; (setq
-;; preview-inner-environments (quote ("Bmatrix" "Vmatrix" "aligned" "array" "bmatrix" "cases" "gathered" "matrix" "pmatrix" "smallmatrix" "split" "subarray" "vmatrix")))
-;;; Environments not to be previewed on their own.
+;; preview-inner-environments: environments NOT to be previewed on their own
 
 (setq preview-preserve-indentation nil)
 (setq preview-scale-function 1.2)
