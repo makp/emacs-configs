@@ -15,7 +15,7 @@
     (push-mark-no-activate)))
 
 (defun push-mark-no-activate ()
-  "Pushes `point' to `mark-ring' and does not activate the region
+  "Pushes `point' to `mark-ring' and does not activate the region.
 Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
   (interactive)
   (push-mark (point) t nil)

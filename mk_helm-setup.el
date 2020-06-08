@@ -155,14 +155,14 @@ depending on the value of ARG."
 ;;; enable helm pcomplete
 (add-hook 'eshell-mode-hook
           #'(lambda ()
-              (define-key eshell-mode-map 
+              (define-key eshell-mode-map
                 [remap eshell-pcomplete]
                 'helm-esh-pcomplete)))
 
 ;;; enable helm eshell history
 (add-hook 'eshell-mode-hook
           #'(lambda ()
-              (define-key eshell-mode-map 
+              (define-key eshell-mode-map
                 (kbd "M-p")
                 'helm-eshell-history)))
 
