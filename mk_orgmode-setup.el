@@ -225,6 +225,7 @@
 			     "~/elisp/agendas/ag-teaching.org"
 			     "~/elisp/agendas/ag-geral.org"
 			     "~/elisp/agendas/gcal.org"
+			     "~/elisp/agendas/pitt.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
