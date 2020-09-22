@@ -609,8 +609,7 @@
   (interactive)
   (unless (get-buffer "agendas")
     (find-file-noselect "~/elisp/agendas"))
-  (save-excursion
-    (set-buffer "agendas")
+  (with-current-buffer "agendas"
     (call-interactively 'helm-etags-select)
     (org-clock-in)
     (save-buffer)
