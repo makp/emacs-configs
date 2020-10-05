@@ -229,6 +229,7 @@
 			     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
 			     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
+			     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"
 			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
 
@@ -570,7 +571,7 @@
 ;; --------------
 ;;;###autoload
 (defun clock-wasteclock ()
-  (save-excursion 
+  (save-excursion
     (when (get-buffer "wasteclock.org")
       (switch-to-buffer "wasteclock.org"))
     (org-dblock-update 4)
