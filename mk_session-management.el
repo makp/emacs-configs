@@ -16,6 +16,8 @@
 
 (savehist-mode 1)
 
+(setq history-delete-duplicates t)
+
 ;; =======
 ;; recentf
 ;; =======
