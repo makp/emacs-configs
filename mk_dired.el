@@ -16,6 +16,8 @@
 	    (define-key dired-mode-map "E" 'dired-ediff-marked-files)
 	    (define-key dired-mode-map "l" 'dired-up-directory)))
 
+;; Auto-refresh dired on file change
+(add-hook 'dired-mode-hook 'auto-revert-mode)
 
 ;; dired-x
 (require 'dired-x)
