@@ -146,9 +146,8 @@
 
 (electric-pair-mode 1)
 
-(add-hook 'text-mode-hook
-	  (lambda ()
-	    (global-visual-line-mode 1))) ;; activate visual-line-mode for all text mode buffers
+;; activate visual-line-mode (word wrap)
+(global-visual-line-mode 1)
 
 ;; (global-set-key (kbd "C-c SPC") 'fill-region-as-paragraph)
 
