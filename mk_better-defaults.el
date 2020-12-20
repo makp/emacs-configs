@@ -177,26 +177,12 @@
 ;; ========
 (key-chord-mode 1)
 
-;; (key-chord-define-global "uu" 'fill-paragraph)
-;; (key-chord-define-global "UU" 'mk/unfill-paragraph)
-
 (key-chord-define-global "hj" 'kill-whole-line)
 (key-chord-define-global "kh" 'kill-paragraph)
-
-;; (key-chord-define-global "<<" 'beginning-of-buffer)
-;; (key-chord-define-global ">>" 'end-of-buffer)
-
 (key-chord-define-global "cg" 'hippie-expand)
 
+;; keychords: "uu", "UU", "<<", ">>", "DD", "GG"
 
-;; (key-chord-define-global "DD" '(lambda ()
-;; 				 (interactive)
-;; 				 (kill-buffer nil)))
-
-;; (key-chord-define-global "GG" '(lambda ()
-;; 				 (interactive)
-;; 				 (let ((current-prefix-arg '(4)))
-;; 				   (call-interactively 'magit-status))))
 
 ;; ========
 ;; avy-mode
