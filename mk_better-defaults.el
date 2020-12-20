@@ -285,14 +285,15 @@
 ;; evals
 (global-set-key (kbd "C-\\") 'eval-region)
 
-(define-key ctl-x-map "e" nil)
-(define-key ctl-x-map "e" 'replace-last-sexp)
+;; (define-key ctl-x-map "e" nil)
+;; (define-key ctl-x-map "e" 'replace-last-sexp)
 
-(defun replace-last-sexp ()
-  (interactive)
-  (let ((value (eval (preceding-sexp))))
-    (kill-sexp -1)
-    (insert (format "%S" value))))
+;; (defun replace-last-sexp ()
+;;   "Replace the preceding sexp with its value."
+;;   (interactive)
+;;   (let ((value (eval (elisp--preceding-sexp))))
+;;     (kill-sexp -1)
+;;     (insert (format "%S" value))))
 
 
 ;; --------
