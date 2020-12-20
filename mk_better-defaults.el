@@ -136,9 +136,10 @@
 
 (electric-pair-mode 1)
 
-;; activate visual-line-mode (word wrap)
-(global-visual-line-mode 1)
 
+;; visual-line-mode (word wrap)
+;; (global-visual-line-mode 1)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; ---------------------
 ;; Highlight parentheses
