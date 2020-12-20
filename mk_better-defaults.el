@@ -19,7 +19,7 @@
 ;; =======================
 ;; Enable some keybindings
 ;; =======================
-(put 'narrow-to-region 'disabled nil)	;
+(put 'narrow-to-region 'disabled nil)
 (put 'downcase-region 'disabled nil)	;C-x C-l
 (put 'upcase-region 'disabled nil)	;C-x C-u
 (put 'set-goal-column 'disabled nil) 	;C-x C-n
@@ -67,10 +67,9 @@
 
 (setq shift-select-mode nil) 		;don't use shift to mark
 
-(set-default 'indicate-empty-lines t) 	;show empty lines after buffer
-					;ends
+(set-default 'indicate-empty-lines t) ;show empty lines after buffer ends
 
-(fset 'yes-or-no-p 'y-or-n-p)	;Don't ask me to type "yes" or "no"
+(fset 'yes-or-no-p 'y-or-n-p)	   ;don't ask me to type "yes" or "no"
 
 (setq
  initial-scratch-message nil
@@ -88,10 +87,6 @@
 ;; If this variable is nil, you cannot invoke minibuffer commands when
 ;; the minibuffer window is active, not even if you switch to another
 ;; window to do it.
-
-;; (setq redisplay-dont-pause t)
-;; This var is obsolete since Emacs 24.5
-
 
 ;; ===========
 ;; Keybindings
@@ -116,24 +111,19 @@
 ;; (global-set-key (kbd "C-x C-;") 'set-goal-column)
 
 
-;; ==================
-;; Global minor modes
-;; ==================
-
-;; ------------------------------------
+;; ====================================
 ;; Global minor modes shiped with Emacs
-;; ------------------------------------
+;; ====================================
 (global-subword-mode 1)
 (blink-cursor-mode 1)
 (global-font-lock-mode 1)
 (global-hl-line-mode t)	      ;toggle line highlighting
 ;; (mouse-avoidance-mode 'cat-and-mouse)
 
-(global-auto-revert-mode 1) ;Reload file when it changes
+(global-auto-revert-mode 1) ;reload file when it changes
 (setq-default auto-revert-verbose nil)
 (setq-default global-auto-revert-non-file-buffers t)
 ;; Note that this could lead to excessive auto-reverts.
-
 
 (pending-delete-mode -1)
 
@@ -148,8 +138,6 @@
 
 ;; activate visual-line-mode (word wrap)
 (global-visual-line-mode 1)
-
-;; (global-set-key (kbd "C-c SPC") 'fill-region-as-paragraph)
 
 
 ;; ---------------------
@@ -457,6 +445,8 @@
 
 ;; (quietly-read-abbrev-file)
 ;; Description: reads the abbreviations file on startup
+
+;; (global-set-key (kbd "C-c SPC") ')
 
 
 (provide 'mk_better-defaults)
