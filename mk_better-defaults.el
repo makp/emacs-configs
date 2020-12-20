@@ -108,7 +108,7 @@
 
 (global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
 
-;; (global-set-key (kbd "C-x C-;") 'set-goal-column)
+;; (global-set-key (kbd "C-x C-;") ')
 
 
 ;; ====================================
@@ -119,27 +119,23 @@
 (global-font-lock-mode 1)
 (global-hl-line-mode t)	      ;toggle line highlighting
 ;; (mouse-avoidance-mode 'cat-and-mouse)
-
-(global-auto-revert-mode 1) ;reload file when it changes
+(global-auto-revert-mode 1)		;reload file when it changes
 (setq-default auto-revert-verbose nil)
 (setq-default global-auto-revert-non-file-buffers t)
 ;; Note that this could lead to excessive auto-reverts.
-
 (pending-delete-mode -1)
 
+(electric-pair-mode 1) 			;pair parens automatically
 (show-paren-mode 1)
 (setq-default
- show-paren-delay 0	      ;disactivate delay when matching parentheses
+ show-paren-delay 0	  		;disactivate delay when matching parentheses
  show-paren-style 'mixed)
 ;; The var 'show-paren-style' controls what gets highlighted. Possible
 ;; values: parenthesis, expression, and mixed
 
-(electric-pair-mode 1)
 
-
-;; visual-line-mode (word wrap)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
 ;; (global-visual-line-mode 1)
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; ---------------------
 ;; Highlight parentheses

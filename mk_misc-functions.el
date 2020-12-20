@@ -190,13 +190,4 @@ character or first non-whitespace after a comment sign."
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
-;; ------------------
-;; emacs config files
-;; ------------------
-(defun mk/emacs-config-files ()
-  (interactive)
-  (save-excursion
-    (cd "~/config-files/general/emacs-configs/")
-    (call-interactively 'helm-find-files)))
-
 (provide 'mk_misc-functions)
