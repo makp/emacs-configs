@@ -79,8 +79,6 @@
 
 (setq visible-bell t)
 
-;; (setq-default truncate-lines nil)
-
 (setq sentence-end-double-space nil) ;Relevant for using M-k/e/a
 
 (setq enable-recursive-minibuffers t)
@@ -91,24 +89,48 @@
 ;; ===========
 ;; Keybindings
 ;; ===========
-
-;; Get rid of suspend-frame
-(global-unset-key (kbd "C-x C-z"))
-;; (global-set-key (kbd "C-x C-z") 'repeat-complex-command)
+(global-unset-key (kbd "C-x C-z")) 	;get rid of suspend-frame
+(global-unset-key (kbd "C-x C-p")) 	;it was mark-page
 
 ;; Bind save-buffer to an easier keystroke
 (global-set-key (kbd "M-s s") 'isearch-forward)
 (global-set-key (kbd "C-s") 'save-buffer)
 
-(global-unset-key (kbd "C-x C-p")) 	;it was mark-page
-
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 
-
 (global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
 
+(global-set-key (kbd "C-c C") 'duplicate-current-line-or-region)
+
+(global-set-key (kbd "M-C") 'subword-capitalize)
+
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+(global-set-key (kbd "M-Z") 'zap-to-char)
+
+(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
+
+(global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
+
+(global-set-key (kbd "C-\\") 'eval-region)
+
 ;; (global-set-key (kbd "C-x C-;") ')
+;; (global-set-key (kbd "C-x C-z") ')
+
+;; ------
+;; Macros
+;; ------
+(define-key ctl-x-map "." nil) ;;; I never use fill-prefix
+(define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
+(global-set-key (kbd "C-x C-.") 'kmacro-end-or-call-macro)
+
+;; (defun mk/repeat ()
+;;   (interactive)
+;;   (repeat 1)
+;;   (set-temporary-overlay-map
+;;    (let ((map (make-sparse-keymap)))
+;;      (define-key map (kbd ".") 'mk/repeat)
+;;      map)))
 
 
 ;; ====================================
@@ -118,15 +140,16 @@
 (blink-cursor-mode 1)
 (global-font-lock-mode 1)
 (global-hl-line-mode t)	      ;toggle line highlighting
-;; (mouse-avoidance-mode 'cat-and-mouse)
-(global-auto-revert-mode 1)		;reload file when it changes
-(setq-default auto-revert-verbose nil)
-(setq-default global-auto-revert-non-file-buffers t)
-;; Note that this could lead to excessive auto-reverts.
 (pending-delete-mode -1)
+;; (mouse-avoidance-mode 'cat-and-mouse)
 
-(electric-pair-mode 1) 			;pair parens automatically
+(global-auto-revert-mode 1)		;reload file when it changes
+(setq-default
+ auto-revert-verbose nil
+ global-auto-revert-non-file-buffers t)
+
 (show-paren-mode 1)
+(electric-pair-mode 1) 			;pair parens automatically
 (setq-default
  show-paren-delay 0	  		;disactivate delay when matching parentheses
  show-paren-style 'mixed)
@@ -134,15 +157,18 @@
 ;; values: parenthesis, expression, and mixed
 
 
+;; ============================
+;; Minor modes for text buffers
+;; ============================
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
 ;; (global-visual-line-mode 1)
 
-;; ---------------------
-;; Highlight parentheses
-;; ---------------------
 
+;; =====================
+;; Highlight parentheses
+;; =====================
 ;; The code below enables the minor mode highlight-parentheses on all
-;; buffers:
+;; buffers (from EmacsWiki):
 
 ;; (define-globalized-minor-mode global-highlight-parentheses-mode
 ;;   highlight-parentheses-mode
@@ -151,9 +177,9 @@
 ;; (global-highlight-parentheses-mode t)
 
 
-;; ---------
+;; =========
 ;; undo-tree
-;; ---------
+;; =========
 (global-undo-tree-mode)
 
 ;; ;; keep region when undoing in region
@@ -168,6 +194,7 @@
 ;;         (set-marker m nil))
 ;;     ad-do-it))
 
+
 ;; ========
 ;; keychord
 ;; ========
@@ -177,7 +204,7 @@
 (key-chord-define-global "kh" 'kill-paragraph)
 (key-chord-define-global "cg" 'hippie-expand)
 
-;; keychords: "uu", "UU", "<<", ">>", "DD", "GG"
+;; Available keychords: "uu", "UU", "<<", ">>", "DD", "GG"
 
 
 ;; ========
@@ -194,88 +221,16 @@
 (key-chord-define-global "hh" 'avy-goto-word-1)
 (key-chord-define-global "HH" 'avy-goto-char-timer)
 
-;; ========================
-;; duplicate line or region
-;; ========================
-(global-set-key (kbd "C-c C") 'duplicate-current-line-or-region)
 
 ;; ========
-;; Macros!!
-;; ========
-(define-key ctl-x-map "." nil) ;;; I never use fill-prefix
-(define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
-(global-set-key (kbd "C-x C-.") 'kmacro-end-or-call-macro)
-
-;; (defun mk/repeat ()
-;;   (interactive)
-;;   (repeat 1)
-;;   (set-temporary-overlay-map
-;;    (let ((map (make-sparse-keymap)))
-;;      (define-key map (kbd ".") 'mk/repeat)
-;;      map)))
-
-(global-set-key (kbd "M-C") 'subword-capitalize)
-
-
-
-;;; Remember that Emacs natively support these commands:
-;;; |-----------+-------------------------|
-;;; | C-x C-k n | kmacro-name-last-macro  |
-;;; | C-x C-k b | kmacro-bind-to-key      |
-;;; | C-x q     | query                   |
-;;; |-------------+-----------------------|
-;;; | C-x C-k C-i | kmacro-insert-counter |
-;;; | C-x C-k C-c | kmacro-set-counter    |
-;;; | C-x C-k C-a | kmacro-add-counter    |
-;;; | C-x C-k C-f | kmacro-set-format     |
-;;; |-------------+-----------------------|
-
-;; --------------
-;; zap-up-to-char
-;; --------------
-;; (autoload 'zap-up-to-char "misc"
-;;   "Kill up to, but not including ARGth occurrence of CHAR.
-
-;;   \(fn arg char)"
-;;   'interactive)
-
-(global-set-key (kbd "M-z") 'zap-up-to-char)
-(global-set-key (kbd "M-Z") 'zap-to-char)
-
-;; ===========
-;; Parentheses
-;; ===========
-
-;; ---------------
-;; some keybidings
-;; ---------------
-(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
-(global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
-
-
-;; evals
-(global-set-key (kbd "C-\\") 'eval-region)
-
-;; (define-key ctl-x-map "e" nil)
-;; (define-key ctl-x-map "e" 'replace-last-sexp)
-
-;; (defun replace-last-sexp ()
-;;   "Replace the preceding sexp with its value."
-;;   (interactive)
-;;   (let ((value (eval (elisp--preceding-sexp))))
-;;     (kill-sexp -1)
-;;     (insert (format "%S" value))))
-
-
-;; --------
 ;; doc-view
-;; --------
+;; ========
 ;; (setq doc-view-continuous t)
 ;; (setq doc-view-resolution 250)
 ;; (setq doc-view-image-width 1250)
 ;;; (setq doc-view-cache-directory "/tmp/docview1000")
 
-;; Multiple async processes 
+;; Multiple async processes
 ;; (defadvice shell-command (after shell-in-new-buffer (command &optional output-buffer error-buffer))
 ;;   (when (get-buffer "*Async Shell Command*")
 ;;     (with-current-buffer "*Async Shell Command*"

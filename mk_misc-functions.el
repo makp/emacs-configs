@@ -190,4 +190,15 @@ character or first non-whitespace after a comment sign."
   (let ((fill-column (point-max)))
     (fill-paragraph nil)))
 
+;; -------
+;; replace
+;; -------
+;; (defun replace-last-sexp ()
+;;   "Replace the preceding sexp with its value."
+;;   (interactive)
+;;   (let ((value (eval (elisp--preceding-sexp))))
+;;     (kill-sexp -1)
+;;     (insert (format "%S" value))))
+
+
 (provide 'mk_misc-functions)
