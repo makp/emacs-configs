@@ -477,8 +477,6 @@
 ;; =====
 ;; timer
 ;; =====
-(setq org-timer-default-timer 25)
-
 (setq org-time-clocksum-format (quote (:days "%dd" :minutes "%dm" :require-minutes t)))
 
 ;; (add-hook 'org-clock-in-hook '(lambda () 
@@ -506,7 +504,10 @@
 
 (global-set-key (kbd "\e\eh") 'org-clock-goto)
 
+(setq-default org-timer-default-timer 25)
+
 (defun timer-do-org ()
+  "Set timer in any buffer."
   (interactive)
   (set-buffer "clocktable.org")
   (org-timer-set-timer))
