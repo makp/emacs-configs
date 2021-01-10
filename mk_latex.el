@@ -337,7 +337,7 @@ shown, then it'll be hidden."
 
 
 (defun mk/bibtex-completion-format-citation-for-org (keys)
-  "Formatter for inserting bibtex refs in org-mode references."
+  "Format bibtex KEYS in 'org-mode' buffers."
   (s-join ", " (cl-loop
                 for key in keys
                 for entry = (bibtex-completion-get-entry key)
