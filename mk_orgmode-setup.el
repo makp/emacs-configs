@@ -304,9 +304,7 @@
 (setq org-default-notes-file (concat org-directory "ag-geral.org"))
 
 (setq org-capture-templates
-      '(("c" "Gcal" entry (file  "~/elisp/agendas/gcal.org")
-	 "* %?\n\n%^T\n\n")
-	("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
+      '(("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
 	 "** TODO %?\n  %i\n")
 	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
 	 "** TODO %?\n %i\n")
@@ -320,10 +318,8 @@
 ;; ----
 (require 'mk_gcal)
 
-;; (setq org-gcal-notify-p nil)
 (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-fetch)))
-;; (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync)))
-
+;; (setq org-gcal-notify-p nil)
 
 
 ;; =============
