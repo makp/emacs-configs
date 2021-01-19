@@ -18,8 +18,8 @@
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
 
-;; when starting python shells, don't use project root as default dir
-;; (setq elpy-shell-use-project-root nil)
+;; default dir with python shells (project-root is the default value)
+(setq elpy-shell-starting-directory 'current-directory)
 
 (provide 'mk_python)
 ;;; mk_python.el ends here
