@@ -391,7 +391,7 @@
 ;; system-wide header args
 ;; -----------------------
 (setq org-babel-default-header-args
-      (cons '(:results . "output replace")
+      (cons '(:results . "value replace")
 	    (assq-delete-all :results org-babel-default-header-args)))
 
 ;;; "output": the result is the collection of everything printed to
