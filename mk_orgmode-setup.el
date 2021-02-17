@@ -383,7 +383,7 @@
 (setq wolfram-path "~/.Mathematica/Applications")
 
 (add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
-(setq org-babel-mathematica-command "wolframscript -script") ; originally was mathematicascript
+(setq org-babel-mathematica-command "wolframscript -f")
 
 
 
