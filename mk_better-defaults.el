@@ -38,7 +38,7 @@
   (interactive)
   (if (equal (system-name) "leibniz")
       (add-to-list 'default-frame-alist
-		   '(font . "DejaVu Sans Mono-12"))
+		   '(font . "DejaVu Sans Mono-13"))
     (add-to-list 'default-frame-alist
 		 '(font . "DejaVu Sans Mono-10"))))
 
