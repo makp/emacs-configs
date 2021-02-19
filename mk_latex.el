@@ -178,59 +178,26 @@ shown, then it'll be hidden."
       TeX-show-compilation nil
       TeX-PDF-mode t)
 
-;; ---------------
-;; default viewers
-;; ---------------
-(setq
- TeX-view-program-selection
- '((output-dvi "DVI Viewer")
-   (output-pdf "PDF Viewer")
-   (output-html "HTML Viewer"))
- ;; The 1st element of the TeX-view-program-selection is one or more
- ;; predicates defined by TeX-view-predicate-list/buitin.
- TeX-view-program-list
- '(("DVI Viewer" "okular %o")
-   ;;   ("PDF Viewer" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o")
-   ("PDF Viewer" "okular --unique %u")
-   ("HTML Viewer" "firefox %o")))
-;; Okular switches: %n is the line of the cursor; %b is source file;
-;; --unique keeps a single version of okular running.
 
-;; -----------------------
-;; Forward/backward search
-;; -----------------------
+;; ---------------
+;; viewer programs
+;; ---------------
+(setq TeX-view-program-selection '((output-pdf "Okular"))) ; "PDF Tools"
+
 (setq
  TeX-source-correlate-mode t
  TeX-source-specials-mode t)
 ;; TeX-source-correlate-mode toggles support for forward/inverse
 ;; search
 
+;; -------
+;; latexmk
+;; -------
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (add-to-list
 			      'TeX-command-list
 			      '("mk" "latexmk %s" TeX-run-TeX nil t
 				:help "Run Latexmk on file"))))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;; 			     (add-to-list
-;; 			      'TeX-command-list
-;; 			      '("zathura" "zathura -s -x \"emacsclient --eval '(progn (switch-to-buffer  (file-name-nondirectory \"'\"'\"%{input}\"'\"'\")) (goto-line %{line}))'\" %o" TeX-run-TeX nil t
-;; 				:help "Run zathura on file"))))
-
-(add-hook 'LaTeX-mode-hook '(lambda ()
-			      (add-to-list 'TeX-expand-list
-					   '("%u" Okular-make-url))))
-
-(defun Okular-make-url () (concat
-			   "file://"
-			   (expand-file-name (funcall file (TeX-output-extension) t)
-					     (file-name-directory (TeX-master-file)))
-			   "#src:"
-			   (TeX-current-line)
-			   (expand-file-name (TeX-master-directory))
-			   "./"
-			   (TeX-current-file-name-master-relative)))
-
 
 ;; ======
 ;; macros
