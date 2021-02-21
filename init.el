@@ -16,7 +16,7 @@
 ;; core config
 ;; ===========
 (require 'mk_packages)
-(require 'mk_mode-line)
+;; (require 'mk_mode-line)
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)
 (require 'mk_registers)
@@ -95,7 +95,8 @@
 (global-set-key (kbd "<f7>")
 		'(lambda ()
 		   (interactive)
-		   (require 'mk_keyfreq)
+		   (require 'mk_evil)
+		   ;; (require 'mk_keyfreq)
 		   ;; (require 'mk_ess)
 		   ;; (require 'mk_eldoc)
 		   ;; (setq user-full-name "Makmiller Pedroso")

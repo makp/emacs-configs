@@ -41,6 +41,7 @@
 		      company-math
 		      define-word
 		      elpy
+		      evil
 		      ;; ess
 		      flycheck
 		      fuzzy
@@ -52,7 +53,6 @@
 		      hl-todo
 		      ibuffer-vc
 		      ibuffer-git
-		      key-chord
 		      keyfreq
 		      lua-mode
 		      magit

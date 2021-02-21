@@ -115,12 +115,12 @@
 
 (global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
 
-(global-set-key (kbd "C-c C") 'duplicate-current-line-or-region)
+;;(global-set-key (kbd "C-c C") 'duplicate-current-line-or-region)
 
 (global-set-key (kbd "M-C") 'subword-capitalize)
 
-(global-set-key (kbd "M-z") 'zap-up-to-char)
-(global-set-key (kbd "M-Z") 'zap-to-char)
+;;(global-set-key (kbd "M-z") 'zap-up-to-char)
+;;(global-set-key (kbd "M-Z") 'zap-to-char)
 
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
 
@@ -210,20 +210,9 @@
 
 
 ;; ========
-;; keychord
-;; ========
-(key-chord-mode 1)
-
-(key-chord-define-global "hj" 'kill-whole-line)
-(key-chord-define-global "kh" 'kill-paragraph)
-(key-chord-define-global "cg" 'hippie-expand)
-
-;; Available keychords: "uu", "UU", "<<", ">>", "DD", "GG"
-
-
-;; ========
 ;; avy-mode
 ;; ========
+
 (define-key global-map (kbd "M-l") 'avy-goto-line)
 (global-set-key (kbd "M-L") 'downcase-dwim)
 
@@ -234,10 +223,6 @@
 			      (number-sequence ?A ?Z)
 			      (number-sequence ?1 ?9)
 			      '(?0)))
-
-(key-chord-define-global "hh" 'avy-goto-word-1)
-(key-chord-define-global "HH" 'avy-goto-char-timer)
-
 
 ;; ========
 ;; doc-view

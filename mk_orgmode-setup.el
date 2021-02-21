@@ -511,7 +511,6 @@
 ;; ======
 ;; quotes
 ;; ======
-;; (add-hook 'org-mode-hook (lambda () (key-chord-define org-mode-map "''"  "`'\C-b")))
 
 ;; ========
 ;; org-mime
