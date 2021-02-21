@@ -227,6 +227,9 @@
 (define-key global-map (kbd "M-l") 'avy-goto-line)
 (global-set-key (kbd "M-L") 'downcase-dwim)
 
+;; use avy to access links
+(ace-link-setup-default)
+
 (setq-default avy-keys (nconc (number-sequence ?a ?z)
 			      (number-sequence ?A ?Z)
 			      (number-sequence ?1 ?9)

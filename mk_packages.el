@@ -32,7 +32,8 @@
 
 
 ;; Scans the list in mk/pkg-list. If the package listed is not already installed, install it
-(defvar mk/pkg-list '(avy
+(defvar mk/pkg-list '(ace-link
+		      avy
 		      aggressive-indent
 		      auctex
 		      company
