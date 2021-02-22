@@ -42,13 +42,15 @@
 ;; ----
 (evil-define-key 'normal 'global (kbd "<leader>rk") 'helm-show-kill-ring)
 
-
 ;; ------
 ;; window
 ;; ------
 (evil-define-key 'normal 'global (kbd "<leader>wo") 'other-window)
 (evil-define-key 'normal 'global (kbd "<leader>wdo") 'delete-other-windows)
 (evil-define-key 'normal 'global (kbd "<leader>wdd") 'delete-window)
+
+(evil-define-key 'normal 'global (kbd "<leader>wu") 'winner-undo)
+(evil-define-key 'normal 'global (kbd "<leader>wr") 'winner-redo)
 
 
 ;; ------
