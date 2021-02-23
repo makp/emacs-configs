@@ -20,7 +20,7 @@
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)
 (require 'mk_registers)
-(require 'mk_windows-setup)
+;; (require 'mk_windows-setup)
 (require 'mk_buffers-setup)
 (require 'mk_session-management)
 (require 'mk_magit)
