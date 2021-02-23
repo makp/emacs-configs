@@ -1,3 +1,4 @@
+(setq evil-undo-system 'undo-redo)
 (require 'evil)
 (evil-mode 1)
 
