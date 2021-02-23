@@ -25,7 +25,7 @@
 (require 'mk_session-management)
 (require 'mk_magit)
 (require 'mk_misc-functions)
-(require 'mk_mark-setup)
+;; (require 'mk_mark-setup)
 (require 'mk_keybindings-dvorak)
 
 

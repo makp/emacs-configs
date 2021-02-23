@@ -8,26 +8,18 @@
 ;; ===================================
 ;; push-mark without activating region
 ;; ===================================
-(defun mk/mark-command (&optional arg)
-  (interactive "P")
-  (if (consp arg)
-      (set-mark-command nil)
-    (push-mark-no-activate)))
-
-(defun push-mark-no-activate ()
+(defun mk/push-mark-no-activate ()
   "Pushes `point' to `mark-ring' and does not activate the region.
 Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
   (interactive)
   (push-mark (point) t nil)
   (message "Pushed mark to ring"))
 
-(global-set-key (kbd "C-r") 'mk/mark-command)
-
 ;; -----------------
 ;; pop mark commands
 ;; -----------------
-(global-set-key (kbd "C-z") 'pop-to-mark-command)
-(global-set-key (kbd "C-S-z") 'mc/mark-pop)
+;; (global-set-key (kbd "C-z") 'pop-to-mark-command)
+;;(global-set-key (kbd "C-S-z") 'mc/mark-pop) 
 
 ;; =============
 ;; mark commands
