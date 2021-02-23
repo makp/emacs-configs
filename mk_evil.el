@@ -1,6 +1,8 @@
 (require 'evil)
 (evil-mode 1)
 
+(setq evil-search-module 'evil-search)
+
 ;; ---
 ;; C-u
 ;; ---
@@ -19,6 +21,12 @@
 (evil-set-leader '(normal motion) (kbd "SPC"))
 ;; SPC is assigned to the function `evil-forward-char' in normal and motion states.
 (evil-set-leader 'emacs (kbd "C-SPC"))
+(evil-define-key 'emacs 'global (kbd "C-w") 'evil-window-map)
+
+;; ----
+;; helm
+;; ----
+(evil-define-key mk/states-wide 'global (kbd "<leader>l") 'helm-resume)
 
 ;; ----
 ;; help
@@ -86,6 +94,12 @@
 ;; comment
 ;; -------
 (evil-define-key mk/states-wide 'global (kbd "<leader>cl") 'comment-line)
+(evil-define-key 'visual 'global (kbd "<leader>cr") 'comment-or-uncomment-region)
+
+;; -----
+;; elisp
+;; -----
+(evil-define-key mk/states-wide 'global (kbd "<leader>el") 'eval-last-sexp)
 
 
 (provide 'mk_evil)
