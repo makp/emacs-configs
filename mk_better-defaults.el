@@ -387,7 +387,11 @@
 ;; Description: reads the abbreviations file on startup
 
 ;; (global-set-key (kbd "C-c SPC") ')
+;; C-h as backspace
+(define-key key-translation-map [?\C-h] [?\C-?])
 
+;; 
+(global-set-key (kbd "M-h") 'backward-kill-word)
 
 (provide 'mk_better-defaults)
 ;;; mk_better-defaults.el ends here
