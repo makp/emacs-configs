@@ -21,8 +21,13 @@
 
 (evil-set-leader '(normal motion) (kbd "SPC"))
 ;; SPC is assigned to the function `evil-forward-char' in normal and motion states.
-(evil-set-leader 'emacs (kbd "C-SPC"))
-(evil-define-key 'emacs 'global (kbd "C-w") 'evil-window-map)
+(evil-set-leader 'emacs (kbd "\\"))
+
+;; magit
+(eval-after-load 'magit
+  '(progn
+     (define-key magit-status-mode-map (kbd "C-SPC") 'magit-diff-show-or-scroll-up)
+     (define-key magit-status-mode-map (kbd "SPC") 'evil-send-leader)))
 
 ;; ----
 ;; helm

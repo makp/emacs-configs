@@ -174,7 +174,7 @@
 ;; ============================
 ;; Minor modes for text buffers
 ;; ============================
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
+;; (add-hook 'XXX-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
 ;; (global-visual-line-mode 1)
 
 
