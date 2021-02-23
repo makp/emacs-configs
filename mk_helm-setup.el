@@ -75,21 +75,6 @@
 (define-key global-map [remap execute-extended-command] 'helm-M-x)
 (define-key global-map [remap jump-to-register] 'helm-register)
 
-(global-set-key (kbd "M-.") 'helm-etags-select)
-
-;;; helm-resume
-(global-set-key (kbd "C-c h") 'helm-resume)
-
-;;; find-files
-(global-set-key (kbd "C-x h") 'helm-find-files)
-
-;;; list buffers
-(global-set-key (kbd "C-x b") 'helm-mini)	; C-x C-h
-;;; Examples:
-;;; "*lisp,sh ^helm": buffers in lisp- or sh-mode that begin with "helm".
-;;; "@crash": buffers that contain the string "crash"
-;;; You can also select multiple buffers or select all buffers with M-a
-
 ;;; locate
 (defun mk/locate-with-helm (&optional arg)
   "Run locate in different folders (mydocs, pdfs, and home)
@@ -100,23 +85,11 @@ depending on the value of ARG."
    ((equal arg 4)  (helm-locate-with-db (expand-file-name "locate-mydocs.db" "~/elisp"))) ; ~/Documents/mydocs
    ((equal arg 16) (helm-locate-with-db (expand-file-name "locate-home.db" "~/elisp"))))) ; $HOME
 
-(global-set-key (kbd "C-c DEL") 'mk/locate-with-helm) ;C-c C-h
-
-;;; find
-(global-set-key (kbd "C-x C-f") 'helm-find)
-
 ;; ----------------------
 ;; searching within files
 ;; ----------------------
-;; occur
-(global-set-key (kbd "C-x C-s") 'helm-occur)
-
 ;; grep
 (require 'wgrep-helm)			; wgrep allows you to edit grep buffers
-(global-set-key (kbd "M-s a") 'helm-do-grep-ag)
-
-;; imenu
-(global-set-key (kbd "M-s i") 'helm-imenu)
 
 ;; tags
 (defun mk/find-tags (&optional arg)
@@ -126,28 +99,14 @@ depending on the value of ARG."
     (call-interactively 'magit-status))
   (call-interactively 'helm-etags-select))
 
-(global-set-key (kbd "M-s t") 'mk/find-tags)
-
-;; ===============================
-;; mark, kill rings, and registers
-;; ===============================
-;; mark-ring
-(global-set-key (kbd "M-s z") 'helm-all-mark-rings)
-
-;; kill-ring
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
-;; registers
-(global-set-key (kbd "M-s r") 'helm-register)
-
 ;; ===============
 ;; helm local maps
 ;; ===============
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-z") 'helm-select-action)
-(define-key helm-map (kbd "C-x C-r") 'helm-toggle-visible-mark)
-(define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
-(define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
+;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+;; (define-key helm-map (kbd "C-z") 'helm-select-action)
+;; (define-key helm-map (kbd "C-x C-r") 'helm-toggle-visible-mark)
+;; (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
+;; (define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
 
 ;; ======
 ;; eshell

@@ -213,9 +213,6 @@
 ;; avy-mode
 ;; ========
 
-(define-key global-map (kbd "M-l") 'avy-goto-line)
-(global-set-key (kbd "M-L") 'downcase-dwim)
-
 ;; use avy to access links
 (ace-link-setup-default)
 

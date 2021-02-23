@@ -27,7 +27,7 @@
 (eval-after-load 'magit
   '(progn
      (define-key magit-status-mode-map (kbd "C-SPC") 'magit-diff-show-or-scroll-up)
-     (define-key magit-status-mode-map (kbd "SPC") 'evil-send-leader)))
+     (define-key magit-mode-map (kbd "SPC") 'evil-send-leader)))
 
 ;; ----
 ;; helm
@@ -42,12 +42,14 @@
 ;; ---
 ;; M-x
 ;; ---
-(evil-define-key mk/states-wide 'global (kbd "<leader> SPC") 'helm-M-x)
+(evil-define-key mk/states-wide 'global (kbd "<leader>SPC") 'helm-M-x)
 
 ;; ----
 ;; file
 ;; ----
 (evil-define-key mk/states-wide 'global (kbd "<leader>ff") 'helm-find-files)
+(evil-define-key mk/states-wide 'global (kbd "<leader>fl") 'mk/locate-with-helm)
+(evil-define-key mk/states-wide 'global (kbd "<leader>fd") 'helm-find)
 
 ;; ------
 ;; buffer
@@ -56,12 +58,21 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>bl") 'ibuffer)
 (evil-define-key mk/states-wide 'global (kbd "<leader>bb") 'helm-mini)
 (evil-define-key mk/states-wide 'global (kbd "<leader>bn") 'bury-buffer)
+(evil-define-key mk/states-wide 'global (kbd "<leader>bx") 'kill-current-buffer)
 
-;; ----
-;; jump
-;; ----
+;; ------
+;; search
+;; ------
+(evil-define-key mk/states-wide 'global (kbd "<leader>so") 'helm-occur)
+(evil-define-key mk/states-wide 'global (kbd "<leader>si") 'helm-imenu)
+(evil-define-key mk/states-wide 'global (kbd "<leader>sa") 'helm-do-grep-ag)
+(evil-define-key mk/states-wide 'global (kbd "<leader>st") 'mk/find-tags)
+
+;; ---
+;; avy
+;; ---
 (evil-define-key mk/states-narrow 'global (kbd "M-c") 'avy-goto-word-1)
-
+(define-key global-map (kbd "M-l") 'avy-goto-line)
 
 ;; -----
 ;; dired
@@ -69,10 +80,14 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>dj") 'mk/dired-jump)
 
 
-;; ----
-;; ring
-;; ----
+;; -----------------
+;; ring and register
+;; -----------------
 (evil-define-key mk/states-wide 'global (kbd "<leader>rk") 'helm-show-kill-ring)
+(evil-define-key mk/states-wide 'global (kbd "<leader>rl") 'helm-register)
+(evil-define-key mk/states-wide 'global (kbd "<leader>ra") 'helm-all-mark-rings)
+;; (evil-define-key mk/states-wide 'global (kbd "<leader> ms") 'mk/push-mark-no-activate)
+;; (evil-define-key mk/states-wide 'global (kbd "<leader> md") 'kill-region)
 
 ;; ------
 ;; window
@@ -82,10 +97,6 @@
 (define-key evil-window-map "U" 'winner-redo)
 
 
-;; ------
-;; search
-;; ------
-(evil-define-key mk/states-wide 'global (kbd "<leader>so") 'helm-occur)
 
 ;; ---
 ;; Git
@@ -102,11 +113,13 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>cl") 'comment-line)
 (evil-define-key 'visual 'global (kbd "<leader>cr") 'comment-or-uncomment-region)
 
-;; -----
-;; elisp
-;; -----
-(evil-define-key mk/states-wide 'global (kbd "<leader>el") 'eval-last-sexp)
+;; ----
+;; edit
+;; ----
 
+;; ----
+;; sexp
+;; ----
 
 (provide 'mk_evil)
 ;;; mk_evil.el ends here

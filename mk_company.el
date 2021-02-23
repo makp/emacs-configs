@@ -37,8 +37,9 @@
 
 (setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
-;; Backend for LaTeX files
 
+;; Backend for LaTeX files
+;; Check the pkgs companay-auctex and company-math.
 ;; (defun mk/company-tex-backend ()
 ;;   "Add company backends provided by company-math for LaTeX math symbols."
 ;;   (add-to-list 'company-backends '(company-math-symbols-latex
