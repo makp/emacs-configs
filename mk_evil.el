@@ -71,9 +71,9 @@
 ;; ------
 ;; window
 ;; ------
-(evil-define-key mk/states-wide 'global (kbd "<leader>ww") 'evil-window-next)
-(evil-define-key mk/states-wide 'global (kbd "<leader>wu") 'winner-undo)
-(evil-define-key mk/states-wide 'global (kbd "<leader>wr") 'winner-redo)
+(evil-define-key mk/states-wide 'global (kbd "<leader>w") 'evil-window-map)
+(define-key evil-window-map "u" 'winner-undo)
+(define-key evil-window-map "U" 'winner-redo)
 
 
 ;; ------
