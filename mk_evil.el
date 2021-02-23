@@ -1,74 +1,80 @@
 (require 'evil)
 (evil-mode 1)
 
-;; =======
-;; keymaps
-;; =======
-(evil-set-leader 'normal (kbd "SPC"))
+;; ----------
+;; Leader key
+;; ----------
+(defvar mk/leader-states '(normal motion emacs))
+
+(evil-set-leader '(normal motion) (kbd "SPC"))
+;; SPC is assigned to the function `evil-forward-char' in normal and motion states.
+
+(evil-set-leader 'emacs (kbd "C-SPC"))
 
 ;; ---
 ;; M-x
 ;; ---
-(evil-define-key 'normal 'global (kbd "<leader> SPC") 'helm-M-x)
+(evil-define-key '(normal motion) 'global (kbd "<leader> SPC") 'helm-M-x)
 
 ;; ----
 ;; file
 ;; ----
-(evil-define-key 'normal 'global (kbd "<leader>ff") 'helm-find-files)
+(evil-define-key mk/leader-states 'global (kbd "<leader>ff") 'helm-find-files)
 
 ;; ------
 ;; buffer
 ;; ------
-(evil-define-key 'normal 'global (kbd "<leader>bs") 'save-buffer)
-(evil-define-key 'normal 'global (kbd "<leader>bl") 'ibuffer)
-(evil-define-key 'normal 'global (kbd "<leader>bb") 'helm-mini)
-(evil-define-key 'normal 'global (kbd "<leader>bn") 'bury-buffer)
+(evil-define-key mk/leader-states 'global (kbd "<leader>bs") 'save-buffer)
+(evil-define-key mk/leader-states 'global (kbd "<leader>bl") 'ibuffer)
+(evil-define-key mk/leader-states 'global (kbd "<leader>bb") 'helm-mini)
+(evil-define-key mk/leader-states 'global (kbd "<leader>bn") 'bury-buffer)
 
 ;; ----
 ;; jump
 ;; ----
-(evil-define-key 'normal 'global (kbd "<leader>jl") 'avy-goto-line)
-(evil-define-key 'normal 'global (kbd "<leader>jc") 'avy-goto-word-1)
+(evil-define-key mk/leader-states 'global (kbd "<leader>jl") 'avy-goto-line)
+(evil-define-key mk/leader-states 'global (kbd "<leader>jc") 'avy-goto-word-1)
 
 
 ;; -----
 ;; dired
 ;; -----
-(evil-define-key 'normal 'global (kbd "<leader>dj") 'mk/dired-jump)
+(evil-define-key mk/leader-states 'global (kbd "<leader>dj") 'mk/dired-jump)
 
 
 ;; ----
 ;; ring
 ;; ----
-(evil-define-key 'normal 'global (kbd "<leader>rk") 'helm-show-kill-ring)
+(evil-define-key mk/leader-states 'global (kbd "<leader>rk") 'helm-show-kill-ring)
 
 ;; ------
 ;; window
 ;; ------
-(evil-define-key 'normal 'global (kbd "<leader>wo") 'other-window)
-(evil-define-key 'normal 'global (kbd "<leader>wdo") 'delete-other-windows)
-(evil-define-key 'normal 'global (kbd "<leader>wdd") 'delete-window)
+(evil-define-key mk/leader-states 'global (kbd "<leader>wo") 'other-window)
+(evil-define-key mk/leader-states 'global (kbd "<leader>wdo") 'delete-other-windows)
+(evil-define-key mk/leader-states 'global (kbd "<leader>wdd") 'delete-window)
 
-(evil-define-key 'normal 'global (kbd "<leader>wu") 'winner-undo)
-(evil-define-key 'normal 'global (kbd "<leader>wr") 'winner-redo)
+(evil-define-key mk/leader-states 'global (kbd "<leader>wu") 'winner-undo)
+(evil-define-key mk/leader-states 'global (kbd "<leader>wr") 'winner-redo)
 
 
 ;; ------
 ;; search
 ;; ------
-(evil-define-key 'normal 'global (kbd "<leader>so") 'helm-occur)
+(evil-define-key mk/leader-states 'global (kbd "<leader>so") 'helm-occur)
 
 ;; ---
 ;; Git
 ;; ---
-(evil-define-key 'normal 'global (kbd "<leader>gs") 'magit-status)
-(evil-define-key 'normal 'global (kbd "<leader>gg") 'mk/grep-project)
+(evil-define-key mk/leader-states 'global (kbd "<leader>gs") 'magit-status)
+(evil-define-key mk/leader-states 'global (kbd "<leader>gg") 'mk/grep-project)
+(evil-define-key mk/leader-states 'global (kbd "<leader>gf") 'mk/browse-project)
 
 
 ;; -------
 ;; comment
 ;; -------
-(evil-define-key 'normal 'global (kbd "<leader>cl") 'comment-line)
+(evil-define-key mk/leader-states 'global (kbd "<leader>cl") 'comment-line)
 
 
 (provide 'mk_evil)
