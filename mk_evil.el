@@ -1,8 +1,8 @@
 (setq evil-undo-system 'undo-redo)
+(setq evil-search-module 'evil-search)
 (require 'evil)
 (evil-mode 1)
 
-(setq evil-search-module 'evil-search)
 
 ;; ---
 ;; C-u
