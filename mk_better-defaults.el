@@ -16,16 +16,6 @@
 ;; (require 'cl-lib)
 ;; cl-macs
 
-;; =======================
-;; Enable some keybindings
-;; =======================
-(put 'narrow-to-region 'disabled nil)
-(put 'downcase-region 'disabled nil)	;C-x C-l
-(put 'upcase-region 'disabled nil)	;C-x C-u
-(put 'set-goal-column 'disabled nil) 	;C-x C-n
-(put 'scroll-left 'disabled nil) 	;C-x <
-(put 'suspend-frame 'disabled t)
-
 ;; ==========
 ;; Appearance
 ;; ==========
@@ -47,7 +37,6 @@
 ;; -----------
 ;; Color theme
 ;; -----------
-;; (load-theme 'gruvbox-dark-soft t)
 (load-theme 'zenburn t)
 
 ;; ----------
@@ -103,15 +92,13 @@
 ;; ===========
 ;; Keybindings
 ;; ===========
-(global-unset-key (kbd "C-x C-z")) 	;get rid of suspend-frame
-(global-unset-key (kbd "C-x C-p")) 	;it was mark-page
-
 ;; Bind save-buffer to an easier keystroke
-(global-set-key (kbd "M-s s") 'isearch-forward)
 (global-set-key (kbd "C-s") 'save-buffer)
 
 (global-set-key (kbd "M-n") 'forward-paragraph)
 (global-set-key (kbd "M-p") 'backward-paragraph)
+(global-unset-key (kbd "M-t"))
+
 
 (global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
 
@@ -119,33 +106,11 @@
 
 (global-set-key (kbd "M-C") 'subword-capitalize)
 
-;;(global-set-key (kbd "M-z") 'zap-up-to-char)
-;;(global-set-key (kbd "M-Z") 'zap-to-char)
-
 (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
 
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
 
 (global-set-key (kbd "C-\\") 'eval-region)
-
-;; (global-set-key (kbd "C-x C-;") ')
-;; (global-set-key (kbd "C-x C-z") ')
-
-;; ------
-;; Macros
-;; ------
-(define-key ctl-x-map "." nil) ;;; I never use fill-prefix
-(define-key ctl-x-map "." 'kmacro-start-macro-or-insert-counter)
-(global-set-key (kbd "C-x C-.") 'kmacro-end-or-call-macro)
-
-;; (defun mk/repeat ()
-;;   (interactive)
-;;   (repeat 1)
-;;   (set-temporary-overlay-map
-;;    (let ((map (make-sparse-keymap)))
-;;      (define-key map (kbd ".") 'mk/repeat)
-;;      map)))
-
 
 ;; ====================================
 ;; Global minor modes shiped with Emacs
@@ -383,7 +348,6 @@
 ;; (quietly-read-abbrev-file)
 ;; Description: reads the abbreviations file on startup
 
-;; (global-set-key (kbd "C-c SPC") ')
 ;; C-h as backspace
 (define-key key-translation-map [?\C-h] [?\C-?])
 
