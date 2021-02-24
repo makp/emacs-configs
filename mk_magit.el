@@ -40,9 +40,11 @@
 (defun mk/browse-project-buffers (&optional arg)
   "Browse git repo. If ARG is non-nil, provide a list of all repos before running helm-browse-project."
   (interactive "P")
-  (when (consp arg)
+  (when arg
     (call-interactively 'magit-status))
-  (call-interactively 'helm-browse-project)) ;helm-ls-git-ls
+  (let ((current-prefix-arg nil))
+    (call-interactively 'helm-browse-project)))
+
 
 (defun mk/select-project-and-find-files ()
   "Select a project and run helm-find-files."
@@ -55,11 +57,10 @@
 (defun mk/grep-project (&optional arg)
   "Run git-grep the whole repository. If ARG is non-nil, ask for a git repo first."
   (interactive "P")
-  (when (consp arg)
+  (when arg
     (call-interactively 'magit-status))
   (let ((current-prefix-arg '(4)))
     (call-interactively 'helm-grep-do-git-grep)))
-
 
 (provide 'mk_magit)
 
