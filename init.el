@@ -26,13 +26,10 @@
 (require 'mk_magit)
 (require 'mk_misc-functions)
 ;; (require 'mk_mark-setup)
-(require 'mk_keybindings-dvorak)
 
 
-;; =========
-;; Autoloads
-;; =========
 ;; Terminals
+;; TODO: Fix the funcs for calling terminals
 (global-set-key (kbd "C-x a") 'async-shell-command)
 
 (global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
@@ -66,46 +63,18 @@
 ;; =======
 ;; modules
 ;; =======
-;; -------------------------
-;; mark + yas + autocomplete
-;; -------------------------
 (global-set-key (kbd "<f5>")
 		'(lambda ()
 		   (interactive)
 		   (require 'mk_company)
 		   (require 'mk_yasnippet-setup)
-		   (require 'mk_web-devel)
+		   (require 'mk_orgmode-setup)
+		   (require 'mk_evil)
+		   (require 'mk_eww)
 		   (pdf-tools-install)))
 
-;; --------------------------------------------
-;; org-mode, latex, and other programming modes
-;; --------------------------------------------
 (global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
-		   ;; (require 'mk_chrome)
-		   (require 'mk_orgmode-setup)
-		   (require 'mk_eww)))
-
-;; -----------
-;; Email + ERC
-;; -----------
-(global-set-key (kbd "<f7>")
-		'(lambda ()
-		   (interactive)
-		   (require 'mk_evil)
-		   ;; (require 'mk_keyfreq)
-		   ;; (require 'mk_ess)
-		   ;; (require 'mk_eldoc)
-		   ;; (setq user-full-name "Makmiller Pedroso")
-		   ;; (setq user-mail-address "makmiller@gmail.com")
-		   ;; (require 'mk_email) ; (autoload 'notmuch "notmuch" "notmuchm mail" t)
-		   ;; (require 'mk_message-mode)
-		   ;; (require 'mk_erc)
-		   ;; (require 'mk_emms-setup)
-		   ))
-
-;; (global-set-key (kbd "<f8>")
-;; 		'(lambda ()
-;; 		   (interactive)
-;; 		   ))
+		   (require 'mk_web-devel)
+		   (require 'mk_keyfreq)))
