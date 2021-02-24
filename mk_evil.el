@@ -19,9 +19,9 @@
 (defvar mk/states-narrow '(normal motion))
 (defvar mk/states-wide '(normal motion emacs))
 
-(evil-set-leader '(normal motion) (kbd "SPC"))
+(evil-set-leader mk/states-wide (kbd "SPC"))
 ;; SPC is assigned to the function `evil-forward-char' in normal and motion states.
-(evil-set-leader 'emacs (kbd "\\"))
+;; (evil-set-leader 'emacs (kbd "\\"))
 
 ;; magit
 (eval-after-load 'magit
