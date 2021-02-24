@@ -9,16 +9,11 @@
 
 ;; main global key bindings
 (defun mk/fetch(&optional arg)
+  "Fetch git repo. If ARG is non-nil, provide a list of all repos before fetching git repo."
   (interactive "P")
   (call-interactively 'magit-status)
   (call-interactively 'magit-fetch)
   (magit-section-show-level-3-all))
-
-(global-set-key (kbd "C-x p") 'mk/fetch)
-(global-set-key (kbd "C-x d") 'magit-diff-buffer-file)
-
-(global-set-key (kbd "C-x g") 'magit-status)
-
 
 (setq-default magit-repository-directories
 	      '(("~/elisp/agendas" . 0)
@@ -42,24 +37,20 @@
 (require 'helm-ls-git)
 (setq helm-ls-git-status-command 'magit-status-internal) ; use magit
 
-(defun mk/browse-project (&optional arg)
+(defun mk/browse-project-buffers (&optional arg)
   "Browse git repo. If ARG is non-nil, provide a list of all repos before running helm-browse-project."
   (interactive "P")
   (when (consp arg)
-    ;; (let ((current-prefix-arg '(4))))
     (call-interactively 'magit-status))
   (call-interactively 'helm-browse-project)) ;helm-ls-git-ls
 
-(global-set-key (kbd "C-x DEL") 'mk/browse-project)
+(defun mk/select-project-and-find-files ()
+  "Select a project and run helm-find-files."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'magit-status))
+  (call-interactively 'helm-find-files))
 
-(global-set-key (kbd "C-x t")
-		(lambda ()
-		  "Select a project and run helm-find-files."
-		  (interactive)
-		  (let ((current-prefix-arg '(4)))
-		    (call-interactively
-		     'magit-status))
-		  (call-interactively 'helm-find-files)))
 
 (define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep)
 (define-key helm-ls-git-buffer-map (kbd "M-s g") 'helm-ls-git-run-grep)
@@ -71,8 +62,6 @@
     (call-interactively 'magit-status))
   (let ((current-prefix-arg '(4)))
     (call-interactively 'helm-grep-do-git-grep)))
-
-(global-set-key (kbd "M-s g") 'mk/grep-project)
 
 (define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
 

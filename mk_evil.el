@@ -100,10 +100,16 @@
 ;; Git
 ;; ---
 (evil-define-key mk/states-wide 'global (kbd "<leader>gs") 'magit-status)
-(evil-define-key mk/states-wide 'global (kbd "<leader>gg") 'mk/grep-project)
 (evil-define-key mk/states-wide 'global (kbd "<leader>gf") 'mk/fetch)
-(evil-define-key mk/states-wide 'global (kbd "<leader>gb") 'mk/browse-project)
+(evil-define-key mk/states-wide 'global (kbd "<leader>gd") 'magit-diff-buffer-file)
 
+;; -------
+;; project
+;; -------
+(evil-define-key mk/states-wide 'global (kbd "<leader>pg") 'mk/grep-project)
+(evil-define-key mk/states-wide 'global (kbd "<leader>pb") 'mk/browse-project-buffers)
+(evil-define-key mk/states-wide 'global (kbd "<leader>pf") 'mk/select-project-and-find-files)
+;; (evil-define-key mk/states-wide 'global (kbd "<leader>p") ')
 
 ;; -------
 ;; comment
