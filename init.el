@@ -85,9 +85,7 @@
 		   (interactive)
 		   ;; (require 'mk_chrome)
 		   (require 'mk_orgmode-setup)
-		   (require 'mk_eww)
-		   (autoload 'poporg-dwim "poporg" nil t)
-		   (global-set-key (kbd "C-c \"") 'poporg-dwim)))
+		   (require 'mk_eww)))
 
 ;; -----------
 ;; Email + ERC

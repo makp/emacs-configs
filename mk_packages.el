@@ -37,15 +37,10 @@
 		      aggressive-indent
 		      auctex
 		      company
-		      company-auctex
-		      company-math
 		      define-word
 		      elpy
 		      evil
-		      ;; ess
 		      flycheck
-		      fuzzy
-		      ;; gruvbox-theme
 		      helm
 		      helm-bibtex
 		      helm-ls-git
@@ -57,18 +52,14 @@
 		      lua-mode
 		      magit
 		      markdown-mode
-		      multiple-cursors
 		      nov
 		      org
 		      org-plus-contrib
 		      org-gcal
 		      org-ref
 		      pdf-tools
-		      poporg
-		      region-bindings-mode
 		      synosaurus
 		      undo-tree
-		      w3m
 		      visual-fill-column
 		      web-mode
 		      wgrep
