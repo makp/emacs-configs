@@ -15,7 +15,9 @@
 	       '(:eval (propertize "%b " 'face 'font-lock-keyword-face
 				   'help-echo (buffer-file-name)))
 
-	       ;;'(vc-mode vc-mode)
+	       '(vc-mode vc-mode)
+
+	       '(:eval evil-mode-line-tag)
 
 	       ;; line and column
 	       "(" ;; '%02' to set to 2 chars at least; prevents flickering

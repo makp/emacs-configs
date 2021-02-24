@@ -16,7 +16,6 @@
 ;; core config
 ;; ===========
 (require 'mk_packages)
-;; (require 'mk_mode-line)
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)
 (require 'mk_registers)
@@ -76,5 +75,8 @@
 (global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
+		   (require 'mk_mode-line)
 		   (require 'mk_web-devel)
 		   (require 'mk_keyfreq)))
+
+;; Custom set vars below this line
