@@ -31,11 +31,13 @@
 ;; helm
 ;; ----
 (evil-define-key mk/states-wide 'global (kbd "<leader>l") 'helm-resume)
+(define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
 
 ;; ----
 ;; help
 ;; ----
-(evil-define-key mk/states-wide 'global (kbd "<leader>h") 'help)
+(evil-define-key mk/states-wide 'global (kbd "<leader>hh") 'help)
+(evil-define-key mk/states-wide 'global (kbd "<leader>ha") 'helm-apropos)
 
 ;; ---
 ;; M-x
@@ -47,7 +49,10 @@
 ;; ----
 (evil-define-key mk/states-wide 'global (kbd "<leader>ff") 'helm-find-files)
 (evil-define-key mk/states-wide 'global (kbd "<leader>fl") 'mk/locate-with-helm)
-(evil-define-key mk/states-wide 'global (kbd "<leader>fd") 'helm-find)
+;; helm-find-files-map
+;; (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
+;; (define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
+
 
 ;; ------
 ;; buffer
@@ -57,14 +62,17 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>bb") 'helm-mini)
 (evil-define-key mk/states-wide 'global (kbd "<leader>bn") 'bury-buffer)
 (evil-define-key mk/states-wide 'global (kbd "<leader>bx") 'kill-current-buffer)
+(evil-define-key mk/states-wide 'global (kbd "<leader>bX") 'kill-buffer-and-window)
 
 ;; ------
 ;; search
 ;; ------
 (evil-define-key mk/states-wide 'global (kbd "<leader>so") 'helm-occur)
+(evil-define-key mk/states-wide 'global (kbd "<leader>sO") 'helm-occur-visible-buffers)
 (evil-define-key mk/states-wide 'global (kbd "<leader>si") 'helm-imenu)
 (evil-define-key mk/states-wide 'global (kbd "<leader>sa") 'helm-do-grep-ag)
 (evil-define-key mk/states-wide 'global (kbd "<leader>st") 'mk/find-tags)
+(evil-define-key mk/states-wide 'global (kbd "<leader>sf") 'helm-find)
 
 ;; ---
 ;; avy
@@ -101,7 +109,7 @@
 ;; ---
 (evil-define-key mk/states-wide 'global (kbd "<leader>gs") 'magit-status)
 (evil-define-key mk/states-wide 'global (kbd "<leader>gf") 'mk/fetch)
-(evil-define-key mk/states-wide 'global (kbd "<leader>gd") 'magit-diff-buffer-file)
+(evil-define-key mk/states-wide 'global (kbd "<leader>gb") 'magit-diff-buffer-file)
 
 ;; -------
 ;; project
@@ -109,7 +117,10 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>pg") 'mk/grep-project)
 (evil-define-key mk/states-wide 'global (kbd "<leader>pb") 'mk/browse-project-buffers)
 (evil-define-key mk/states-wide 'global (kbd "<leader>pf") 'mk/select-project-and-find-files)
-;; (evil-define-key mk/states-wide 'global (kbd "<leader>p") ')
+(evil-define-key mk/states-wide 'global (kbd "<leader>ph") 'helm-browse-project-history)
+;; helm-browse-project-map
+;; helm-ls-git-buffer-map
+;; helm-ls-git-map
 
 ;; -------
 ;; comment

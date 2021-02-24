@@ -89,7 +89,7 @@ depending on the value of ARG."
 ;; searching within files
 ;; ----------------------
 ;; grep
-(require 'wgrep-helm)			; wgrep allows you to edit grep buffers
+;; (require 'wgrep-helm)			; wgrep allows you to edit grep buffers
 
 ;; tags
 (defun mk/find-tags (&optional arg)
@@ -98,15 +98,6 @@ depending on the value of ARG."
   (when (consp arg)
     (call-interactively 'magit-status))
   (call-interactively 'helm-etags-select))
-
-;; ===============
-;; helm local maps
-;; ===============
-;; (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-;; (define-key helm-map (kbd "C-z") 'helm-select-action)
-;; (define-key helm-map (kbd "C-x C-r") 'helm-toggle-visible-mark)
-;; (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
-;; (define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
 
 ;; ======
 ;; eshell

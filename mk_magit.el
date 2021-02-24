@@ -52,9 +52,6 @@
   (call-interactively 'helm-find-files))
 
 
-(define-key helm-ls-git-map (kbd "M-s g") 'helm-ls-git-run-grep)
-(define-key helm-ls-git-buffer-map (kbd "M-s g") 'helm-ls-git-run-grep)
-
 (defun mk/grep-project (&optional arg)
   "Run git-grep the whole repository. If ARG is non-nil, ask for a git repo first."
   (interactive "P")
@@ -63,7 +60,6 @@
   (let ((current-prefix-arg '(4)))
     (call-interactively 'helm-grep-do-git-grep)))
 
-(define-key helm-find-files-map (kbd "M-s g") 'helm-ff-run-git-grep)
 
 (provide 'mk_magit)
 
