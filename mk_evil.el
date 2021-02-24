@@ -24,10 +24,8 @@
 ;; (evil-set-leader 'emacs (kbd "\\"))
 
 ;; magit
-(eval-after-load 'magit
-  '(progn
-     (define-key magit-status-mode-map (kbd "C-SPC") 'magit-diff-show-or-scroll-up)
-     (define-key magit-mode-map (kbd "SPC") 'evil-send-leader)))
+(with-eval-after-load 'magit
+  (define-key magit-mode-map (kbd "SPC") 'evil-send-leader))
 
 ;; ----
 ;; helm
