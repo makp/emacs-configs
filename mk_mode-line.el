@@ -2,11 +2,21 @@
 
 ;;; Commentary:
 
+;; Config examples:
+;; https://emacs.stackexchange.com/questions/13652/how-to-customize-mode-line-format
+
 ;; 
 
 ;;; Code:
 
-(display-time)
+(display-time) ;; display time and load level every minute
+
+(defun mk/state-appearance-on-modeline ()
+  "Select face for the different Evil states."
+  (if (equal 'normal evil-state)
+      'font-lock-constant-face
+    'font-lock-builtin-face))
+
 
 (setq-default mode-line-format
 	      (list
@@ -18,15 +28,16 @@
 
 	       '(vc-mode vc-mode)
 
-	       '(:eval evil-mode-line-tag) ; without the eval the state doesn't get updated
+	       ;; note that the eval is necessary to update state
+	       '(:eval (propertize evil-mode-line-tag 'face
+				   (mk/state-appearance-on-modeline)))
 
 	       "(" ;; '%02' to set to 2 chars at least; prevents flickering
 	       (propertize "%02l" 'face 'font-lock-type-face) "," ; line number
 	       (propertize "%02c" 'face 'font-lock-type-face)	  ; column number
 	       ") "
 
-	       ;; (propertize "%p" 'face 'font-lock-constant-face) ; relative position
-	       (propertize "%I" 'face 'font-lock-constant-face) ;; file size
+	       "%I" ;; file size
 	       " "
 
 	       ;; Major mode
@@ -51,8 +62,6 @@
 	       (propertize " || " 'face 'font-lock-constant-face)
 
 	       mode-line-misc-info ; displays info from `global-mode-string'
-
-	       ;; minor-mode-alist  ;; list of minor modes
 
 	       "%-" ;; fill with '-'
 	       ))

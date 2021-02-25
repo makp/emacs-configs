@@ -25,6 +25,7 @@
 (require 'mk_magit)
 (require 'mk_misc-functions)
 (require 'mk_mark-setup)
+(require 'mk_mode-line)
 
 
 ;; Terminals
@@ -75,7 +76,6 @@
 (global-set-key (kbd "<f6>")
 		'(lambda ()
 		   (interactive)
-		   (require 'mk_mode-line)
 		   (require 'mk_web-devel)
 		   (require 'mk_keyfreq)))
 
