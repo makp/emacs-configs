@@ -10,34 +10,30 @@
 
 (setq-default mode-line-format
 	      (list
-	       "%@"
-	       ;; the buffer name; the file name as a tool tip
+	       "%e"	    ;print error mess on full memory
+	       mode-line-front-space
+
 	       '(:eval (propertize "%b " 'face 'font-lock-keyword-face
-				   'help-echo (buffer-file-name)))
+				   'help-echo (buffer-file-name))) ;tool tip
 
 	       '(vc-mode vc-mode)
 
-	       '(:eval evil-mode-line-tag)
+	       '(:eval evil-mode-line-tag) ; without the eval the state doesn't get updated
 
-	       ;; line and column
 	       "(" ;; '%02' to set to 2 chars at least; prevents flickering
-	       (propertize "%02l" 'face 'font-lock-type-face) ","
-	       (propertize "%02c" 'face 'font-lock-type-face)
+	       (propertize "%02l" 'face 'font-lock-type-face) "," ; line number
+	       (propertize "%02c" 'face 'font-lock-type-face)	  ; column number
 	       ") "
 
-	       ;; relative position, size of file
-	       ;; "["
-	       ;; (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
-	       ;; "/"
-	       (propertize "%I" 'face 'font-lock-constant-face) ;; size
+	       ;; (propertize "%p" 'face 'font-lock-constant-face) ; relative position
+	       (propertize "%I" 'face 'font-lock-constant-face) ;; file size
 	       " "
-	       ;; "] "
 
-	       ;; the current major mode for the buffer.
+	       ;; Major mode
 	       "["
 
-	       '(:eval (propertize "%m" 'face 'font-lock-string-face
-				   'help-echo buffer-file-coding-system))
+	       '(:eval (propertize "%m" 'face 'font-lock-string-face))
+
 	       ;; was this buffer modified since the last save?
 	       '(:eval (when (buffer-modified-p)
 			 (concat ","  (propertize "Mod"
@@ -54,14 +50,10 @@
 
 	       (propertize " || " 'face 'font-lock-constant-face)
 
-	       ;;global-mode-string, org-timer-set-timer in org-mode need this
-	       ;;       '(:eval (propertize "%M" 'face 'font-lock-warning-face))
+	       mode-line-misc-info ; displays info from `global-mode-string'
 
-	       '(global-mode-string global-mode-string)
-
-	       " --"
-	       ;; i don't want to see minor-modes; but if you want, uncomment this:
 	       ;; minor-mode-alist  ;; list of minor modes
+
 	       "%-" ;; fill with '-'
 	       ))
 
