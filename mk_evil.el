@@ -86,12 +86,13 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>dj") 'mk/dired-jump)
 
 
-;; -----------------
-;; ring and register
-;; -----------------
+;; ------------------------
+;; register, ring, and mark
+;; ------------------------
 (evil-define-key mk/states-wide 'global (kbd "<leader>rk") 'helm-show-kill-ring)
-(evil-define-key mk/states-wide 'global (kbd "<leader>rl") 'helm-register)
-(evil-define-key mk/states-wide 'global (kbd "<leader>ra") 'helm-all-mark-rings)
+(evil-define-key mk/states-wide 'global (kbd "<leader>rr") 'helm-register)
+(evil-define-key mk/states-wide 'global (kbd "<leader>rm") 'helm-all-mark-rings)
+(evil-define-key mk/states-wide 'global (kbd "<leader>rj") 'mk/jump-to-register)
 ;; (evil-define-key mk/states-wide 'global (kbd "<leader> ms") 'mk/push-mark-no-activate)
 ;; (evil-define-key mk/states-wide 'global (kbd "<leader> md") 'kill-region)
 

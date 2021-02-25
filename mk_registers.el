@@ -2,14 +2,11 @@
 ;; file names in registers
 ;; -----------------------
 (defun mk/jump-to-register (&optional arg)
-  "With prefix arg, run jump-to-register in other window."
+  "If ARG non-nil, run `jump-to-register' in another window."
   (interactive "P")
-  (when (consp arg)
+  (when arg
     (switch-to-buffer-other-window (current-buffer)))
   (call-interactively 'jump-to-register))
-
-(global-set-key (kbd "C-x r j") 'mk/jump-to-register)
-
 
 ;;; Config files
 (set-register ?E '(file . "~/config-files/general/emacs-configs/"))
