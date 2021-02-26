@@ -38,6 +38,7 @@
 		      auctex
 		      company
 		      company-math
+		      company-auctex
 		      define-word
 		      elpy
 		      evil

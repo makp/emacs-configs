@@ -9,6 +9,10 @@
 (setq-default company-global-modes '(text-mode emacs-lisp-mode LaTeX-mode python-mode))
 (global-company-mode)
 
+;; For some reason company doesn't load with `company-global-modes'
+(add-hook 'LaTeX-mode-hook
+	  'company-mode)
+
 ;; (setq-default company-idle-delay 0.25)
 ;; (setq-default company-minimum-prefix-length 3)
 
@@ -30,14 +34,20 @@
 (defvar mk/enable-tex-backend t
   "Enable backend in `tex-mode'.")
 
-(defvar backends-from-company-math
+(defvar backends-for-auctex
   '(company-math-symbols-latex
     company-math-symbols-unicode
-    company-latex-commands)
-  "Backends provided by `company-math'.")
+    company-latex-commands
+    ;; company-auctex-labels
+    ;; company-auctex-bibs
+    ;; company-auctex-macros
+    ;; company-auctex-symbols
+    ;; company-auctex-environments
+    )
+  "Backends provided by `company-math' and `company-auctex'.")
 
 (when mk/enable-tex-backend
-  (setq company-backends (append (list backends-from-company-math) company-backends)))
+  (setq company-backends (append (list backends-for-auctex) company-backends)))
 
 
 ;; Add yasnippet to every backend
