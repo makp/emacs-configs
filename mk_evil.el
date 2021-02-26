@@ -1,5 +1,6 @@
-(setq evil-undo-system 'undo-redo)
-(setq evil-search-module 'evil-search)
+(setq-default evil-respect-visual-line-mode t)
+(setq-default evil-undo-system 'undo-redo)
+(setq-default evil-search-module 'evil-search)
 (require 'evil)
 (evil-mode 1)
 
