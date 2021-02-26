@@ -22,33 +22,44 @@
 ;; ========
 ;; Backends
 ;; ========
-;; Var: `company-backends'
+;; Var: `company-backends'.
+;; Note that only one backend is used at a time, but a backend can be grouped into a list.
+;; One neat feature about company is that you can interactively call separate backends.
 
-;; Add yasnippet support for all company backends
-;; https://github.com/syl20bnr/spacemacs/pull/179
-(defvar company-mode/enable-yas t
+;; Add backend for LaTeX files
+(defvar mk/enable-tex-backend t
+  "Enable backend in `tex-mode'.")
+
+(defvar backends-from-company-math
+  '(company-math-symbols-latex
+    company-math-symbols-unicode
+    company-latex-commands)
+  "Backends provided by `company-math'.")
+
+(when mk/enable-tex-backend
+  (setq company-backends (append (list backends-from-company-math) company-backends)))
+
+
+;; Add yasnippet to every backend
+(defvar mk/enable-yas-every-backend t
   "Enable yasnippet for all backends.")
 
-(defun company-mode/backend-with-yas (backend)
-  (if (or (not company-mode/enable-yas) (and (listp backend) (member 'company-yasnippet backend)))
+(defun mk/add-yas-to-backend (backend)
+  "Add `company-yasnippet' to BACKEND.
+From https://github.com/syl20bnr/spacemacs/pull/179"
+  (if (and (listp backend) (member 'company-yasnippet backend))
       backend
     (append (if (consp backend) backend (list backend))
             '(:with company-yasnippet))))
 
-(setq company-backends (mapcar #'company-mode/backend-with-yas company-backends))
 
+(defun mk/add-yas-to-every-backend ()
+  "Add `company-yasnippet' to every backend in `company-backends'."
+  (when mk/enable-yas-every-backend
+    (setq company-backends
+	  (mapcar #'mk/add-yas-to-backend company-backends))))
 
-;; Backend for LaTeX files
-;; Check the pkgs companay-auctex and company-math.
-;; (defun mk/company-tex-backend ()
-;;   "Add company backends provided by company-math for LaTeX math symbols."
-;;   (add-to-list 'company-backends '(company-math-symbols-latex
-;; 				   company-math-symbols-unicode
-;; 				   company-latex-commands)))
-
-;; (with-eval-after-load 'tex-mode
-;;   (mk/company-tex-backend)
-;;   (company-auctex-init)) ;company-auctex
+(mk/add-yas-to-every-backend)
 
 (provide 'mk_company)
 

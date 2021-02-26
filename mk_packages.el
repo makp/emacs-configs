@@ -37,6 +37,7 @@
 		      aggressive-indent
 		      auctex
 		      company
+		      company-math
 		      define-word
 		      elpy
 		      evil
