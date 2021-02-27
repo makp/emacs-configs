@@ -27,21 +27,6 @@
 (require 'mk_mark-setup)
 (require 'mk_mode-line)
 
-
-;; Terminals
-;; TODO: Fix the funcs for calling terminals
-
-;; (global-set-key (kbd "C-x C-a") 'mk/eshell-popup)
-;; (autoload 'mk/eshell-popup "mk_eshell" t nil)
-
-(global-set-key (kbd "C-x <RET>") 'mk/chama-ansi-term)
-(autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
-
-;; Dired
-(global-set-key (kbd "C-x C-j") 'mk/dired-jump)
-(autoload 'mk/dired-jump "mk_dired" t nil)
-
-
 ;; =================
 ;; eval-after-load's
 ;; =================

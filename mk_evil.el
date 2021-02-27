@@ -80,12 +80,6 @@
 (evil-define-key mk/states-narrow 'global (kbd "M-c") 'avy-goto-word-1)
 (define-key global-map (kbd "M-l") 'avy-goto-line)
 
-;; -----
-;; dired
-;; -----
-(evil-define-key mk/states-wide 'global (kbd "<leader>dj") 'mk/dired-jump)
-
-
 ;; ------------------------
 ;; register, ring, and mark
 ;; ------------------------
@@ -102,7 +96,6 @@
 (evil-define-key mk/states-wide 'global (kbd "<leader>w") 'evil-window-map)
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
-
 
 
 ;; ---
@@ -128,14 +121,26 @@
 ;; -------
 (evil-define-key mk/states-wide 'global (kbd "<leader>cl") 'comment-line)
 (evil-define-key 'visual 'global (kbd "<leader>cr") 'comment-or-uncomment-region)
+;; (global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
 
 ;; ----
 ;; edit
 ;; ----
+;; (global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
 
 ;; ----
 ;; sexp
 ;; ----
+
+;; ---
+;; dic
+;; ---
+(evil-define-key mk/states-wide 'global (kbd "<leader>dw") 'define-word-at-point)
+(evil-define-key mk/states-wide 'global (kbd "<leader>dt") 'synosaurus-lookup)
+(evil-define-key mk/states-wide 'global (kbd "<leader>dc") 'flyspell-auto-correct-word)
+
+;; (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
+;; (global-set-key (kbd "C-\\") 'eval-region)
 
 (provide 'mk_evil)
 ;;; mk_evil.el ends here

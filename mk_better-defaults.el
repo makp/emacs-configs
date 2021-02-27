@@ -7,15 +7,6 @@
 ;;; Code:
 
 
-;; =====================
-;; Common Lisp emulation
-;; =====================
-;; Resource:
-;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
-
-;; (require 'cl-lib)
-;; cl-macs
-
 ;; ==========
 ;; Appearance
 ;; ==========
@@ -46,107 +37,47 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-
-;; =====
-;; setqs
-;; =====
-;; Garbage collection
-(setq gc-cons-threshold 100000000) 	; in bytes
-;; The default amount was 800KB. If you specify a larger value,
-;; garbage collection will happen less often. This reduces the amount
-;; of time spent garbage collecting, but increases total memory use.
-;; References: ;;
-;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
-;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
-
-(setq message-log-max t) 		;max # lines message log
-(setq case-fold-search nil)		;case sensitive search
-(setq shell-file-name "/bin/zsh")	;default shell
-
+;; ====
+;; path
+;; ====
 (setenv "PATH" (concat "/home/makmiller/scripts/myscripts:/usr/bin/vendor_perl:/home/makmiller/.local/bin" ":" (getenv "PATH")))
 (setenv "EDITOR" (concat "~/scripts/myscripts/edit.sh" (getenv "EDITOR")))
 (setenv "VISUAL" (concat "~/scripts/myscripts/edit.sh" (getenv "VISUAL")))
-(setenv "ALTERNATE_EDITOR" (concat "emacs" (getenv "ALTERNATE_EDITOR")))
+(setenv "ALTERNATE_EDITOR" (concat "vim" (getenv "ALTERNATE_EDITOR")))
 
-(setq shift-select-mode nil) 		;don't use shift to mark
+;; =====
+;; shell
+;; =====
+(setq-default shell-file-name "/bin/zsh")	;default shell
 
-(set-default 'indicate-empty-lines t) ;show empty lines after buffer ends
+(autoload 'mk/chama-ansi-term "mk_ansi-term" t nil)
 
-(fset 'yes-or-no-p 'y-or-n-p)	   ;don't ask me to type "yes" or "no"
+;; TODO: Fix the func below for calling terminal
+;; (autoload 'mk/eshell-popup "mk_eshell" t nil)
 
-(setq
- initial-scratch-message nil
- inhibit-splash-screen 0
- column-number-mode t
- echo-keystrokes 0.1) 			;see unfinished commands
+;; ========
+;; avy-mode
+;; ========
+(ace-link-setup-default)		;; use avy to access links
 
-(setq visible-bell t)
-
-(setq sentence-end-double-space nil) ;Relevant for using M-k/e/a
-
-(setq enable-recursive-minibuffers t)
-;; If this variable is nil, you cannot invoke minibuffer commands when
-;; the minibuffer window is active, not even if you switch to another
-;; window to do it.
+(setq-default avy-keys (nconc (number-sequence ?a ?z)
+			      (number-sequence ?A ?Z)
+			      (number-sequence ?1 ?9)
+			      '(?0)))
 
 ;; ===========
-;; Keybindings
+;; parenthesis
 ;; ===========
-;; Bind save-buffer to an easier keystroke
-(global-set-key (kbd "C-s") 'save-buffer)
-
-(global-set-key (kbd "M-n") 'forward-paragraph)
-(global-set-key (kbd "M-p") 'backward-paragraph)
-(global-unset-key (kbd "M-t"))
-
-
-(global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
-
-;;(global-set-key (kbd "C-c C") 'duplicate-current-line-or-region)
-
-(global-set-key (kbd "M-C") 'subword-capitalize)
-
-(global-set-key (kbd "C-c ;") 'comment-or-uncomment-region) ; like in latex-mode
-
-(global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
-
-(global-set-key (kbd "C-\\") 'eval-region)
-
-;; ====================================
-;; Global minor modes shiped with Emacs
-;; ====================================
-(global-subword-mode 1)
-(blink-cursor-mode 1)
-(global-font-lock-mode 1)
-(global-hl-line-mode t)	      ;toggle line highlighting
-(pending-delete-mode -1)
-;; (mouse-avoidance-mode 'cat-and-mouse)
-
-(global-auto-revert-mode 1)		;reload file when it changes
-(setq-default
- auto-revert-verbose nil
- global-auto-revert-non-file-buffers t)
-
 (show-paren-mode 1)
 (electric-pair-mode 1) 			;pair parens automatically
 (setq-default
  show-paren-delay 0	  		;disactivate delay when matching parentheses
- show-paren-style 'mixed)
+ show-paren-style 'parenthesis)
 ;; The var 'show-paren-style' controls what gets highlighted. Possible
 ;; values: parenthesis, expression, and mixed
 
 
-;; ============================
-;; Minor modes for text buffers
-;; ============================
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
-;; (global-visual-line-mode 1)
-
-
-;; =====================
-;; Highlight parentheses
-;; =====================
-;; The code below enables the minor mode highlight-parentheses on all
+;; Enable the minor mode highlight-parentheses on all
 ;; buffers (from EmacsWiki):
 
 ;; (define-globalized-minor-mode global-highlight-parentheses-mode
@@ -155,36 +86,83 @@
 ;;     (highlight-parentheses-mode t)))
 ;; (global-highlight-parentheses-mode t)
 
+;; ============
+;; dictionaries
+;; ============
 
-;; =========
-;; undo-tree
-;; =========
-(global-undo-tree-mode)
+;; ---------
+;; thesaurus
+;; ---------
+(setq-default synosaurus-choose-method 'popup) 	;instead of ido
 
-;; ;; keep region when undoing in region
-;; (defadvice undo-tree-undo (around keep-region activate)
-;;   (if (use-region-p)
-;;       (let ((m (set-marker (make-marker) (mark)))
-;;             (p (set-marker (make-marker) (point))))
-;;         ad-do-it
-;;         (goto-char p)
-;;         (set-mark m)
-;;         (set-marker p nil)
-;;         (set-marker m nil))
-;;     ad-do-it))
+;; --------
+;; flyspell
+;; --------
+(setq-default ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
+
+;; --------
+;; flycheck
+;; --------
+(setq-default flycheck-emacs-lisp-load-path 'inherit)
+(global-flycheck-mode)
+
+;; ===========
+;; auto-revert
+;; ===========
+(global-auto-revert-mode 1)		;reload file when it changes
+(setq-default
+ auto-revert-verbose nil
+ global-auto-revert-non-file-buffers t)
+
+;; ===========
+;; epub viewer
+;; ===========
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
+(setq-default nov-text-width 80)
+
+;; ===========
+;; Indentation
+;; ===========
+(global-aggressive-indent-mode 1)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
 
-;; ========
-;; avy-mode
-;; ========
+;; ============
+;; misc configs
+;; ============
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
+;; (global-visual-line-mode 1)
 
-;; use avy to access links
-(ace-link-setup-default)
+;; Garbage collection
+(setq gc-cons-threshold 100000000) 	; in bytes
+;; The default amount was 800KB. If you specify a larger value,
+;; garbage collection will happen less often. This reduces the amount
+;; of time spent garbage collecting, but increases total memory use.
+;; References:
+;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
-(setq-default avy-keys (nconc (number-sequence ?a ?z)
-			      (number-sequence ?A ?Z)
-			      (number-sequence ?1 ?9)
-			      '(?0)))
+(setq-default message-log-max t 		;max # lines message log
+	      shift-select-mode nil 		;don't use shift to mark
+	      indicate-empty-lines t ;show empty lines after buffer ends
+	      initial-scratch-message nil
+	      inhibit-splash-screen 0
+	      column-number-mode t
+	      echo-keystrokes 0.1 			;see unfinished commands
+	      visible-bell t
+	      sentence-end-double-space nil ;relevant for using M-k/e/a
+	      enable-recursive-minibuffers t
+	      case-fold-search nil)		;case sensitive search
+
+(fset 'yes-or-no-p 'y-or-n-p)	   ;don't ask me to type "yes" or "no"
+
+(global-subword-mode 1)
+(blink-cursor-mode 1)
+(global-font-lock-mode 1)
+(global-hl-line-mode t)	      ;toggle line highlighting
+(pending-delete-mode -1)
+;; (mouse-avoidance-mode 'cat-and-mouse)
+
 
 ;; ========
 ;; doc-view
@@ -204,7 +182,7 @@
 ;; What is exactly the difference between set-face-attribute and
 ;; modify-face?
 
-(setq emerge-diff-options "--ignore-all-space")
+;; (setq emerge-diff-options "--ignore-all-space")
 ;; Emerge doesn't care about differences in whitespace
 
 ;; (defun mk/open-line-below ()
@@ -213,45 +191,30 @@
 ;;   (newline)
 ;;   (indent-for-tab-command))
 
-;; (global-set-key (kbd "C-c SPC") 'mk/open-line-below)
-
 ;; (defun deleta-os-outros ()
 ;;   (interactive)
 ;;   (mapcar #'delete-frame (cdr (frame-list))))
 ;; Description: to delete all other frames when you're not on X -- for
 ;; C-x 5 1 only works if you are in X.
 
-;; ===========
-;; Indentation
-;; ===========
-
-;; -----------------
-;; aggressive-indent
-;; -----------------
-(global-aggressive-indent-mode 1)
-;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-
-
 ;; =====
 ;; ediff
 ;; =====
 
 ;;; list-colors-display sorted by hue
-(setq list-colors-sort 'hsv)
+;; (setq list-colors-sort 'hsv)
 
 ;;; improved version of delete-blank-lines
-(defun better-delete-lines (&optional arg)
-  "Better `delete-blank-lines'."
-  (interactive "P")
-  (if (not (consp arg))
-      (delete-blank-lines)
-    (delete-blank-lines)
-    (kill-visual-line)
-    (when (not (bolp))
-      (just-one-space)
-      (fill-paragraph))))
-
-(global-set-key (kbd "C-x C-o") 'better-delete-lines)
+;; (defun better-delete-lines (&optional arg)
+;;   "Better `delete-blank-lines'."
+;;   (interactive "P")
+;;   (if (not (consp arg))
+;;       (delete-blank-lines)
+;;     (delete-blank-lines)
+;;     (kill-visual-line)
+;;     (when (not (bolp))
+;;       (just-one-space)
+;;       (fill-paragraph))))
 
 ;; ====
 ;; Tags
@@ -297,40 +260,6 @@
 ;; (global-set-key  'split-line)
 ;; (global-set-key  'open-line)
 
-;; epub viewer (nov)
-(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
-(setq-default nov-text-width 80)
-
-
-;; ============
-;; dictionaries
-;; ============
-
-(global-set-key (kbd "<f9> d") 'define-word-at-point)
-
-;; ---------
-;; thesaurus
-;; ---------
-(setq-default synosaurus-choose-method 'popup) 	;instead of ido
-(global-set-key (kbd "<f9> l") 'synosaurus-lookup)
-
-
-;; --------
-;; flyspell
-;; --------
-(setq-default flyspell-auto-correct-binding (kbd "C-'")
-	      ispell-personal-dictionary "~/elisp/.my-ispell-personal-dictionary")
-
-(with-eval-after-load 'flyspell
-  (define-key flyspell-mode-map (kbd "C-,") nil))
-
-
-
-;; ========
-;; flycheck
-;; ========
-(setq-default flycheck-emacs-lisp-load-path 'inherit)
-(global-flycheck-mode)
 
 
 ;; ------
@@ -351,8 +280,11 @@
 ;; C-h as backspace
 (define-key key-translation-map [?\C-h] [?\C-?])
 
-;; 
-(global-set-key (kbd "M-h") 'backward-kill-word)
+;; =====================
+;; Common Lisp emulation
+;; =====================
+;; Resource:
+;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
 
 (provide 'mk_better-defaults)
 ;;; mk_better-defaults.el ends here

@@ -61,7 +61,6 @@
 		      org-ref
 		      pdf-tools
 		      synosaurus
-		      undo-tree
 		      visual-fill-column
 		      web-mode
 		      wgrep
