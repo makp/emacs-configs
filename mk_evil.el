@@ -37,8 +37,7 @@
 ;; ----
 ;; help
 ;; ----
-(evil-define-key mk/states-wide 'global (kbd "<leader>hh") 'help)
-(evil-define-key mk/states-wide 'global (kbd "<leader>ha") 'helm-apropos)
+(evil-define-key mk/states-wide 'global (kbd "<leader>h") 'help)
 
 ;; ---
 ;; M-x
