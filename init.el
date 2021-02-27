@@ -24,8 +24,23 @@
 (require 'mk_session-management)
 (require 'mk_magit)
 (require 'mk_misc-functions)
-(require 'mk_mark-setup)
+;; (require 'mk_mark-setup)
 (require 'mk_mode-line)
+(require 'mk_orgmode-setup)
+(require 'mk_evil)
+
+;; =====
+;; extra
+;; =====
+(global-set-key (kbd "<f5>")
+		'(lambda ()
+		   (interactive)
+		   (require 'mk_company)
+		   (require 'mk_yasnippet-setup)
+		   (require 'mk_eww)
+		   (require 'mk_web-devel)
+		   (require 'mk_keyfreq)
+		   (pdf-tools-install)))
 
 ;; =================
 ;; eval-after-load's
@@ -43,24 +58,5 @@
 (with-eval-after-load 'ibuffer
   (require 'mk_ibuffer-setup))
 
-
-;; =======
-;; modules
-;; =======
-(global-set-key (kbd "<f5>")
-		'(lambda ()
-		   (interactive)
-		   (require 'mk_company)
-		   (require 'mk_yasnippet-setup)
-		   (require 'mk_orgmode-setup)
-		   (require 'mk_evil)
-		   (require 'mk_eww)
-		   (pdf-tools-install)))
-
-(global-set-key (kbd "<f6>")
-		'(lambda ()
-		   (interactive)
-		   (require 'mk_web-devel)
-		   (require 'mk_keyfreq)))
 
 ;; Custom set vars below this line
