@@ -3,7 +3,7 @@
 (setq-default evil-search-module 'evil-search)
 (require 'evil)
 (evil-mode 1)
-
+(global-evil-surround-mode 1)
 
 ;; ---
 ;; C-u

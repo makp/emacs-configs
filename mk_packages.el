@@ -42,6 +42,7 @@
 		      define-word
 		      elpy
 		      evil
+		      evil-surround
 		      flycheck
 		      helm
 		      helm-bibtex
