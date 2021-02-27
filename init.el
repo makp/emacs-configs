@@ -18,15 +18,15 @@
 (require 'mk_packages)
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)
+(require 'mk_evil)
+(require 'mk_magit)
+(require 'mk_orgmode-setup)
+(require 'mk_leader-keybindings)
 (require 'mk_registers)
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
-(require 'mk_magit)
 (require 'mk_misc-functions)
-;; (require 'mk_mark-setup)
 (require 'mk_mode-line)
-(require 'mk_orgmode-setup)
-(require 'mk_evil)
 
 ;; =====
 ;; extra
