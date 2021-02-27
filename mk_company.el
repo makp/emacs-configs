@@ -34,20 +34,27 @@
 (defvar mk/enable-tex-backend t
   "Enable backend in `tex-mode'.")
 
+;; A couple notes about the engines below:
+;; - `company-auctex-symbols' is a very neat engine in that it allows insertion of symbols outside of math mode.
+;; Because of this, `company-auctex-symbols' seems to be more versatile than `company-math-symbols-latex'.
+;; - `company-auctex-bibs' engine relies on `LaTeX-bibitem-list' but this var is nil in my tex files.
+
 (defvar backends-for-auctex
-  '(company-math-symbols-latex
-    company-math-symbols-unicode
-    company-latex-commands
-    ;; company-auctex-labels
-    ;; company-auctex-bibs
-    ;; company-auctex-macros
-    ;; company-auctex-symbols
-    ;; company-auctex-environments
+  '((company-math-symbols-latex
+     ;; company-math-symbols-unicode
+     )
+    (company-auctex-symbols
+     company-auctex-macros
+     company-latex-commands
+     ;; company-auctex-environments
+     )
+    (company-auctex-labels)
+    ;;(company-auctex-bibs)
     )
   "Backends provided by `company-math' and `company-auctex'.")
 
 (when mk/enable-tex-backend
-  (setq company-backends (append (list backends-for-auctex) company-backends)))
+  (setq company-backends (append backends-for-auctex company-backends)))
 
 
 ;; Add yasnippet to every backend
