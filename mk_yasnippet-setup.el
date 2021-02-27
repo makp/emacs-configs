@@ -1,4 +1,4 @@
-;;; mk_yasnippet-setup.el --- Custum setup for Yasnippets
+;;; mk_yasnippet-setup.el --- Custum setup for Yasnippets -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
