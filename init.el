@@ -22,6 +22,7 @@
 (require 'mk_magit)
 (require 'mk_orgmode-setup)
 (require 'mk_leader-keybindings)
+(require 'mk_keybindings)
 (require 'mk_registers)
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
