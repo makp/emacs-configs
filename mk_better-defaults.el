@@ -128,10 +128,14 @@
 
 
 ;; ============
-;; misc configs
+;; text buffers
 ;; ============
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode) ;visual-line-mode (word wrap)
-;; (global-visual-line-mode 1)
+(add-hook 'text-mode-hook
+	  (lambda ()
+	    (turn-on-visual-line-mode)
+	    (setq line-spacing 1)))
+
+(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
 ;; Garbage collection
 (setq gc-cons-threshold 100000000) 	; in bytes

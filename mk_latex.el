@@ -99,16 +99,12 @@ shown, then it'll be hidden."
 ;; ==========
 ;; appearance
 ;; ==========
-
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
-	    (visual-fill-column-mode)
-	    (setq line-spacing 1)
-	    (progn
-	      (hl-todo-mode)
-	      (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
-	      (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
-	      (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur))))
+	    (hl-todo-mode)
+	    (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
+	    (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
+	    (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur)))
 
 ;; (setq LaTeX-paragraph-commands '("environment"))
 
