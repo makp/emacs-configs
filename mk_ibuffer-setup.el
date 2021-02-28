@@ -6,10 +6,17 @@
 
 ;;; Code:
 
-(require 'ibuf-ext)
-(require 'ibuffer-vc)
-(require 'ibuffer-git)
 
+(with-eval-after-load 'ibuffer
+  ;; load local version of ibuffer-git
+  (defvar dir/ibuffer-git "/home/makmiller/.emacs.d/git-repos/ibuffer-git/")
+  (when (file-directory-p dir/ibuffer-git)
+    (add-to-list 'load-path dir/ibuffer-git)
+    (require 'ibuffer-git))
+  (defvar ibuffer-never-show-predicates)
+  (require 'ibuf-ext)
+  (dolist (ibfilter '("^\\*" "_region_" "magit-process:.*" "magit-diff.*" "magit:.*"))
+    (add-to-list 'ibuffer-never-show-predicates ibfilter)))
 
 (setq-default
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
@@ -17,13 +24,8 @@
  ibuffer-filter-group-name-face 'font-lock-variable-name-face ;;
  ibuffer-old-time 50)
 
-(dolist (ibfilter '("^\\*" "_region_" "magit-process:.*" "magit-diff.*" "magit:.*"))
-  (add-to-list 'ibuffer-never-show-predicates ibfilter))
-
-
 ;; ibuffer mode maps
 (define-key ibuffer-mode-map (kbd "C-i") 'ibuffer-toggle-filter-group)
-
 (define-key ibuffer-mode-map (kbd "U") 'ibuffer-unmark-all)
 ;;; to be consistent with dired-mode. It was ibuffer.*regexp
 
@@ -31,7 +33,8 @@
 (add-hook 'ibuffer-hook
 	  (lambda ()
 	    (mk/vc-refresh)
-	    (mk/run-ibuffer-vc)))	;create filter groups based on VC
+	    (mk/run-ibuffer-vc))	;;create filter groups based on VC
+	  )
 
 (add-hook 'ibuffer-mode-hook
 	  (lambda ()
@@ -80,27 +83,27 @@
 
 ;; Type '`' to switch through different ibuffer-formats. Use "," to
 ;; change how files are sorted.
-(setq ibuffer-formats
-      '((mark modified read-only vc-status-mini " "
-	      (name 18 18 :left :elide)
-	      " "
-	      (size-h 9 -1 :center)
-	      " "
-	      (mode 6 6 :left :elide)
-	      " "
-	      (vc-status 10 10 :left)
-	      " "
-	      (git-status 8 8 :left)
-	      " "
-	      filename-and-process)
-	(mark modified read-only vc-status-mini " "
-	      (name 45 45 :left :elide)
-	      " "
-	      (size-h 9 -1 :center)
-	      " "
-	      (mode 3 3 :left :elide)
-	      " "
-	      (git-status 8 8 :center))))
+(setq-default ibuffer-formats
+	      '((mark modified read-only vc-status-mini " "
+		      (name 18 18 :left :elide)
+		      " "
+		      (size-h 9 -1 :center)
+		      " "
+		      (mode 6 6 :left :elide)
+		      " "
+		      (vc-status 10 10 :left)
+		      " "
+		      (git-status 8 8 :left)
+		      " "
+		      filename-and-process)
+		(mark modified read-only vc-status-mini " "
+		      (name 45 45 :left :elide)
+		      " "
+		      (size-h 9 -1 :center)
+		      " "
+		      (mode 3 3 :left :elide)
+		      " "
+		      (git-status-mini 8 8 :center))))
 
 
 ;; (defun ibuffer-ediff-marked-buffers ()
