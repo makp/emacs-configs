@@ -11,7 +11,7 @@
 (setq-default evil-search-module 'evil-search)
 (evil-mode 1)
 (global-evil-surround-mode 1)
-
+(evil-commentary-mode)
 
 (provide 'mk_evil)
 

@@ -43,6 +43,7 @@
 		      elpy
 		      evil
 		      evil-surround
+		      evil-commentary
 		      flycheck
 		      helm
 		      helm-bibtex
