@@ -34,8 +34,8 @@
   (kbd "<leader>bl") 'ibuffer
   (kbd "<leader>bb") 'helm-mini
   (kbd "<leader>bn") 'bury-buffer
-  (kbd "<leader>bx") 'kill-current-buffer
-  (kbd "<leader>bX") 'kill-buffer-and-window
+  (kbd "<leader>bc") 'kill-current-buffer
+  (kbd "<leader>bC") 'kill-buffer-and-window
   
   ;; search
   (kbd "<leader>so") 'helm-occur
@@ -68,13 +68,18 @@
   ;; dic
   (kbd "<leader>dw") 'define-word-at-point
   (kbd "<leader>dt") 'synosaurus-lookup
-  (kbd "<leader>dc") 'flyspell-auto-correct-word)
+  (kbd "<leader>da") 'flyspell-auto-correct-word
+  (kbd "<leader>dc") 'ispell-word
 
+  ;; orgmode
+  (kbd "<leader>oa") 'org-agenda
+  (kbd "<leader>oc") 'org-capture
+  )
 
 ;; ----
 ;; edit
 ;; ----
-;; (global-set-key (kbd "C-x f") 'mk/unfill-paragraph)
+;; mk/unfill-paragraph
 
 ;; ----
 ;; sexp

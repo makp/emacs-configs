@@ -172,49 +172,48 @@
 ;; =======
 ;; Agendas
 ;; =======
-(global-set-key "\C-ca" 'org-agenda)
 
 ;; ------------
 ;; Agenda files
 ;; ------------
-(setq org-agenda-files (list "~/elisp/agendas/ag-academic.org"
-			     "~/elisp/agendas/ag-longterm.org"
-			     "~/elisp/agendas/ag-teaching.org"
-			     "~/elisp/agendas/ag-geral.org"
-			     "~/elisp/agendas/gcal.org"
-			     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
-			     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
-			     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
-			     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"
-			     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
+(setq-default org-agenda-files (list "~/elisp/agendas/ag-academic.org"
+				     "~/elisp/agendas/ag-longterm.org"
+				     "~/elisp/agendas/ag-teaching.org"
+				     "~/elisp/agendas/ag-geral.org"
+				     "~/elisp/agendas/gcal.org"
+				     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
+				     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
+				     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
+				     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"
+				     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
 
 ;;; agenda dispatcher
-(setq org-agenda-custom-commands
-      '(("h" "Coisas pra hoje"
-	 ((tags "@Today")
-	  (agenda "" ((org-agenda-span 1)
-		      (org-agenda-show-all-dates nil)))))
-	("p" "My papers"
-	 ((tags-todo "paper1")
-	  (tags-todo "paper2")
-	  (tags-todo "paper3")
-	  (tags-todo "paper4")
-	  (tags-todo "paper5")
-	  (tags-todo "paper6")))
-	("n" "Coisas pendentes"
-	 ((tags "@Today")
-	  (agenda "" ((org-agenda-span 1)
-		      (org-agenda-show-all-dates nil)))
-	  (tags "@lineup")
-	  (tags "@WAITING")))
-	("w" "Agenda pra semana"
-	 ((agenda "" ((org-agenda-span 7)
-		      (org-agenda-show-all-dates nil)))))
-	("r" "Coisas repetitivas"
-	 ((tags "rep")))
-	("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
-						(org-agenda-show-all-dates nil)))))
+(setq-default org-agenda-custom-commands
+	      '(("h" "Coisas pra hoje"
+		 ((tags "@Today")
+		  (agenda "" ((org-agenda-span 1)
+			      (org-agenda-show-all-dates nil)))))
+		("p" "My papers"
+		 ((tags-todo "paper1")
+		  (tags-todo "paper2")
+		  (tags-todo "paper3")
+		  (tags-todo "paper4")
+		  (tags-todo "paper5")
+		  (tags-todo "paper6")))
+		("n" "Coisas pendentes"
+		 ((tags "@Today")
+		  (agenda "" ((org-agenda-span 1)
+			      (org-agenda-show-all-dates nil)))
+		  (tags "@lineup")
+		  (tags "@WAITING")))
+		("w" "Agenda pra semana"
+		 ((agenda "" ((org-agenda-span 7)
+			      (org-agenda-show-all-dates nil)))))
+		("r" "Coisas repetitivas"
+		 ((tags "rep")))
+		("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
+							(org-agenda-show-all-dates nil)))))
 
 ;; (org-agenda-overriding-header "")
 
@@ -256,19 +255,18 @@
 ;; -------
 ;; Capture
 ;; -------
-(global-set-key "\C-cc" 'org-capture)
-(setq org-directory "~/elisp/agendas/")
-(setq org-default-notes-file (concat org-directory "ag-geral.org"))
+(setq-default org-directory "~/elisp/agendas/")
+(setq-default org-default-notes-file (concat org-directory "ag-geral.org"))
 
-(setq org-capture-templates
-      '(("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
-	 "** TODO %?\n  %i\n")
-	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
-	 "** TODO %?\n %i\n")
-	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
-	 "** TODO %?\n %i\n")
-	("e" "Emacs IT stuff" entry (file+headline "~/Documents/mydocs/notes/tech-notes/ag-it.org" "EMACS")
-	 "** TODO %?\n %i\n")))
+(setq-default org-capture-templates
+	      '(("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
+		 "** TODO %?\n  %i\n")
+		("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
+		 "** TODO %?\n %i\n")
+		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
+		 "** TODO %?\n %i\n")
+		("e" "Emacs IT stuff" entry (file+headline "~/Documents/mydocs/notes/tech-notes/ag-it.org" "EMACS")
+		 "** TODO %?\n %i\n")))
 
 ;; ----
 ;; gcal
