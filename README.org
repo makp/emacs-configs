@@ -1,3 +1,3 @@
-#+TITLE: emacs-config
+#+TITLE: Custom config for Emacs
 
-My emacs dotfiles.
+It contains a few customizations aimed to facilitate writing text in Emacs, especially Org- and AUCTeX-modes. Most of the custom keybindings rely on Evil mode.
