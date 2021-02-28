@@ -36,6 +36,7 @@
   (kbd "<leader>bn") 'bury-buffer
   (kbd "<leader>bc") 'kill-current-buffer
   (kbd "<leader>bC") 'kill-buffer-and-window
+  (kbd "<leader>bq") 'save-buffers-kill-emacs
   
   ;; search
   (kbd "<leader>so") 'helm-occur
