@@ -58,9 +58,9 @@
   (kbd "<leader>gs") 'magit-status
   (kbd "<leader>gf") 'mk/fetch
   (kbd "<leader>gb") 'magit-diff-buffer-file
-  (kbd "<leader>pg") 'mk/grep-project
 
   ;; project
+  (kbd "<leader>pg") 'mk/grep-project
   (kbd "<leader>pb") 'mk/browse-project-buffers
   (kbd "<leader>pf") 'mk/select-project-and-find-files
   (kbd "<leader>ph") 'helm-browse-project-history

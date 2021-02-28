@@ -1,56 +1,22 @@
-;;; mk_orgmode-setup.el --- config for org mode
+;;; mk_orgmode-setup.el --- Custom config for org-mode -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 
 
-;; ==================
-;; Custom keybindings
-;; ==================
-;; (with-eval-after-load 'org
-;;   (define-key org-mode-map (kbd "C-,") nil) ;was org-cycle-agenda-files
-
-;;   ;; for promoting and demoting headings
-;;   ;; (define-key org-mode-map (kbd "C-S-n") 'org-metaright)
-;;   ;; (define-key org-mode-map (kbd "C-S-t") 'org-metaleft)
-  
-;;   ;; (define-key org-mode-map (kbd "M-T") 'org-metadown)
-;;   ;; (define-key org-mode-map (kbd "M-N") 'org-metaup)
-
-;;   ;; demoting and demoting a heading and its subtrees
-;;   ;; (define-key org-mode-map (kbd "M-B") 'org-shiftmetaleft)
-;;   ;; (define-key org-mode-map (kbd "M-F") 'org-shiftmetaright)
-;;   ;; (define-key org-mode-map (kbd "C-S-t") 'org-shiftup)
-
-;;   (define-key org-mode-map (kbd "C-c p") nil)  ; it was orgtbl-ascii-plot
-  
-;;   (define-key org-mode-map (kbd "C-c t") 'org-shifttab)
-;;   (define-key org-mode-map (kbd "C-c SPC") nil)
-;;   (define-key org-mode-map (kbd "M-h") nil)
-
-;;   (define-key org-mode-map (kbd "C-x p") nil)
-
-;;   (define-key org-mode-map (kbd "C-c C-j") 'org-insert-todo-heading-respect-content))
-
-;; =====
-;; setqs
-;; =====
-(setq-default org-special-ctrl-a/e t)	       ; C-a/C-e behavior in headlines
-(setq-default org-goto-auto-isearch t)	       ;  org-goto
-(setq-default org-return-follows-link t)       ; follow links with RET
-(setq-default org-pretty-entities nil)	       ; Use UFT8 characters
-(setq-default org-special-ctrl-k t)
-;; Description:
-;; - When the cursor is at the beginning of a headline, kill the entire
-;;   line and possible the folded subtree below the line.
-;; - When in the middle of the headline text, kill the headline up to the tags.
-;; - When after the headline text, kill the tags.
-
-
-(setq org-fontify-quote-and-verse-blocks 1) ; add special face to #+begin_quote blocks
+;; ===============
+;; better defaults
+;; ===============
+(setq-default org-special-ctrl-a/e t	       ; C-a/C-e behavior in headlines
+	      org-goto-auto-isearch t	       ; org-goto
+	      org-return-follows-link t       ; follow links with RET
+	      org-pretty-entities nil	       ; UFT8 characters
+	      org-special-ctrl-k t
+	      org-fontify-quote-and-verse-blocks 1 ; add special face to #+begin_quote blocks
+	      org-imenu-depth 6)
 
 
 ;; ========
@@ -63,11 +29,6 @@
 (add-hook 'org-mode-hook (lambda ()
 			   (setq line-spacing 1)
 			   (visual-fill-column-mode)))
-
-;; =====
-;; imenu
-;; =====
-(setq org-imenu-depth 6)
 
 ;; =========
 ;; refilling
@@ -652,6 +613,7 @@ wastetime.org."
       (kill-buffer "clocktable.org-Yesterday-1"))))
 
 (global-set-key (kbd "\e\e m") 'chama-clock-table)
+
 
 (provide 'mk_orgmode-setup)
 ;;; mk_orgmode-setup.el ends here

@@ -12,14 +12,14 @@
 
 ;; Interpreter setup
 ;; NOTE: You will need to install jupyter-console with pip
-(setq python-shell-interpreter "jupyter"
-      python-shell-interpreter-args "console --simple-prompt"
-      python-shell-prompt-detect-failure-warning nil)
+(setq-default python-shell-interpreter "jupyter"
+	      python-shell-interpreter-args "console --simple-prompt"
+	      python-shell-prompt-detect-failure-warning nil)
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
 
 ;; default dir with python shells (project-root is the default value)
-(setq elpy-shell-starting-directory 'current-directory)
+(setq-default elpy-shell-starting-directory 'current-directory)
 
 
 ;; Enable font locking of inputs to python shell

@@ -10,14 +10,9 @@
 
 ;;; helm setup
 
-;; (require 'helm-config)
-;; (require 'helm-match-plugin)
-;;; These two lines seem unecessary since I'm using MELPA.
-
 (helm-mode 1)
 (helm-adaptive-mode 1)
 (helm-autoresize-mode 1)
-
 
 ;; =========
 ;; Helm vars

@@ -1,8 +1,8 @@
-;;; init.el --- Initialization file
+;;; init.el --- Custom init -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
-;; 
+;;
 
 ;;; Code:
 
@@ -59,4 +59,6 @@
   (require 'mk_ibuffer-setup))
 
 
-;; Custom set vars below this line
+(provide 'init)
+
+;;; init.el ends here
