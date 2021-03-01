@@ -74,10 +74,5 @@
   (kbd "<leader>oc") 'org-capture
   )
 
-;; ----
-;; edit
-;; ----
-;; mk/unfill-paragraph
-
 (provide 'mk_leader-keybindings)
 ;;; mk_leader-keybindings.el ends here

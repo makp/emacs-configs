@@ -26,20 +26,10 @@
 (require 'mk_registers)
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
-(require 'mk_misc-functions)
 (require 'mk_mode-line)
 (require 'mk_company)
 (require 'mk_yasnippet-setup)
 (require 'mk_eww)
-
-;; =====
-;; extra
-;; =====
-(global-set-key (kbd "<f5>")
-		'(lambda ()
-		   (interactive)
-		   (require 'mk_keyfreq)
-		   (pdf-tools-install)))
 
 ;; =================
 ;; eval-after-load's
@@ -58,6 +48,15 @@
   (require 'mk_python))
 (with-eval-after-load 'web-mode
   (require 'mk_web-devel))
+
+;; =====
+;; extra
+;; =====
+(global-set-key (kbd "<f5>")
+		'(lambda ()
+		   (interactive)
+		   (require 'mk_keyfreq)
+		   (pdf-tools-install)))
 
 (provide 'init)
 

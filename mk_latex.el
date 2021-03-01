@@ -282,8 +282,6 @@ shown, then it'll be hidden."
 ;; ===========
 (autoload 'helm-bibtex "helm-bibtex" "" t)
 
-(global-set-key (kbd "C-c r") 'helm-bibtex)
-
 (with-eval-after-load 'helm-bibtex
   (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
   (helm-add-action-to-source "Insert citation" 'helm-bibtex-insert-citation helm-source-bibtex 0))

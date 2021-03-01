@@ -65,6 +65,8 @@
 
 ;;   (define-key org-mode-map (kbd "C-c C-j") 'org-insert-todo-heading-respect-content))
 
+;; FIXME: I should probably enforce this keybinding for tex and org files only
+(global-set-key (kbd "C-c r") 'helm-bibtex)
 
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here

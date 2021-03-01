@@ -12,10 +12,12 @@
 ;; ===============
 (setq-default org-special-ctrl-a/e t	       ; C-a/C-e behavior in headlines
 	      org-goto-auto-isearch t	       ; org-goto
-	      org-return-follows-link t       ; follow links with RET
+	      org-return-follows-link t	       ; follow links with RET
 	      org-pretty-entities nil	       ; UFT8 characters
 	      org-special-ctrl-k t
 	      org-fontify-quote-and-verse-blocks 1 ; add special face to #+begin_quote blocks
+	      org-enforce-todo-dependencies t
+	      ;; org-use-speed-commands t
 	      org-imenu-depth 6)
 
 
@@ -55,15 +57,13 @@
 ;; ========
 ;; clocking
 ;; ========
-(org-clock-persistence-insinuate)
-;; Save the clock history across Emacs sessions.
+(org-clock-persistence-insinuate) ;; save the clock history across Emacs sessions
 
-(setq org-clock-persist t
-      org-clock-out-remove-zero-time-clocks t ;; Remove clock entries with a zero duration
-      org-clock-mode-line-total 'all)
-
-(setq org-clock-clocked-in-display 'frame-title)
-(setq org-timer-display 'mode-line)
+(setq-default org-clock-persist t
+	      org-clock-out-remove-zero-time-clocks t ;; Remove clock entries with a zero duration
+	      org-clock-mode-line-total 'all
+	      org-clock-clocked-in-display 'frame-title
+	      org-timer-display 'mode-line)
 
 ;; =================
 ;; Structure editing
@@ -72,23 +72,10 @@
 (setq org-adapt-indentation nil)
 
 
-;; ----------
-;; speed keys
-;; ----------
-(setq org-use-speed-commands t)
-
-;;; org-speed-commands-user
-
 ;; -------
 ;; drawers
 ;; -------
 ;; (setq org-drawers '("NOTES" "PROPERTIES" "CLOCK" "LOGBOOK" "REFERENCES" "EMAIL" "PROGRESS"))
-
-;; -------
-;; org ids
-;; -------
-;; (require 'org-id)
-;; (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id)
 
 ;; ==========
 ;; hyperlinks
@@ -139,14 +126,6 @@
 	("FIXME" . "tomato2")
 	("BUG" . "firebrick1")
 	("LEARN" . "Orangered1")))
-
-;; -----------------
-;; todo dependencies
-;; -----------------
-
-(setq org-enforce-todo-dependencies t)
-;; Description: undone TODO entries will block switching the parent to
-;; DONE.
 
 ;; ====
 ;; tags
