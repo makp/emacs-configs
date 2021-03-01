@@ -44,6 +44,7 @@
 		      evil
 		      evil-surround
 		      evil-commentary
+		      evil-matchit
 		      flycheck
 		      helm
 		      helm-bibtex

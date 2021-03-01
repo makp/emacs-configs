@@ -27,6 +27,7 @@
 ;; evil plugins
 (global-evil-surround-mode 1)
 (evil-commentary-mode)
+(global-evil-matchit-mode 1)
 
 (provide 'mk_evil)
 
