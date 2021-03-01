@@ -120,6 +120,13 @@
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 (setq-default nov-text-width 80)
 
+
+;; ===
+;; web
+;; ===
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+
 ;; ===========
 ;; Indentation
 ;; ===========
