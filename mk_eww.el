@@ -1,15 +1,23 @@
+;;; mk_eww.el --- Custom config for EWW -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;;
+
+;;; Code:
+
 ;; =============
 ;; Search engine
 ;; =============
-;; This code is from  https://gist.github.com/brenns10/69d39f6c46170093f73d
+;; This code below is adapted from  https://gist.github.com/brenns10/69d39f6c46170093f73d
 
-(setq search-engines
-      '((("google" "g") "https://google.com/search?q=%s")
-	(("duckduckgo" "d" "ddg") "https://duckduckgo.com/lite/?q=%s") ;"https://duckduckgo.com/?q=%s"
-	(("sep" "s") "http://plato.stanford.edu/search/searcher.py?query=%s")
-	(("free-dic" "f") "http://www.thefreedictionary.com/%s")))
+(defvar search-engines
+  '((("google" "g") "https://google.com/search?q=%s")
+    (("duckduckgo" "d" "ddg") "https://duckduckgo.com/lite/?q=%s") ;"https://duckduckgo.com/?q=%s"
+    (("sep" "s") "http://plato.stanford.edu/search/searcher.py?query=%s")
+    (("free-dic" "f") "http://www.thefreedictionary.com/%s")))
 
-(setq search-engine-default "duckduckgo")
+(defvar search-engine-default "duckduckgo")
 
 (defun search-get-engine (engine-name engine-list)
   (cond
@@ -28,12 +36,13 @@
 (defun search-web (term)
   "Search the web using `search-engine-default' or a specified engine from `search-engine'."
   (interactive "MQuery: ")
-  (let ((idx (position ?: term)))
+  (let ((idx (cl-position ?: term)))
     (if (equal idx nil)
         (search-engine search-engine-default term)
-      (search-engine (subseq term 0 idx)
-                     (subseq term (+ 1 idx))))))
+      (search-engine (cl-subseq term 0 idx)
+                     (cl-subseq term (+ 1 idx))))))
 
 (global-set-key (kbd "C-c w") 'search-web)
 
 (provide 'mk_eww)
+;;; mk_eww.el ends here
