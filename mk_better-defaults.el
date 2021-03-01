@@ -69,7 +69,7 @@
 ;; parenthesis
 ;; ===========
 (show-paren-mode 1)
-(electric-pair-mode 1) 			;pair parens automatically
+(electric-pair-mode 0) 			;pair parens automatically
 (setq-default
  show-paren-delay 0	  		;disactivate delay when matching parentheses
  show-paren-style 'parenthesis)
