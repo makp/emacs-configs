@@ -1,14 +1,16 @@
 ;;; mk_python.el --- Custom config for python mode
 
 ;;; Commentary:
-
+;; Run `elpy-config' for a summary of my config.
 ;; TODO: look into a pkg for automatic code formatting -- possibly blacken.
 
 ;;; Code:
 
-
 ;; Enable elpy-mode
 (elpy-enable)
+
+;; Elpy virtualenv
+(setq-default elpy-rpc-virtualenv-path "/home/makmiller/.local/")
 
 ;; python shell
 ;; NOTE: You will need to install jupyter-console with pip
