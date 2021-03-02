@@ -21,29 +21,16 @@
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)
 
-;; dired-x
-(require 'dired-x)
+;; (require 'dired-x)	;dired-jump seems to be defined in dired-x
 
-(defun mk/dired-jump (&optional arg)
-  "With ARG dired-jump in another window."
-  (interactive "P")
-  (if (consp arg)
-      (dired-jump-other-window)
-    (dired-jump)))
-
-(global-set-key (kbd "C-x C-j") 'mk/dired-jump)
-;; I need this line because dired-x contains a definition of C-x C-j.
-
-
-;; Does this work?
-(defun dired-w3m-find-file ()
-  "Browse file with Emacs-w3m."
-  (interactive)
-  (require'w3m)
-  (let ((file (dired-get-filename)))
-    (if (y-or-n-p (format "Use emacs-w3m to browse %s? "
-			  (file-name-nondirectory file)))
-	(w3m-find-file file))))
+;; (defun dired-w3m-find-file ()
+;;   "Browse file with Emacs-w3m."
+;;   (interactive)
+;;   (require'w3m)
+;;   (let ((file (dired-get-filename)))
+;;     (if (y-or-n-p (format "Use emacs-w3m to browse %s? "
+;; 			  (file-name-nondirectory file)))
+;; 	(w3m-find-file file))))
 
 ;; show directories first
 ;; (defun mydired-sort ()
