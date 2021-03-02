@@ -12,7 +12,7 @@
 
 (helm-mode 1)
 (helm-adaptive-mode 1)
-(helm-autoresize-mode 1)
+;; (helm-autoresize-mode 1)
 
 ;; =========
 ;; Helm vars
