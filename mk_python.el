@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 
-;; TODO: look into a pkg for automatic code formatting -- possibly blacken; ein -- nb within Emacs.
+;; TODO: look into a pkg for automatic code formatting -- possibly blacken.
 
 ;;; Code:
 
@@ -10,7 +10,7 @@
 ;; Enable elpy-mode
 (elpy-enable)
 
-;; Interpreter setup
+;; python shell
 ;; NOTE: You will need to install jupyter-console with pip
 (setq-default python-shell-interpreter "jupyter"
 	      python-shell-interpreter-args "console --simple-prompt"
@@ -20,7 +20,6 @@
 
 ;; default dir with python shells (project-root is the default value)
 (setq-default elpy-shell-starting-directory 'current-directory)
-
 
 ;; Enable font locking of inputs to python shell
 ;; From https://elpy.readthedocs.io/en/latest/customization_tips.html#enable-full-font-locking-of-inputs-in-the-python-shell

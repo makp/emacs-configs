@@ -9,12 +9,10 @@
 ;;; Code:
 
 
-;; Shorten mode name
 (add-hook 'emacs-lisp-mode-hook
           (lambda()
             (setq mode-name "El")
-	    (highlight-parentheses-mode t)
-	    (setq truncate-lines 1)))
+	    ))
 
 
 

@@ -76,7 +76,6 @@
 ;; parenthesis
 ;; ===========
 (show-paren-mode 1)
-(electric-pair-mode 0) 			;pair parens automatically
 (setq-default
  show-paren-delay 0	  		;disactivate delay when matching parentheses
  show-paren-style 'parenthesis)
@@ -136,6 +135,15 @@
 ;; ===========
 (global-aggressive-indent-mode 1)
 ;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+
+;; ============
+;; prog buffers
+;; ============
+(add-hook 'prog-mode-hook
+	  (lambda ()
+	    (electric-pair-local-mode 1)
+	    (highlight-parentheses-mode 1)
+	    (setq truncate-lines 1)))
 
 ;; ============
 ;; text buffers
