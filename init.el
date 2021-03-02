@@ -29,7 +29,7 @@
 (require 'mk_mode-line)
 (require 'mk_company)
 (require 'mk_yasnippet-setup)
-(require 'mk_eww)
+
 
 ;; =================
 ;; eval-after-load's
@@ -49,6 +49,14 @@
 (with-eval-after-load 'web-mode
   (require 'mk_web-devel))
 
+
+;; =========
+;; autoloads
+;; =========
+(autoload 'mk/search-web "mk_eww-search-engine"
+  "Select a search engine before running EWW." t)
+
+
 ;; =====
 ;; extra
 ;; =====
@@ -58,6 +66,6 @@
 		   (require 'mk_keyfreq)
 		   (pdf-tools-install)))
 
-(provide 'init)
 
+(provide 'init)
 ;;; init.el ends here

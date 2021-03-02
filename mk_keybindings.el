@@ -68,5 +68,8 @@
 ;; FIXME: I should probably enforce this keybinding for tex and org files only
 (global-set-key (kbd "C-c r") 'helm-bibtex)
 
+;; EWW
+(global-set-key (kbd "C-c w") 'mk/search-web)
+
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here

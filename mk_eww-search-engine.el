@@ -1,15 +1,13 @@
-;;; mk_eww.el --- Custom config for EWW -*- lexical-binding: t -*-
+;;; mk_eww-search-engine.el --- Custom config for EWW -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
-;;
+;; Add costom search engines to EWW.
+;; This code is adapted from https://gist.github.com/brenns10/69d39f6c46170093f73d
 
 ;;; Code:
 
-;; =============
-;; Search engine
-;; =============
-;; This code below is adapted from  https://gist.github.com/brenns10/69d39f6c46170093f73d
+(require 'cl-lib)
 
 (defvar search-engines
   '((("google" "g") "https://google.com/search?q=%s")
@@ -33,7 +31,7 @@
         (message "Error: search engine \"%s\" unknown." engine-name)
       (eww (format url (url-hexify-string term))))))
 
-(defun search-web (term)
+(defun mk/search-web (term)
   "Search the web using `search-engine-default' or a specified engine from `search-engine'."
   (interactive "MQuery: ")
   (let ((idx (cl-position ?: term)))
@@ -42,7 +40,5 @@
       (search-engine (cl-subseq term 0 idx)
                      (cl-subseq term (+ 1 idx))))))
 
-(global-set-key (kbd "C-c w") 'search-web)
-
-(provide 'mk_eww)
-;;; mk_eww.el ends here
+(provide 'mk_eww-search-engine)
+;;; mk_eww-search-engine.el ends here
