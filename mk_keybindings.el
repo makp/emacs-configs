@@ -15,6 +15,9 @@
 ;; (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
 ;; (global-set-key (kbd "C-\\") 'eval-region)
 
+;; C-h as backspace
+(define-key key-translation-map [?\C-h] [?\C-?])
+
 ;; ------
 ;; winner
 ;; ------

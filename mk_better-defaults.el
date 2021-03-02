@@ -76,10 +76,8 @@
 ;; The var 'show-paren-style' controls what gets highlighted. Possible
 ;; values: parenthesis, expression, and mixed
 
-
 ;; Enable the minor mode highlight-parentheses on all
 ;; buffers (from EmacsWiki):
-
 ;; (define-globalized-minor-mode global-highlight-parentheses-mode
 ;;   highlight-parentheses-mode
 ;;   (lambda ()
@@ -120,7 +118,6 @@
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 (setq-default nov-text-width 80)
 
-
 ;; ===
 ;; web
 ;; ===
@@ -133,7 +130,6 @@
 (global-aggressive-indent-mode 1)
 ;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
-
 ;; ============
 ;; text buffers
 ;; ============
@@ -144,12 +140,9 @@
 
 (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
-;; Garbage collection
+;; garbage collection
 (setq gc-cons-threshold 100000000) 	; in bytes
-;; The default amount was 800KB. If you specify a larger value,
-;; garbage collection will happen less often. This reduces the amount
-;; of time spent garbage collecting, but increases total memory use.
-;; References:
+;; The default amount was 800KB. References on garbage collection:
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
@@ -183,31 +176,6 @@
 ;; (setq doc-view-image-width 1250)
 ;;; (setq doc-view-cache-directory "/tmp/docview1000")
 
-;; Multiple async processes
-;; (defadvice shell-command (after shell-in-new-buffer (command &optional output-buffer error-buffer))
-;;   (when (get-buffer "*Async Shell Command*")
-;;     (with-current-buffer "*Async Shell Command*"
-;;       (rename-uniquely))))
-;; (ad-activate 'shell-command)
-
-;; What is exactly the difference between set-face-attribute and
-;; modify-face?
-
-;; (setq emerge-diff-options "--ignore-all-space")
-;; Emerge doesn't care about differences in whitespace
-
-;; (defun mk/open-line-below ()
-;;   (interactive)
-;;   (end-of-line)
-;;   (newline)
-;;   (indent-for-tab-command))
-
-;; (defun deleta-os-outros ()
-;;   (interactive)
-;;   (mapcar #'delete-frame (cdr (frame-list))))
-;; Description: to delete all other frames when you're not on X -- for
-;; C-x 5 1 only works if you are in X.
-
 ;; =====
 ;; ediff
 ;; =====
@@ -215,81 +183,37 @@
 ;;; list-colors-display sorted by hue
 ;; (setq list-colors-sort 'hsv)
 
-;;; improved version of delete-blank-lines
-;; (defun better-delete-lines (&optional arg)
-;;   "Better `delete-blank-lines'."
-;;   (interactive "P")
-;;   (if (not (consp arg))
-;;       (delete-blank-lines)
-;;     (delete-blank-lines)
-;;     (kill-visual-line)
-;;     (when (not (bolp))
-;;       (just-one-space)
-;;       (fill-paragraph))))
+;; (setq emerge-diff-options "--ignore-all-space")
+;; Emerge doesn't care about differences in whitespace
+
 
 ;; ====
 ;; Tags
 ;; ====
-;; (setq tags-table-list
-;;       '("/home/makmiller/elisp/agendas"))
-;; Look at the TAGS files in these directories.
-;; I don't need to set this up if I'm using helm for selecting tags
+;; tags-table-list
+;; Look at the TAGS files in these directories
 
-;; ===
-;; gpg
-;; ===
-;; (require 'epa-file)
-;; (epa-file-enable)
 
-;; ;; ===========
-;; ;; lock screen
-;; ;; ===========
+;; ===========
+;; lock screen
+;; ===========
 ;; (defun mk-lock-screen ()
 ;;   (interactive)
 ;;   (async-shell-command "sudo openvt -sw -- vlock -a"))
 
-;; (global-set-key (kbd "\e\el") 
-;; 		(lambda ()
-;; 		  (interactive)
-;; 		  (mk-lock-screen)
-;; 		  (winner-undo)))
 
-;; =========
-;; join-line
-;; =========
-;; (defun top-join-line ()
-;;   "Join the current line with the line beneath it."
-;;   (interactive)
-;;   (delete-indentation 1))
-
-;; (global-set-key (kbd "M-^") 'top-join-line)
-;; (global-set-key (kbd "C-^") 'delete-indentation)
-
-;; ===========
-;;  split-line
-;; ===========
-;; (global-set-key  'split-line)
-;; (global-set-key  'open-line)
-
-
-
-;; ------
-;; Abbrev
-;; ------
+;; ======
+;; abbrev
+;; ======
 ;; (setq abbrev-file-name
 ;;       "~/elisp/cache/abbrev-defs")
 
-;; Description: abbrev file
-
 ;; (setq save-abbrevs t)
-;; Description: save abbrevs when files are saved you will be asked
+;; Save abbrevs when files are saved you will be asked
 ;; before the abbreviations are saved
 
-;; (quietly-read-abbrev-file)
-;; Description: reads the abbreviations file on startup
+;; (quietly-read-abbrev-file) ;; Reads the abbreviations file on startup
 
-;; C-h as backspace
-(define-key key-translation-map [?\C-h] [?\C-?])
 
 ;; =====================
 ;; Common Lisp emulation
