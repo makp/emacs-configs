@@ -73,6 +73,7 @@
 
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)
+(define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here
