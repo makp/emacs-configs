@@ -28,37 +28,21 @@
 		("nb" . "mathematica")
 		("wl" . "mathematica"))
 	      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
-	      helm-input-idle-delay 0.01
-	      ;; be idle for this many seconds, before updating. Safe value is
-	      ;; always >= `helm-idle-delay'.
-	      helm-idle-delay 0.01
-	      ;; helm-delete-minibuffer-contents-from-point t
 	      helm-move-to-line-cycle-in-source nil
-	      helm-locate-command "locate %s -e -A --regex %s"
-
-	      helm-follow-mode-persistent t
-	      helm-ff-auto-update-initial-value nil
+	      ;; helm-follow-mode-persistent t
+	      ;; helm-ff-auto-update-initial-value nil
 	      helm-ff-transformer-show-only-basename t
-
-	      ;; helm-mode-fuzzy-match t
-	      ;; helm-completion-in-region-fuzzy-match t
-
-	      ;; helm-buffers-fuzzy-matching t
-	      ;; helm-lisp-fuzzy-completion t
-	      helm-locate-fuzzy-match t
-	      helm-M-x-fuzzy-match t
-	      helm-imenu-fuzzy-match t
-	      helm-apropos-fuzzy-match t
-
 	      helm-candidate-number-limit 100
-	      helm-autoresize-max-height 25
+	      ;; helm-autoresize-max-height 25
 
-	      helm-ff-skip-boring-files t
-	      helm-boring-file-regexp-list (append helm-boring-file-regexp-list '("_region_.*" "\\.git$"))
+	      ;; helm-completion-style 'helm-fuzzy
+
 	      helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(LaTeX-mode))
+	      helm-ff-skip-boring-files t
 	      helm-boring-buffer-regexp-list
 	      (append helm-boring-buffer-regexp-list
-		      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*")))
+		      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*" "\\.git$")))
+
 
 ;; ===========
 ;; Global maps

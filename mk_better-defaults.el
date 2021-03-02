@@ -55,6 +55,13 @@
 ;; TODO: Fix the func below for calling terminal
 ;; (autoload 'mk/eshell-popup "mk_eshell" t nil)
 
+;; ==========
+;; completion
+;; ==========
+;; (setq completion-styles '(flex))
+;; NOTE: flex completion didn't work well with company last time I tried (it gave me too many options).
+
+
 ;; ========
 ;; avy-mode
 ;; ========
