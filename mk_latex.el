@@ -37,15 +37,15 @@
 ;; --------------
 ;; better C-a/C-e
 ;; --------------
-(add-hook 'LaTeX-mode-hook
-	  (lambda ()
-	    ;; (define-key LaTeX-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)
-	    (define-key LaTeX-mode-map (kbd "C-c g") 'pdf-sync-forward-search)
-	    (define-key LaTeX-mode-map (kbd "C-x n") nil)))
+;; (add-hook 'LaTeX-mode-hook
+;; 	  (lambda ()
+;; 	    ;; (define-key LaTeX-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)
+;; 	    (define-key LaTeX-mode-map (kbd "C-c g") 'pdf-sync-forward-search)
+;; 	    (define-key LaTeX-mode-map (kbd "C-x n") nil)))
 
-(add-hook 'bibtex-mode-hook
-	  (lambda ()
-	    (define-key bibtex-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)))
+;; (add-hook 'bibtex-mode-hook
+;; 	  (lambda ()
+;; 	    (define-key bibtex-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)))
 
 ;; -------
 ;; outline
@@ -99,12 +99,12 @@ shown, then it'll be hidden."
 ;; ==========
 ;; appearance
 ;; ==========
-(add-hook 'LaTeX-mode-hook
-	  (lambda ()
-	    (hl-todo-mode)
-	    (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
-	    (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
-	    (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur)))
+;; (add-hook 'LaTeX-mode-hook
+;; 	  (lambda ()
+;; 	    (hl-todo-mode)
+;; 	    (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
+;; 	    (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
+;; 	    (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur)))
 
 ;; (setq LaTeX-paragraph-commands '("environment"))
 
@@ -262,11 +262,7 @@ shown, then it'll be hidden."
 ;; works.
 ;; (setq reftex-bibliography-commands '("bibliography" "nobibliography" "addbibresource"))
 
-(add-hook 'reftex-mode-hook
-	  (lambda ()
-	    ;; (define-key reftex-mode-map (kbd "C-c r") 'reftex-citation)
-	    (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-	    (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)))
+
 
 (defun my-reftex-toc ()
   "Reloads toc."

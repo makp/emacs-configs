@@ -44,36 +44,29 @@
 
 ;; org-mode
 ;; (with-eval-after-load 'org
-;;   (define-key org-mode-map (kbd "C-,") nil) ;was org-cycle-agenda-files
+;; (define-key org-mode-map (kbd "") 'org-metaright)
+;; (define-key org-mode-map (kbd "") 'org-metaleft)
+;; (define-key org-mode-map (kbd "") 'org-metadown)
+;; (define-key org-mode-map (kbd "") 'org-metaup)
+;; (define-key org-mode-map (kbd "") 'org-shiftmetaleft)
+;; (define-key org-mode-map (kbd "") 'org-shiftmetaright)
+;; (define-key org-mode-map (kbd "") 'org-shiftup)
+;; (define-key org-mode-map (kbd "") 'org-shifttab)
+;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
 
-;;   ;; for promoting and demoting headings
-;;   ;; (define-key org-mode-map (kbd "C-S-n") 'org-metaright)
-;;   ;; (define-key org-mode-map (kbd "C-S-t") 'org-metaleft)
-
-;;   ;; (define-key org-mode-map (kbd "M-T") 'org-metadown)
-;;   ;; (define-key org-mode-map (kbd "M-N") 'org-metaup)
-
-;;   ;; demoting and demoting a heading and its subtrees
-;;   ;; (define-key org-mode-map (kbd "M-B") 'org-shiftmetaleft)
-;;   ;; (define-key org-mode-map (kbd "M-F") 'org-shiftmetaright)
-;;   ;; (define-key org-mode-map (kbd "C-S-t") 'org-shiftup)
-
-;;   (define-key org-mode-map (kbd "C-c p") nil)  ; it was orgtbl-ascii-plot
-
-;;   (define-key org-mode-map (kbd "C-c t") 'org-shifttab)
-;;   (define-key org-mode-map (kbd "C-c SPC") nil)
-;;   (define-key org-mode-map (kbd "M-h") nil)
-
-;;   (define-key org-mode-map (kbd "C-x p") nil)
-
-;;   (define-key org-mode-map (kbd "C-c C-j") 'org-insert-todo-heading-respect-content))
-
-;; FIXME: I should probably enforce this keybinding for tex and org files only
-(global-set-key (kbd "C-c r") 'helm-bibtex)
+;; latex
+(with-eval-after-load 'reftex
+  (define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
+  (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
+  (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
 
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)
-(define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
+
+(with-eval-after-load 'eww
+  (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
+  )
+
 
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here
