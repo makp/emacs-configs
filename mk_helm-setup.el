@@ -26,7 +26,7 @@
 		("svg" . "inkscape")
 		("mp4" . "mplayer")
 		("nb" . "mathematica")
-		("wl" . "mathematica"))
+		("wl" . "eclipse"))
 	      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
 	      helm-move-to-line-cycle-in-source nil
 	      ;; helm-follow-mode-persistent t
