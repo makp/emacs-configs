@@ -30,6 +30,7 @@
   ;; buffer
   (kbd "<leader>bl") 'ibuffer
   (kbd "<leader>bb") 'helm-mini
+  (kbd "<leader>bB") 'previous-buffer
   (kbd "<leader>bn") 'bury-buffer
   (kbd "<leader>bc") 'kill-current-buffer
   (kbd "<leader>bC") 'kill-buffer-and-window

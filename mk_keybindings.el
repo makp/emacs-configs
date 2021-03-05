@@ -9,10 +9,9 @@
 (defvar mk/states '(normal motion))
 
 ;; Add extra key for universal argument bc of Evil mode
-(global-set-key (kbd "M-u") 'universal-argument)
+;; (global-set-key (kbd "M-u") 'universal-argument)
 ;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
 
-;; (global-set-key (kbd "C-x r q") 'save-buffers-kill-emacs)
 ;; (global-set-key (kbd "C-\\") 'eval-region)
 
 ;; C-h as backspace
