@@ -50,13 +50,12 @@
 ;; -------
 ;; outline
 ;; -------
-
 (add-hook 'LaTeX-mode-hook
 	  (lambda () (outline-minor-mode 1)))
 
-(add-hook 'outline-minor-mode-hook
-	  (lambda () (local-set-key (kbd "C-S-c")
-				    outline-mode-prefix-map)))
+;; (add-hook 'outline-minor-mode-hook
+;; 	  (lambda () (local-set-key (kbd "C-S-c")
+;; 				    outline-mode-prefix-map)))
 
 (defmacro define-context-key (keymap key dispatch)
   "Define KEY in KEYMAP to execute according to DISPATCH.

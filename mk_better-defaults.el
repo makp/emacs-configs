@@ -72,6 +72,11 @@
 			      (number-sequence ?1 ?9)
 			      '(?0)))
 
+;; ==============================
+;; highlight keywords in comments
+;; ==============================
+(global-hl-todo-mode 1)
+
 ;; ===========
 ;; parenthesis
 ;; ===========
