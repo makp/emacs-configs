@@ -59,6 +59,12 @@
   (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
   (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
 
+(with-eval-after-load 'latex
+  (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
+  (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-heading)
+  )
+
+
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)
 
