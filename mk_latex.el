@@ -57,43 +57,6 @@
 ;; 	  (lambda () (local-set-key (kbd "C-S-c")
 ;; 				    outline-mode-prefix-map)))
 
-(defmacro define-context-key (keymap key dispatch)
-  "Define KEY in KEYMAP to execute according to DISPATCH.
-
-DISPATCH is a form that is evaluated and should return the
-command to be executed.
-
-If DISPATCH returns nil, then the command normally bound to KEY
-will be executed.
-
-Example:
-
-  (define-context-key hs-minor-mode-map
-     (kbd \"<C-tab>\")
-     (cond
-      ((not (hs-already-hidden-p))
-       'hs-hide-block)
-      ((hs-already-hidden-p)
-       'hs-show-block)))
-
-This will make <C-tab> show a hidden block.  If the block is
-shown, then it'll be hidden."
-  `(define-key ,keymap ,key
-     `(menu-item "context-key" ignore
-		 :filter ,(lambda (&optional ignored)
-			    ,dispatch))))
-
-(defun th-outline-context-p ()
-  "Non-nil if `point' is on an outline-heading."
-  (save-excursion
-    (goto-char (line-beginning-position))
-    (looking-at outline-regexp)))
-
-(define-context-key outline-minor-mode-map
-  (kbd "TAB")
-  (when (th-outline-context-p)
-    'org-cycle))
-
 
 ;; ==========
 ;; appearance
