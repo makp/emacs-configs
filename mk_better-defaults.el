@@ -160,6 +160,9 @@
 
 (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
+;; ====
+;; misc
+;; ====
 ;; garbage collection
 (setq gc-cons-threshold 100000000) 	; in bytes
 ;; The default amount was 800KB. References on garbage collection:
@@ -187,6 +190,7 @@
 (pending-delete-mode -1)
 ;; (mouse-avoidance-mode 'cat-and-mouse)
 
+(put 'narrow-to-region 'disabled nil)
 
 ;; ========
 ;; doc-view
