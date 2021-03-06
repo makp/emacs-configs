@@ -5,8 +5,8 @@
 ;;
 
 ;;; Code:
-(autoload 'wolfram-mode "wolfram-mode" nil t)
-(autoload 'run-wolfram "wolfram-mode" nil t)
+;; (autoload 'wolfram-mode "wolfram-mode" nil t)
+;; (autoload 'run-wolfram "wolfram-mode" nil t)
 (setq-default wolfram-program "WolframKernel")
 (setq-default wolfram-path "~/.Mathematica/Applications")
 
