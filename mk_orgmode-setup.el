@@ -31,28 +31,11 @@
 ;; =========
 ;; refilling
 ;; =========
-(setq org-refile-targets
-      '((org-agenda-files . (:maxlevel . 3)))
-      org-outline-path-complete-in-steps nil
-      org-refile-use-outline-path t
-      org-refile-allow-creating-parent-nodes 'confirm)
-
-;; (setq org-export-with-sub-superscripts "{}")
-;;; Description: the braces are *required* in order to trigger
-;;; interpretations as sub/superscript.
-
-(setq org-export-with-toc nil
-      org-export-with-section-numbers nil
-      org-export-initial-scope 'subtree)
-
-;; ===============
-;; latex exporting
-;; ===============
-(setq org-latex-pdf-process (list "latexmk %s"))
-
-(setq org-export-with-LaTeX-fragments 'dvipng)
-;;; All LaTeX fragments are converted into images and inlined into the
-;;; document
+(setq-default org-refile-targets
+	      '((org-agenda-files . (:maxlevel . 3)))
+	      org-outline-path-complete-in-steps nil
+	      org-refile-use-outline-path t
+	      org-refile-allow-creating-parent-nodes 'confirm)
 
 ;; ========
 ;; clocking
@@ -60,7 +43,7 @@
 (org-clock-persistence-insinuate) ;; save the clock history across Emacs sessions
 
 (setq-default org-clock-persist t
-	      org-clock-out-remove-zero-time-clocks t ;; Remove clock entries with a zero duration
+	      org-clock-out-remove-zero-time-clocks t ;; remove clock entries with zero duration
 	      org-clock-mode-line-total 'all
 	      org-clock-clocked-in-display 'frame-title
 	      org-timer-display 'mode-line)
@@ -80,73 +63,70 @@
 ;; ==========
 ;; hyperlinks
 ;; ==========
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c C-S-l") 'org-insert-link-global)
-(global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
 
 ;; ------------------
-;; Link abbreviations
+;; link abbreviations
 ;; ------------------
 
-;;; Here is the syntax to use link abbreviations in org-mode:
+;;; link abbreviations syntax:
 ;;; [[linkword:tag][description]], where liknword must be a word
 
-(setq org-link-abbrev-alist
-      '(("gg" . "http://www.google.com/search?q=")
-	("gmap"	  . "http://maps.google.com/maps?q=%s")
-	("bib" . "~/Documents/mydocs/tex-configs/references/evol.bib::%s")))
+(setq-default org-link-abbrev-alist
+	      '(("gg" . "http://www.google.com/search?q=")
+		("gmap"	  . "http://maps.google.com/maps?q=%s")
+		("bib" . "~/Documents/mydocs/tex-configs/references/evol.bib::%s")))
 
 ;; ==========
-;; TODO items
+;; todo items
 ;; ==========
-;; -----------
-;; TODO states
-;; -----------
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-	(sequence "WRITE(w)" "REVISE(r)" "PROOF-READ(p)" "SUBMITTED(s)" "|" "DONE(d)")
-	(type "FIXME(f)" "BUG(b)" "LEARN(l)" "|" "FIXED(F)" "DONE(d)")))
+;; ---------------
+;; custom keywords
+;; ---------------
+(setq-default org-todo-keywords
+	      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+		(sequence "WRITE(w)" "REVISE(r)" "PROOF-READ(p)" "SUBMITTED(s)" "|" "DONE(d)")
+		(type "FIXME(f)" "BUG(b)" "LEARN(l)" "|" "FIXED(F)" "DONE(d)")))
 
-;; Description: "sequence" is used to indicate that the TODO items
+;; NOTE: "sequence" is used to indicate that the TODO items
 ;; form a sequence. In contrast, with "type" we simply have different
 ;; states without forming a sequence. The vertical bar separates the
-;; TODO keywords from the DONE state. 
+;; todo keywords from the done state.
 
 ;; -----
 ;; faces
 ;; -----
-(setq org-todo-keyword-faces
-      '(("TODO" . "green")
-	("NEXT" . "Palegreen3")
-	("PROOF-READ" . "yellow")
-	("WRITE" . "orange")
-	("REVISE" . "chocolate1")
-	("PROOF-READ" . "chocolate1")
-	("SUBMITTED" . "sienna2")
-	("FIXME" . "tomato2")
-	("BUG" . "firebrick1")
-	("LEARN" . "Orangered1")))
+(setq-default org-todo-keyword-faces
+	      '(("TODO" . "green")
+		("NEXT" . "Palegreen3")
+		("PROOF-READ" . "yellow")
+		("WRITE" . "orange")
+		("REVISE" . "chocolate1")
+		("PROOF-READ" . "chocolate1")
+		("SUBMITTED" . "sienna2")
+		("FIXME" . "tomato2")
+		("BUG" . "firebrick1")
+		("LEARN" . "Orangered1")))
 
 ;; ====
 ;; tags
 ;; ====
-;;; Tags are useful to filter your todo list.
-(setq org-tag-alist '(("PROJECT" . ?p)
-		      ("rep" . ?r)
-		      ("@lineup" . ?l)
-		      ("@WAITING" . ?w)
-		      ("@Today" . ?t)
-		      ("paper1" . ?1)
-		      ("paper2" . ?2)
-		      ("paper3" . ?3)
-		      ("paper4" . ?4)
-		      ("paper5" . ?5)
-		      ("paper6" . ?6)
-		      ("export". ?e)
-		      ("noexport" . ?n)))
+;;; custom tags
+(setq-default org-tag-alist '(("PROJECT" . ?p)
+			      ("rep" . ?r)
+			      ("@lineup" . ?l)
+			      ("@WAITING" . ?w)
+			      ("@Today" . ?t)
+			      ("paper1" . ?1)
+			      ("paper2" . ?2)
+			      ("paper3" . ?3)
+			      ("paper4" . ?4)
+			      ("paper5" . ?5)
+			      ("paper6" . ?6)
+			      ("export". ?e)
+			      ("noexport" . ?n)))
 
-(setq org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep"))
-;; These are the tags that I don't want to be inherited.
+;; don't inherit the following tags
+(setq-default org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep"))
 
 ;; =======
 ;; Agendas
@@ -265,6 +245,17 @@
 ;; =========
 ;; Exporting
 ;; =========
+;; (setq org-export-with-sub-superscripts "{}")
+;;; Description: the braces are *required* in order to trigger
+;;; interpretations as sub/superscript.
+
+(setq-default org-export-with-toc nil
+	      org-export-with-section-numbers nil
+	      org-export-initial-scope 'subtree)
+
+;; latex exporting
+(setq-default org-latex-pdf-process (list "latexmk %s")
+	      org-export-with-LaTeX-fragments 'dvipng) ;covert tex frags into imgs
 
 ;; -----
 ;; latex
@@ -312,12 +303,12 @@
 
 (autoload 'wolfram-mode "wolfram-mode" nil t)
 (autoload 'run-wolfram "wolfram-mode" nil t)
-(setq wolfram-program "WolframKernel")
+(setq-default wolfram-program "WolframKernel")
 (add-to-list 'auto-mode-alist '("\.wl$" . wolfram-mode))
-(setq wolfram-path "~/.Mathematica/Applications")
+(setq-default wolfram-path "~/.Mathematica/Applications")
 
 (add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
-(setq org-babel-mathematica-command "wolframscript -f")
+(setq-default org-babel-mathematica-command "wolframscript -f")
 
 
 

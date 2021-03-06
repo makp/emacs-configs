@@ -57,6 +57,11 @@
 ;; (define-key org-mode-map (kbd "") 'org-shifttab)
 ;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
 
+(global-set-key (kbd "C-c l") 'org-store-link)
+;; NOTE: This link needs to be global bc you can store links from non-org buffers
+;; (global-set-key (kbd "C-c C-S-l") 'org-insert-link-global)
+;; (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
+
 ;; latex
 (with-eval-after-load 'reftex
   (define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
