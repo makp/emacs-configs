@@ -48,7 +48,8 @@
   (require 'mk_python))
 (with-eval-after-load 'web-mode
   (require 'mk_web-devel))
-
+(with-eval-after-load 'wolfram-mode
+  (require 'mk_wolfram))
 
 ;; =========
 ;; autoloads

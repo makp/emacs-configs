@@ -136,6 +136,11 @@
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
 ;; ===========
+;; mathematica
+;; ===========
+(add-to-list 'auto-mode-alist '("\.wl$" . wolfram-mode))
+
+;; ===========
 ;; Indentation
 ;; ===========
 (global-aggressive-indent-mode 1)

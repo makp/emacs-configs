@@ -301,12 +301,6 @@
 (setq org-src-tab-acts-natively t)
 (setq org-confirm-babel-evaluate nil)
 
-(autoload 'wolfram-mode "wolfram-mode" nil t)
-(autoload 'run-wolfram "wolfram-mode" nil t)
-(setq-default wolfram-program "WolframKernel")
-(add-to-list 'auto-mode-alist '("\.wl$" . wolfram-mode))
-(setq-default wolfram-path "~/.Mathematica/Applications")
-
 (add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
 (setq-default org-babel-mathematica-command "wolframscript -f")
 
