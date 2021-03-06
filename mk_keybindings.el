@@ -44,23 +44,24 @@
 ;; org-mode
 (with-eval-after-load 'org
   (evil-define-key 'normal org-mode-map (kbd "zj") 'org-next-visible-heading)
-  (evil-define-key 'normal org-mode-map (kbd "zk") 'org-previous-visible-heading))
+  (evil-define-key 'normal org-mode-map (kbd "zk") 'org-previous-visible-heading)
+  )
 
-  ;; (define-key org-mode-map (kbd "") 'org-metaright)
-  ;; (define-key org-mode-map (kbd "") 'org-metaleft)
-  ;; (define-key org-mode-map (kbd "") 'org-metadown)
-  ;; (define-key org-mode-map (kbd "") 'org-metaup)
-  ;; (define-key org-mode-map (kbd "") 'org-shiftmetaleft)
-  ;; (define-key org-mode-map (kbd "") 'org-shiftmetaright)
-  ;; (define-key org-mode-map (kbd "") 'org-shiftup)
-  ;; (define-key org-mode-map (kbd "") 'org-shifttab)
-  ;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
+;; (define-key org-mode-map (kbd "") 'org-metaright)
+;; (define-key org-mode-map (kbd "") 'org-metaleft)
+;; (define-key org-mode-map (kbd "") 'org-metadown)
+;; (define-key org-mode-map (kbd "") 'org-metaup)
+;; (define-key org-mode-map (kbd "") 'org-shiftmetaleft)
+;; (define-key org-mode-map (kbd "") 'org-shiftmetaright)
+;; (define-key org-mode-map (kbd "") 'org-shiftup)
+;; (define-key org-mode-map (kbd "") 'org-shifttab)
+;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
 
-  ;; latex
-  (with-eval-after-load 'reftex
-    (define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
-    (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-    (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
+;; latex
+(with-eval-after-load 'reftex
+  (define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
+  (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
+  (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
 
 (with-eval-after-load 'latex
   (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)

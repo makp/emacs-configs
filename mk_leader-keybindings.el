@@ -71,8 +71,15 @@
   (kbd "<leader>dc") 'ispell-word
 
   ;; orgmode
-  (kbd "<leader>oa") 'org-agenda
-  (kbd "<leader>oc") 'org-capture
+  (kbd "<leader>aa") 'org-agenda
+  (kbd "<leader>ac") 'org-capture
+
+  (kbd "<leader>ct") 'org-timer-set-time
+  (kbd "<leader>cx") 'org-timer-stop
+  (kbd "<leader>ci") 'org-clock-in
+  (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
+  (kbd "<leader>co") 'org-clock-out
+  (kbd "<leader>cw") 'org-clock-goto
   )
 
 (provide 'mk_leader-keybindings)

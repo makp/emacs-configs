@@ -420,27 +420,28 @@
 	  '(lambda()
 	     (message "END OF TIME BURST (%s)!" (current-time-string))))
 
-(global-set-key (kbd "\e\ec") '(lambda ()
-				 (interactive)
-				 (let ((current-prefix-arg '(4)))
-				   (call-interactively 'org-clock-in)
-				   (org-save-all-org-buffers))))
+(defun mk/clock-in ()
+  "Select an item to clock in."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'org-clock-in)
+    (org-save-all-org-buffers)))
 
-(global-set-key (kbd "\e\er") '(lambda ()
-				 (interactive)
-				 (org-clock-out)
-				 (org-save-all-org-buffers)))
+;; (defun mk/clock-out ()
+;;   "Clock out."
+;;   (interactive)
+;;   (org-clock-out)
+;;   (org-save-all-org-buffers))
 
-(global-set-key (kbd "\e\eh") 'org-clock-goto)
 
 (setq-default org-timer-default-timer 25)
 
-(defun timer-do-org ()
-  "Set timer in any buffer."
-  (interactive)
-  (set-buffer "clocktable.org")
-  (org-timer-set-timer))
-(global-set-key (kbd "\e\eg") 'timer-do-org)
+;; (defun mk/timer-do-org ()
+;;   "Set timer in any buffer.
+;; This func can be used to run some podomdoros."
+;;   (interactive)
+;;   (set-buffer "clocktable.org")
+;;   (org-timer-set-timer))
 
 ;; ======
 ;; quotes
@@ -529,7 +530,7 @@
     (clock-wasteclock)
     (org-save-all-org-buffers)))
 
-(global-set-key (kbd "\e\e v") 'goto-wasteclock)
+;; (global-set-key (kbd "\e\e v") 'goto-wasteclock)
 
 ;; --------------
 ;; Quick clock-in
@@ -544,16 +545,6 @@
     (org-clock-in)
     (save-buffer)
     (bury-buffer)))
-
-;; (let ((base-pos (point)))
-;;       (call-interactively
-;;        'helm-imenu)
-;;       (unless (equal base-pos (point))
-;; 	(org-clock-in))
-;;       (save-buffer) 
-;;       (bury-buffer))
-
-(global-set-key (kbd "\e\e w") 'mk/quick-clockin)
 
 ;; --------------
 ;; clocktable.org
@@ -585,7 +576,7 @@ wastetime.org."
       (kill-buffer "clocktable.org-Today-1")
       (kill-buffer "clocktable.org-Yesterday-1"))))
 
-(global-set-key (kbd "\e\e m") 'chama-clock-table)
+;; (global-set-key (kbd "\e\e m") 'chama-clock-table)
 
 
 (provide 'mk_orgmode-setup)
