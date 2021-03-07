@@ -41,6 +41,15 @@
 ;; helm-ls-git-buffer-map
 ;; helm-ls-git-map
 
+;; company
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "C-n") 'company-select-next)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+
+;; company-search-candidates
+;; (global-set-key (kbd "<tab>") 'company-complete-common-or-cycle) ;TAB
+;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
+
 ;; org-mode
 (with-eval-after-load 'org
   (evil-define-key 'normal org-mode-map (kbd "zj") 'org-next-visible-heading)

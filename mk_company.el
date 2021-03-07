@@ -13,12 +13,6 @@
 ;; (setq-default company-idle-delay 0.25)
 ;; (setq-default company-minimum-prefix-length 3)
 
-;; (global-set-key (kbd "<tab>") 'company-complete-common-or-cycle) ;TAB
-;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
-;; (define-key company-active-map (kbd "C-s") 'nil)
-;; (define-key company-active-map (kbd "M-s") 'company-search-candidates)
-
-
 ;; ========
 ;; Backends
 ;; ========
