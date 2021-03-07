@@ -72,6 +72,7 @@
 
   ;; orgmode
   (kbd "<leader>aa") 'org-agenda
+  (kbd "<leader>ao") 'mk/select-agenda
   (kbd "<leader>ac") 'org-capture
 
   (kbd "<leader>ct") 'org-timer-set-time

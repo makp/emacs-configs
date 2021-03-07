@@ -146,6 +146,12 @@
 				     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"
 				     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
 
+(defun mk/select-agenda()
+  "Select and open one of the agenda files."
+  (interactive)
+  (let ((var (completing-read "Select agenda: "
+			      org-agenda-files nil t "ag-")))
+    (find-file var)))
 
 ;;; agenda dispatcher
 (setq-default org-agenda-custom-commands
