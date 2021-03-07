@@ -153,7 +153,8 @@
 	  (lambda ()
 	    (electric-pair-local-mode 1)
 	    (highlight-parentheses-mode 1)
-	    (setq truncate-lines 1)))
+	    (setq truncate-lines 1)
+	    (company-mode 1)))
 
 ;; ============
 ;; text buffers
@@ -161,7 +162,8 @@
 (add-hook 'text-mode-hook
 	  (lambda ()
 	    (turn-on-visual-line-mode)
-	    (setq line-spacing 1)))
+	    (setq line-spacing 1)
+	    (company-mode 1)))
 
 (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 

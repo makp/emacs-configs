@@ -6,12 +6,9 @@
 
 ;;; Code:
 
-(setq-default company-global-modes '(text-mode emacs-lisp-mode LaTeX-mode python-mode))
-(global-company-mode)
+;; (setq-default company-global-modes '(emacs-lisp-mode python-mode))
+;; (global-company-mode)
 
-;; For some reason company doesn't load with `company-global-modes'
-(add-hook 'LaTeX-mode-hook
-	  'company-mode)
 
 ;; (setq-default company-idle-delay 0.25)
 ;; (setq-default company-minimum-prefix-length 3)
@@ -20,13 +17,12 @@
 ;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
 ;; (define-key company-active-map (kbd "C-s") 'nil)
 ;; (define-key company-active-map (kbd "M-s") 'company-search-candidates)
-;; (define-key company-active-map (kbd "C-m") nil)
 
 
 ;; ========
 ;; Backends
 ;; ========
-;; Var: `company-backends'.
+;; Key var: `company-backends'.
 ;; Note that only one backend is used at a time, but a backend can be grouped into a list.
 ;; One neat feature about company is that you can interactively call separate backends.
 

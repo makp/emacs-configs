@@ -22,41 +22,15 @@
 	  (lambda ()
 	    (add-to-list
 	     'TeX-macro-global "~/texmf/tex/latex/") ; specify location TeX style files
-	    (flyspell-mode 1)))
+	    (outline-minor-mode 1)
+	    (flyspell-mode 1)
+	    (company-mode 1)))
 
 (setq
  TeX-auto-save t   ;; enable parse on save
  TeX-parse-self t) ;; enable parse on load
 
 (setq-default TeX-master nil) 		;query you the master file
-
-;; ==========
-;; navigation
-;; ==========
-
-;; --------------
-;; better C-a/C-e
-;; --------------
-;; (add-hook 'LaTeX-mode-hook
-;; 	  (lambda ()
-;; 	    ;; (define-key LaTeX-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)
-;; 	    (define-key LaTeX-mode-map (kbd "C-c g") 'pdf-sync-forward-search)
-;; 	    (define-key LaTeX-mode-map (kbd "C-x n") nil)))
-
-;; (add-hook 'bibtex-mode-hook
-;; 	  (lambda ()
-;; 	    (define-key bibtex-mode-map (kbd "C-a") 'mk/smarter-beginning-of-line)))
-
-;; -------
-;; outline
-;; -------
-(add-hook 'LaTeX-mode-hook
-	  (lambda () (outline-minor-mode 1)))
-
-;; (add-hook 'outline-minor-mode-hook
-;; 	  (lambda () (local-set-key (kbd "C-S-c")
-;; 				    outline-mode-prefix-map)))
-
 
 ;; ==========
 ;; appearance
