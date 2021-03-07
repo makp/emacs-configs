@@ -58,14 +58,16 @@
 
   ;; git
   (kbd "<leader>gs") 'magit-status
-  (kbd "<leader>gf") 'mk/fetch
-  (kbd "<leader>gb") 'magit-diff-buffer-file
+  (kbd "<leader>gf") 'magit-fetch
+  (kbd "<leader>gg") 'helm-grep-do-git-grep
+  (kbd "<leader>gd") 'magit-diff-buffer-file
+  (kbd "<leader>gb") 'helm-browse-project
 
   ;; project
   (kbd "<leader>pg") 'mk/grep-project
   (kbd "<leader>pb") 'mk/browse-project-buffers
   (kbd "<leader>pf") 'mk/select-project-and-find-files
-  (kbd "<leader>ph") 'helm-browse-project-history
+  (kbd "<leader>ph") 'helm-projects-history
 
   ;; dic
   (kbd "<leader>dw") 'define-word-at-point
@@ -75,7 +77,7 @@
 
   ;; orgmode
   (kbd "<leader>aa") 'org-agenda
-  (kbd "<leader>ao") 'mk/select-agenda
+  (kbd "<leader>as") 'mk/select-agenda
   (kbd "<leader>ac") 'org-capture
 
   (kbd "<leader>ct") 'org-timer-set-time

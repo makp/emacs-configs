@@ -7,7 +7,6 @@
 ;;; Code:
 
 
-;; main global key bindings
 (defun mk/fetch(&optional arg)
   "Fetch git repo. If ARG is non-nil, provide a list of all repos before fetching git repo."
   (interactive "P")
