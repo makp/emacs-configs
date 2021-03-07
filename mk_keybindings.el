@@ -91,6 +91,9 @@
   (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
   )
 
+;; dired
+;; (define-key dired-mode-map "E" 'dired-ediff-marked-files)
+;; (define-key dired-mode-map "l" 'dired-up-directory)
 
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here

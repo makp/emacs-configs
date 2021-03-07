@@ -14,9 +14,7 @@
 	  (lambda ()
 	    (setq mode-name "Dir")
 	    (setq truncate-lines 1)
-	    (define-key dired-mode-map "E" 'dired-ediff-marked-files)
-	    (define-key dired-mode-map "l" 'dired-up-directory)
-	    (define-key dired-mode-map (kbd "SPC") nil)))
+	    ))
 
 ;; Auto-refresh dired on file change
 (add-hook 'dired-mode-hook 'auto-revert-mode)

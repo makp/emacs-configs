@@ -14,8 +14,11 @@
 
 ;; integration with magit
 (with-eval-after-load 'magit
-  (defvar magit-mode-map)
   (define-key magit-mode-map (kbd "SPC") 'evil-send-leader))
+
+;; integration with dired
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "SPC") 'evil-send-leader)) ;previously: dired-next-line
 
 (evil-define-key mk/leader-states 'global
   (kbd "<leader>SPC") 'helm-M-x
