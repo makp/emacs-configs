@@ -23,7 +23,6 @@
 (require 'mk_evil)
 (require 'mk_leader-keybindings)
 (require 'mk_keybindings)
-(require 'mk_registers)
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
 (require 'mk_mode-line)

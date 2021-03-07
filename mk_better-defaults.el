@@ -252,5 +252,13 @@
 ;; Resource:
 ;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
 
+;; =========
+;; bookmarks
+;; =========
+;; (setq
+;;  bookmark-default-file "~/Dropbox/shared-files/emacs-bookmarks"
+;;  bookmark-save-flag 1)			; autosave each change
+
+
 (provide 'mk_better-defaults)
 ;;; mk_better-defaults.el ends here
