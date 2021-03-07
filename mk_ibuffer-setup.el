@@ -6,17 +6,17 @@
 
 ;;; Code:
 
+(require 'ibuffer)
+(require 'ibuf-ext)
 
-(with-eval-after-load 'ibuffer
-  ;; load local version of ibuffer-git
-  (defvar dir/ibuffer-git "/home/makmiller/.emacs.d/git-repos/ibuffer-git/")
-  (when (file-directory-p dir/ibuffer-git)
-    (add-to-list 'load-path dir/ibuffer-git)
-    (require 'ibuffer-git))
-  (defvar ibuffer-never-show-predicates)
-  (require 'ibuf-ext)
-  (dolist (ibfilter '("^\\*" "_region_" "magit-process:.*" "magit-diff.*" "magit:.*"))
-    (add-to-list 'ibuffer-never-show-predicates ibfilter)))
+;; load local version of ibuffer-git
+(defvar dir/ibuffer-git "/home/makmiller/.emacs.d/git-repos/ibuffer-git/")
+(when (file-directory-p dir/ibuffer-git)
+  (add-to-list 'load-path dir/ibuffer-git)
+  (require 'ibuffer-git))
+
+(dolist (ibfilter '("^\\*" "_region_" "magit-process:.*" "magit-diff.*" "magit:.*"))
+  (add-to-list 'ibuffer-never-show-predicates ibfilter))
 
 (setq-default
  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
@@ -25,8 +25,8 @@
  ibuffer-old-time 50)
 
 ;; ibuffer mode maps
-(define-key ibuffer-mode-map (kbd "C-i") 'ibuffer-toggle-filter-group)
-(define-key ibuffer-mode-map (kbd "U") 'ibuffer-unmark-all)
+;; (define-key ibuffer-mode-map (kbd "C-i") 'ibuffer-toggle-filter-group)
+;; (define-key ibuffer-mode-map (kbd "U") 'ibuffer-unmark-all)
 ;;; to be consistent with dired-mode. It was ibuffer.*regexp
 
 

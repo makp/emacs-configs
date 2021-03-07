@@ -35,8 +35,6 @@
 ;; =================
 (with-eval-after-load 'dired
   (require 'mk_dired))
-(with-eval-after-load 'ibuffer
-  (require 'mk_ibuffer-setup))
 (with-eval-after-load 'cc-mode
   (require 'mk_cc))
 (with-eval-after-load 'elisp-mode
@@ -55,6 +53,7 @@
 ;; =========
 (autoload 'mk/search-web "mk_eww-search-engine"
   "Select a search engine before running EWW." t)
+(autoload 'ibuffer "mk_ibuffer-setup")
 
 
 ;; =====
