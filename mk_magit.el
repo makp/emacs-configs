@@ -36,29 +36,27 @@
 (require 'helm-ls-git)
 (setq helm-ls-git-status-command 'magit-status-internal) ; use magit
 
-(defun mk/browse-project-buffers (&optional arg)
-  "Browse git repo. If ARG is non-nil, provide a list of all repos before running helm-browse-project."
-  (interactive "P")
-  (when arg
-    (call-interactively 'magit-status))
-  (let ((current-prefix-arg nil))
+(defun mk/select-project-and-browse-buffers ()
+  "Browse buffers recursively after selecting a git project."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'magit-status)
     (call-interactively 'helm-browse-project)))
 
 
 (defun mk/select-project-and-find-files ()
-  "Select a project and run helm-find-files."
+  "Run helm-find-files after selecting a git project."
   (interactive)
   (let ((current-prefix-arg '(4)))
     (call-interactively 'magit-status))
   (call-interactively 'helm-find-files))
 
 
-(defun mk/grep-project (&optional arg)
-  "Run git-grep the whole repository. If ARG is non-nil, ask for a git repo first."
-  (interactive "P")
-  (when arg
-    (call-interactively 'magit-status))
+(defun mk/select-project-and-run-git-grep ()
+  "Select git repo and run git-grep on the whole repository."
+  (interactive)
   (let ((current-prefix-arg '(4)))
+    (call-interactively 'magit-status)
     (call-interactively 'helm-grep-do-git-grep)))
 
 (provide 'mk_magit)

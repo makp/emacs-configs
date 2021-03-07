@@ -64,10 +64,10 @@
   (kbd "<leader>gb") 'helm-browse-project
 
   ;; project
-  (kbd "<leader>pg") 'mk/grep-project
-  (kbd "<leader>pb") 'mk/browse-project-buffers
-  (kbd "<leader>pf") 'mk/select-project-and-find-files
   (kbd "<leader>ph") 'helm-projects-history
+  (kbd "<leader>pg") 'mk/select-project-and-run-git-grep
+  (kbd "<leader>pb") 'mk/select-project-and-browse-buffers
+  (kbd "<leader>pf") 'mk/select-project-and-find-files
 
   ;; dic
   (kbd "<leader>dw") 'define-word-at-point
