@@ -112,6 +112,7 @@
 ;; ====
 ;;; custom tags
 (setq-default org-tag-alist '(("PROJECT" . ?p)
+			      ("sideproject" . ?s)
 			      ("rep" . ?r)
 			      ("@lineup" . ?l)
 			      ("@WAITING" . ?w)
@@ -126,7 +127,7 @@
 			      ("noexport" . ?n)))
 
 ;; don't inherit the following tags
-(setq-default org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep"))
+(setq-default org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep" "sideproject"))
 
 ;; =======
 ;; Agendas
