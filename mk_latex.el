@@ -309,7 +309,9 @@
 ;; -------
 (setq preview-auto-cache-preamble t)
 (setq preview-image-type 'dvipng)
-(with-eval-after-load 'preview (setq preview-default-option-list (delete "footnotes" preview-default-option-list)))
+(with-eval-after-load 'preview
+  (setq preview-default-option-list
+	(seq-difference preview-default-option-list '("sections" "footnotes"))))
 
 ;; preview-inner-environments: environments NOT to be previewed on their own
 
