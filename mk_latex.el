@@ -4,7 +4,7 @@
 
 ;;
 
-;; TODO list:
+;; TODO:
 
 ;; Write a function to do reverse-sync without the mouse using
 ;; pdftools. I could write a bash script and call it with
@@ -259,7 +259,7 @@
 
 ;; automatically insert opening and closing symbols for inline eqn
 (setq TeX-electric-math (cons "$" "$")
-      TeX-electric-sub-and-superscript t)
+      TeX-electric-sub-and-superscript nil)
 
 ;; ---------
 ;; math-mode
