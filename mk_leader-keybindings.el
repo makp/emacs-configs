@@ -59,14 +59,15 @@
   ;; git
   (kbd "<leader>gs") 'magit-status
   (kbd "<leader>gf") 'magit-fetch
-  (kbd "<leader>gg") 'helm-grep-do-git-grep
+  (kbd "<leader>gg") 'helm-grep-do-git-grep ; accepts prefix arg
   (kbd "<leader>gd") 'magit-diff-buffer-file
-  (kbd "<leader>gb") 'helm-browse-project
+  (kbd "<leader>gb") 'helm-browse-project ; accepts prefix arg
 
   ;; project
   (kbd "<leader>ph") 'helm-projects-history
   (kbd "<leader>pg") 'mk/select-project-and-run-git-grep
   (kbd "<leader>pb") 'mk/select-project-and-browse-buffers
+  (kbd "<leader>pu") 'mk/select-project-and-fetch-from-all-remotes
   (kbd "<leader>pf") 'mk/select-project-and-find-files
 
   ;; dic
@@ -82,7 +83,7 @@
 
   (kbd "<leader>ct") 'org-timer-set-time
   (kbd "<leader>cx") 'org-timer-stop
-  (kbd "<leader>ci") 'org-clock-in
+  (kbd "<leader>ci") 'org-clock-in-last
   (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
   (kbd "<leader>co") 'org-clock-out
   (kbd "<leader>cw") 'org-clock-goto

@@ -7,13 +7,6 @@
 ;;; Code:
 
 
-(defun mk/fetch(&optional arg)
-  "Fetch git repo. If ARG is non-nil, provide a list of all repos before fetching git repo."
-  (interactive "P")
-  (call-interactively 'magit-status)
-  (call-interactively 'magit-fetch)
-  (magit-section-show-level-3-all))
-
 (setq-default magit-repository-directories
 	      '(("~/elisp/agendas" . 0)
 		("~/config-files/general" . 1)
@@ -58,6 +51,14 @@
   (let ((current-prefix-arg '(4)))
     (call-interactively 'magit-status)
     (call-interactively 'helm-grep-do-git-grep)))
+
+(defun mk/select-project-and-fetch-from-all-remotes(&optional arg)
+  "Fetch git repo. If ARG is non-nil, provide a list of all repos before fetching git repo."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'magit-status))  ;; (magit-section-show-level-3-all)
+  (call-interactively 'magit-fetch-all))
+
 
 (provide 'mk_magit)
 
