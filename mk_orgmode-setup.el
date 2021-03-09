@@ -113,7 +113,8 @@
 ;;; custom tags
 (setq-default org-tag-alist '(("PROJECT" . ?p)
 			      ("sideproject" . ?s)
-			      ("rep" . ?r)
+			      ("IT" . ?i)
+			      ("email" . ?e)
 			      ("@lineup" . ?l)
 			      ("@WAITING" . ?w)
 			      ("@Today" . ?t)
@@ -123,11 +124,11 @@
 			      ("paper4" . ?4)
 			      ("paper5" . ?5)
 			      ("paper6" . ?6)
-			      ("export". ?e)
-			      ("noexport" . ?n)))
+			      ("export". ?E)
+			      ("noexport" . ?N)))
 
 ;; don't inherit the following tags
-(setq-default org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "rep" "sideproject"))
+(setq-default org-tags-exclude-from-inheritance '("@CURRENT" "@Today" "@lineup" "PROJECT" "@WAITING" "IT" "sideproject"))
 
 ;; =======
 ;; Agendas
@@ -156,7 +157,7 @@
 
 ;;; agenda dispatcher
 (setq-default org-agenda-custom-commands
-	      '(("h" "Coisas pra hoje"
+	      '(("n" "Today tasks"
 		 ((tags "@Today")
 		  (agenda "" ((org-agenda-span 1)
 			      (org-agenda-show-all-dates nil)))))
@@ -167,17 +168,17 @@
 		  (tags-todo "paper4")
 		  (tags-todo "paper5")
 		  (tags-todo "paper6")))
-		("n" "Coisas pendentes"
+		("N" "Pending stuff"
 		 ((tags "@Today")
 		  (agenda "" ((org-agenda-span 1)
 			      (org-agenda-show-all-dates nil)))
-		  (tags "@lineup")
 		  (tags "@WAITING")))
 		("w" "Agenda pra semana"
 		 ((agenda "" ((org-agenda-span 7)
 			      (org-agenda-show-all-dates nil)))))
-		("r" "Coisas repetitivas"
-		 ((tags "rep")))
+		("q" "Quick tasks"
+		 ((tags "IT")
+		  (tags "email")))
 		("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
 							(org-agenda-show-all-dates nil)))))
 
