@@ -199,6 +199,8 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+(setq browse-url-browser-function 'browse-url-firefox)
+
 ;; ========
 ;; doc-view
 ;; ========
