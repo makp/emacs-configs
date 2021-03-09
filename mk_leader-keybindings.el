@@ -58,7 +58,7 @@
 
   ;; git
   (kbd "<leader>gs") 'magit-status
-  (kbd "<leader>gf") 'magit-fetch
+  (kbd "<leader>gf") 'mk/magit-fetch
   (kbd "<leader>gg") 'helm-grep-do-git-grep ; accepts prefix arg
   (kbd "<leader>gd") 'magit-diff-buffer-file
   (kbd "<leader>gb") 'helm-browse-project ; accepts prefix arg

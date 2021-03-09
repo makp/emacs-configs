@@ -13,21 +13,25 @@
 		("~/scripts/myscripts" . 0)
 		("~/Documents/mydocs" . 3)))
 
-;; ============
-;; magit status
-;; ============
+;; magit status buffer
 (add-hook 'magit-status-mode-hook
 	  (lambda ()
 	    (setq truncate-lines nil)))
 
-(setq magit-diff-refine-hunk 'all)
+(setq-default magit-diff-refine-hunk 'all)
 
-;; ==============
-;; helm and magit
-;; ==============
+;; git fetch
+(defun mk/magit-fetch (&optional arg)
+  "Open magit status before running `magit-fetch'.
+Select a git repo if ARG is non-nil."
+  (interactive "p")
+  (call-interactively 'magit-status)
+  (call-interactively 'magit-fetch))
+
+;; projects
 
 (require 'helm-ls-git)
-(setq helm-ls-git-status-command 'magit-status-internal) ; use magit
+(setq-default helm-ls-git-status-command 'magit-status-internal) ; use magit
 
 (defun mk/select-project-and-browse-buffers ()
   "Browse buffers recursively after selecting a git project."
