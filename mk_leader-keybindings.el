@@ -73,8 +73,6 @@
   ;; dic
   (kbd "<leader>dw") 'define-word-at-point
   (kbd "<leader>dt") 'synosaurus-lookup
-  (kbd "<leader>da") 'flyspell-auto-correct-word
-  (kbd "<leader>dc") 'ispell-word
 
   ;; orgmode
   (kbd "<leader>aa") 'org-agenda
