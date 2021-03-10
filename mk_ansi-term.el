@@ -1,6 +1,10 @@
-;; =================
-;; pop-up ansi-terms
-;; =================
+;;; mk_ansi-term.el --- Toggle ansi-term -*- lexical-binding: t -*-
+
+;;; Commentary:
+
+;;
+
+;;; Code:
 
 (defun mk/ansi-term-popup ()
   "Toggle an 'ansi-term' buffer."
@@ -11,14 +15,16 @@
       (quit-window)
     (switch-to-buffer-other-window "*ansi-term*")))
 
-(defun mk/chama-ansi-term (&optional arg)
-  "Function to call 'ansi-term'. If ARG is non-nil, call a new instance of 'ansi-term'."
+(defun mk/call-ansi-term (&optional arg)
+  "Call 'ansi-term'. If ARG is non-nil, call a new instance of 'ansi-term'."
   (interactive "P")
   (if (not (consp arg))
       (mk/ansi-term-popup)
     (ansi-term "/usr/bin/zsh")))
 
-(setq-default term-buffer-maximum-size 0)
+;; (setq-default term-buffer-maximum-size 0) ; in terms of lines
+
 
 (provide 'mk_ansi-term)
+
 ;;; mk_ansi-term.el ends here

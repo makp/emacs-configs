@@ -85,6 +85,9 @@
   (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
   (kbd "<leader>co") 'org-clock-out
   (kbd "<leader>cw") 'org-clock-goto
+
+  ;; terminal
+  (kbd "<leader>ta") 'mk/call-ansi-term
   )
 
 (provide 'mk_leader-keybindings)

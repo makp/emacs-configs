@@ -54,7 +54,7 @@
 (autoload 'mk/search-web "mk_eww-search-engine"
   "Select a search engine before running EWW." t)
 (autoload 'ibuffer "mk_ibuffer-setup")
-
+(autoload 'mk/call-ansi-term "mk_ansi-term")
 
 ;; =====
 ;; extra
