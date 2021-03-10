@@ -227,13 +227,13 @@
 
 (setq-default org-capture-templates
 	      '(("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
-		 "** TODO %?\n  %i\n")
+		 "** TODO %?\n  %i\n" :empty-lines 1)
 		("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
-		 "** TODO %?\n %i\n")
+		 "** TODO %?\n %i\n" :empty-lines 1)
 		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
-		 "** TODO %?\n %i\n")
+		 "** TODO %?\n %i\n" :empty-lines 1)
 		("e" "Emacs IT stuff" entry (file+headline "~/Documents/mydocs/notes/tech-notes/ag-it.org" "EMACS")
-		 "** TODO %?\n %i\n")))
+		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
 
 ;; ----
 ;; gcal
