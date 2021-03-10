@@ -161,6 +161,7 @@
 ;; ============
 (add-hook 'text-mode-hook
 	  (lambda ()
+	    (electric-pair-local-mode 1)
 	    (turn-on-visual-line-mode)
 	    (setq line-spacing 1)
 	    (company-mode 1)))
