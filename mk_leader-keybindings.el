@@ -79,7 +79,7 @@
   (kbd "<leader>ao") 'mk/select-agenda
   (kbd "<leader>ac") 'org-capture
 
-  (kbd "<leader>ct") 'org-timer-set-time
+  (kbd "<leader>ct") 'org-timer-set-timer
   (kbd "<leader>cx") 'org-timer-stop
   (kbd "<leader>ci") 'org-clock-in-last
   (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
