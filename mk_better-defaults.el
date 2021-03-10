@@ -86,6 +86,7 @@
  show-paren-style 'parenthesis)
 ;; The var 'show-paren-style' controls what gets highlighted. Possible
 ;; values: parenthesis, expression, and mixed
+(electric-pair-mode 1)
 
 ;; Enable the minor mode highlight-parentheses on all
 ;; buffers (from EmacsWiki):
@@ -151,7 +152,6 @@
 ;; ============
 (add-hook 'prog-mode-hook
 	  (lambda ()
-	    (electric-pair-local-mode 1)
 	    (highlight-parentheses-mode 1)
 	    (setq truncate-lines 1)
 	    (company-mode 1)))
@@ -161,7 +161,6 @@
 ;; ============
 (add-hook 'text-mode-hook
 	  (lambda ()
-	    (electric-pair-local-mode 1)
 	    (turn-on-visual-line-mode)
 	    (setq line-spacing 1)
 	    (company-mode 1)))

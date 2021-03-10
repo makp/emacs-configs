@@ -16,6 +16,7 @@
 ;; core config
 ;; ===========
 (require 'mk_packages)
+(require 'mk_mode-line)
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)
 (require 'mk_magit)
@@ -25,7 +26,6 @@
 (require 'mk_keybindings)
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
-(require 'mk_mode-line)
 (require 'mk_company)
 (require 'mk_yasnippet-setup)
 
