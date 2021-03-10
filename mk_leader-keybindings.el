@@ -81,7 +81,7 @@
 
   (kbd "<leader>ct") 'org-timer-set-timer
   (kbd "<leader>cx") 'org-timer-stop
-  (kbd "<leader>ci") 'org-clock-in-last
+  (kbd "<leader>ci") 'mk/clock-in
   (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
   (kbd "<leader>co") 'org-clock-out
   (kbd "<leader>cw") 'org-clock-goto

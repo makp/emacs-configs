@@ -391,70 +391,31 @@
 ;; (global-set-key (kbd "C-c n") 'ache-annotate)
 ;; (setq org-annotate-file-storage-file "~/elisp/annotated.org")
 
-;; ===========
-;; org-notmuch
-;; ===========
-;; (require 'org-notmuch)
-
-;; =====
-;; timer
-;; =====
-(setq org-time-clocksum-format (quote (:days "%dd" :minutes "%dm" :require-minutes t)))
-
-;; (add-hook 'org-clock-in-hook '(lambda () 
-;; 				(if (not org-timer-current-timer) 
-;; 				    (org-timer-set-timer '(16)))))
-
-;; (add-hook 'org-clock-out-hook '(lambda () 
-;; 				 (setq org-mode-line-string nil)))
-;;; I don't know if the previous add-hook is necessary.
+;; (setq org-time-clocksum-format (quote (:days "%dd" :minutes "%dm" :require-minutes t)))
 
 (add-hook 'org-timer-done-hook
-	  '(lambda()
-	     (message "END OF TIME BURST (%s)!" (current-time-string))))
+	  (lambda()
+	    (message "END OF TIME BURST (%s)!" (current-time-string))))
 
 (defun mk/clock-in ()
-  "Select an item to clock in."
+  "Start the clock on the current item if in an org buffer.
+Otherwise clock in the last clocked item."
   (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'org-clock-in)
-    (org-save-all-org-buffers)))
+  (if (eq major-mode 'org-mode)
+      (org-clock-in)
+    (org-clock-in-last)))
 
-;; (defun mk/clock-out ()
-;;   "Clock out."
+;; (defun mk/clock-in ()
+;;   "Select an item to clock in."
 ;;   (interactive)
-;;   (org-clock-out)
-;;   (org-save-all-org-buffers))
-
+;;   (let ((current-prefix-arg '(4)))
+;;     (call-interactively 'org-clock-in)
+;;     (org-save-all-org-buffers)))
 
 (setq-default org-timer-default-timer 25)
 
-;; (defun mk/timer-do-org ()
-;;   "Set timer in any buffer.
-;; This func can be used to run some podomdoros."
-;;   (interactive)
-;;   (set-buffer "clocktable.org")
-;;   (org-timer-set-timer))
-
-;; ======
-;; quotes
-;; ======
-
-;; ========
-;; org-mime
-;; ========
-;; (require 'org-mime)
-
-;; (add-hook 'message-mode-hook
-;;           (lambda ()
-;;             (local-set-key "\C-c\M-o" 'org-mime-htmlize)))
-
-;;  (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (local-set-key "\C-c\M-o" 'org-mime-org-buffer-htmlize)))
-
 ;; Preferred applications
-(setq org-file-apps (quote ((auto-mode . emacs) 
+(setq org-file-apps (quote ((auto-mode . emacs)
 			    ("\\.x?html?\\'" . default)
 			    ("\\.pdf\\'" . "/usr/bin/okular %o"))))
 
@@ -492,7 +453,6 @@
 ;; --------------
 ;; wasteclock.org
 ;; --------------
-;;;###autoload
 (defun clock-wasteclock ()
   (save-excursion
     (when (get-buffer "wasteclock.org")
@@ -522,8 +482,6 @@
       (check-wasteclock)
     (clock-wasteclock)
     (org-save-all-org-buffers)))
-
-;; (global-set-key (kbd "\e\e v") 'goto-wasteclock)
 
 ;; --------------
 ;; Quick clock-in
