@@ -24,7 +24,8 @@
 	     'TeX-macro-global "~/texmf/tex/latex/") ; specify location TeX style files
 	    (outline-minor-mode 1)
 	    (flyspell-mode 1)
-	    (company-mode 1)))
+	    (company-mode 1)
+	    (visual-fill-column-mode 1)))
 
 (setq
  TeX-auto-save t   ;; enable parse on save

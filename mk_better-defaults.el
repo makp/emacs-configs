@@ -165,7 +165,7 @@
 	    (setq line-spacing 1)
 	    (company-mode 1)))
 
-(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+;; (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
 ;; ====
 ;; misc
