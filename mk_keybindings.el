@@ -54,7 +54,7 @@
 (with-eval-after-load 'org
   (evil-define-key 'normal org-mode-map (kbd "zj") 'org-next-visible-heading)
   (evil-define-key 'normal org-mode-map (kbd "zk") 'org-previous-visible-heading)
-  )
+  (define-key org-mode-map (kbd "C-c r") 'helm-bibtex))
 
 ;; (define-key org-mode-map (kbd "") 'org-metaright)
 ;; (define-key org-mode-map (kbd "") 'org-metaleft)
