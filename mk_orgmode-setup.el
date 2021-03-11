@@ -170,41 +170,17 @@
 							(org-agenda-show-all-dates nil)))))
 
 ;; (org-agenda-overriding-header "")
+;; (setq org-priority-faces '((?A . (:foreground "yellow"))))
+;; (setq org-icalendar-use-scheduled '(todo-start event-if-todo))
 
-(setq org-priority-faces '((?A . (:foreground "yellow"))))
+(setq-default org-columns-default-format ;; column view
+	      "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10CLOCKSUM_T %10CLOCKSUM %10Effort(Effort) %TAGS"
+	      org-global-properties ;; global effort estimate values
+	      '(("Effort_ALL" . "1:00 2:00 3:00 4:00 0:15 0:30 0:45"))
+	      org-clock-into-drawer t
+	      org-log-done 'time
+	      org-clock-idle-time nil)
 
-(setq org-icalendar-use-scheduled '(todo-start event-if-todo))
-
-;; ===========
-;; column view
-;; ===========
-(setq org-columns-default-format "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10CLOCKSUM_T %10CLOCKSUM %10Effort(Effort) %TAGS")
-
-;; ========
-;; clocking
-;; ========
-(setq org-clock-into-drawer t)
-
-;; --------------
-;; Task estimates
-;; --------------
-
-;; global Effort estimate values
-(setq org-global-properties '(("Effort_ALL" . "1:00 2:00 3:00 4:00 0:15 0:30 0:45")))
-
-;; ----------------
-;; Progress logging
-;; ----------------
-
-(setq
- org-log-done 'time
- ;; org-log-done 'note
- )
-
-;; Description: add a timestamp and a note to a closed item
-
-(setq org-clock-idle-time nil)
-;; Emacs alert you after the computer is idle for X mins.
 
 ;; -------
 ;; Capture
@@ -362,11 +338,12 @@
 					     1.5 :html-foreground "Black" :html-background "Transparent" :html-scale
 					     1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
 
-(setq org-latex-create-formula-image-program 'dvipng)
+;; (setq org-latex-create-formula-image-program 'dvipng)
+;; NOTE: Apparently this var is obsolete
 
-;; ;; ============
-;; ;; org-annotate
-;; ;; ============
+;; ============
+;; org-annotate
+;; ============
 ;; (require 'org-annotate-file)
 ;; (defun ache-annotate (&optional n)
 ;;   "Calls org-annotate-file except that, with a numeric argument,
@@ -381,6 +358,7 @@
 ;; (setq org-annotate-file-storage-file "~/elisp/annotated.org")
 
 ;; (setq org-time-clocksum-format (quote (:days "%dd" :minutes "%dm" :require-minutes t)))
+;; NOTE: Apparently this var is obsolete
 
 (add-hook 'org-timer-done-hook
 	  (lambda()
@@ -455,7 +433,7 @@ Otherwise clock in the last clocked item."
        'helm-imenu)
       (unless (equal base-pos (point))
 	(org-clock-in))
-      (save-buffer) 
+      (save-buffer)
       (bury-buffer))))
 
 (defun check-wasteclock ()
