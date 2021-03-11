@@ -116,6 +116,7 @@
 			      ("sideproject" . ?s)
 			      ("IT" . ?i)
 			      ("email" . ?e)
+			      ("ref" . ?r)
 			      ("@lineup" . ?l)
 			      ("@WAITING" . ?w)
 			      ("@Today" . ?t)
@@ -133,7 +134,7 @@
 ;; Agenda files
 ;; ------------
 (setq-default org-agenda-files (list "~/elisp/agendas/ag-academic.org"
-				     "~/elisp/agendas/ag-evolution.org"
+				     "~/elisp/agendas/ag-projects.org"
 				     "~/elisp/agendas/ag-longterm.org"
 				     "~/elisp/agendas/ag-teaching.org"
 				     "~/elisp/agendas/ag-geral.org"
@@ -153,7 +154,7 @@
 		 ((tags "@Today")
 		  (agenda "" ((org-agenda-span 1)
 			      (org-agenda-show-all-dates nil)))))
-		("p" "Projects"
+		("p" "Papers and projects"
 		 ((tags "PROJECT|paper"))) ; tags-todo
 		("N" "Pending stuff"
 		 ((tags "@Today")
@@ -165,7 +166,8 @@
 			      (org-agenda-show-all-dates nil)))))
 		("q" "Quick tasks"
 		 ((tags "IT")
-		  (tags "email")))
+		  (tags "email")
+		  (tags "ref")))
 		("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
 							(org-agenda-show-all-dates nil)))))
 
@@ -189,16 +191,18 @@
 (setq-default org-default-notes-file (concat org-directory "ag-geral.org"))
 
 (setq-default org-capture-templates
-	      '(("r" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "UNCATEGORIZED")
+	      '(("a" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "DIVERSE")
 		 "** TODO %?\n  %i\n" :empty-lines 1)
-		("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
-		 "** TODO %?\n %i\n" :empty-lines 1)
-		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
-		 "** TODO %?\n %i\n" :empty-lines 1)
-		("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
-		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
-		("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
-		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
+		("r" "Refs" entry (file+headline "~/elisp/agendas/ag-academic.org" "Ref hunt")
+		 "** TODO %?\n  %i\n" :empty-lines 1)
+		 ("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
+		  "** TODO %?\n %i\n" :empty-lines 1)
+		 ("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
+		  "** TODO %?\n %i\n" :empty-lines 1)
+		 ("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
+		  "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
+		 ("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
+		  "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
 
 ;; ----
 ;; gcal
