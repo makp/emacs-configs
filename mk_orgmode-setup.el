@@ -138,15 +138,15 @@
 ;; Agenda files
 ;; ------------
 (setq-default org-agenda-files (list "~/elisp/agendas/ag-academic.org"
+				     "~/elisp/agendas/ag-evolution.org"
 				     "~/elisp/agendas/ag-longterm.org"
 				     "~/elisp/agendas/ag-teaching.org"
 				     "~/elisp/agendas/ag-geral.org"
 				     "~/elisp/agendas/gcal.org"
+				     "~/elisp/agendas/ag-it.org"
 				     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
-				     "~/Documents/mydocs/research-projects/research_social-evolution/evol-dynamics/ag-evolution.org"
 				     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
-				     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"
-				     "~/Documents/mydocs/notes/tech-notes/ag-it.org"))
+				     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"))
 
 (defun mk/select-agenda()
   "Select and open one of the agenda files."
@@ -232,7 +232,7 @@
 		 "** TODO %?\n %i\n" :empty-lines 1)
 		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
 		 "** TODO %?\n %i\n" :empty-lines 1)
-		("e" "Emacs IT stuff" entry (file+headline "~/Documents/mydocs/notes/tech-notes/ag-it.org" "EMACS")
+		("e" "Emacs IT stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
 		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
 
 ;; ----
