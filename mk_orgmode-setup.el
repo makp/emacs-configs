@@ -111,19 +111,14 @@
 ;; tags
 ;; ====
 ;;; custom tags
-(setq-default org-tag-alist '(("PROJECT" . ?p)
+(setq-default org-tag-alist '(("PROJECT" . ?P)
+			      ("paper" . ?p)
 			      ("sideproject" . ?s)
 			      ("IT" . ?i)
 			      ("email" . ?e)
 			      ("@lineup" . ?l)
 			      ("@WAITING" . ?w)
 			      ("@Today" . ?t)
-			      ("paper1" . ?1)
-			      ("paper2" . ?2)
-			      ("paper3" . ?3)
-			      ("paper4" . ?4)
-			      ("paper5" . ?5)
-			      ("paper6" . ?6)
 			      ("export". ?E)
 			      ("noexport" . ?N)))
 
@@ -143,10 +138,7 @@
 				     "~/elisp/agendas/ag-teaching.org"
 				     "~/elisp/agendas/ag-geral.org"
 				     "~/elisp/agendas/gcal.org"
-				     "~/elisp/agendas/ag-it.org"
-				     "~/Documents/mydocs/research-projects/research_social-evolution/bio-individuals/ag-bio-individuals.org"
-				     "~/Documents/mydocs/research-projects/research_social-evolution/eco-cooperation/ag-eco-cooperation.org"
-				     "~/Documents/mydocs/research-projects/research_bio-taxa/ag-bio-taxa.org"))
+				     "~/elisp/agendas/ag-it.org"))
 
 (defun mk/select-agenda()
   "Select and open one of the agenda files."
@@ -161,13 +153,8 @@
 		 ((tags "@Today")
 		  (agenda "" ((org-agenda-span 1)
 			      (org-agenda-show-all-dates nil)))))
-		("p" "My papers"
-		 ((tags-todo "paper1")
-		  (tags-todo "paper2")
-		  (tags-todo "paper3")
-		  (tags-todo "paper4")
-		  (tags-todo "paper5")
-		  (tags-todo "paper6")))
+		("p" "Projects"
+		 ((tags "PROJECT|paper"))) ; tags-todo
 		("N" "Pending stuff"
 		 ((tags "@Today")
 		  (agenda "" ((org-agenda-span 1)
@@ -232,7 +219,9 @@
 		 "** TODO %?\n %i\n" :empty-lines 1)
 		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
 		 "** TODO %?\n %i\n" :empty-lines 1)
-		("e" "Emacs IT stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
+		("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
+		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
+		("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
 		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
 
 ;; ----
