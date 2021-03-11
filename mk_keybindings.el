@@ -20,7 +20,7 @@
 ;; ------
 ;; winner
 ;; ------
-(defvar evil-window-map)
+(require 'evil-vars)
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
 
@@ -42,19 +42,19 @@
 ;; helm-ls-git-map
 
 ;; company
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "C-n") 'company-select-next)
-  (define-key company-active-map (kbd "C-p") 'company-select-previous))
+(require 'company)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
 
 ;; company-search-candidates
 ;; (global-set-key (kbd "<tab>") 'company-complete-common-or-cycle) ;TAB
 ;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
 
 ;; org-mode
-(with-eval-after-load 'org
-  (evil-define-key 'normal org-mode-map (kbd "zj") 'org-next-visible-heading)
-  (evil-define-key 'normal org-mode-map (kbd "zk") 'org-previous-visible-heading)
-  (define-key org-mode-map (kbd "C-c r") 'helm-bibtex))
+(require 'org)
+(evil-define-key 'normal org-mode-map (kbd "zj") 'org-next-visible-heading)
+(evil-define-key 'normal org-mode-map (kbd "zk") 'org-previous-visible-heading)
+(define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
 
 ;; (define-key org-mode-map (kbd "") 'org-metaright)
 ;; (define-key org-mode-map (kbd "") 'org-metaleft)
@@ -67,29 +67,26 @@
 ;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
 
 (global-set-key (kbd "C-c l") 'org-store-link)
-;; NOTE: This link needs to be global bc you can store links from non-org buffers
+;; NOTE: This key needs to be global bc you can store links from non-org buffers
 ;; (global-set-key (kbd "C-c C-S-l") 'org-insert-link-global)
 ;; (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
 
 ;; latex
-(with-eval-after-load 'reftex
-  (define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
-  (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-  (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
+(require 'latex)
+(require 'reftex)
+(define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
+(define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
+(define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)
 
-(with-eval-after-load 'latex
-  (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
-  (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
-  (evil-define-key 'normal LaTeX-mode-map (kbd "zm") 'outline-hide-body)
-  )
-;;
+(evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
+(evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
+(evil-define-key 'normal LaTeX-mode-map (kbd "zm") 'outline-hide-body)
 
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)
 
-(with-eval-after-load 'eww
-  (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
-  )
+(require 'eww)
+(define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired
 ;; (define-key dired-mode-map "E" 'dired-ediff-marked-files)
