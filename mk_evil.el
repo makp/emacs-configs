@@ -16,11 +16,14 @@
 ;; (evil-define-key '(normal visual) 'global (kbd "C-u") 'evil-scroll-up)
 ;; (evil-define-key 'insert 'global (kbd "C-u") 'evil-delete-back-to-indentation)
 
-;; C-w behavior in Emacs states
+;; C-w behavior
 ;; (setq-default evil-want-C-w-in-emacs-state t)
-(with-eval-after-load 'helm
-  (defvar helm-map)
-  (define-key helm-map (kbd "C-w") 'backward-kill-word)) ;it was `helm-yank-text-at-point'
+(require 'helm)
+(define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
+
+(require 'company)
+(define-key company-active-map (kbd "C-w") 'evil-delete-backward-word) ; it was `company-show-location'
+(define-key company-active-map (kbd "M-w") 'company-show-location)
 
 (evil-mode 1)
 
