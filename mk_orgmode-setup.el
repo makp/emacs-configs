@@ -161,13 +161,13 @@
 		  (agenda "" ((org-agenda-span 1)
 			      (org-agenda-show-all-dates nil)))
 		  (tags "@WAITING")))
-		("w" "Agenda pra semana"
-		 ((agenda "" ((org-agenda-span 7)
-			      (org-agenda-show-all-dates nil)))))
 		("q" "Quick tasks"
 		 ((tags "IT")
 		  (tags "email")
 		  (tags "ref")))
+		("w" "Agenda pra semana"
+		 ((agenda "" ((org-agenda-span 7)
+			      (org-agenda-show-all-dates nil)))))
 		("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
 							(org-agenda-show-all-dates nil)))))
 
