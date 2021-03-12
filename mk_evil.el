@@ -27,6 +27,10 @@
 
 (evil-mode 1)
 
+(evil-set-initial-state 'dired-mode 'emacs)
+(evil-set-initial-state 'ibuffer-mode 'emacs)
+;; evil-buffer-regexps
+
 ;; evil plugins
 (global-evil-surround-mode 1)
 (evil-commentary-mode)
