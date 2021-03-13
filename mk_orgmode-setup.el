@@ -367,20 +367,20 @@
 	  (lambda()
 	    (message "END OF TIME BURST (%s)!" (current-time-string))))
 
-(defun mk/clock-in ()
-  "Start the clock on the current item if in an org buffer.
-Otherwise clock in the last clocked item."
-  (interactive)
-  (if (eq major-mode 'org-mode)
-      (org-clock-in)
-    (org-clock-in-last)))
-
-;; (defun mk/clock-in ()
-;;   "Select an item to clock in."
-;;   (interactive)
-;;   (let ((current-prefix-arg '(4)))
-;;     (call-interactively 'org-clock-in)
-;;     (org-save-all-org-buffers)))
+(defun mk/clock-in (&optional n)
+  "Modified version of `org-clock-in'.
+If in an org buffer, run `org-clock-in'. Otherwise run `org-clock-in-last'.
+If N > 1, open a list of previously clocked items to choose from."
+  (interactive "p")
+  (if (> n 1)
+      (setq n '(4))
+    (setq n nil))
+  (let ((current-prefix-arg n))
+    (if (eq major-mode 'org-mode)
+	(call-interactively 'org-clock-in)
+      (call-interactively 'org-clock-in-last)))
+  ;; (org-save-all-org-buffers)
+  )
 
 (setq-default org-timer-default-timer 25)
 
