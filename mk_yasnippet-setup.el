@@ -8,32 +8,29 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
-
 (setq-default yas-snippet-dirs '("~/config-files/general/emacs-configs/my-snippets"))
-;; My impression is that this line has to appear before
-;; yas-global-mode is loaded because, otherwise, my snippets are not
-;; loaded.
 
+(require 'yasnippet)
 (yas-global-mode 1)
 
-;; (setq-default yas-trigger-key "TAB")
-;; The key bound to `yas-expand' when `yas-minor-mode' is active.
-
-(setq-default yas-indent-line 'fixed)
-;; This variable controls indenting. The default value, "auto", causes
-;; your snippet to be indented according to the mode the buffer it was
-;; inserted in.
-
-(setq-default yas-wrap-around-region t)
-;; If non-nil, snippet expansion wraps around selected region.
-
-(setq-default mode-require-final-newline nil)
-;; to avoid new lines to be inserted after a yasnippet
-
-
+;; supress warning when using backquote expansions
 (require 'warnings)
 (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
-;; supress warning when using backquote expansions
+
+
+;; yas-trigger-key
+;; The key bound to `yas-expand' when `yas-minor-mode' is active.
+
+;; yas-wrap-around-region
+;; If non-nil, snippet expansion wraps around selected region for $0 field.
+
+;; yas-indent-line 'fixed
+;; This variable controls indenting. The default value, "auto",
+;; causes your snippet to be indented according to the mode the
+;; buffer it was inserted in.
+
+;; mode-require-final-newline
+;; Var controls whether to add a new line at the end of the file
 
 ;; yas-prompt-functions
 
@@ -78,4 +75,3 @@
 (provide 'mk_yasnippet-setup)
 
 ;;; mk_yasnippet-setup.el ends here
-
