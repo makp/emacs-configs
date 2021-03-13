@@ -1,4 +1,0 @@
-# -*- snippet -*-
-#name : Add a TODO line
-# --
-`(insert comment-start comment-start)` TODO: $0

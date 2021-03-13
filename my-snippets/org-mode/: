@@ -1,5 +1,0 @@
-#contributor: Myself
-#name: in-line org-mode code
-# --
-  : ${1:code}
-  $0
