@@ -77,6 +77,9 @@
 ;; ==============================
 (global-hl-todo-mode 1)
 
+(setq-default hl-todo-keyword-faces
+	      '(("TODO" . "green")))
+
 ;; ===========
 ;; parenthesis
 ;; ===========
