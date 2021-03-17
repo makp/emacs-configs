@@ -2,4 +2,4 @@
 #name : Add a FIXME line
 #key : fi
 # --
-`(insert comment-start comment-start)` FIXME: $0 `(insert comment-start)`
+`(insert comment-start comment-start)` FIXME: $0 `(insert comment-start)` `(newline)`
