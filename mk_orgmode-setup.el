@@ -44,8 +44,8 @@
 
 (setq-default org-clock-persist t
 	      org-clock-out-remove-zero-time-clocks t ;; remove clock entries with zero duration
-	      org-clock-mode-line-total 'all
-	      org-clock-clocked-in-display 'frame-title
+	      org-clock-mode-line-total 'today
+	      org-clock-clocked-in-display 'both
 	      org-timer-display 'mode-line)
 
 ;; =================
