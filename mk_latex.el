@@ -309,22 +309,17 @@
 ;; -------
 ;; Preview
 ;; -------
-(setq preview-auto-cache-preamble t)
-(setq preview-image-type 'dvipng)
+(setq-default preview-auto-cache-preamble t
+	      preview-scale-function 1 ; preview-scale-from-face
+	      preview-preserve-indentation nil)
+
 (with-eval-after-load 'preview
   (setq preview-default-option-list
 	(seq-difference preview-default-option-list '("sections" "footnotes"))))
 
-;; preview-inner-environments: environments NOT to be previewed on their own
-
-(setq preview-preserve-indentation nil)
-(setq preview-scale-function 1.2)
-;; preview-scale-from-face
-
+;; Other vars:
+;; - preview-inner-environments: environments NOT to be previewed on their own
+;; - preview-image-type: 'dvipng'
 
 (provide 'mk_latex)
-
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 ;;; mk_latex.el ends here
