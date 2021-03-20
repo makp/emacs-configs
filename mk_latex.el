@@ -260,8 +260,8 @@
 ;; ====
 
 ;; automatically insert opening and closing symbols for inline eqn
-(setq TeX-electric-math (cons "$" "$")
-      TeX-electric-sub-and-superscript nil)
+(setq-default TeX-electric-math (cons "$" "$")
+	      TeX-electric-sub-and-superscript 1)
 
 ;; ---------
 ;; math-mode
