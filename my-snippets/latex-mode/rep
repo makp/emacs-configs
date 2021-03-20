@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: From x_1 to x_n
-# key: 
+# key: re
 # --
-${1:x}_{${2:0}}, \ldots  $1_{${3:n}}$0
+\$${1:x}_{${2:0}}, \ldots  $1_{${3:n}}\$$0
