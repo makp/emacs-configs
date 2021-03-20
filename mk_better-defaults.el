@@ -75,9 +75,9 @@
 ;; ==============================
 ;; highlight keywords in comments
 ;; ==============================
+(require 'hl-todo)
 (global-hl-todo-mode 1)
-
-(add-to-list 'hl-todo-keyword-faces '("TODO" . "green"))
+(setcdr (assoc "TODO" hl-todo-keyword-faces) "green")
 
 ;; ===========
 ;; parenthesis
