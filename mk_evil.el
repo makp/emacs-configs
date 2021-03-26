@@ -29,6 +29,10 @@
 ;; ESC always enters normal state
 (define-key evil-emacs-state-map [escape] 'evil-normal-state)
 
+(setq-default evil-insert-state-cursor '((bar . 3) "pale green")
+	      evil-normal-state-cursor '(box "light grey")
+	      evil-emacs-state-cursor '(box "PaleGoldenrod"))
+
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'emacs)
 (evil-set-initial-state 'term-mode 'emacs)
