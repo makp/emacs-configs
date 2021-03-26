@@ -31,6 +31,7 @@
 
 (evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'emacs)
+(evil-set-initial-state 'term-mode 'emacs)
 ;; evil-buffer-regexps
 
 ;; evil plugins

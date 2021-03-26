@@ -52,16 +52,17 @@
 
 ;; org-mode
 (require 'org)
-(evil-define-key 'normal org-mode-map (kbd "zj") 'org-next-visible-heading)
-(evil-define-key 'normal org-mode-map (kbd "zk") 'org-previous-visible-heading)
+(evil-define-key 'normal org-mode-map
+  (kbd "zj") 'org-next-visible-heading
+  (kbd "zk") 'org-previous-visible-heading
+  (kbd ">") 'org-shiftmetaright
+  (kbd "<") 'org-shiftmetaleft)
 (define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
 
 ;; (define-key org-mode-map (kbd "") 'org-metaright)
 ;; (define-key org-mode-map (kbd "") 'org-metaleft)
 ;; (define-key org-mode-map (kbd "") 'org-metadown)
 ;; (define-key org-mode-map (kbd "") 'org-metaup)
-;; (define-key org-mode-map (kbd "") 'org-shiftmetaleft)
-;; (define-key org-mode-map (kbd "") 'org-shiftmetaright)
 ;; (define-key org-mode-map (kbd "") 'org-shiftup)
 ;; (define-key org-mode-map (kbd "") 'org-shifttab)
 ;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
