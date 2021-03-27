@@ -20,6 +20,10 @@
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
 
+(add-hook 'inferior-python-mode-hook
+	  (lambda ()
+	    (company-mode 1)))
+
 ;; default dir with python shells (project-root is the default value)
 (setq-default elpy-shell-starting-directory 'current-directory)
 
