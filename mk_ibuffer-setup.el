@@ -84,15 +84,17 @@
 ;; Type '`' to switch through different ibuffer-formats. Use "," to
 ;; change how files are sorted.
 (setq-default ibuffer-formats
-	      '((mark modified read-only vc-status-mini " "
+	      '((mark modified read-only " "
 		      (name 18 18 :left :elide)
 		      " "
 		      (size-h 9 -1 :center)
 		      " "
 		      (mode 6 6 :left :elide)
 		      " "
-		      (vc-status 10 10 :left)
+		      vc-status-mini
 		      " "
+		      ;; (vc-status 10 10 :left)
+		      ;; " "
 		      (git-status 8 8 :left)
 		      " "
 		      filename-and-process)
