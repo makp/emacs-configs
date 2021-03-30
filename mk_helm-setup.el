@@ -68,7 +68,7 @@ depending on the value of ARG."
 ;; searching within files
 ;; ----------------------
 ;; grep
-;; (require 'wgrep-helm)			; wgrep allows you to edit grep buffers
+(require 'wgrep-helm)			; wgrep allows you to edit grep buffers
 
 ;; tags
 (defun mk/find-tags (&optional arg)
