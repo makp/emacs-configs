@@ -36,6 +36,7 @@
 		      avy
 		      aggressive-indent
 		      auctex
+		      cider
 		      company
 		      company-math
 		      company-auctex

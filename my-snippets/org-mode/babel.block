@@ -5,6 +5,6 @@
 # contributor : Mak
 # expand-env: ((yas-after-exit-snippet-hook #'org-edit-special))
 # --
-#+begin_src ${2:$$(yas/choose-value '("python" "python :results output" "mathematica" "mathematica :results graphics :file filename.png" "latex" "emacs-lisp" "sh"))}
+#+begin_src ${2:$$(yas/choose-value '("python" "python :results output" "clojure" "mathematica" "mathematica :results graphics :file filename.png" "latex" "emacs-lisp" "sh"))}
 $0
 #+end_src
