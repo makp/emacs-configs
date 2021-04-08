@@ -28,7 +28,7 @@
 		("nb" . "mathematica")
 		("wl" . "eclipse"))
 	      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
-	      helm-move-to-line-cycle-in-source nil
+	      helm-move-to-line-cycle-in-source t
 	      ;; helm-follow-mode-persistent t
 	      ;; helm-ff-auto-update-initial-value nil
 	      helm-ff-transformer-show-only-basename t
