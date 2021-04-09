@@ -281,6 +281,7 @@
   (insert charclose)
   (exchange-point-and-mark))
 
+;; FIXME: For some reason the keybindings below are not working ; 
 (setq LaTeX-math-list
       '((?8 "infty" "Misc Symbol" 8734)
 	("<" (lambda ()(interactive)(mk/LaTeX-leftright "\\langle " "\\rangle")) "Angled brackets" nil)
