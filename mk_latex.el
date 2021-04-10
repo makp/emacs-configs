@@ -13,30 +13,31 @@
 ;;; Code:
 
 
-(setq TeX-newline-function 'reindent-then-newline-and-indent)
 
-;; =======
-;; parsing
-;; =======
+;; (require 'latex)
+;; (require 'company)
+;; (require 'visual-fill-column)
+
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (add-to-list
 	     'TeX-macro-global "~/texmf/tex/latex/") ; specify location TeX style files
+	    (LaTeX-math-mode 1)
 	    (outline-minor-mode 1)
 	    (flyspell-mode 1)
 	    (company-mode 1)
 	    (visual-fill-column-mode 1)))
 
-(setq
- TeX-auto-save t   ;; enable parse on save
- TeX-parse-self t) ;; enable parse on load
+(setq-default
+ TeX-newline-function 'reindent-then-newline-and-indent
+ TeX-auto-save t  ;; enable parse on save
+ TeX-parse-self t ;; enable parse on load
+ TeX-master t	  ;; don't ask for a master file
+ )
 
-(setq-default TeX-master t) 		;query you the master file
-;; t: don't ask for a master file; nil: query for a master file; dwim
 
-;; ==========
-;; appearance
-;; ==========
+
+
 ;; (add-hook 'LaTeX-mode-hook
 ;; 	  (lambda ()
 ;; 	    (hl-todo-mode)
@@ -253,8 +254,6 @@
 
 (setq bibtex-completion-pdf-field "File")
 
-;;; 
-
 ;; ====
 ;; Math
 ;; ====
@@ -262,11 +261,6 @@
 ;; automatically insert opening and closing symbols for inline eqn
 (setq-default TeX-electric-math (cons "$" "$")
 	      TeX-electric-sub-and-superscript 1)
-
-;; ---------
-;; math-mode
-;; ---------
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode) ; always start math mode
 
 ;; -----------
 ;; math-abbrev
