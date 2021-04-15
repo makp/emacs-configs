@@ -60,10 +60,10 @@
 ;; extra
 ;; =====
 (global-set-key (kbd "<f5>")
-		'(lambda ()
-		   (interactive)
-		   (require 'mk_keyfreq)
-		   (pdf-tools-install)))
+		(lambda ()
+		  (interactive)
+		  (require 'mk_keyfreq)
+		  (pdf-tools-install)))
 
 
 (provide 'init)

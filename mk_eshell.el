@@ -15,8 +15,8 @@
 
 ;; Visual commands
 (add-hook 'eshell-mode-hook
-	  '(lambda ()
-	     (add-to-list 'eshell-visual-commands "htop")))
+	  (lambda ()
+	    (add-to-list 'eshell-visual-commands "htop")))
 
 ;; (setq eshell-glob-case-insensitive t)
 

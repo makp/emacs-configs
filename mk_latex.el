@@ -179,8 +179,8 @@
     (self-insert-command arg))))
 
 (add-hook 'LaTeX-mode-hook
-	  '(lambda ()
-	     (local-set-key "'" 'TeX-insert-single-quote)))
+	  (lambda ()
+	    (local-set-key "'" 'TeX-insert-single-quote)))
 
 
 ;; ======
