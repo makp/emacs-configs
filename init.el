@@ -16,12 +16,12 @@
 ;; core config
 ;; ===========
 (require 'mk_packages)
-(require 'mk_mode-line)
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)
 (require 'mk_magit)
 (require 'mk_orgmode-setup)
 (require 'mk_evil)
+(require 'mk_mode-line)
 (require 'mk_leader-keybindings)
 (require 'mk_keybindings)
 (require 'mk_buffers-and-windows)

@@ -17,10 +17,10 @@
 
 ;; C-w behavior
 ;; (setq-default evil-want-C-w-in-emacs-state t)
-(require 'helm)
+;; (require 'helm)
 (define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
 
-(require 'company)
+;; (require 'company)
 (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word) ; it was `company-show-location'
 (define-key company-active-map (kbd "M-w") 'company-show-location)
 
