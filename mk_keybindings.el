@@ -76,9 +76,11 @@
 ;; latex
 ;; (require 'latex)
 ;; (require 'reftex)
-(define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
-(define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-(define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)
+(with-eval-after-load 'reftex
+  (define-key reftex-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
+  (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
+  (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)
+  )
 
 (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
 (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
