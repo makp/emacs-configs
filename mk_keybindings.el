@@ -16,11 +16,12 @@
 
 ;; C-h as backspace
 (define-key key-translation-map [?\C-h] [?\C-?])
+(global-set-key (kbd "M-o") 'open-line)
 
 ;; ------
 ;; winner
 ;; ------
-(require 'evil-vars)
+;; (require 'evil-vars)
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
 
@@ -42,7 +43,7 @@
 ;; helm-ls-git-map
 
 ;; company
-(require 'company)
+;; (require 'company)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
@@ -51,7 +52,7 @@
 ;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
 
 ;; org-mode
-(require 'org)
+;; (require 'org)
 (evil-define-key 'normal org-mode-map
   (kbd "zj") 'org-next-visible-heading
   (kbd "zk") 'org-previous-visible-heading
@@ -73,8 +74,8 @@
 ;; (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
 
 ;; latex
-(require 'latex)
-(require 'reftex)
+;; (require 'latex)
+;; (require 'reftex)
 (define-key LaTeX-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
 (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
 (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)
@@ -86,7 +87,7 @@
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)
 
-(require 'eww)
+;; (require 'eww)
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired
