@@ -67,7 +67,7 @@
   (kbd "<leader>ph") 'helm-projects-history
   (kbd "<leader>pg") 'mk/select-project-and-run-git-grep
   (kbd "<leader>pb") 'mk/select-project-and-browse-buffers
-  (kbd "<leader>pu") 'mk/select-project-and-fetch-from-all-remotes
+  (kbd "<leader>pF") 'mk/select-project-and-fetch-from-all-remotes
   (kbd "<leader>pf") 'mk/select-project-and-find-files
 
   ;; dic
