@@ -194,14 +194,14 @@
 		 "** TODO %?\n  %i\n" :empty-lines 1)
 		("r" "Refs" entry (file+headline "~/elisp/agendas/ag-academic.org" "Ref hunt")
 		 "** TODO %?\n  %i\n" :empty-lines 1)
-		 ("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
-		  "** TODO %?\n %i\n" :empty-lines 1)
-		 ("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
-		  "** TODO %?\n %i\n" :empty-lines 1)
-		 ("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
-		  "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
-		 ("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
-		  "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
+		("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
+		 "** TODO %?\n %i\n" :empty-lines 1)
+		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
+		 "** TODO %?\n %i\n" :empty-lines 1)
+		("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
+		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
+		("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
+		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
 
 ;; ----
 ;; gcal
