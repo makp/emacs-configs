@@ -63,7 +63,7 @@
 		      markdown-mode
 		      nov
 		      org
-		      org-plus-contrib
+		      org-contrib
 		      org-gcal
 		      org-ref
 		      pdf-tools
