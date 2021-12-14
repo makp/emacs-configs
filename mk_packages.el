@@ -18,7 +18,10 @@
              '("melpa" . "https://melpa.org/packages/") t)
 
 (add-to-list 'package-archives
-	     '("org" . "http://orgmode.org/elpa/") t)
+	     '("gnu" . "http://elpa.gnu.org/packages/") t)
+
+(add-to-list 'package-archives
+	     '("nongnu" . "http://elpa.nongnu.org/nongnu/") t) ; for org-contrib
 
 
 (package-initialize)
