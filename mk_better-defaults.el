@@ -203,6 +203,8 @@
 
 (setq browse-url-browser-function 'browse-url-firefox)
 
+(setq warning-minimum-level ':error)
+
 ;; ========
 ;; doc-view
 ;; ========
