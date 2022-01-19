@@ -201,7 +201,7 @@
 
 (put 'narrow-to-region 'disabled nil)
 
-(setq browse-url-browser-function 'browse-url-firefox)
+(setq browse-url-browser-function 'browse-url-default-browser)
 
 (setq warning-minimum-level ':error)
 
