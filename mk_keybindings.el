@@ -25,12 +25,12 @@
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
 
+;; ------------
+;; line numbers
+;; ------------
+(global-set-key (kbd "M-l") 'display-line-numbers-mode)
 
-;; ---
-;; avy
-;; ---
-(evil-define-key mk/states 'global (kbd "M-c") 'avy-goto-word-1)
-(define-key global-map (kbd "M-l") 'avy-goto-line)
+;; (setq display-line-numbers 'relative)
 
 ;; ----
 ;; helm

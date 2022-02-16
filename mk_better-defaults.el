@@ -65,12 +65,12 @@
 ;; ========
 ;; avy-mode
 ;; ========
-(ace-link-setup-default)		;; use avy to access links
+;; (ace-link-setup-default)		;; use avy to access links
 
-(setq-default avy-keys (nconc (number-sequence ?a ?z)
-			      (number-sequence ?A ?Z)
-			      (number-sequence ?1 ?9)
-			      '(?0)))
+;; (setq-default avy-keys (nconc (number-sequence ?a ?z)
+;; 			      (number-sequence ?A ?Z)
+;; 			      (number-sequence ?1 ?9)
+;; 			      '(?0)))
 
 ;; ==============================
 ;; highlight keywords in comments
