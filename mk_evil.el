@@ -24,7 +24,9 @@
 (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word) ; it was `company-show-location'
 (define-key company-active-map (kbd "M-w") 'company-show-location)
 
+
 (evil-mode 1)
+
 
 ;; ESC always enters normal state
 (define-key evil-emacs-state-map [escape] 'evil-normal-state)
@@ -37,6 +39,12 @@
 (evil-set-initial-state 'ibuffer-mode 'emacs)
 (evil-set-initial-state 'term-mode 'emacs)
 ;; evil-buffer-regexps
+
+;; Make C-a/C-x behave like vim
+(evil-define-key 'normal 'global (kbd "C-a") 'evil-numbers/inc-at-pt)
+(evil-define-key 'normal 'global (kbd "C-x") 'evil-numbers/dec-at-pt)
+(evil-define-key 'visual 'global (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
+(evil-define-key 'visual 'global (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)
 
 ;; evil plugins
 (global-evil-surround-mode 1)

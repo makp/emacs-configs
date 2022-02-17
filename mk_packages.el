@@ -48,6 +48,7 @@
 		      evil-surround
 		      evil-commentary
 		      evil-matchit
+		      evil-numbers
 		      flycheck
 		      helm
 		      helm-bibtex
