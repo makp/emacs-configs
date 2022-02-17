@@ -30,7 +30,6 @@
 ;; ------------
 (global-set-key (kbd "M-l") 'display-line-numbers-mode)
 
-;; (setq display-line-numbers 'relative)
 
 ;; ----
 ;; helm
