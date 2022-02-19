@@ -55,6 +55,9 @@
 (evil-define-key 'normal org-mode-map
   (kbd "zj") 'org-next-visible-heading
   (kbd "zk") 'org-previous-visible-heading
+  (kbd "zf") 'org-forward-heading-same-level
+  (kbd "zb") 'org-backward-heading-same-level
+  (kbd "zu") 'outline-up-heading
   (kbd ">") 'org-shiftmetaright
   (kbd "<") 'org-shiftmetaleft)
 (define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
