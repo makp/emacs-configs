@@ -12,7 +12,7 @@
  uniquify-separator ":")
 
 ;; winner-mode
-(setq-default winner-dont-bind-my-keys t)
+;; (setq winner-dont-bind-my-keys t)
 (winner-mode 1)
 
 
