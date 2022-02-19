@@ -35,7 +35,6 @@
 	      evil-normal-state-cursor '(box "light grey")
 	      evil-emacs-state-cursor '(box "PaleGoldenrod"))
 
-(evil-set-initial-state 'dired-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'emacs)
 (evil-set-initial-state 'term-mode 'emacs)
 ;; evil-buffer-regexps
@@ -46,7 +45,7 @@
 (evil-define-key 'visual 'global (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
 (evil-define-key 'visual 'global (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)
 
-;; poor man's version of gp and gP
+;; Poor man's version of gp and gP
 (evil-define-key 'normal 'global
   "gp" "p`]"
   "gP" "P`]")
