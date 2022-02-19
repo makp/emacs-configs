@@ -36,7 +36,9 @@
 	      evil-emacs-state-cursor '(box "PaleGoldenrod"))
 
 (evil-set-initial-state 'ibuffer-mode 'emacs)
-(evil-set-initial-state 'term-mode 'emacs)
+
+(add-to-list 'evil-insert-state-modes 'term-mode)
+
 ;; evil-buffer-regexps
 
 ;; Make C-a/C-x behave like vim
