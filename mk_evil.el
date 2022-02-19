@@ -46,6 +46,11 @@
 (evil-define-key 'visual 'global (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
 (evil-define-key 'visual 'global (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)
 
+;; poor man's version of gp and gP
+(evil-define-key 'normal 'global
+  "gp" "p`]"
+  "gP" "P`]")
+
 ;; evil plugins
 (global-evil-surround-mode 1)
 (evil-commentary-mode)
