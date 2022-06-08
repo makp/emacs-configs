@@ -269,7 +269,7 @@
    (shell . t)
    (latex . t)
    (C . t)
-   (mathematica . t)
+   ;; (mathematica . t)
    ;; (R . t)
    ))
 
@@ -280,8 +280,8 @@
 
 (setq org-babel-clojure-backend 'cider)
 
-(add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
-(setq-default org-babel-mathematica-command "wolframscript -f")
+;; (add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
+;; (setq-default org-babel-mathematica-command "wolframscript -f")
 
 
 
