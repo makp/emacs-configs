@@ -81,8 +81,8 @@
 (with-eval-after-load 'reftex
   (define-key reftex-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
   (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
-  (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc)
-  )
+  (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
+
 
 (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
 (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
@@ -95,6 +95,7 @@
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired
+(define-key dired-mode-map (kbd "C-x C-q") 'mk/dired-toggle-edit-from-evil)
 ;; (define-key dired-mode-map "E" 'dired-ediff-marked-files)
 ;; (define-key dired-mode-map "l" 'dired-up-directory)
 
