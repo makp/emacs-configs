@@ -22,7 +22,8 @@
   (interactive)
   (evil-emacs-state)
   (dired-toggle-read-only)
-  (evil-exit-emacs-state))
+  (evil-force-normal-state)
+  (evil-forward-word-begin))
 
 ;; (defun dired-w3m-find-file ()
 ;;   "Browse file with Emacs-w3m."
