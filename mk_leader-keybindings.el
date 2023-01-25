@@ -12,13 +12,6 @@
 (evil-set-leader mk/leader-states (kbd "SPC"))
 ;; SPC is assigned to the function `evil-forward-char' in normal and motion states.
 
-;; integration with magit
-(with-eval-after-load 'magit
-  (define-key magit-mode-map (kbd "SPC") 'evil-send-leader))
-
-;; integration with dired
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "SPC") 'evil-send-leader)) ;previously: dired-next-line
 
 (evil-define-key mk/leader-states 'global
   (kbd "<leader>SPC") 'helm-M-x
