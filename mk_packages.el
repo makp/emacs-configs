@@ -23,6 +23,9 @@
 (add-to-list 'package-archives
 	     '("nongnu" . "http://elpa.nongnu.org/nongnu/") t) ; for org-contrib
 
+(add-to-list 'package-archives
+	     '("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/") t)
+
 
 (package-initialize)
 ;; package-initialize searches for all the packages that are installed
