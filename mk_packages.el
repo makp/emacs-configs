@@ -2,16 +2,12 @@
 
 ;;; Commentary:
 
-;; 
+;; TODO: Consider using `use-package` library to defer loading of
+;; packages until they're needed
 
 ;;; Code:
 
 (require 'package)
-
-;; (setq package-enable-at-startup nil)
-;; Disable automatic package loading at launch
-
-;; package-load-list
 
 ;;; Package archives
 (dolist (archive '(("melpa" . "https://melpa.org/packages/")
@@ -20,17 +16,18 @@
                    ("jcs-elpa" . "https://jcs-emacs.github.io/jcs-elpa/packages/")))
   (add-to-list 'package-archives archive t))
 
+;; Initialize pkgs
 (package-initialize)
 ;; package-initialize searches for all the packages that are installed
 ;; and loads each package's <pkg>-autoloads.el file.
 
 
-;; Fetch the list of packages available
+;; Refresh package contents if not already available
 (unless package-archive-contents
   (package-refresh-contents))
 
 
-;; Scans the list in mk/pkg-list. If the package listed is not already installed, install it
+;; Package list
 (defvar mk/pkg-list '(ace-link
 		      aggressive-indent
 		      auctex
@@ -73,16 +70,14 @@
 		      yasnippet
 		      wolfram-mode
 		      zenburn-theme)
-  "The list of packages installed at launch.")
+  "List of packages to install at launch.")
 
 (mapc #'(lambda (package)
-          (unless (package-installed-p package)
-            (package-install package)))
+	  (unless (package-installed-p package)
+	    (condition-case nil
+		(package-install package)
+	      (error (message "Eu nao pude instalar %s" package)))))
       mk/pkg-list)
-
-;; Older code:
-;; (setq package-selected-packages mk/pkg-list)
-;; (package-install-selected-packages)
 
 
 (provide 'mk_packages)
