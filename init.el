@@ -47,6 +47,9 @@
   (require 'mk_web-devel))
 (with-eval-after-load 'wolfram-mode
   (require 'mk_wolfram))
+(with-eval-after-load 'chatgpt
+  (require 'mk_chatgpt))
+
 
 ;; =========
 ;; autoloads
@@ -55,6 +58,8 @@
   "Select a search engine before running EWW." t)
 (autoload 'ibuffer "mk_ibuffer-setup")
 (autoload 'mk/call-ansi-term "mk_ansi-term")
+
+;; NOTE: Use the command `(featurep 'bla)' to test wether the feature bla has been loaded.  ; 
 
 ;; =====
 ;; extra

@@ -41,6 +41,7 @@
 (defvar mk/pkg-list '(ace-link
 		      aggressive-indent
 		      auctex
+		      chatgpt
 		      cider
 		      company
 		      company-math
