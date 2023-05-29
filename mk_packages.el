@@ -61,7 +61,6 @@
 		      org-gcal
 		      org-ref
 		      pdf-tools
-		      synosaurus
 		      visual-fill-column
 		      web-mode
 		      wgrep

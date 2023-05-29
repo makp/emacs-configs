@@ -108,11 +108,6 @@
 ;; dictionaries
 ;; ============
 
-;; ---------
-;; thesaurus
-;; ---------
-(setq-default synosaurus-choose-method 'popup) 	;instead of ido
-
 ;; --------
 ;; flyspell
 ;; --------

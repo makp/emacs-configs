@@ -65,7 +65,6 @@
 
   ;; dic
   (kbd "<leader>dw") 'define-word-at-point
-  (kbd "<leader>dt") 'synosaurus-lookup
 
   ;; orgmode
   (kbd "<leader>aa") 'org-agenda
