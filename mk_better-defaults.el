@@ -160,14 +160,25 @@
 
 ;; (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
+;; ==================
+;; Garbage collection
+;; ==================
+;; garbage collection
+;; set garbage collection threshold to 100MB
+(setq gc-cons-threshold 100000000)
+
+;; make sure GC is more frequent once startup is done
+(add-hook 'emacs-startup-hook
+          (lambda () (setq gc-cons-threshold 800000)))
+
+;; improve startup time by reducing the frequency of garbage
+;; collection.  The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 50 1000 1000))
+
+
 ;; ====
 ;; misc
 ;; ====
-;; garbage collection
-(setq gc-cons-threshold 100000000) 	; in bytes
-;; The default amount was 800KB. References on garbage collection:
-;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
-;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
 ;; Misc defaults
 (setq-default message-log-max t		; max # lines message log
