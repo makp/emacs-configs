@@ -12,11 +12,20 @@
 ;; Elpy virtualenv
 (setq-default elpy-rpc-virtualenv-path "/home/makmiller/.local/")
 
-;; python shell
+
+;; ------------------
+;; interactive python
+;; ------------------
+
+;; Standard interpreter
+;; (setq python-shell-interpreter "python"
+;;       python-shell-interpreter-args "-i")
+
+;; Jupyter console
 ;; NOTE: You will need to install jupyter-console with pip
-(setq-default python-shell-interpreter "jupyter"
-	      python-shell-interpreter-args "console --simple-prompt"
-	      python-shell-prompt-detect-failure-warning nil)
+(setq python-shell-interpreter "jupyter"
+      python-shell-interpreter-args "console --simple-prompt"
+      python-shell-prompt-detect-failure-warning nil)
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
 
