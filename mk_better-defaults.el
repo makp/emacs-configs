@@ -68,16 +68,6 @@
 ;; NOTE: flex completion didn't work well with company last time I tried (it gave me too many options).
 
 
-;; ========
-;; avy-mode
-;; ========
-;; (ace-link-setup-default)		;; use avy to access links
-
-;; (setq-default avy-keys (nconc (number-sequence ?a ?z)
-;; 			      (number-sequence ?A ?Z)
-;; 			      (number-sequence ?1 ?9)
-;; 			      '(?0)))
-
 ;; ==============================
 ;; highlight keywords in comments
 ;; ==============================
@@ -179,32 +169,33 @@
 ;; http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/Garbage-Collection.html
 
-(setq-default message-log-max t 		;max # lines message log
-	      shift-select-mode nil 		;don't use shift to mark
+;; Misc defaults
+(setq-default message-log-max t		; max # lines message log
+	      shift-select-mode nil	; don't use shift to mark
 	      indicate-empty-lines t ;show empty lines after buffer ends
 	      initial-scratch-message nil
 	      inhibit-splash-screen 0
 	      column-number-mode t
-	      echo-keystrokes 0.1 			;see unfinished commands
+	      echo-keystrokes 0.1	;see unfinished commands
 	      visible-bell t
-	      sentence-end-double-space nil ;relevant for using M-k/e/a
+	      ;; sentence-end-double-space nil ;relevant for using M-k/e/a
 	      enable-recursive-minibuffers t
 	      case-fold-search nil)		;case sensitive search
 
+;; Misc settings
 (fset 'yes-or-no-p 'y-or-n-p)	   ;don't ask me to type "yes" or "no"
-
 (global-subword-mode 1)
 (blink-cursor-mode 1)
 (global-font-lock-mode 1)
 (global-hl-line-mode t)	      ;toggle line highlighting
 (pending-delete-mode -1)
-;; (mouse-avoidance-mode 'cat-and-mouse)
 
 (put 'narrow-to-region 'disabled nil)
 
 (setq browse-url-browser-function 'browse-url-default-browser)
 
 (setq warning-minimum-level ':error)
+;; (mouse-avoidance-mode 'cat-and-mouse)
 
 ;; ========
 ;; doc-view
