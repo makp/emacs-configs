@@ -90,8 +90,6 @@
 
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)
-
-;; (require 'eww)
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired

@@ -17,31 +17,31 @@
 ;; =========
 ;; Helm vars
 ;; =========
-(setq-default helm-external-programs-associations
-	      '(("pdf" . "okular")
-		("djvu" . "okular")
-		("docx" . "libreoffice")
-		("doc" . "libreoffice")
-		("rtf" . "libreoffice")
-		("svg" . "inkscape")
-		("mp4" . "mplayer")
-		("nb" . "mathematica")
-		("wl" . "eclipse"))
-	      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
-	      helm-move-to-line-cycle-in-source t
-	      ;; helm-follow-mode-persistent t
-	      ;; helm-ff-auto-update-initial-value nil
-	      helm-ff-transformer-show-only-basename t
-	      helm-candidate-number-limit 100
-	      ;; helm-autoresize-max-height 25
+(setq helm-external-programs-associations
+      '(("pdf" . "okular")
+	("djvu" . "okular")
+	("docx" . "libreoffice")
+	("doc" . "libreoffice")
+	("rtf" . "libreoffice")
+	("svg" . "inkscape")
+	("mp4" . "mplayer")
+	("nb" . "mathematica")
+	("wl" . "eclipse"))
+      helm-pdfgrep-default-read-command "okular --unique -p %p '%f'"
+      helm-move-to-line-cycle-in-source t
+      ;; helm-follow-mode-persistent t
+      ;; helm-ff-auto-update-initial-value nil
+      helm-ff-transformer-show-only-basename t
+      helm-candidate-number-limit 100
+      ;; helm-autoresize-max-height 25
 
-	      ;; helm-completion-style 'helm-fuzzy
+      ;; helm-completion-style 'helm-fuzzy
 
-	      helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(LaTeX-mode))
-	      helm-ff-skip-boring-files t
-	      helm-boring-buffer-regexp-list
-	      (append helm-boring-buffer-regexp-list
-		      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*" "\\.git$")))
+      helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(LaTeX-mode))
+      helm-ff-skip-boring-files t
+      helm-boring-buffer-regexp-list
+      (append helm-boring-buffer-regexp-list
+	      '("\\*Minibuf" "\\*magit" "\\*Help\\*" "\\*helm" "\\*Echo Area" "\\*Org todo\\*" "\\*Messages\\*" "\\*Ibuffer\\*" "_region_.*" "\\.git$")))
 
 
 ;; ===========

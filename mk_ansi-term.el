@@ -22,7 +22,7 @@
       (mk/ansi-term-popup)
     (ansi-term "/usr/bin/zsh")))
 
-;; (setq-default term-buffer-maximum-size 0) ; in terms of lines
+;; (setq term-buffer-maximum-size 0) ; in terms of lines
 
 
 (provide 'mk_ansi-term)

@@ -6,22 +6,25 @@
 
 ;;; Code:
 
-(setq-default evil-respect-visual-line-mode t)
-(setq-default evil-undo-system 'undo-redo)
-(setq-default evil-search-module 'evil-search)
+;; Evil settings
+;; enable respect for visual line mode in evil
+(setq evil-respect-visual-line-mode t)
+;; set evil undo system to use 'undo-redo
+(setq evil-undo-system 'undo-redo)
+;; set evil search module to 'evil-search
+(setq evil-search-module 'evil-search)
 
-;; Make C-u behave more like vim
-(setq-default evil-want-C-u-scroll t)
-(setq-default evil-want-C-u-delete t)
-
+;; Vim-like behavior
+;; enable vim-like C-u scroll in Evil
+(setq evil-want-C-u-scroll t)
+;; enable vim-like C-u delete in Evil
+(setq evil-want-C-u-delete t)
 
 ;; C-w behavior
-;; (setq-default evil-want-C-w-in-emacs-state t)
-;; (require 'helm)
 (define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
-
-;; (require 'company)
-(define-key company-active-map (kbd "C-w") 'evil-delete-backward-word) ; it was `company-show-location'
+;; (setq evil-want-C-w-in-emacs-state t)
+(define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+;; it was `company-show-location'
 (define-key company-active-map (kbd "M-w") 'company-show-location)
 
 
@@ -31,9 +34,9 @@
 ;; ESC always enters normal state
 (define-key evil-emacs-state-map [escape] 'evil-normal-state)
 
-(setq-default evil-insert-state-cursor '((bar . 3) "pale green")
-	      evil-normal-state-cursor '(box "light grey")
-	      evil-emacs-state-cursor '(box "PaleGoldenrod"))
+(setq evil-insert-state-cursor '((bar . 3) "pale green")
+      evil-normal-state-cursor '(box "light grey")
+      evil-emacs-state-cursor '(box "PaleGoldenrod"))
 
 (evil-set-initial-state 'ibuffer-mode 'emacs)
 
