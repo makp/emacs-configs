@@ -6,8 +6,9 @@
 
 ;;; Code:
 
-;; Make buffer names unique
-(setq-default
+;; Make buffer names unique by adding directory names to duplicate
+;; buffer names
+(setq
  uniquify-buffer-name-style 'post-forward
  uniquify-separator ":")
 
