@@ -187,9 +187,9 @@
 	      initial-scratch-message nil
 	      inhibit-splash-screen 0
 	      column-number-mode t
-	      echo-keystrokes 0.1	;see unfinished commands
+	      echo-keystrokes 0.1	; see unfinished commands
 	      visible-bell t
-	      ;; sentence-end-double-space nil ;relevant for using M-k/e/a
+	      sentence-end-double-space nil ; single space ends a sentence
 	      enable-recursive-minibuffers t
 	      case-fold-search nil)		;case sensitive search
 
