@@ -7,31 +7,33 @@
 ;;; Code:
 
 
-(setq-default magit-repository-directories
-	      '(("~/elisp/agendas" . 0)
-		("~/config-files/general" . 1)
-		("~/scripts/myscripts" . 0)
-		("~/Documents/mydocs" . 3)))
+(setq magit-repository-directories
+      '(("~/elisp/agendas" . 0)
+	("~/config-files/general" . 1)
+	("~/scripts/myscripts" . 0)
+	("~/Documents/mydocs" . 3)))
 
-;; magit status buffer
+
+;; Enable line wrapping in magit status buffer
 (add-hook 'magit-status-mode-hook
 	  (lambda ()
 	    (setq truncate-lines nil)))
 
-(setq-default magit-diff-refine-hunk 'all)
 
-;; git fetch
+;; Refine all hunks during diff
+(setq magit-diff-refine-hunk 'all)
+
+
+;; =============================
+;; Custom funcs related to magit
+;; =============================
+
 (defun mk/magit-fetch (&optional arg)
   "Open magit status before running `magit-fetch'.
 Select a git repo if ARG is non-nil."
   (interactive "p")
   (call-interactively 'magit-status)
   (call-interactively 'magit-fetch))
-
-;; projects
-
-(require 'helm-ls-git)
-(setq-default helm-ls-git-status-command 'magit-status-internal) ; use magit
 
 (defun mk/select-project-and-browse-buffers ()
   "Browse buffers recursively after selecting a git project."
@@ -62,6 +64,13 @@ Select a git repo if ARG is non-nil."
   (let ((current-prefix-arg '(4)))
     (call-interactively 'magit-status))  ;; (magit-section-show-level-3-all)
   (call-interactively 'magit-fetch-all))
+
+
+;; ==================
+;; helm-ls-git config
+;; ==================
+(require 'helm-ls-git)
+(setq helm-ls-git-status-command 'magit-status-internal) ; use magit
 
 
 (provide 'mk_magit)
