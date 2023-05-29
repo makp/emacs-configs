@@ -36,7 +36,6 @@
 		      company
 		      company-math
 		      company-auctex
-		      define-word
 		      elpy
 		      evil
 		      evil-surround

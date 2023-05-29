@@ -55,7 +55,7 @@
   "gp" "p`]"
   "gP" "P`]")
 
-;; evil plugins
+;; Evil plugins
 (global-evil-surround-mode 1)
 (evil-commentary-mode)
 (global-evil-matchit-mode 1)

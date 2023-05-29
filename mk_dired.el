@@ -8,8 +8,8 @@
 
 ;; (require 'dired-x)	;dired-jump seems to be defined in dired-x
 
-(setq-default dired-isearch-filenames t ;; search limits to file names
-	      dired-dwim-target t)      ;; move files more easily with split panes
+(setq dired-isearch-filenames t ;; search limits to file names
+      dired-dwim-target t)      ;; move files more easily with split panes
 
 (add-hook 'dired-mode-hook
 	  (lambda ()
@@ -26,15 +26,6 @@
   (dired-toggle-read-only)
   (evil-force-normal-state)
   (evil-forward-word-begin))
-
-;; (defun dired-w3m-find-file ()
-;;   "Browse file with Emacs-w3m."
-;;   (interactive)
-;;   (require'w3m)
-;;   (let ((file (dired-get-filename)))
-;;     (if (y-or-n-p (format "Use emacs-w3m to browse %s? "
-;; 			  (file-name-nondirectory file)))
-;; 	(w3m-find-file file))))
 
 (provide 'mk_dired)
 

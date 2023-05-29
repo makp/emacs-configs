@@ -63,9 +63,6 @@
   (kbd "<leader>pF") 'mk/select-project-and-fetch-from-all-remotes
   (kbd "<leader>pf") 'mk/select-project-and-find-files
 
-  ;; dic
-  (kbd "<leader>dw") 'define-word-at-point
-
   ;; orgmode
   (kbd "<leader>aa") 'org-agenda
   (kbd "<leader>ao") 'mk/select-agenda

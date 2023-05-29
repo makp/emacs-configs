@@ -14,10 +14,6 @@
 
 
 
-;; (require 'latex)
-;; (require 'company)
-;; (require 'visual-fill-column)
-
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (add-to-list
@@ -28,14 +24,12 @@
 	    (company-mode 1)
 	    (visual-fill-column-mode 1)))
 
-(setq-default
+(setq
  TeX-newline-function 'reindent-then-newline-and-indent
  TeX-auto-save t  ;; enable parse on save
  TeX-parse-self t ;; enable parse on load
  TeX-master t	  ;; don't ask for a master file
  )
-
-
 
 
 ;; (add-hook 'LaTeX-mode-hook
@@ -259,8 +253,8 @@
 ;; ====
 
 ;; automatically insert opening and closing symbols for inline eqn
-(setq-default TeX-electric-math (cons "$" "$")
-	      TeX-electric-sub-and-superscript 1)
+(setq TeX-electric-math (cons "$" "$")
+      TeX-electric-sub-and-superscript 1)
 
 ;; -----------
 ;; math-abbrev
@@ -285,9 +279,9 @@
 ;; -------
 ;; Preview
 ;; -------
-(setq-default preview-auto-cache-preamble t
-	      preview-scale-function 1 ; preview-scale-from-face
-	      preview-preserve-indentation nil)
+(setq preview-auto-cache-preamble t
+      preview-scale-function 1 ; preview-scale-from-face
+      preview-preserve-indentation nil)
 
 (with-eval-after-load 'preview
   (setq preview-default-option-list
