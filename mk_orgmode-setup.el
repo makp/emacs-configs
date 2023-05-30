@@ -10,15 +10,14 @@
 ;; ===============
 ;; better defaults
 ;; ===============
-(setq-default org-special-ctrl-a/e t	       ; C-a/C-e behavior in headlines
-	      org-goto-auto-isearch t	       ; org-goto
-	      org-return-follows-link t	       ; follow links with RET
-	      org-pretty-entities nil	       ; UFT8 characters
-	      org-special-ctrl-k t
-	      org-fontify-quote-and-verse-blocks 1 ; add special face to #+begin_quote blocks
-	      org-enforce-todo-dependencies t
-	      ;; org-use-speed-commands t
-	      org-imenu-depth 6)
+(setq org-special-ctrl-a/e t	       ; C-a/C-e behavior in headlines
+      org-goto-auto-isearch t	       ; org-goto
+      org-return-follows-link t	       ; follow links with RET
+      org-pretty-entities nil	       ; UFT8 characters
+      org-special-ctrl-k t
+      org-fontify-quote-and-verse-blocks 1 ; add special face to #+begin_quote blocks
+      org-enforce-todo-dependencies t
+      org-imenu-depth 6)
 
 
 ;; ========
@@ -31,27 +30,26 @@
 ;; =========
 ;; refilling
 ;; =========
-(setq-default org-refile-targets
-	      '((org-agenda-files . (:maxlevel . 3)))
-	      org-outline-path-complete-in-steps nil
-	      org-refile-use-outline-path t
-	      org-refile-allow-creating-parent-nodes 'confirm)
+(setq org-refile-targets
+      '((org-agenda-files . (:maxlevel . 3)))
+      org-outline-path-complete-in-steps nil
+      org-refile-use-outline-path t
+      org-refile-allow-creating-parent-nodes 'confirm)
 
 ;; ========
 ;; clocking
 ;; ========
 (org-clock-persistence-insinuate) ;; save the clock history across Emacs sessions
 
-(setq-default org-clock-persist t
-	      org-clock-out-remove-zero-time-clocks t ;; remove clock entries with zero duration
-	      org-clock-mode-line-total 'today
-	      org-clock-clocked-in-display 'both
-	      org-timer-display 'mode-line)
+(setq org-clock-persist t
+      org-clock-out-remove-zero-time-clocks t ;; remove clock entries with zero duration
+      org-clock-mode-line-total 'today
+      org-clock-clocked-in-display 'both
+      org-timer-display 'mode-line)
 
 ;; =================
 ;; Structure editing
 ;; =================
-
 (setq org-adapt-indentation nil)
 
 
@@ -69,12 +67,12 @@
 ;; ------------------
 
 ;;; link abbreviations syntax:
-;;; [[linkword:tag][description]], where liknword must be a word
+;;; [[linkword:tag][description]], where linkword must be a word
 
-(setq-default org-link-abbrev-alist
-	      '(("gg" . "http://www.google.com/search?q=")
-		("gmap"	  . "http://maps.google.com/maps?q=%s")
-		("bib" . "~/Documents/mydocs/tex-configs/references/evol.bib::%s")))
+(setq org-link-abbrev-alist
+      '(("gg" . "http://www.google.com/search?q=")
+	("gmap"	  . "http://maps.google.com/maps?q=%s")
+	("bib" . "~/Documents/mydocs/tex-configs/references/evol.bib::%s")))
 
 ;; ==========
 ;; todo items
@@ -82,10 +80,10 @@
 ;; ---------------
 ;; custom keywords
 ;; ---------------
-(setq-default org-todo-keywords
-	      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-		(sequence "WRITE(w)" "REVISE(r)" "PROOF-READ(p)" "SUBMITTED(s)" "|" "DONE(d)")
-		(type "FIXME(f)" "BUG(b)" "LEARN(l)" "|" "FIXED(F)" "DONE(d)")))
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+	(sequence "WRITE(w)" "REVISE(r)" "PROOF-READ(p)" "SUBMITTED(s)" "|" "DONE(d)")
+	(type "FIXME(f)" "BUG(b)" "LEARN(l)" "|" "FIXED(F)" "DONE(d)")))
 
 ;; NOTE: "sequence" is used to indicate that the TODO items
 ;; form a sequence. In contrast, with "type" we simply have different
@@ -93,37 +91,37 @@
 ;; todo keywords from the done state.
 
 ;; -----
-;; faces
+;; Faces
 ;; -----
-(setq-default org-todo-keyword-faces
-	      '(("TODO" . "green")
-		("NEXT" . "Palegreen3")
-		("PROOF-READ" . "yellow")
-		("WRITE" . "orange")
-		("REVISE" . "chocolate1")
-		("PROOF-READ" . "chocolate1")
-		("SUBMITTED" . "sienna2")
-		("FIXME" . "tomato2")
-		("BUG" . "firebrick1")
-		("LEARN" . "Orangered1")))
+(setq org-todo-keyword-faces
+      '(("TODO" . "green")
+	("NEXT" . "Palegreen3")
+	("PROOF-READ" . "yellow")
+	("WRITE" . "orange")
+	("REVISE" . "chocolate1")
+	("PROOF-READ" . "chocolate1")
+	("SUBMITTED" . "sienna2")
+	("FIXME" . "tomato2")
+	("BUG" . "firebrick1")
+	("LEARN" . "Orangered1")))
 
 ;; ====
 ;; tags
 ;; ====
 ;;; custom tags
-(setq-default org-tag-alist '(("PROJECT" . ?P)
-			      ("paper" . ?p)
-			      ("sideproject" . ?s)
-			      ("IT" . ?i)
-			      ("email" . ?e)
-			      ("ref" . ?r)
-			      ("@WAITING" . ?w)
-			      ("@Today" . ?t)
-			      ("export". ?E)
-			      ("noexport" . ?N)))
+(setq org-tag-alist '(("PROJECT" . ?P)
+		      ("paper" . ?p)
+		      ("sideproject" . ?s)
+		      ("IT" . ?i)
+		      ("email" . ?e)
+		      ("ref" . ?r)
+		      ("@WAITING" . ?w)
+		      ("@Today" . ?t)
+		      ("export". ?E)
+		      ("noexport" . ?N)))
 
 ;; don't inherit the following tags
-(setq-default org-tags-exclude-from-inheritance '("@Today" "PROJECT" "@WAITING" "IT" "sideproject"))
+(setq org-tags-exclude-from-inheritance '("@Today" "PROJECT" "@WAITING" "IT" "sideproject"))
 
 ;; =======
 ;; Agendas
@@ -132,13 +130,13 @@
 ;; ------------
 ;; Agenda files
 ;; ------------
-(setq-default org-agenda-files (list "~/elisp/agendas/ag-academic.org"
-				     "~/elisp/agendas/ag-projects.org"
-				     "~/elisp/agendas/ag-longterm.org"
-				     "~/elisp/agendas/ag-teaching.org"
-				     "~/elisp/agendas/ag-geral.org"
-				     "~/elisp/agendas/gcal.org"
-				     "~/elisp/agendas/ag-it.org"))
+(setq org-agenda-files (list "~/elisp/agendas/ag-academic.org"
+			     "~/elisp/agendas/ag-projects.org"
+			     "~/elisp/agendas/ag-longterm.org"
+			     "~/elisp/agendas/ag-teaching.org"
+			     "~/elisp/agendas/ag-geral.org"
+			     "~/elisp/agendas/gcal.org"
+			     "~/elisp/agendas/ag-it.org"))
 
 (defun mk/select-agenda()
   "Select and open one of the agenda files."
@@ -148,60 +146,60 @@
     (find-file var)))
 
 ;;; agenda dispatcher
-(setq-default org-agenda-custom-commands
-	      '(("n" "Today tasks"
-		 ((tags "@Today")
-		  (agenda "" ((org-agenda-span 1)
-			      (org-agenda-show-all-dates nil)))))
-		("p" "Papers and projects"
-		 ((tags "PROJECT|paper"))) ; tags-todo
-		("N" "Pending stuff"
-		 ((tags "@Today")
-		  (agenda "" ((org-agenda-span 1)
-			      (org-agenda-show-all-dates nil)))
-		  (tags "@WAITING")))
-		("q" "Quick tasks"
-		 ((tags "IT")
-		  (tags "email")
-		  (tags "ref")))
-		("w" "Agenda pra semana"
-		 ((agenda "" ((org-agenda-span 7)
-			      (org-agenda-show-all-dates nil)))))
-		("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
-							(org-agenda-show-all-dates nil)))))
+(setq org-agenda-custom-commands
+      '(("n" "Today tasks"
+	 ((tags "@Today")
+	  (agenda "" ((org-agenda-span 1)
+		      (org-agenda-show-all-dates nil)))))
+	("p" "Papers and projects"
+	 ((tags "PROJECT|paper"))) ; tags-todo
+	("N" "Pending stuff"
+	 ((tags "@Today")
+	  (agenda "" ((org-agenda-span 1)
+		      (org-agenda-show-all-dates nil)))
+	  (tags "@WAITING")))
+	("q" "Quick tasks"
+	 ((tags "IT")
+	  (tags "email")
+	  (tags "ref")))
+	("w" "Agenda pra semana"
+	 ((agenda "" ((org-agenda-span 7)
+		      (org-agenda-show-all-dates nil)))))
+	("W" "Proximas duas semanas" agenda "" ((org-agenda-span 14)
+						(org-agenda-show-all-dates nil)))))
 
 ;; (org-agenda-overriding-header "")
 ;; (setq org-priority-faces '((?A . (:foreground "yellow"))))
 ;; (setq org-icalendar-use-scheduled '(todo-start event-if-todo))
 
-(setq-default org-columns-default-format ;; column view
-	      "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10CLOCKSUM_T %10CLOCKSUM %10Effort(Effort) %TAGS"
-	      org-global-properties ;; global effort estimate values
-	      '(("Effort_ALL" . "1:00 2:00 3:00 4:00 0:15 0:30 0:45"))
-	      org-clock-into-drawer t
-	      org-log-done 'time
-	      org-clock-idle-time nil)
+(setq org-columns-default-format ;; column view
+      "%1PRIORITY %5TODO %20ITEM(Task) %10SCHEDULED %10CLOCKSUM_T %10CLOCKSUM %10Effort(Effort) %TAGS"
+      org-global-properties ;; global effort estimate values
+      '(("Effort_ALL" . "1:00 2:00 3:00 4:00 0:15 0:30 0:45"))
+      org-clock-into-drawer t
+      org-log-done 'time
+      org-clock-idle-time nil)
 
 
 ;; -------
 ;; Capture
 ;; -------
-(setq-default org-directory "~/elisp/agendas/")
-(setq-default org-default-notes-file (concat org-directory "ag-geral.org"))
+(setq org-directory "~/elisp/agendas/")
+(setq org-default-notes-file (concat org-directory "ag-geral.org"))
 
-(setq-default org-capture-templates
-	      '(("a" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "DIVERSE")
-		 "** TODO %?\n  %i\n" :empty-lines 1)
-		("r" "Refs" entry (file+headline "~/elisp/agendas/ag-academic.org" "Ref hunt")
-		 "** TODO %?\n  %i\n" :empty-lines 1)
-		("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
-		 "** TODO %?\n %i\n" :empty-lines 1)
-		("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
-		 "** TODO %?\n %i\n" :empty-lines 1)
-		("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
-		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
-		("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
-		 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
+(setq org-capture-templates
+      '(("a" "Research" entry (file+headline "~/elisp/agendas/ag-academic.org" "DIVERSE")
+	 "** TODO %?\n  %i\n" :empty-lines 1)
+	("r" "Refs" entry (file+headline "~/elisp/agendas/ag-academic.org" "Ref hunt")
+	 "** TODO %?\n  %i\n" :empty-lines 1)
+	("t" "Teaching" entry (file+headline "~/elisp/agendas/ag-teaching.org" "DIVERSE")
+	 "** TODO %?\n %i\n" :empty-lines 1)
+	("g" "Geral" entry (file+headline "~/elisp/agendas/ag-geral.org" "NON-RECURRENT TODOs")
+	 "** TODO %?\n %i\n" :empty-lines 1)
+	("e" "Emacs stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "EMACS")
+	 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)
+	("l" "Linux stuff" entry (file+headline "~/elisp/agendas/ag-it.org" "LINUX")
+	 "** TODO %? %(org-set-tags \":IT:\") \n %i  \n" :empty-lines 1)))
 
 ;; ----
 ;; gcal
@@ -221,40 +219,14 @@
 ;; =========
 ;; Exporting
 ;; =========
-;; (setq org-export-with-sub-superscripts "{}")
-;;; Description: the braces are *required* in order to trigger
-;;; interpretations as sub/superscript.
 
-(setq-default org-export-with-toc nil
-	      org-export-with-section-numbers nil
-	      org-export-initial-scope 'subtree)
+(setq org-export-with-toc nil
+      org-export-with-section-numbers nil
+      org-export-initial-scope 'subtree)
 
 ;; latex exporting
-(setq-default org-latex-pdf-process (list "latexmk %s")
-	      org-export-with-LaTeX-fragments 'dvipng) ;covert tex frags into imgs
-
-;; -----
-;; latex
-;; -----
-;; (require 'org-latex)
-
-;; (unless (boundp 'org-export-latex-classes)
-;;   (setq org-export-latex-classes nil))
-
-;; (add-to-list 'org-export-latex-classes
-;; 	     '("amsart"
-;; 	       "\\documentclass[a4paper]{amsart}
-;; \\usepackage{setspace}
-;; \\usepackage{color}
-;; \\usepackage{framed}
-;; \\usepackage{comment}
-;; \\definecolor{shadecolor}{gray}{0.875}
-;; \\specialcomment{comm}{\\begin{shaded}}{\\end{shaded}}"
-;; 	       ("\\section{%s}" . "\\section*{%s}")
-;; 	       ("\\subsection{%s}" . "\\subsection*{%s}")
-;; 	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-;; 	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
-;; 	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+(setq org-latex-pdf-process (list "latexmk %s")
+      org-export-with-LaTeX-fragments 'dvipng) ;covert tex frags into imgs
 
 
 ;; =====
@@ -344,9 +316,6 @@
 					     1.5 :html-foreground "Black" :html-background "Transparent" :html-scale
 					     1.0 :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")))
 
-;; (setq org-latex-create-formula-image-program 'dvipng)
-;; NOTE: Apparently this var is obsolete
-
 ;; ============
 ;; org-annotate
 ;; ============
@@ -385,7 +354,7 @@ If N > 1, open a list of previously clocked items to choose from."
   ;; (org-save-all-org-buffers)
   )
 
-(setq-default org-timer-default-timer 25)
+(setq org-timer-default-timer 25)
 
 ;; Preferred applications
 (setq org-file-apps (quote ((auto-mode . emacs)
@@ -407,21 +376,6 @@ If N > 1, open a list of previously clocked items to choose from."
 ;; 	(switch-to-buffer-other-window "scratch-org.org")
 ;;       (switch-to-buffer "scratch-org.org"))))
 
-;; ;;; sound to use for notifications
-;; ;; (setq org-clock-sound t)
-;; ;;; not working
-
-;; (defun org-column-view-uses-fixed-width-face ()
-;;   ;; copy from org-faces.el
-;;   (when (fboundp 'set-face-attribute)
-;;     ;; Make sure that a fixed-width face is used when we have a column
-;;     ;; table.
-;;     (set-face-attribute 'org-column nil
-;;                         :height (face-attribute 'default :height)
-;;                         :family (face-attribute 'default :family))))
-
-;; (when (and (fboundp 'daemonp) (daemonp))
-;;   (add-hook 'org-mode-hook 'org-column-view-uses-fixed-width-face))
 
 ;; --------------
 ;; wasteclock.org
