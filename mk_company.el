@@ -12,8 +12,20 @@
 
 ;; (setq company-global-modes '(emacs-lisp-mode python-mode))
 
+
+;; ================
+;; company settings
+;; ================
+
+;; Don't ignore case when completing candidates
+;; (setq company-dabbrev-ignore-case nil)
+
+;; Don't downcase completion candidates
+(setq company-dabbrev-downcase nil)
+
 ;; (setq company-idle-delay 0.25)
 ;; (setq company-minimum-prefix-length 3)
+
 
 ;; ========
 ;; Backends
