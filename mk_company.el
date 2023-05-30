@@ -6,28 +6,34 @@
 
 ;;; Code:
 
-;; (setq-default company-global-modes '(emacs-lisp-mode python-mode))
-;; (global-company-mode)
 
+;; Enable `company-mode' in all buffers
+(add-hook 'after-init-hook 'global-company-mode)
 
-;; (setq-default company-idle-delay 0.25)
-;; (setq-default company-minimum-prefix-length 3)
+;; (setq company-global-modes '(emacs-lisp-mode python-mode))
+
+;; (setq company-idle-delay 0.25)
+;; (setq company-minimum-prefix-length 3)
 
 ;; ========
 ;; Backends
 ;; ========
 ;; Key var: `company-backends'.
-;; Note that only one backend is used at a time, but a backend can be grouped into a list.
-;; One neat feature about company is that you can interactively call separate backends.
+;; Note that only one backend is used at a time, but a backend can be
+;; grouped into a list.  One neat feature about company is that you
+;; can interactively call separate backends.
 
 ;; Add backend for LaTeX files
-(defvar mk/enable-tex-backend t
+(defvar mk/enable-tex-backend nil
   "Enable backend in `tex-mode'.")
 
 ;; A couple notes about the engines below:
-;; - `company-auctex-symbols' is a very neat engine in that it allows insertion of symbols outside of math mode.
-;; Because of this, `company-auctex-symbols' seems to be more versatile than `company-math-symbols-latex'.
-;; - `company-auctex-bibs' engine relies on `LaTeX-bibitem-list' but this var is nil in my tex files.
+;; - `company-auctex-symbols' is a very neat engine in that it allows
+;; insertion of symbols outside of math mode.  Because of this,
+;; `company-auctex-symbols' seems to be more versatile than
+;; `company-math-symbols-latex'.
+;; - `company-auctex-bibs' engine relies on `LaTeX-bibitem-list' but
+;; this var is nil in my tex files.
 
 (defvar backends-for-auctex
   '((company-math-symbols-latex
@@ -46,27 +52,6 @@
 (when mk/enable-tex-backend
   (setq company-backends (append backends-for-auctex company-backends)))
 
-
-;; Add yasnippet to every backend
-(defvar mk/enable-yas-every-backend t
-  "Enable yasnippet for all backends.")
-
-(defun mk/add-yas-to-backend (backend)
-  "Add `company-yasnippet' to BACKEND.
-From https://github.com/syl20bnr/spacemacs/pull/179"
-  (if (and (listp backend) (member 'company-yasnippet backend))
-      backend
-    (append (if (consp backend) backend (list backend))
-            '(:with company-yasnippet))))
-
-
-(defun mk/add-yas-to-every-backend ()
-  "Add `company-yasnippet' to every backend in `company-backends'."
-  (when mk/enable-yas-every-backend
-    (setq company-backends
-	  (mapcar #'mk/add-yas-to-backend company-backends))))
-
-(mk/add-yas-to-every-backend)
 
 (provide 'mk_company)
 
