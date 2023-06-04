@@ -21,9 +21,9 @@
   ;; file
   (kbd "<leader>ff") 'helm-find-files
   (kbd "<leader>fl") 'mk/locate-with-helm
-  (kbd "<leader>bs") 'save-buffer
 
   ;; buffer
+  (kbd "<leader>bs") 'save-buffer
   (kbd "<leader>bl") 'ibuffer
   (kbd "<leader>bb") 'helm-mini
   (kbd "<leader>bB") 'previous-buffer
@@ -76,8 +76,7 @@
   (kbd "<leader>cw") 'org-clock-goto
 
   ;; terminal
-  (kbd "<leader>ta") 'mk/call-ansi-term
-  )
+  (kbd "<leader>ta") 'mk/call-ansi-term)
 
 (provide 'mk_leader-keybindings)
 ;;; mk_leader-keybindings.el ends here
