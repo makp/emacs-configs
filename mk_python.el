@@ -2,39 +2,41 @@
 
 ;;; Commentary:
 ;; Run `elpy-config' for a summary of my config.
-;; TODO: look into a pkg for automatic code formatting -- possibly blacken.
 
 ;;; Code:
 
 ;; Enable elpy-mode
 (elpy-enable)
 
-;; Elpy virtualenv
-(setq-default elpy-rpc-virtualenv-path "/home/makmiller/.local/")
-
+;; Dir for conda envs
+;; NOTE: Use `pyenv-workon` to select env
+(setenv "WORKON_HOME" (expand-file-name "~/.conda/envs/"))
 
 ;; ------------------
 ;; interactive python
 ;; ------------------
 
-;; Standard interpreter
-;; (setq python-shell-interpreter "python"
-;;       python-shell-interpreter-args "-i")
-
-;; Jupyter console
-;; NOTE: You will need to install jupyter-console with pip
+;; Use jupyter console
 (setq python-shell-interpreter "jupyter"
       python-shell-interpreter-args "console --simple-prompt"
       python-shell-prompt-detect-failure-warning nil)
 (add-to-list 'python-shell-completion-native-disabled-interpreters
              "jupyter")
 
+;; Standard interpreter
+;; (setq python-shell-interpreter "python"
+;;       python-shell-interpreter-args "-i")
+
+
+;; Set default dir for python shells (project-root is the default value)
+(setq elpy-shell-starting-directory 'current-directory)
+
+
+;; 
 (add-hook 'inferior-python-mode-hook
 	  (lambda ()
 	    (company-mode 1)))
 
-;; default dir with python shells (project-root is the default value)
-(setq-default elpy-shell-starting-directory 'current-directory)
 
 ;; Enable font locking of inputs to python shell
 ;; From https://elpy.readthedocs.io/en/latest/customization_tips.html#enable-full-font-locking-of-inputs-in-the-python-shell
