@@ -27,6 +27,7 @@
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
 (require 'mk_company)
+(require 'mk_copilot)
 (require 'mk_yasnippet-setup)
 
 
