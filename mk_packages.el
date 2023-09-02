@@ -36,6 +36,7 @@
 		      company
 		      company-math
 		      company-auctex
+		      company-box
 		      copilot
 		      elpy
 		      evil

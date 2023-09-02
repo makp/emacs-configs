@@ -12,6 +12,10 @@
 
 ;; (setq company-global-modes '(emacs-lisp-mode python-mode))
 
+;; company-box
+(require 'company-box)
+(add-hook 'company-mode-hook 'company-box-mode)
+
 
 ;; ================
 ;; company settings
