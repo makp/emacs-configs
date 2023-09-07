@@ -77,6 +77,7 @@
 
   ;; helpful buffers/files
   (kbd "<leader>os") 'mk/open-org-scratch-buffer
+  (kbd "<leader>oc") 'mk/chatgpt
 
   ;; terminal
   (kbd "<leader>ta") 'mk/call-ansi-term)
