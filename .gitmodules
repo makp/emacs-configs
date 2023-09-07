@@ -1,0 +1,3 @@
+[submodule "helper_funcs"]
+	path = helper_funcs
+	url = git@github.com:makp/helper_funcs.git
