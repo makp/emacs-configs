@@ -161,6 +161,17 @@
 ;; (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
 ;; ==================
+;; org scratch buffer
+;; ==================
+(defun mk/open-org-scratch-buffer ()
+  "Open an org scratch buffer."
+  (interactive)
+  (let ((buf (get-buffer-create "*org-scratch*")))
+    (pop-to-buffer buf)
+    (org-mode)))
+
+
+;; ==================
 ;; Garbage collection
 ;; ==================
 ;; garbage collection

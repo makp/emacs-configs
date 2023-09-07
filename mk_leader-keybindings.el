@@ -63,7 +63,7 @@
   (kbd "<leader>pF") 'mk/select-project-and-fetch-from-all-remotes
   (kbd "<leader>pf") 'mk/select-project-and-find-files
 
-  ;; orgmode
+  ;; orgmode - agendas
   (kbd "<leader>aa") 'org-agenda
   (kbd "<leader>ao") 'mk/select-agenda
   (kbd "<leader>ac") 'org-capture
@@ -74,6 +74,9 @@
   (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
   (kbd "<leader>co") 'org-clock-out
   (kbd "<leader>cw") 'org-clock-goto
+
+  ;; helpful buffers/files
+  (kbd "<leader>os") 'mk/open-org-scratch-buffer
 
   ;; terminal
   (kbd "<leader>ta") 'mk/call-ansi-term)
