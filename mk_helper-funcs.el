@@ -1,5 +1,7 @@
+;;; Code:
+
 (defun mk/run-python-func-on-text (py_func)
-  "Run Python function PY_FUNC on either the selected text in the current buffer or the clipboard content if no text is selected."
+  "Run Python function PY_FUNC on either the selected text or the clipboard content if no text is selected."
   (let* ((text (if (use-region-p)
                    (buffer-substring-no-properties (region-beginning) (region-end))
                  (gui-get-selection 'CLIPBOARD)))
@@ -33,4 +35,11 @@
       (setq buffer-read-only nil)
       (org-mode))))
 
-(mk/run-python-func-on-text "teste")
+
+(defun mk/create-content()
+  (interactive)
+  (mk/run-python-func-on-text "teste")) ;; create_content
+
+
+(provide 'mk_helper_funcs)
+;;; mk_helper_funcs.el ends here

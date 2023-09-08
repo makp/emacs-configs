@@ -55,12 +55,14 @@
 ;; =========
 ;; autoloads
 ;; =========
+;; NOTE: Use the command `(featurep 'bla)' to test wether the feature
+;; bla has been loaded.
 (autoload 'mk/search-web "mk_eww-search-engine"
   "Select a search engine before running EWW." t)
 (autoload 'ibuffer "mk_ibuffer-setup")
 (autoload 'mk/call-ansi-term "mk_ansi-term")
+(autoload 'mk/create-content "mk_helper-funcs")
 
-;; NOTE: Use the command `(featurep 'bla)' to test wether the feature bla has been loaded.  ; 
 
 ;; =====
 ;; extra
