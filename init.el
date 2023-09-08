@@ -48,7 +48,7 @@
   (require 'mk_web-devel))
 (with-eval-after-load 'wolfram-mode
   (require 'mk_wolfram))
-(with-eval-after-load 'chatgpt
+(with-eval-after-load 'mk/chatgpt
   (require 'mk_chatgpt))
 
 
