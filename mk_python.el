@@ -28,10 +28,6 @@
 ;;       python-shell-interpreter-args "-i")
 
 
-;; Set default dir for python shells (project-root is the default value)
-(setq elpy-shell-starting-directory 'current-directory)
-
-
 ;; 
 (add-hook 'inferior-python-mode-hook
 	  (lambda ()
