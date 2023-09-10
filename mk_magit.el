@@ -65,6 +65,11 @@ Select a git repo if ARG is non-nil."
     (call-interactively 'magit-status))  ;; (magit-section-show-level-3-all)
   (call-interactively 'magit-fetch-all))
 
+(defun mk/select-project-and-display-status ()
+  "Select git repo and display status."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'magit-status)))
 
 ;; ==================
 ;; helm-ls-git config
