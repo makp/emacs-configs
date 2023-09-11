@@ -362,16 +362,20 @@ If N > 1, open a list of previously clocked items to choose from."
 			    ("\\.pdf\\'" . "/usr/bin/okular %o"))))
 
 ;; ===========
-;; org scratch 
+;; org scratch
 ;; ===========
 (defun mk/open-org-scratch (arg)
   "Open org scratch. With a prefix ARG, open it in another window."
   (interactive "P")
   (let* ((hostname (system-name))
-	 (filename (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname)))
-    (if arg
-	(find-file-other-window filename)
-      (find-file filename))))
+	 (filename (expand-file-name (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname))))
+    (if (file-equal-p (buffer-file-name (current-buffer)) filename)
+	(if (> (length (window-list)) 1)
+	    (delete-window)
+	  (bury-buffer))
+      (if arg
+	  (find-file-other-window filename)
+	(find-file filename)))))
 
 
 ;; --------------
