@@ -361,25 +361,17 @@ If N > 1, open a list of previously clocked items to choose from."
 			    ("\\.x?html?\\'" . default)
 			    ("\\.pdf\\'" . "/usr/bin/okular %o"))))
 
-;; ==================
-;; org scratch buffer
-;; ==================
-(defun mk/open-org-scratch-buffer (arg)
-  "Open an org scratch buffer. With a prefix ARG, open it in another window."
+;; ===========
+;; org scratch 
+;; ===========
+(defun mk/open-org-scratch (arg)
+  "Open org scratch. With a prefix ARG, open it in another window."
   (interactive "P")
   (let* ((hostname (system-name))
-	 (filename (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname))
-	 (existing-buffer (or (find-buffer-visiting filename)
-			      (get-buffer-create "*org-scratch*"))))
-
-    (pop-to-buffer existing-buffer arg)
-    (unless (eq major-mode 'org-mode)
-      (org-mode))
-    (unless buffer-file-name
-      (set-visited-file-name filename)
-      (unless (file-exists-p filename)
-	(save-buffer)))))
-
+	 (filename (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname)))
+    (if arg
+	(find-file-other-window filename)
+      (find-file filename))))
 
 
 ;; --------------

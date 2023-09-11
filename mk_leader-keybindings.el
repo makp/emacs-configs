@@ -77,7 +77,7 @@
   (kbd "<leader>cw") 'org-clock-goto
 
   ;; helpful buffers/files
-  (kbd "<leader>os") 'mk/open-org-scratch-buffer
+  (kbd "<leader>os") 'mk/open-org-scratch
   (kbd "<leader>oc") 'mk/chatgpt
 
   ;; terminal
