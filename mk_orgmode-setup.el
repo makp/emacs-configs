@@ -368,8 +368,9 @@ If N > 1, open a list of previously clocked items to choose from."
   "Open org scratch. With a prefix ARG, open it in another window."
   (interactive "P")
   (let* ((hostname (system-name))
-	 (filename (expand-file-name (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname))))
-    (if (file-equal-p (buffer-file-name (current-buffer)) filename)
+	 (filename (expand-file-name (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname)))
+	 (current-file (buffer-file-name (current-buffer))))
+    (if (and current-file (file-equal-p (buffer-file-name (current-buffer)) filename))
 	(if (> (length (window-list)) 1)
 	    (delete-window)
 	  (bury-buffer))
