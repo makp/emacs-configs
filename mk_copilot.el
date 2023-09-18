@@ -7,7 +7,7 @@
 
 
 (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion-by-word)
-(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+(define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion-by-line)
 (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-next-completion) ;; copilot-previous-completion
 
 ;; I don't think this line is necessary
