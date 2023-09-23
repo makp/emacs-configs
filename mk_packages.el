@@ -52,7 +52,6 @@
 		      highlight-parentheses
 		      hl-todo
 		      ibuffer-vc
-		      ibuffer-git
 		      keyfreq
 		      lua-mode
 		      magit
@@ -69,7 +68,6 @@
 		      wgrep-helm
 		      yaml-mode
 		      yasnippet
-		      wolfram-mode
 		      zenburn-theme)
   "List of packages to install at launch.")
 

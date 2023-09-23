@@ -19,6 +19,9 @@
 	  (lambda ()
 	    (setq truncate-lines nil)))
 
+;; Refine all hunks during diff (overkill?)
+(setq magit-diff-refine-hunk 'all)
+
 
 ;; ===============
 ;; List git status
@@ -67,10 +70,6 @@
     (setq org-link-elisp-confirm-function nil))
   (switch-to-buffer "*Git Status*")
   (goto-char 3))
-
-
-;; Refine all hunks during diff
-(setq magit-diff-refine-hunk 'all)
 
 
 ;; =============================
