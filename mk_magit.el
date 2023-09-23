@@ -56,7 +56,8 @@
       (insert (format "  cd %s\n" dir))
       (insert "  git status --porcelain --branch\n")
       (insert "#+end_src\n\n"))
-    (org-babel-execute-buffer))
+    (org-babel-execute-buffer)
+    (org-hide-block-all))
   (switch-to-buffer "*Git Status*"))
 
 
