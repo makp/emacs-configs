@@ -57,14 +57,14 @@
     (org-mode)
     (erase-buffer)
     (dolist (dir (get-git-repo-dirs))
-      (insert "# -*- mode: Org; org-link-elisp-confirm-function: nil; -*-\n\n")
       (insert (format "* [[elisp:(check-status-of-folder \"%s\")][Jump to git status: \"%s\"]]\n" dir dir))
       (insert "#+begin_src sh :results output\n")
       (insert (format "  cd %s\n" dir))
       (insert "  git status --porcelain --branch\n")
       (insert "#+end_src\n\n"))
     (org-babel-execute-buffer)
-    (org-hide-block-all))
+    (org-hide-block-all)
+    (setq org-link-elisp-confirm-function nil))
   (switch-to-buffer "*Git Status*"))
 
 
