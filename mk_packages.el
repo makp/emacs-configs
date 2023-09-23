@@ -44,6 +44,7 @@
 		      evil-commentary
 		      evil-matchit
 		      evil-numbers
+		      evil-collection
 		      flycheck
 		      helm
 		      helm-bibtex

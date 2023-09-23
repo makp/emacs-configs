@@ -52,14 +52,14 @@
 
 ;; org-mode
 ;; (require 'org)
-(evil-define-key 'normal org-mode-map
-  (kbd "zj") 'org-next-visible-heading
-  (kbd "zk") 'org-previous-visible-heading
-  (kbd "zf") 'org-forward-heading-same-level
-  (kbd "zb") 'org-backward-heading-same-level
-  (kbd "zu") 'outline-up-heading
-  (kbd ">") 'org-shiftmetaright
-  (kbd "<") 'org-shiftmetaleft)
+;; (evil-define-key 'normal org-mode-map
+;;   (kbd "zj") 'org-next-visible-heading
+;;   (kbd "zk") 'org-previous-visible-heading
+;;   (kbd "zf") 'org-forward-heading-same-level
+;;   (kbd "zb") 'org-backward-heading-same-level
+;;   (kbd "zu") 'outline-up-heading
+;;   (kbd ">") 'org-shiftmetaright
+;;   (kbd "<") 'org-shiftmetaleft)
 (define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
 
 ;; (define-key org-mode-map (kbd "") 'org-metaright)
@@ -84,9 +84,9 @@
   (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
 
 
-(evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
-(evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
-(evil-define-key 'normal LaTeX-mode-map (kbd "zm") 'outline-hide-body)
+;; (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
+;; (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
+;; (evil-define-key 'normal LaTeX-mode-map (kbd "zm") 'outline-hide-body)
 
 ;; EWW
 (global-set-key (kbd "C-c w") 'mk/search-web)

@@ -71,7 +71,7 @@
   (ibuffer-visit-buffer)
   (call-interactively 'magit-status))
 
-(define-key ibuffer-mode-map (kbd "g") 'mk/open-magit-status-from-ibuffer)
+;; (define-key ibuffer-mode-map (kbd "g") 'mk/open-magit-status-from-ibuffer)
 
 ;; Use human readable size column instead of original one
 (define-ibuffer-column size-h
