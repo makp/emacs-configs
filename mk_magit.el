@@ -36,11 +36,18 @@
           (push (magit-toplevel) git-repo-dirs))))
     git-repo-dirs))
 
-(defun check-git-status ()
-  "Check the status of all Git repositories with open buffers."
-  (dolist (dir (get-git-repo-dirs))
-    (let ((output (shell-command-to-string (concat "cd " dir " && git status"))))
-      (message "Git status for %s:\n%s" dir output))))
+
+(defun check-status-of-folder (folder)
+  "Check the git status of a folder."
+  (with-current-buffer (get-buffer-create "*magit-status*")
+    (magit-status-setup-buffer folder)
+    (magit-refresh)))
+
+;; (defun check-git-status ()
+;;   "Check the status of all Git repositories with open buffers."
+;;   (dolist (dir (get-git-repo-dirs))
+;;     (let ((output (shell-command-to-string (concat "cd " dir " && git status"))))
+;;       (message "Git status for %s:\n%s" dir output))))
 
 
 (defun mk/list-git-status-of-open-buffers ()
