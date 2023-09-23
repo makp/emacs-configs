@@ -68,12 +68,10 @@
   (kbd "<leader>co") 'org-clock-out
   (kbd "<leader>cw") 'org-clock-goto
 
-  ;; helpful buffers/files
+  ;; open ...
   (kbd "<leader>os") 'mk/open-org-scratch
   (kbd "<leader>oc") 'mk/chatgpt
-
-  ;; terminal
-  (kbd "<leader>ta") 'mk/call-ansi-term)
+  (kbd "<leader>oa") 'mk/call-ansi-term)
 
 (provide 'mk_leader-keybindings)
 ;;; mk_leader-keybindings.el ends here
