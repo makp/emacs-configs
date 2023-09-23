@@ -6,17 +6,53 @@
 
 ;;; Code:
 
-(defvar mk/states '(normal motion))
-
-;; Add extra key for universal argument bc of Evil mode
-;; (global-set-key (kbd "M-u") 'universal-argument)
-;; http://stackoverflow.com/questions/4808756/how-do-you-move-the-prefix-argument-to-a-different-key-in-emacs/4809193#4809193
-
-;; (global-set-key (kbd "C-\\") 'eval-region)
 
 ;; C-h as backspace
-(define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "M-o") 'open-line)
+;; (define-key key-translation-map [?\C-h] [?\C-?])
+
+;; (global-set-key (kbd "M-o") 'open-line)
+
+
+;; ----
+;; Evil
+;; ----
+
+;; Evil collection
+(evil-collection-init)
+;; (evil-collection-init '(dired ibuffer))
+
+;; Leader keybindings
+(require 'mk_leader-keybindings)
+
+;; ;; C-w behavior
+;; (define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
+;; ;; (setq evil-want-C-w-in-emacs-state t)
+;; (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
+;; ;; it was `company-show-location'
+;; (define-key company-active-map (kbd "M-w") 'company-show-location)
+
+;; ;; Vim-like behavior
+;; ;; enable vim-like C-u scroll in Evil
+;; (setq evil-want-C-u-scroll t)
+;; ;; enable vim-like C-u delete in Evil
+;; (setq evil-want-C-u-delete t)
+
+;; ;; Make C-a/C-x behave like vim
+;; (evil-define-key 'normal 'global (kbd "C-a") 'evil-numbers/inc-at-pt)
+;; (evil-define-key 'normal 'global (kbd "C-x") 'evil-numbers/dec-at-pt)
+;; (evil-define-key 'visual 'global (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
+;; (evil-define-key 'visual 'global (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)
+
+;; ;; Poor man's version of gp and gP
+;; (evil-define-key 'normal 'global
+;;   "gp" "p`]"
+;;   "gP" "P`]")
+
+;; ------------
+;; Line numbers
+;; ------------
+(global-set-key (kbd "M-l") 'display-line-numbers-mode)
+
 
 ;; ------
 ;; winner
@@ -25,24 +61,9 @@
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
 
-;; ------------
-;; line numbers
-;; ------------
-(global-set-key (kbd "M-l") 'display-line-numbers-mode)
 
-
-;; ----
-;; helm
-;; ----
-;; helm-find-files-map
-;; (define-key helm-map (kbd "C-x h") 'helm-quit-and-find-file)
-;; (define-key helm-map (kbd "C-x C-a") 'helm-ff-run-switch-to-eshell)
-;; helm-browse-project-map
-;; helm-ls-git-buffer-map
-;; helm-ls-git-map
 
 ;; company
-;; (require 'company)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
@@ -51,13 +72,7 @@
 ;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
 
 ;; org-mode
-;; (require 'org)
 ;; (evil-define-key 'normal org-mode-map
-;;   (kbd "zj") 'org-next-visible-heading
-;;   (kbd "zk") 'org-previous-visible-heading
-;;   (kbd "zf") 'org-forward-heading-same-level
-;;   (kbd "zb") 'org-backward-heading-same-level
-;;   (kbd "zu") 'outline-up-heading
 ;;   (kbd ">") 'org-shiftmetaright
 ;;   (kbd "<") 'org-shiftmetaleft)
 (define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
@@ -76,8 +91,6 @@
 ;; (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
 
 ;; latex
-;; (require 'latex)
-;; (require 'reftex)
 (with-eval-after-load 'reftex
   (define-key reftex-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
   (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
@@ -89,7 +102,7 @@
 ;; (evil-define-key 'normal LaTeX-mode-map (kbd "zm") 'outline-hide-body)
 
 ;; EWW
-(global-set-key (kbd "C-c w") 'mk/search-web)
+;; (global-set-key (kbd "C-c w") 'mk/search-web)
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired

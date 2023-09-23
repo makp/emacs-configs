@@ -22,13 +22,12 @@
 (require 'mk_orgmode-setup)
 (require 'mk_evil)
 (require 'mk_mode-line)
-(require 'mk_leader-keybindings)
-(require 'mk_keybindings)
 (require 'mk_buffers-and-windows)
 (require 'mk_session-management)
 (require 'mk_company)
 (require 'mk_copilot)
 (require 'mk_yasnippet-setup)
+(require 'mk_keybindings)
 
 
 ;; =================

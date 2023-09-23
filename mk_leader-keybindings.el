@@ -46,9 +46,6 @@
   (kbd "<leader>rm") 'helm-all-mark-rings
   (kbd "<leader>rj") 'mk/jump-to-register
 
-  ;; window
-  (kbd "<leader>w") 'evil-window-map
-
   ;; git
   (kbd "<leader>gs") 'magit-status
   (kbd "<leader>gf") 'mk/magit-fetch
