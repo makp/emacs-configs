@@ -20,6 +20,46 @@
 	    (setq truncate-lines nil)))
 
 
+;; ===============
+;; List git status
+;; ===============
+
+;; Check the status of opened git repos
+(defun get-git-repo-dirs ()
+  "Return a list of directories of all unique Git repositories that have open buffers."
+  (let ((git-repo-dirs '()))
+    (dolist (buf (buffer-list))
+      (with-current-buffer buf
+        (when (and (buffer-file-name)
+                   (magit-toplevel)
+                   (not (member (magit-toplevel) git-repo-dirs)))
+          (push (magit-toplevel) git-repo-dirs))))
+    git-repo-dirs))
+
+(defun check-git-status ()
+  "Check the status of all Git repositories with open buffers."
+  (dolist (dir (get-git-repo-dirs))
+    (let ((output (shell-command-to-string (concat "cd " dir " && git status"))))
+      (message "Git status for %s:\n%s" dir output))))
+
+
+(defun mk/list-git-status-of-open-buffers ()
+  "Create a temporary org-mode buffer with git status for each Git repository that has open buffers."
+  (interactive)
+  (with-current-buffer (get-buffer-create "*Git Status*")
+    (org-mode)
+    (erase-buffer)
+    (dolist (dir (get-git-repo-dirs))
+      (insert "# -*- mode: Org; org-link-elisp-confirm-function: nil; -*-\n\n")
+      (insert (format "* [[elisp:(check-status-of-folder \"%s\")][Jump to git status: \"%s\"]]\n" dir dir))
+      (insert "#+begin_src sh :results output\n")
+      (insert (format "  cd %s\n" dir))
+      (insert "  git status --porcelain --branch\n")
+      (insert "#+end_src\n\n"))
+    (org-babel-execute-buffer))
+  (switch-to-buffer "*Git Status*"))
+
+
 ;; Refine all hunks during diff
 (setq magit-diff-refine-hunk 'all)
 
