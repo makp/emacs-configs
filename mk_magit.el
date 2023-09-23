@@ -65,7 +65,8 @@
     (org-babel-execute-buffer)
     (org-hide-block-all)
     (setq org-link-elisp-confirm-function nil))
-  (switch-to-buffer "*Git Status*"))
+  (switch-to-buffer "*Git Status*")
+  (goto-char 3))
 
 
 ;; Refine all hunks during diff
