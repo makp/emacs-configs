@@ -9,7 +9,7 @@
 
 
 (evil-define-key mk/leader-states 'global
-  (kbd "<leader>SPC") 'helm-M-x
+  ;; (kbd "<leader><leader>") 'helm-M-x
   (kbd "<leader>l") 'helm-resume
   (kbd "<leader>h") 'help
 
@@ -18,13 +18,13 @@
   (kbd "<leader>fl") 'mk/locate-with-helm
 
   ;; buffer
-  (kbd "<leader>bs") 'save-buffer
+  (kbd "<leader>bw") 'save-buffer
   (kbd "<leader>bl") 'ibuffer
   (kbd "<leader>bb") 'helm-mini
-  (kbd "<leader>bB") 'previous-buffer
+  (kbd "<leader>bp") 'previous-buffer
   (kbd "<leader>bn") 'bury-buffer
-  (kbd "<leader>bc") 'kill-current-buffer
-  (kbd "<leader>bC") 'kill-buffer-and-window
+  (kbd "<leader>bd") 'kill-current-buffer
+  (kbd "<leader>bD") 'kill-buffer-and-window
   (kbd "<leader>bq") 'save-buffers-kill-emacs
   
   ;; search
