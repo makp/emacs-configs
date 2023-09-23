@@ -27,8 +27,8 @@
 (require 'mk_company)
 (require 'mk_copilot)
 (require 'mk_yasnippet-setup)
+(require 'mk_chatgpt)
 (require 'mk_keybindings)
-
 
 ;; =================
 ;; eval-after-load's
@@ -47,8 +47,6 @@
   (require 'mk_web-devel))
 (with-eval-after-load 'wolfram-mode
   (require 'mk_wolfram))
-(with-eval-after-load 'mk/chatgpt
-  (require 'mk_chatgpt))
 
 
 ;; =========
