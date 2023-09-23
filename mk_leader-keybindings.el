@@ -19,7 +19,7 @@
 
   ;; buffer
   (kbd "<leader>bw") 'save-buffer
-  (kbd "<leader>bl") 'ibuffer
+  (kbd "<leader>bl") 'mk/list-git-status-of-open-buffers
   (kbd "<leader>bb") 'helm-mini
   (kbd "<leader>bp") 'previous-buffer
   (kbd "<leader>bn") 'bury-buffer
