@@ -17,9 +17,21 @@
 ;; Evil
 ;; ----
 
-;; Evil collection
+;; Enable evil collection keybindings
 (evil-collection-init)
 ;; (evil-collection-init '(dired ibuffer))
+
+;; Leader key
+(defvar mk/leader-states '(normal motion emacs)
+  "Variable storing the states affected by the keybindings with the leader key.")
+
+(defvar mk/leader-key "\\" "The leader key.")
+
+(evil-set-leader mk/leader-states mk/leader-key)
+
+;; Prevent evil-collection from binding my leader key
+(setq evil-collection-key-blacklist `(,mk/leader-key))
+
 
 ;; Leader keybindings
 (require 'mk_leader-keybindings)
