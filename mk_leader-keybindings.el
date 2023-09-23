@@ -9,7 +9,7 @@
 (defvar mk/leader-states '(normal motion emacs)
   "Variable storing the states affected by the keybindings with the leader key.")
 
-(evil-set-leader mk/leader-states (kbd "SPC"))
+(evil-set-leader mk/leader-states (kbd "\\"))
 ;; SPC is assigned to the function `evil-forward-char' in normal and motion states.
 
 
