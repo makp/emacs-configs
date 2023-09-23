@@ -7,8 +7,8 @@
 ;;; Code:
 
 
-;; C-h as backspace
-;; (define-key key-translation-map [?\C-h] [?\C-?])
+;; Set C-h as backspace instead of help
+(define-key key-translation-map [?\C-h] [?\C-?])
 
 ;; (global-set-key (kbd "M-o") 'open-line)
 
