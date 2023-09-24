@@ -1,6 +1,11 @@
-;; (message "Carregando mk_chatgpt")
+;;; mk_chatgpt.el --- Custom config for chatgpt -*- lexical-binding: t -*-
 
-;; (evil-set-initial-state 'chatgpt-mode 'emacs)
+;;; Commentary:
+
+;;
+
+;;; Code:
+
 (setq openai-key (getenv "OPENAI_KEY"))
 
 (defun mk/chatgpt ()
@@ -12,4 +17,4 @@
 
 
 (provide 'mk_chatgpt)
-;;; mk_private.el ends here
+;;; mk_chatgpt.el ends here

@@ -102,6 +102,21 @@
 ;; (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
 ;; (evil-define-key 'normal LaTeX-mode-map (kbd "zm") 'outline-hide-body)
 
+;; -------
+;; chatgpt
+;; -------
+(add-hook 'chatgpt-mode-hook
+	  (lambda ()
+	    (evil-define-key 'normal chatgpt-mode-map (kbd "RET") 'chatgpt-type-response) ; evil was overwriting it
+	    ))
+
+
+(add-hook 'chatgpt-input-mode-hook
+	  (lambda ()
+	    (define-key chatgpt-input-mode-map (kbd "RET") nil) ; it was `chatgpt-input-send'
+	    (evil-define-key '(normal insert) chatgpt-input-mode-map (kbd "C-c C-c") 'chatgpt-input-send)))
+
+
 ;; EWW
 ;; (global-set-key (kbd "C-c w") 'mk/search-web)
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
