@@ -13,8 +13,8 @@
  uniquify-separator ":")
 
 ;; winner-mode
-;; (setq winner-dont-bind-my-keys t)
 (winner-mode 1)
+(setq winner-dont-bind-my-keys t)
 
 
 (provide 'mk_buffers-and-windows)
