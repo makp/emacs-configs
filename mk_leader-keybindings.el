@@ -19,12 +19,11 @@
 
   ;; buffer
   (kbd "<leader>bw") 'save-buffer
-  (kbd "<leader>bl") 'mk/list-git-status-of-open-buffers
   (kbd "<leader>bb") 'helm-mini
   (kbd "<leader>bp") 'previous-buffer
   (kbd "<leader>bn") 'bury-buffer
-  (kbd "<leader>bd") 'kill-current-buffer
-  (kbd "<leader>bD") 'kill-buffer-and-window
+  (kbd "<leader>bx") 'kill-current-buffer
+  (kbd "<leader>bX") 'kill-buffer-and-window
   (kbd "<leader>bq") 'save-buffers-kill-emacs
   
   ;; search
@@ -55,6 +54,7 @@
   (kbd "<leader>pb") 'mk/select-project-and-browse-buffers
   (kbd "<leader>pF") 'mk/select-project-and-fetch-from-all-remotes
   (kbd "<leader>pf") 'mk/select-project-and-find-files
+  (kbd "<leader>pl") 'mk/list-git-status-of-open-buffers
 
   ;; orgmode - agendas
   (kbd "<leader>aa") 'org-agenda
