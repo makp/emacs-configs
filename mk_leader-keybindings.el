@@ -68,6 +68,10 @@
   (kbd "<leader>co") 'org-clock-out
   (kbd "<leader>cw") 'org-clock-goto
 
+  ;; text operations
+  (kbd "<leader>tw") 'mk/write
+  ;; (kbd "<leader>tw") 'mk/code
+
   ;; open ...
   (kbd "<leader>os") 'mk/open-org-scratch
   (kbd "<leader>oc") 'mk/chatgpt

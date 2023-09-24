@@ -1,12 +1,12 @@
 ;;; Code:
 
-(defun mk/run-python-func-on-text (py_func)
+(defun mk/run-python-func-on-text (type py_func)
   "Run Python function PY_FUNC on either the selected text or the clipboard content if no text is selected."
   (let* ((text (if (use-region-p)
                    (buffer-substring-no-properties (region-beginning) (region-end))
                  (gui-get-selection 'CLIPBOARD)))
 	 (temp-file (make-temp-file "emacs-content-" nil ".txt"))
-	 (python-command (format "from content_creator import %s; %s(open('%s').read())" py_func py_func temp-file))
+	 (python-command (format "from %s import %s; %s(open('%s').read())" type py_func py_func temp-file))
 	 (python-output nil)
 	 (temp-buffer-name "*Python Output*"))
 
@@ -36,9 +36,17 @@
       (org-mode))))
 
 
-(defun mk/create-content()
+(defun mk/write ()
+  "Prompt the user to selectio the helper function."
   (interactive)
-  (mk/run-python-func-on-text "teste")) ;; create_content
+  (let ((options '("Write short message" "Refine text"))
+        (choice nil))
+    (while (not (member choice options))
+      (setq choice (completing-read "Choose an option: " options)))
+    (cond ((string= choice "Write short message")
+	   (mk/run-python-func-on-text "writing" "write_short_message"))
+          ((string= choice "Refine text")
+           (mk/run-python-func-on-text "writing" "refine_text")))))
 
 
 (provide 'mk_helper_funcs)
