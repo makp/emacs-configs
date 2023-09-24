@@ -56,7 +56,7 @@
   "Select a search engine before running EWW." t)
 (autoload 'ibuffer "mk_ibuffer-setup")
 (autoload 'mk/call-ansi-term "mk_ansi-term")
-(autoload 'mk/create-content "mk_helper-funcs")
+(autoload 'mk/run-python-func-on-text "mk_helper-funcs")
 
 
 ;; =====

@@ -20,7 +20,7 @@
 (evil-collection-init)
 ;; (evil-collection-init '(dired ibuffer))
 
-(setq evil-collection-setup-minibuffer t)
+(setq evil-collection-setup-minibuffer nil) ; nil is the default
 
 ;; Leader key
 (defvar mk/leader-states '(normal visual motion emacs)
