@@ -16,6 +16,12 @@
 ;; set evil search module to 'evil-search
 (setq evil-search-module 'evil-search)
 
+
+;; C-u behavior
+;; NOTE: These lines have to load before evil is loaded
+(setq evil-want-C-u-scroll t)
+(setq evil-want-C-u-delete t)
+
 (evil-mode 1)
 
 

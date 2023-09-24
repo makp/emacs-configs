@@ -16,13 +16,12 @@
 ;; ----
 ;; Evil
 ;; ----
-
 ;; Enable evil collection keybindings
 (evil-collection-init)
 ;; (evil-collection-init '(dired ibuffer))
 
 ;; Leader key
-(defvar mk/leader-states '(normal motion emacs)
+(defvar mk/leader-states '(normal visual motion emacs)
   "Variable storing the states affected by the keybindings with the leader key.")
 
 (defvar mk/leader-key "\\" "The leader key.")
@@ -32,9 +31,9 @@
 ;; Prevent evil-collection from binding my leader key
 (setq evil-collection-key-blacklist `(,mk/leader-key))
 
-
 ;; Leader keybindings
 (require 'mk_leader-keybindings)
+
 
 ;; ;; C-w behavior
 ;; (define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
@@ -43,11 +42,6 @@
 ;; ;; it was `company-show-location'
 ;; (define-key company-active-map (kbd "M-w") 'company-show-location)
 
-;; ;; Vim-like behavior
-;; ;; enable vim-like C-u scroll in Evil
-;; (setq evil-want-C-u-scroll t)
-;; ;; enable vim-like C-u delete in Evil
-;; (setq evil-want-C-u-delete t)
 
 ;; ;; Make C-a/C-x behave like vim
 ;; (evil-define-key 'normal 'global (kbd "C-a") 'evil-numbers/inc-at-pt)
