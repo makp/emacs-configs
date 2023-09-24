@@ -48,6 +48,7 @@
   (kbd "<leader>gb") 'helm-browse-project ; accepts prefix arg
 
   ;; project
+  (kbd "<leader>pp") 'magit-repolist
   (kbd "<leader>ps") 'mk/select-project-and-display-status
   (kbd "<leader>ph") 'helm-projects-history
   (kbd "<leader>pg") 'mk/select-project-and-run-git-grep
