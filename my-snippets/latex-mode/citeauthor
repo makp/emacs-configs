@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: citeauthor
-# key: ca
-# --
-\citeauthor{${1:label$(unless yas/modified-p (reftex-citation 'dont-insert))}}$0

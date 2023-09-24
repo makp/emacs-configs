@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name: Verbatim
-# key:
-# --
-\verb+${1: add code here!}+$0

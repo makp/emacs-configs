@@ -1,5 +1,0 @@
-# -*- snippet -*-
-# name : Add a NOTE
-# key : no
-# --
-`(insert comment-start comment-start)` NOTE: $0 `(insert comment-start)` `(unless (= (point) (line-end-position)) (newline))`

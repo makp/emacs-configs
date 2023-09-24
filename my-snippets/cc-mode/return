@@ -1,7 +1,0 @@
-# "-*- snippet -*-"
-# name : return
-# key : re
-# group : cc-mode
-# contributor : Mak
-# --
-return 0;

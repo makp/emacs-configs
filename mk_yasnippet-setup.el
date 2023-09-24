@@ -8,7 +8,7 @@
 
 
 (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
-(setq yas-snippet-dirs '("~/config-files/general/emacs-configs/my-snippets"))
+(setq yas-snippet-dirs '("~/config-files/general/emacs-configs/helper_funcs/my-snippets"))
 
 (require 'yasnippet)
 (yas-global-mode 1)
