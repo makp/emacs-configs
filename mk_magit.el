@@ -56,6 +56,7 @@
 (defun mk/list-git-status-of-open-buffers ()
   "Create a temporary org-mode buffer with git status for each Git repository that has open buffers."
   (interactive)
+  (save-some-buffers)
   (with-current-buffer (get-buffer-create "*Git Status*")
     (org-mode)
     (erase-buffer)
