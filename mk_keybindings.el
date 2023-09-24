@@ -20,6 +20,8 @@
 (evil-collection-init)
 ;; (evil-collection-init '(dired ibuffer))
 
+(setq evil-collection-setup-minibuffer t)
+
 ;; Leader key
 (defvar mk/leader-states '(normal visual motion emacs)
   "Variable storing the states affected by the keybindings with the leader key.")
@@ -34,25 +36,14 @@
 ;; Leader keybindings
 (require 'mk_leader-keybindings)
 
+(setq evil-want-C-w-in-emacs-state t)
 
-;; ;; C-w behavior
-;; (define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
-;; ;; (setq evil-want-C-w-in-emacs-state t)
-;; (define-key company-active-map (kbd "C-w") 'evil-delete-backward-word)
-;; ;; it was `company-show-location'
-;; (define-key company-active-map (kbd "M-w") 'company-show-location)
+;; Make C-a/C-x behave like vim (from evil-numbers)
+(evil-define-key '(normal visual) 'global (kbd "C-a") 'evil-numbers/inc-at-pt)
+(evil-define-key '(normal visual) 'global (kbd "C-x") 'evil-numbers/dec-at-pt)
+;; evil-numbers/inc-at-pt-incremental
+;; evil-numbers/dec-at-pt-incremental
 
-
-;; ;; Make C-a/C-x behave like vim
-;; (evil-define-key 'normal 'global (kbd "C-a") 'evil-numbers/inc-at-pt)
-;; (evil-define-key 'normal 'global (kbd "C-x") 'evil-numbers/dec-at-pt)
-;; (evil-define-key 'visual 'global (kbd "C-a") 'evil-numbers/inc-at-pt-incremental)
-;; (evil-define-key 'visual 'global (kbd "C-x") 'evil-numbers/dec-at-pt-incremental)
-
-;; ;; Poor man's version of gp and gP
-;; (evil-define-key 'normal 'global
-;;   "gp" "p`]"
-;;   "gP" "P`]")
 
 ;; ------------
 ;; Line numbers
@@ -68,14 +59,22 @@
 (define-key evil-window-map "U" 'winner-redo)
 
 
+;; ---
+;; yas
+;; ---
+(global-set-key (kbd "C-c C-y") 'yas-insert-snippet)
+
 
 ;; company
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map (kbd "TAB") nil) ; it was `company-complete-common-or-cycle'
+(define-key company-active-map (kbd "<tab>") nil)
+(define-key company-active-map (kbd "C-w") nil) ; it was `company-show-location'
+(define-key company-active-map (kbd "C-h") nil) ; it was `company-show-doc-buffer'
 
-;; company-search-candidates
-;; (global-set-key (kbd "<tab>") 'company-complete-common-or-cycle) ;TAB
-;; (define-key company-active-map (kbd "TAB") 'company-complete) ;C-i
+
+;; helm
+(define-key helm-map (kbd "C-w") 'backward-kill-word) ;it was `helm-yank-text-at-point'
+(define-key helm-map (kbd "M-w") 'helm-yank-text-at-point)
 
 ;; org-mode
 ;; (evil-define-key 'normal org-mode-map
@@ -92,16 +91,12 @@
 ;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
 
 (global-set-key (kbd "C-c l") 'org-store-link)
-;; NOTE: This key needs to be global bc you can store links from non-org buffers
-;; (global-set-key (kbd "C-c C-S-l") 'org-insert-link-global)
-;; (global-set-key (kbd "C-c C-S-o") 'org-open-at-point-global)
 
 ;; latex
 (with-eval-after-load 'reftex
   (define-key reftex-mode-map (kbd "C-c r") 'helm-bibtex) ; reftex-citation
   (define-key reftex-mode-map (kbd "C-c v") 'reftex-view-crossref)
   (define-key reftex-mode-map (kbd "C-c t") 'my-reftex-toc))
-
 
 ;; (evil-define-key 'normal LaTeX-mode-map (kbd "zj") 'outline-next-visible-heading)
 ;; (evil-define-key 'normal LaTeX-mode-map (kbd "zk") 'outline-previous-visible-heading)
@@ -114,7 +109,6 @@
 ;; dired
 (define-key dired-mode-map (kbd "C-x C-q") 'mk/dired-toggle-edit-from-evil)
 ;; (define-key dired-mode-map "E" 'dired-ediff-marked-files)
-;; (define-key dired-mode-map "l" 'dired-up-directory)
 
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here
