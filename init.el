@@ -66,7 +66,7 @@
 		(lambda ()
 		  (interactive)
 		  (require 'mk_keyfreq)
-		  (pdf-tools-install)))
+		  ))
 
 
 (provide 'init)

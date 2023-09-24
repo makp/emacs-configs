@@ -61,7 +61,6 @@
 		      org-contrib
 		      org-gcal
 		      org-ref
-		      pdf-tools
 		      visual-fill-column
 		      web-mode
 		      wgrep
