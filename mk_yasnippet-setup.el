@@ -34,26 +34,6 @@
 
 ;; yas-prompt-functions
 
-;;; Inter-field navigation
-;; (defun yas-goto-end-of-active-field ()
-;;   (interactive)
-;;   (let* ((snippet (car (yas--snippets-at-point)))
-;; 	 (position (yas--field-end (yas--snippet-active-field snippet))))
-;;     (if (= (point) position)
-;;         (move-end-of-line-or-next-line)
-;;       (goto-char position))))
-
-;; (defun yas-goto-start-of-active-field ()
-;;   (interactive)
-;;   (let* ((snippet (car (yas--snippets-at-point)))
-;; 	 (position (yas--field-start (yas--snippet-active-field snippet))))
-;;     (if (= (point) position)
-;;         (move-start-of-line-or-prev-line)
-;;       (goto-char position))))
-
-;; (define-key yas-keymap (kbd "C-e") 'yas-goto-end-of-active-field)
-;; (define-key yas-keymap (kbd "C-a") 'yas-goto-start-of-active-field)
-
 (provide 'mk_yasnippet-setup)
 
 ;;; mk_yasnippet-setup.el ends here
