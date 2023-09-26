@@ -107,14 +107,7 @@
 ;; -------
 (add-hook 'chatgpt-mode-hook
 	  (lambda ()
-	    (evil-define-key 'normal chatgpt-mode-map (kbd "RET") 'chatgpt-type-response) ; evil was overwriting it
-	    ))
-
-
-(add-hook 'chatgpt-input-mode-hook
-	  (lambda ()
-	    (define-key chatgpt-input-mode-map (kbd "RET") nil) ; it was `chatgpt-input-send'
-	    (evil-define-key '(normal insert) chatgpt-input-mode-map (kbd "C-c C-c") 'chatgpt-input-send)))
+	    (evil-define-key 'normal chatgpt-mode-map (kbd "RET") 'mk/chatgpt-write-message)))
 
 
 ;; EWW

@@ -75,7 +75,7 @@
 
   ;; open ...
   (kbd "<leader>os") 'mk/open-org-scratch
-  (kbd "<leader>oc") 'mk/chatgpt
+  (kbd "<leader>oc") 'mk/chatgpt-select-model
   (kbd "<leader>oa") 'mk/call-ansi-term)
 
 (provide 'mk_leader-keybindings)
