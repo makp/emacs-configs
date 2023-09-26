@@ -122,7 +122,6 @@
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired
-(define-key dired-mode-map (kbd "C-x C-q") 'mk/dired-toggle-edit-from-evil)
 ;; (define-key dired-mode-map "E" 'dired-ediff-marked-files)
 
 (provide 'mk_keybindings)

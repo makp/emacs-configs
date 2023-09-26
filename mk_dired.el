@@ -17,16 +17,6 @@
 	    (setq truncate-lines 1)
 	    (auto-revert-mode 1))) ;; auto-refresh dired on file change
 
-;; (define-key dired-mode-map (kbd "SPC") nil) ; it was dired-next-line
-
-(defun mk/dired-toggle-edit-from-evil()
-  "Toggle edit/read-only in Dired buffers from evil."
-  (interactive)
-  (evil-emacs-state)
-  (dired-toggle-read-only)
-  (evil-force-normal-state)
-  (evil-forward-word-begin))
-
 (provide 'mk_dired)
 
 ;;; mk_dired.el ends here
