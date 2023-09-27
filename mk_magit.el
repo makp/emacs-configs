@@ -23,9 +23,9 @@
 (setq magit-diff-refine-hunk 'all)
 
 
-;; ===============
-;; List git status
-;; ===============
+;; ==========================
+;; List git status open repos
+;; ==========================
 
 ;; Check the status of opened git repos
 (defun get-git-repo-dirs ()
@@ -94,13 +94,12 @@ Select a git repo if ARG is non-nil."
   (delete-other-windows))
 
 
-(defun mk/select-project-and-find-files ()
-  "Run helm-find-files after selecting a git project."
+(defun mk/select-project-and-run-find ()
+  "Run helm-find after selecting a git project."
   (interactive)
   (let ((current-prefix-arg '(4)))
     (call-interactively 'magit-status))
-  (call-interactively 'helm-find-files)
-  (delete-other-windows))
+  (call-interactively 'helm-find))
 
 
 (defun mk/select-project-and-run-git-grep ()
@@ -127,6 +126,14 @@ Select a git repo if ARG is non-nil."
   (let ((current-prefix-arg '(4)))
     (call-interactively 'magit-status))
   (delete-other-windows))
+
+
+(defun mk/selection-project-and-run-ag ()
+  "Select git repo and run ag on the whole repository."
+  (interactive)
+  (let ((current-prefix-arg '(4)))
+    (call-interactively 'magit-status))
+  (call-interactively 'helm-do-grep-ag))
 
 ;; ==================
 ;; helm-ls-git config
