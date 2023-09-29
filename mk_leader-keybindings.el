@@ -63,12 +63,16 @@
   (kbd "<leader>ao") 'mk/select-agenda
   (kbd "<leader>ac") 'org-capture
 
-  (kbd "<leader>ct") 'org-timer-set-timer
-  (kbd "<leader>cx") 'org-timer-stop
-  (kbd "<leader>ci") 'mk/clock-in
-  (kbd "<leader>cI") 'mk/quick-clockin	;mk/clock-in
-  (kbd "<leader>co") 'org-clock-out
-  (kbd "<leader>cw") 'org-clock-goto
+  (kbd "<leader>at") 'org-timer-set-timer
+  (kbd "<leader>ax") 'org-timer-stop
+  (kbd "<leader>ai") 'mk/clock-in
+  (kbd "<leader>aI") 'mk/quick-clockin	;mk/clock-in
+  (kbd "<leader>ao") 'org-clock-out
+  (kbd "<leader>aw") 'org-clock-goto
+
+  ;; completion
+  (kbd "<leader>cy") 'company-yasnippet
+  (kbd "<leader>cf") 'company-files
 
   ;; text operations
   (kbd "<leader>tw") 'mk/write
