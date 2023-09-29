@@ -17,7 +17,6 @@
 (require 'warnings)
 (add-to-list 'warning-suppress-types '(yasnippet backquote-change))
 
-
 ;; yas-wrap-around-region
 ;; If non-nil, snippet expansion wraps around selected region for $0 field.
 

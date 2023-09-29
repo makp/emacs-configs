@@ -12,7 +12,6 @@
 
 ;; (global-set-key (kbd "M-o") 'open-line)
 
-
 ;; ----
 ;; Evil
 ;; ----
@@ -22,16 +21,28 @@
 
 (setq evil-collection-setup-minibuffer nil) ; nil is the default
 
-;; Leader key
-(defvar mk/leader-states '(normal visual motion emacs)
-  "Variable storing the states affected by the keybindings with the leader key.")
+;; Leader keys
+(defvar mk/leader-key "\\" "Main leader key.")
+(defvar mk/alt-leader-key "C-\\"
+  "Alternative leader key to be used with other states, including insert state.")
 
-(defvar mk/leader-key "\\" "The leader key.")
+;; Leader key states
+(defvar mk/leader-states '(normal motion)
+  "Variable storing states affected by the leader key.")
 
-(evil-set-leader mk/leader-states mk/leader-key)
+(defvar mk/alt-leader-states '(insert visual emacs)
+  "Variable storing states affected by the alternative leader key.")
 
-;; Prevent evil-collection from binding my leader key
+
+;; Prevent conflict with the leader keys
 (setq evil-collection-key-blacklist `(,mk/leader-key))
+(keymap-global-unset mk/alt-leader-key)
+
+
+;; Bind leader keys
+(evil-set-leader mk/leader-states (kbd mk/leader-key))
+(evil-set-leader mk/alt-leader-states (kbd mk/alt-leader-key))
+
 
 ;; Leader keybindings
 (require 'mk_leader-keybindings)
@@ -57,12 +68,6 @@
 ;; (require 'evil-vars)
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
-
-
-;; ---
-;; yas
-;; ---
-(global-set-key (kbd "C-c C-y") 'yas-insert-snippet)
 
 
 ;; company

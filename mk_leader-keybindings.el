@@ -6,9 +6,9 @@
 
 ;;; Code:
 
+;; (require 'evil)
 
-
-(evil-define-key mk/leader-states 'global
+(evil-define-key nil 'global
   ;; (kbd "<leader><leader>") 'helm-M-x
   (kbd "<leader>l") 'helm-resume
   (kbd "<leader>h") 'help
