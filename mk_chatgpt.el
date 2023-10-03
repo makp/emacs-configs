@@ -22,8 +22,7 @@
   (interactive)
   (chatgpt-type-response)
   (org-mode)
-  (evil-window-move-far-left)
-  (local-set-key (kbd "C-c C-c") 'mk/chatgpt-send-message))
+  (evil-window-move-far-left))
 
 
 (defun mk/chatgpt-send-message ()
