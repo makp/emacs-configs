@@ -52,6 +52,7 @@
 		      highlight-parentheses
 		      hl-todo
 		      ibuffer-vc
+		      ivy
 		      keyfreq
 		      lua-mode
 		      magit
@@ -61,6 +62,7 @@
 		      org-contrib
 		      org-gcal
 		      org-ref
+		      projectile
 		      visual-fill-column
 		      web-mode
 		      wgrep

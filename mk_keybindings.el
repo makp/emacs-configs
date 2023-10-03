@@ -62,6 +62,11 @@
 (global-set-key (kbd "M-l") 'display-line-numbers-mode)
 
 
+;; ----------
+;; Projectile
+;; ----------
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 ;; ------
 ;; winner
 ;; ------

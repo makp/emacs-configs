@@ -27,6 +27,7 @@
 (require 'mk_company)
 (require 'mk_copilot)
 (require 'mk_yasnippet-setup)
+(require 'mk_project)
 (require 'mk_chatgpt)
 (require 'mk_keybindings)
 
