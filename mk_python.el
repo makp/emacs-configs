@@ -31,7 +31,9 @@
 ;; 
 (add-hook 'inferior-python-mode-hook
 	  (lambda ()
-	    (company-mode 1)))
+	    (highlight-parentheses-mode 1)
+	    (company-mode 1)
+	    (copilot-mode 1)))
 
 
 ;; Enable font locking of inputs to python shell
