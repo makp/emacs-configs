@@ -25,7 +25,8 @@
 ;; ========
 (add-hook 'org-mode-hook
 	  (lambda()
-	    (flyspell-mode 1)))
+	    (flyspell-mode 1)
+	    (visual-fill-column-mode 1)))
 
 ;; =========
 ;; refilling
