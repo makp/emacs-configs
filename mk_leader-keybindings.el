@@ -34,11 +34,10 @@
   (kbd "<leader>st") 'mk/find-tags
   (kbd "<leader>sf") 'helm-find
 
-  ;; ring, mark, and register
-  (kbd "<leader>rk") 'helm-show-kill-ring
+  ;; register, ring, and mark
   (kbd "<leader>rr") 'helm-register
+  (kbd "<leader>rk") 'helm-show-kill-ring
   (kbd "<leader>rm") 'helm-all-mark-rings
-  (kbd "<leader>rj") 'mk/jump-to-register
 
   ;; git
   (kbd "<leader>gs") 'magit-status
@@ -51,7 +50,6 @@
   (kbd "<leader>pp") 'magit-list-repositories
   (kbd "<leader>pl") 'mk/list-git-status-of-open-buffers
   (kbd "<leader>ps") 'mk/select-project-and-display-status
-  ;; (kbd "<leader>ph") 'helm-projects-history
   (kbd "<leader>pg") 'mk/select-project-and-run-git-grep
   (kbd "<leader>pa") 'mk/selection-project-and-run-ag
   (kbd "<leader>pb") 'mk/select-project-and-browse-buffers
