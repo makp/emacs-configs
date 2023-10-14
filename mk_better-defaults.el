@@ -40,7 +40,7 @@
 ;; ------------
 ;; line numbers
 ;; ------------
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type 'visual)
 
 
 ;; ====
