@@ -79,6 +79,33 @@
       mk/pkg-list)
 
 
+(defun mk/unused-pkgs ()
+  "List packages that are installed but not in `mk/pkg-list'."
+  (let* ((installed-packages (cl-remove-if-not 'package--user-selected-p (mapcar 'car package-alist)))
+         (used-packages mk/pkg-list)
+         (unused-packages (cl-set-difference installed-packages used-packages :test 'equal)))
+
+    ;; Print the packages in *Messages* buffer
+    ;; (message "%s" (mapconcat 'symbol-name unused-packages ", "))
+
+    unused-packages))
+
+
+(defun mk/delete-unused-pkgs ()
+  "Delete packages that are installed but not in `mk/pkg-list'."
+  (interactive)
+  (let ((unused-packages (mk/unused-pkgs)))
+    (if (not unused-packages)
+        (message "No unused packages.")
+      (when (yes-or-no-p (format "Delete %d unused packages? (%s) "
+                                 (length unused-packages)
+                                 (mapconcat #'symbol-name
+					    unused-packages ", ")))
+        (dolist (package unused-packages)
+          (when (package-installed-p package)
+            (package-delete (cadr (assq package package-alist))
+			    t)))))))
+
 (provide 'mk_packages)
 
 ;;; mk_packages.el ends here
