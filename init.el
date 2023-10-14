@@ -15,6 +15,7 @@
 ;; ===========
 ;; core config
 ;; ===========
+(require 'cl-lib)
 (require 'mk_packages)
 (require 'mk_better-defaults)
 (require 'mk_helm-setup)

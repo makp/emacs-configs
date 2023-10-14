@@ -7,8 +7,6 @@
 
 ;;; Code:
 
-(require 'cl-lib)
-
 (defvar search-engines
   '((("google" "g") "https://google.com/search?q=%s")
     (("duckduckgo" "d" "ddg") "https://duckduckgo.com/lite/?q=%s") ;"https://duckduckgo.com/?q=%s"
