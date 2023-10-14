@@ -41,6 +41,7 @@
 ;; line numbers
 ;; ------------
 (setq display-line-numbers-type 'visual)
+(global-display-line-numbers-mode 1)
 
 
 ;; ====
@@ -60,12 +61,6 @@
 
 ;; TODO: Fix the func below for calling terminal
 ;; (autoload 'mk/eshell-popup "mk_eshell" t nil)
-
-;; ==========
-;; completion
-;; ==========
-;; (setq completion-styles '(flex))
-;; NOTE: flex completion didn't work well with company last time I tried (it gave me too many options).
 
 
 ;; ==============================
@@ -171,8 +166,8 @@
 (add-hook 'emacs-startup-hook
           (lambda () (setq gc-cons-threshold 800000)))
 
-;; improve startup time by reducing the frequency of garbage
-;; collection.  The default is 800 kilobytes.  Measured in bytes.
+;; Improve startup time by reducing the frequency of garbage
+;; collection. The default is 800 kilobytes. Measured in bytes.
 (setq gc-cons-threshold (* 50 1000 1000))
 
 
@@ -208,6 +203,7 @@
 (setq warning-minimum-level ':error)
 ;; (mouse-avoidance-mode 'cat-and-mouse)
 
+
 ;; ========
 ;; doc-view
 ;; ========
@@ -215,6 +211,7 @@
 ;; (setq doc-view-resolution 250)
 ;; (setq doc-view-image-width 1250)
 ;;; (setq doc-view-cache-directory "/tmp/docview1000")
+
 
 ;; =====
 ;; ediff
@@ -226,47 +223,6 @@
 ;; (setq emerge-diff-options "--ignore-all-space")
 ;; Emerge doesn't care about differences in whitespace
 
-
-;; ====
-;; Tags
-;; ====
-;; tags-table-list
-;; Look at the TAGS files in these directories
-
-
-;; ===========
-;; lock screen
-;; ===========
-;; (defun mk-lock-screen ()
-;;   (interactive)
-;;   (async-shell-command "sudo openvt -sw -- vlock -a"))
-
-
-;; ======
-;; abbrev
-;; ======
-;; (setq abbrev-file-name
-;;       "~/elisp/cache/abbrev-defs")
-
-;; (setq save-abbrevs t)
-;; Save abbrevs when files are saved you will be asked
-;; before the abbreviations are saved
-
-;; (quietly-read-abbrev-file) ;; Reads the abbreviations file on startup
-
-
-;; =====================
-;; Common Lisp emulation
-;; =====================
-;; Resource:
-;; https://www.gnu.org/software/emacs/manual/html_mono/cl.html
-
-;; =========
-;; bookmarks
-;; =========
-;; (setq
-;;  bookmark-default-file "~/Dropbox/shared-files/emacs-bookmarks"
-;;  bookmark-save-flag 1)			; autosave each change
 
 
 (provide 'mk_better-defaults)
