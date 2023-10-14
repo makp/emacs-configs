@@ -237,7 +237,7 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (lisp . t)
-   (clojure . t)
+   ;; (clojure . t)
    (python . t)
    (shell . t)
    (latex . t)
@@ -249,7 +249,7 @@
 (setq org-src-tab-acts-natively t)
 (setq org-confirm-babel-evaluate nil)
 
-(setq org-babel-clojure-backend 'cider)
+;; (setq org-babel-clojure-backend 'cider)
 
 ;; (add-to-list 'org-src-lang-modes '("mathematica" . "wolfram")) ; use wolfram-mode instead of mma-mode
 ;; (setq-default org-babel-mathematica-command "wolframscript -f")

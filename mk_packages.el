@@ -32,7 +32,6 @@
 		      aggressive-indent
 		      auctex
 		      chatgpt
-		      cider
 		      company
 		      company-math
 		      company-auctex
