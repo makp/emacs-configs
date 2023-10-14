@@ -242,8 +242,6 @@
    (shell . t)
    (latex . t)
    (C . t)
-   ;; (mathematica . t)
-   ;; (R . t)
    ))
 
 

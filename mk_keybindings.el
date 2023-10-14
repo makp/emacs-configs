@@ -87,10 +87,9 @@
 (define-key helm-map (kbd "M-w") 'helm-yank-text-at-point)
 
 ;; org-mode
-;; (evil-define-key 'normal org-mode-map
-;;   (kbd ">") 'org-shiftmetaright
-;;   (kbd "<") 'org-shiftmetaleft)
-(define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
+(evil-define-key 'normal org-mode-map (kbd "M-l") nil) ; it was `org-demote-subtree'
+
+;; (define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
 
 ;; (define-key org-mode-map (kbd "") 'org-metaright)
 ;; (define-key org-mode-map (kbd "") 'org-metaleft)
@@ -100,7 +99,11 @@
 ;; (define-key org-mode-map (kbd "") 'org-shifttab)
 ;; (define-key org-mode-map (kbd "") 'org-insert-todo-heading-respect-content))
 
-(global-set-key (kbd "C-c l") 'org-store-link)
+;; (evil-define-key 'normal org-mode-map
+;;   (kbd ">") 'org-shiftmetaright
+;;   (kbd "<") 'org-shiftmetaleft)
+
+;; (global-set-key (kbd "C-c l") 'org-store-link)
 
 ;; latex
 (with-eval-after-load 'reftex
