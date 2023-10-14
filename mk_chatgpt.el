@@ -6,15 +6,9 @@
 
 ;;; Code:
 
-(setq openai-key (getenv "OPENAI_KEY"))
-
-(defun mk/chatgpt-select-model ()
-  "Select GPT model to use."
-  (interactive)
-  (let ((gpt-version (completing-read "Que ce quer?: " '("gpt-4" "gpt-3.5-turbo"))))
-    (setq chatgpt-model gpt-version))
-  (chatgpt)
-  (delete-other-windows))
+;; 
+(setq-default openai-key (getenv "OPENAI_KEY")
+	      chatgpt-window-prompt " ")
 
 
 (defun mk/chatgpt-write-message ()
@@ -22,7 +16,18 @@
   (interactive)
   (chatgpt-type-response)
   (org-mode)
-  (evil-window-move-far-left))
+  (evil-window-move-far-left)
+  (evil-insert-state))
+
+
+(defun mk/chatgpt-select-model ()
+  "Select GPT model to use."
+  (interactive)
+  (let ((gpt-version (completing-read "Que ce quer?: " '("gpt-4" "gpt-3.5-turbo"))))
+    (setq chatgpt-model gpt-version))
+  (chatgpt)
+  (delete-other-windows)
+  (mk/chatgpt-write-message))
 
 
 (defun mk/chatgpt-send-message ()
