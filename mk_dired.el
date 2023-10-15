@@ -6,8 +6,6 @@
 
 ;;; Code:
 
-;; (require 'dired-x)	;dired-jump seems to be defined in dired-x
-
 (setq dired-isearch-filenames t ;; search limits to file names
       dired-dwim-target t)      ;; move files more easily with split panes
 
@@ -16,6 +14,13 @@
 	    (setq mode-name "Dir")
 	    (setq truncate-lines 1)
 	    (auto-revert-mode 1))) ;; auto-refresh dired on file change
+
+
+(defun mk/copy-absolute-filename ()
+  "Save the absolute file path of the current file."
+  (interactive)
+  (when buffer-file-name
+    (kill-new (file-truename buffer-file-name))))
 
 (provide 'mk_dired)
 

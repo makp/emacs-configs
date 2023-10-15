@@ -17,6 +17,9 @@
   (kbd "<leader>ff") 'helm-find-files
   (kbd "<leader>fl") 'mk/locate-with-helm
 
+  ;; dired
+  (kbd "<leader>dp") 'mk/copy-absolute-filename
+
   ;; buffer
   (kbd "<leader>bw") 'save-buffer
   (kbd "<leader>bb") 'helm-mini
