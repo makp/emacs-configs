@@ -19,6 +19,7 @@
 
   ;; dired
   (kbd "<leader>dp") 'mk/copy-absolute-filename
+  (kbd "<leader>dj") 'dired-jump
 
   ;; buffer
   (kbd "<leader>bw") 'save-buffer
@@ -66,6 +67,7 @@
 
   (kbd "<leader>at") 'org-timer-set-timer
   (kbd "<leader>ax") 'org-timer-stop
+
   (kbd "<leader>ai") 'mk/clock-in
   (kbd "<leader>aI") 'mk/quick-clockin	;mk/clock-in
   (kbd "<leader>ao") 'org-clock-out
