@@ -39,11 +39,12 @@
 		      copilot
 		      elpy
 		      evil
-		      evil-surround
+		      evil-collection
 		      evil-commentary
 		      evil-matchit
 		      evil-numbers
-		      evil-collection
+		      evil-surround
+		      evil-traces
 		      flycheck
 		      helm
 		      helm-bibtex
