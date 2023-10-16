@@ -19,7 +19,7 @@
 (evil-collection-init)
 ;; (evil-collection-init '(dired ibuffer))
 
-(setq evil-collection-setup-minibuffer nil) ; nil is the default
+(setq evil-collection-setup-minibuffer t) ; nil is the default
 
 ;; Leader keys
 (defvar mk/leader-key "\\" "Main leader key.")
@@ -88,6 +88,8 @@
 
 ;; org-mode
 (evil-define-key 'normal org-mode-map (kbd "M-l") nil) ; it was `org-demote-subtree'
+(setq evil-collection-calendar-want-org-bindings t
+      evil-collection-outline-bind-tab-p t)
 
 ;; (define-key org-mode-map (kbd "C-c r") 'helm-bibtex)
 
