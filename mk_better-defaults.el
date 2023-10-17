@@ -144,6 +144,22 @@
 	    (setq truncate-lines 1)
 	    (company-mode 1)))
 
+;; Further info on tree sitter:
+;; https://www.masteringemacs.org/article/how-to-get-started-tree-sitter
+
+;; Grammars URLs
+(setq treesit-language-source-alist
+      '((python "https://github.com/tree-sitter/tree-sitter-python")
+	(latex "https://github.com/latex-lsp/tree-sitter-latex")
+	(elisp "https://github.com/Wilfred/tree-sitter-elisp")
+	(org "https://github.com/milisims/tree-sitter-org")))
+
+;; Install all the grammars
+;; (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
+
+(setq major-mode-remap-alist
+      '((python-mode . python-ts-mode)))
+
 ;; ============
 ;; text buffers
 ;; ============

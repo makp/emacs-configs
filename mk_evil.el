@@ -24,6 +24,53 @@
 
 (evil-mode 1)
 
+;; tree-sitter text objects
+;; function
+(define-key evil-outer-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.outer"))
+(define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
+
+;; block
+(define-key evil-outer-text-objects-map "b" (evil-textobj-tree-sitter-get-textobj "block.outer"))
+(define-key evil-inner-text-objects-map "b" (evil-textobj-tree-sitter-get-textobj "block.inner"))
+
+;; conditional or loop
+(define-key evil-outer-text-objects-map "o" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer")))
+(define-key evil-inner-text-objects-map "o" (evil-textobj-tree-sitter-get-textobj ("conditional.inner" "loop.inner")))
+
+;; comment
+(define-key evil-outer-text-objects-map "c" (evil-textobj-tree-sitter-get-textobj ("comment.outer")))
+(define-key evil-inner-text-objects-map "c" (evil-textobj-tree-sitter-get-textobj ("comment.inner")))
+
+
+;; tree-sitter based movements
+;; Goto start of next function
+(define-key evil-normal-state-map
+            (kbd "]f")
+            (lambda ()
+              (interactive)
+              (evil-textobj-tree-sitter-goto-textobj "function.outer")))
+
+;; Goto start of previous function
+(define-key evil-normal-state-map
+            (kbd "[f")
+            (lambda ()
+              (interactive)
+              (evil-textobj-tree-sitter-goto-textobj "function.outer" t)))
+
+;; Goto end of next function
+(define-key evil-normal-state-map
+            (kbd "]F")
+            (lambda ()
+              (interactive)
+              (evil-textobj-tree-sitter-goto-textobj "function.outer" nil t)))
+
+;; Goto end of previous function
+(define-key evil-normal-state-map
+            (kbd "[F")
+            (lambda ()
+              (interactive)
+              (evil-textobj-tree-sitter-goto-textobj "function.outer" t t)))
+
 
 ;; ESC always enters normal state
 ;; (define-key evil-emacs-state-map [escape] 'evil-normal-state)

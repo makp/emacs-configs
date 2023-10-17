@@ -44,6 +44,7 @@
 		      evil-matchit
 		      evil-numbers
 		      evil-surround
+		      evil-textobj-tree-sitter
 		      evil-traces
 		      flycheck
 		      helm
