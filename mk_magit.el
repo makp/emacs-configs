@@ -128,7 +128,7 @@ Select a git repo if ARG is non-nil."
   (delete-other-windows))
 
 
-(defun mk/selection-project-and-run-ag ()
+(defun mk/select-project-and-run-ag ()
   "Select git repo and run ag on the whole repository."
   (interactive)
   (let ((current-prefix-arg '(4)))
