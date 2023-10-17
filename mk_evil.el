@@ -30,8 +30,8 @@
 (define-key evil-inner-text-objects-map "f" (evil-textobj-tree-sitter-get-textobj "function.inner"))
 
 ;; block
-(define-key evil-outer-text-objects-map "b" (evil-textobj-tree-sitter-get-textobj "block.outer"))
-(define-key evil-inner-text-objects-map "b" (evil-textobj-tree-sitter-get-textobj "block.inner"))
+(define-key evil-outer-text-objects-map "k" (evil-textobj-tree-sitter-get-textobj "block.outer"))
+(define-key evil-inner-text-objects-map "k" (evil-textobj-tree-sitter-get-textobj "block.inner"))
 
 ;; conditional or loop
 (define-key evil-outer-text-objects-map "o" (evil-textobj-tree-sitter-get-textobj ("conditional.outer" "loop.outer")))
