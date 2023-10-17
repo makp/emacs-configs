@@ -88,6 +88,7 @@
 (evil-commentary-mode)
 (global-evil-matchit-mode 1)
 (evil-traces-mode 1)
+(evil-indent-plus-default-bindings)
 
 (provide 'mk_evil)
 

@@ -41,6 +41,7 @@
 		      evil
 		      evil-collection
 		      evil-commentary
+		      evil-indent-plus
 		      evil-matchit
 		      evil-numbers
 		      evil-surround
