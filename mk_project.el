@@ -10,7 +10,7 @@
 
 (projectile-mode +1)
 
-(setq projectile-completion-system 'ivy)
+;; (setq projectile-completion-system 'ivy)
 
 
 (provide 'mk_project)
