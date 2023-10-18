@@ -12,6 +12,9 @@
 ;; NOTE: Use `pyenv-workon` to select env
 (setenv "WORKON_HOME" (expand-file-name "~/.conda/envs/"))
 
+;; Load elpy mode in python-ts-mode
+(add-hook 'python-ts-mode-hook #'elpy-mode)
+
 ;; ------------------
 ;; interactive python
 ;; ------------------
