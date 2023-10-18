@@ -239,6 +239,13 @@
 ;; (setq emerge-diff-options "--ignore-all-space")
 ;; Emerge doesn't care about differences in whitespace
 
+;; Misc funcs
+(defun mk/copy-absolute-filename ()
+  "Save the absolute file path of the current file."
+  (interactive)
+  (when buffer-file-name
+    (kill-new (file-truename buffer-file-name))))
+
 
 
 (provide 'mk_better-defaults)
