@@ -18,9 +18,6 @@
   (kbd "<leader>fl") 'mk/locate-with-helm
   (kbd "<leader>fp") 'mk/copy-absolute-filename
 
-  ;; dired
-  (kbd "<leader>dj") 'dired-jump
-
   ;; buffer
   (kbd "<leader>bw") 'save-buffer
   (kbd "<leader>bb") 'helm-mini
@@ -45,23 +42,28 @@
 
   ;; git
   (kbd "<leader>gs") 'magit-status 	; use prefix arg to choose repo
-  (kbd "<leader>gf") 'mk/magit-fetch
-  (kbd "<leader>gg") 'helm-grep-do-git-grep ; accepts prefix arg
   (kbd "<leader>gd") 'magit-diff-buffer-file
+  (kbd "<leader>gf") 'mk/magit-fetch
+  (kbd "<leader>gF") 'mk/select-git-repo-and-fetch-from-all-remotes
+  (kbd "<leader>gg") 'helm-grep-do-git-grep ; accepts prefix arg
   (kbd "<leader>gb") 'helm-browse-project ; accepts prefix arg
-  (kbd "<leader>gF") 'mk/select-project-and-fetch-from-all-remotes
+  (kbd "<leader>gl") 'mk/list-git-status-of-open-buffers
 
   ;; project
   (kbd "<leader>pp") 'projectile-switch-project
   (kbd "<leader>po") 'projectile-switch-open-project
   (kbd "<leader>pf") 'projectile-find-file
-  (kbd "<leader>pr") 'projectile-replace
-  (kbd "<leader>pl") 'mk/list-git-status-of-open-buffers
+  (kbd "<leader>pF") 'projectile-find-file-in-known-projects
   (kbd "<leader>pb") 'projectile-switch-to-buffer
   (kbd "<leader>ps") 'projectile-vc
+  (kbd "<leader>pd") 'projectile-find-dir
+  (kbd "<leader>pD") 'projectile-dired
+  (kbd "<leader>pt") 'projectile-find-tag
+  (kbd "<leader>pr") 'projectile-replace
+  (kbd "<leader>px") 'projectile-find-references
+  (kbd "<leader>pg") 'projectile-grep
+  (kbd "<leader>pa") 'projectile-run-term
 
-  ;; (kbd "<leader>g") 'mk/select-project-and-run-git-grep
-  ;; (kbd "<leader>a") 'mk/select-project-and-run-ag
 
   ;; orgmode - agendas
   (kbd "<leader>aa") 'org-agenda
@@ -84,10 +86,13 @@
   (kbd "<leader>tw") 'mk/write
   ;; (kbd "<leader>tw") 'mk/code
 
-  ;; open ...
+  ;; open X
   (kbd "<leader>os") 'mk/open-org-scratch
   (kbd "<leader>oc") 'mk/chatgpt-select-model
-  (kbd "<leader>oa") 'mk/call-ansi-term)
+  (kbd "<leader>oa") 'mk/call-ansi-term
+  (kbd "<leader>od") 'dired-jump)
+
+
 
 (provide 'mk_leader-keybindings)
 ;;; mk_leader-keybindings.el ends here

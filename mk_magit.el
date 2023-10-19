@@ -85,33 +85,7 @@ Select a git repo if ARG is non-nil."
   (call-interactively 'magit-fetch))
 
 
-(defun mk/select-project-and-browse-buffers ()
-  "Browse buffers recursively after selecting a git project."
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'magit-status)
-    (call-interactively 'helm-browse-project))
-  (delete-other-windows))
-
-
-(defun mk/select-project-and-run-find ()
-  "Run helm-find after selecting a git project."
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'magit-status))
-  (call-interactively 'helm-find))
-
-
-(defun mk/select-project-and-run-git-grep ()
-  "Select git repo and run git-grep on the whole repository."
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'magit-status)
-    (call-interactively 'helm-grep-do-git-grep))
-  (delete-other-windows))
-
-
-(defun mk/select-project-and-fetch-from-all-remotes(&optional arg)
+(defun mk/select-git-repo-and-fetch-from-all-remotes(&optional arg)
   "Fetch git repo. If ARG is non-nil, provide a list of all repos before fetching git repo."
   (interactive)
   (let ((current-prefix-arg '(4)))
@@ -119,21 +93,6 @@ Select a git repo if ARG is non-nil."
   (call-interactively 'magit-fetch-all)
   (delete-other-windows))
 
-
-(defun mk/select-project-and-display-status ()
-  "Select git repo and display status."
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'magit-status))
-  (delete-other-windows))
-
-
-(defun mk/select-project-and-run-ag ()
-  "Select git repo and run ag on the whole repository."
-  (interactive)
-  (let ((current-prefix-arg '(4)))
-    (call-interactively 'magit-status))
-  (call-interactively 'helm-do-grep-ag))
 
 ;; ==================
 ;; helm-ls-git config
