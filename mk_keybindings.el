@@ -130,7 +130,8 @@
 (define-key eww-mode-map (kbd "f") 'ace-link-eww) ; "f" was undefined
 
 ;; dired
-;; (define-key dired-mode-map "E" 'dired-ediff-marked-files)
+;; Avoid conflict with `evil-jump-backward'
+(define-key dired-mode-map (kbd "C-o") nil) ; it was `dired-display-file'
 
 (provide 'mk_keybindings)
 ;;; mk_keybindings.el ends here
