@@ -16,7 +16,6 @@
 ;; ----
 (defun mk/default-font ()
   "Select font based on hostname."
-  (interactive)
   (if (equal (system-name) "leibniz")
       (add-to-list 'default-frame-alist
 		   '(font . "DejaVu Sans Mono-13"))

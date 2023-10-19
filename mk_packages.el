@@ -53,7 +53,6 @@
 		      helm-ls-git
 		      highlight-parentheses
 		      hl-todo
-		      ibuffer-vc
 		      ivy
 		      keyfreq
 		      lua-mode

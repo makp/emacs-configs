@@ -15,7 +15,7 @@
 (add-hook 'ibuffer-hook
 	  (lambda ()
 	    (ibuffer-auto-mode 1)	;auto-update
-	    (ibuffer-vc-set-filter-groups-by-vc-root)))
+	    ))
 
 
 ;;  ibuffer-show-empty-filter-groups nil ;; don't show empty filter groups
