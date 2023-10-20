@@ -51,9 +51,9 @@
 		      helm
 		      helm-bibtex
 		      helm-ls-git
+		      helm-projectile
 		      highlight-parentheses
 		      hl-todo
-		      ivy
 		      keyfreq
 		      lua-mode
 		      magit

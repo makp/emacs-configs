@@ -10,7 +10,10 @@
 
 (projectile-mode +1)
 
-;; (setq projectile-completion-system 'ivy)
+;; Use helm for projectile
+(setq projectile-completion-system 'helm)
+(require 'helm-projectile)
+(helm-projectile-on)
 
 
 (provide 'mk_project)

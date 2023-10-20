@@ -50,18 +50,18 @@
   (kbd "<leader>gl") 'mk/list-git-status-of-open-buffers
 
   ;; project
-  (kbd "<leader>pp") 'projectile-switch-project
+  (kbd "<leader>pp") 'helm-projectile-switch-project
   (kbd "<leader>po") 'projectile-switch-open-project
-  (kbd "<leader>pf") 'projectile-find-file
-  (kbd "<leader>pF") 'projectile-find-file-in-known-projects
-  (kbd "<leader>pb") 'projectile-switch-to-buffer
+  (kbd "<leader>pf") 'helm-projectile-find-file
+  (kbd "<leader>pF") 'helm-projectile-find-file-in-known-projects
+  (kbd "<leader>pb") 'helm-projectile-switch-to-buffer
   (kbd "<leader>ps") 'projectile-vc
-  (kbd "<leader>pd") 'projectile-find-dir
+  (kbd "<leader>pd") 'helm-projectile-find-dir
   (kbd "<leader>pD") 'projectile-dired
   (kbd "<leader>pt") 'projectile-find-tag
   (kbd "<leader>pr") 'projectile-replace
   (kbd "<leader>px") 'projectile-find-references
-  (kbd "<leader>pg") 'projectile-grep
+  (kbd "<leader>pg") 'helm-projectile-grep
   (kbd "<leader>pa") 'projectile-run-term
 
 
