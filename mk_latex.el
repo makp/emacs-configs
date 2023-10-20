@@ -21,7 +21,7 @@
 	    (LaTeX-math-mode 1)
 	    (outline-minor-mode 1)
 	    (flyspell-mode 1)
-	    (company-mode 1)
+	    (mk/enable-tex-backends)
 	    (visual-fill-column-mode 1)))
 
 (setq

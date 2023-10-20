@@ -74,7 +74,6 @@
 (define-key evil-window-map "u" 'winner-undo)
 (define-key evil-window-map "U" 'winner-redo)
 
-
 ;; company
 (define-key company-active-map (kbd "TAB") nil) ; it was `company-complete-common-or-cycle'
 (define-key company-active-map (kbd "<tab>") nil)

@@ -74,11 +74,12 @@
   (kbd "<leader>ax") 'org-timer-stop
 
   (kbd "<leader>ai") 'mk/clock-in
-  (kbd "<leader>aI") 'mk/quick-clockin	;mk/clock-in
+  (kbd "<leader>aI") 'mk/quick-clockin
   (kbd "<leader>ao") 'org-clock-out
   (kbd "<leader>aw") 'org-clock-goto
 
   ;; completion
+  (kbd "<leader>cc") 'company-other-backend
   (kbd "<leader>cy") 'company-yasnippet
   (kbd "<leader>cf") 'company-files
 
