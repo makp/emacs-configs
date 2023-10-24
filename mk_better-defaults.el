@@ -132,7 +132,7 @@
 ;; Indentation
 ;; ===========
 (global-aggressive-indent-mode 1)
-(add-to-list 'aggressive-indent-excluded-modes 'wolfram-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'python-ts-mode)
 
 ;; ============
 ;; prog buffers
