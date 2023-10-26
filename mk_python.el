@@ -15,6 +15,14 @@
 ;; Load elpy mode in python-ts-mode
 (add-hook 'python-ts-mode-hook #'elpy-mode)
 
+
+;; LSP
+(require 'lsp-mode)
+(add-hook 'python-ts-mode-hook #'lsp-deferred)
+
+;; Language server
+(require 'lsp-pyright)
+
 ;; ------------------
 ;; interactive python
 ;; ------------------

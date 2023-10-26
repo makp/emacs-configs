@@ -56,6 +56,8 @@
 		      highlight-parentheses
 		      hl-todo
 		      keyfreq
+		      lsp-mode
+		      lsp-pyright
 		      lua-mode
 		      magit
 		      markdown-mode
