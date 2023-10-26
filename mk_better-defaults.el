@@ -42,6 +42,8 @@
 (setq display-line-numbers-type 'visual)
 (global-display-line-numbers-mode 1)
 
+;; breadcrumb
+(breadcrumb-mode 1)
 
 ;; ====
 ;; path

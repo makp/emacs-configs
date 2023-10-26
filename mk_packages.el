@@ -31,6 +31,7 @@
 (defvar mk/pkg-list '(ace-link
 		      aggressive-indent
 		      auctex
+		      breadcrumb
 		      chatgpt
 		      company
 		      company-math
