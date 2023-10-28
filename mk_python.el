@@ -19,6 +19,7 @@
 ;; LSP
 (require 'lsp-mode)
 (add-hook 'python-ts-mode-hook #'lsp-deferred)
+(define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 
 ;; Language server
 (require 'lsp-pyright)

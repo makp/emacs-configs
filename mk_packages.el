@@ -53,11 +53,13 @@
 		      helm-bibtex
 		      helm-ls-git
 		      helm-projectile
+		      helm-lsp
 		      highlight-parentheses
 		      hl-todo
 		      keyfreq
 		      lsp-mode
 		      lsp-pyright
+		      lsp-ui
 		      lua-mode
 		      magit
 		      markdown-mode
