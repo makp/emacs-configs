@@ -56,12 +56,6 @@
 ;; evil-numbers/dec-at-pt-incremental
 
 
-;; ------------
-;; Line numbers
-;; ------------
-(global-set-key (kbd "M-l") 'display-line-numbers-mode)
-
-
 ;; ----------
 ;; Projectile
 ;; ----------
