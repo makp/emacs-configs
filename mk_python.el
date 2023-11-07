@@ -26,7 +26,7 @@
 ;; (define-key lsp-mode-map [remap xref-find-apropos] #'helm-lsp-workspace-symbol)
 
 ;; Language server for LSP
-(require 'lsp-pyright)
+;; (require 'lsp-pyright)
 
 ;; ------------------
 ;; interactive python

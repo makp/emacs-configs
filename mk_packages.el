@@ -58,7 +58,7 @@
 		      hl-todo
 		      keyfreq
 		      lsp-mode
-		      lsp-pyright
+		      ;; lsp-pyright
 		      lsp-ui
 		      lua-mode
 		      magit
