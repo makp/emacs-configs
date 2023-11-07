@@ -19,10 +19,10 @@
 ;; ================
 ;; company settings
 ;; ================
-(setq company-minimum-prefix-length 2)
-(setq company-tooltip-align-annotations t)
-(setq company-files-exclusions '(".git/"))
-;; (setq company-idle-delay )
+(setq company-minimum-prefix-length 1
+      company-tooltip-align-annotations t
+      company-files-exclusions '(".git/")
+      company-idle-delay 0.0)
 ;; (setq company-dabbrev-downcase nil) ;; Don't downcase completion candidates
 
 
