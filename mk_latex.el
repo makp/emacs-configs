@@ -31,15 +31,16 @@
  TeX-master t	  ;; don't ask for a master file
  )
 
+;; LSP
+(require 'lsp-latex)
 
-;; (add-hook 'LaTeX-mode-hook
-;; 	  (lambda ()
-;; 	    (hl-todo-mode)
-;; 	    (define-key hl-todo-mode-map (kbd "C-c p") 'hl-todo-previous)
-;; 	    (define-key hl-todo-mode-map (kbd "C-c n") 'hl-todo-next)
-;; 	    (define-key hl-todo-mode-map (kbd "C-c o") 'hl-todo-occur)))
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (lsp-deferred)
+	    (breadcrumb-local-mode -1)))
 
-;; (setq LaTeX-paragraph-commands '("environment"))
+(add-hook 'bibtex-mode-hook 'lsp-deferred)
+
 
 ;; ---------
 ;; fold mode

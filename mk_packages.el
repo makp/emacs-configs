@@ -58,6 +58,7 @@
 		      hl-todo
 		      keyfreq
 		      lsp-mode
+		      lsp-latex
 		      ;; lsp-pyright
 		      lsp-ui
 		      lua-mode
