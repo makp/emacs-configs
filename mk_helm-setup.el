@@ -61,8 +61,9 @@ depending on the value of ARG."
   (interactive "p")
   (cond
    ((equal arg 1)  (helm-locate-with-db (expand-file-name "locate.db" "~/elisp"))) ; pdfs
-   ((equal arg 4)  (helm-locate-with-db (expand-file-name "locate-mydocs.db" "~/elisp"))) ; ~/Documents/mydocs
-   ((equal arg 16) (helm-locate-with-db (expand-file-name "locate-home.db" "~/elisp"))))) ; $HOME
+   ((equal arg 2) (helm-locate-with-db (expand-file-name "locate-home.db" "~/elisp"))) ; $HOME
+   ((equal arg 3)  (helm-locate-with-db (expand-file-name "locate-mydocs.db" "~/elisp"))) ; ~/Documents/mydocs
+   )) 
 
 ;; ----------------------
 ;; searching within files
