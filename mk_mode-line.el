@@ -9,6 +9,7 @@
 
 ;;; Code:
 
+
 (display-time) ;; display time and load level every minute
 
 (defun mk/state-appearance-on-modeline ()
@@ -16,6 +17,14 @@
   (if (equal 'normal evil-state)
       'font-lock-constant-face
     'font-lock-builtin-face))
+
+
+(defun mk/truncate-string-to-width (str max-width)
+  "Truncate STR to MAX-WIDTH."
+  (if (> (string-width str) max-width)
+      (concat (truncate-string-to-width (substring str 0 -1)
+					max-width) "…")
+    str))
 
 
 (setq-default mode-line-format
@@ -61,7 +70,7 @@
 
 	       (propertize " || " 'face 'font-lock-constant-face)
 
-	       mode-line-misc-info ; displays info from `global-mode-string'
+	       '(:eval (mk/truncate-string-to-width (format-mode-line mode-line-misc-info) 20))
 
 	       "%-" ;; fill with '-'
 	       ))
