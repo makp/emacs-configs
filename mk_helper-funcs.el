@@ -53,5 +53,5 @@ Either use the selected text or the clipboard content if no text is selected."
            (mk/run-python-func-on-text "writing" "refine_text")))))
 
 
-(provide 'mk_helper_funcs)
-;;; mk_helper_funcs.el ends here
+(provide 'mk_helper-funcs)
+;;; mk_helper-funcs.el ends here
