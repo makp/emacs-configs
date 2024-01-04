@@ -161,6 +161,11 @@
 (setq major-mode-remap-alist
       '((python-mode . python-ts-mode)))
 
+;; LSP
+;; Don't show doc with mouse
+(setq lsp-ui-doc-show-with-mouse nil)
+
+
 ;; ============
 ;; text buffers
 ;; ============
