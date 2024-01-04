@@ -2,6 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+
+(defvar mk/helper-funcs-path
+  (concat (file-name-directory load-file-name) "helper-funcs/")
+  "Store path to helper functions.")
+
+
 (defun mk/run-python-func-on-text (type py_func)
   "Run Python function PY_FUNC from module TYPE.
 
@@ -21,7 +27,7 @@ Either use the selected text or the clipboard content if no text is selected."
     ;; Execute the Python command and capture the output
     (setq python-output
 	  (with-temp-buffer
-	    (let ((default-directory (concat default-directory "helper_funcs/")))
+	    (let ((default-directory mk/helper-funcs-path))
 	      (call-process "python" nil t nil "-c" python-command))
 	    (buffer-string)))
 
