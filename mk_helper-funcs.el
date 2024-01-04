@@ -1,7 +1,11 @@
+;;; package --- Summary
+;;; Commentary:
 ;;; Code:
 
 (defun mk/run-python-func-on-text (type py_func)
-  "Run Python function PY_FUNC on either the selected text or the clipboard content if no text is selected."
+  "Run Python function PY_FUNC from module TYPE.
+
+Either use the selected text or the clipboard content if no text is selected."
   (let* ((text (if (use-region-p)
                    (buffer-substring-no-properties (region-beginning) (region-end))
                  (gui-get-selection 'CLIPBOARD)))
