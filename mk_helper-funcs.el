@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-(defvar mk/helper-funcs-path
+(defconst mk/helper-funcs-path
   (concat (file-name-directory load-file-name) "helper-funcs/")
   "Store path to helper functions.")
 
