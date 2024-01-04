@@ -369,10 +369,14 @@ If N > 1, open a list of previously clocked items to choose from."
   (let* ((hostname (system-name))
 	 (filename (expand-file-name (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname)))
 	 (current-file (buffer-file-name (current-buffer))))
+    ;; Check if the org-scratch file is already open
     (if (and current-file (file-equal-p (buffer-file-name (current-buffer)) filename))
-	(if (> (length (window-list)) 1)
-	    (delete-window)
-	  (bury-buffer))
+	(progn
+	  (save-buffer)
+	  (if (> (length (window-list)) 1)
+	      (delete-window)
+	    (bury-buffer)))
+      ;; If not, open it
       (if arg
 	  (find-file-other-window filename)
 	(find-file filename)))))
