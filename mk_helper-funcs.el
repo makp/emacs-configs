@@ -47,9 +47,9 @@ Either use the selected text or the clipboard content if no text is selected."
 
 
 (defun mk/write ()
-  "Prompt the user to selectio the helper function."
+  "Prompt user to select helper function."
   (interactive)
-  (let ((options '("Write short message" "Refine text"))
+  (let ((options '("Refine text" "Write short message"))
         (choice nil))
     (while (not (member choice options))
       (setq choice (completing-read "Choose an option: " options)))
