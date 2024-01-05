@@ -223,8 +223,8 @@
 (setq browse-url-browser-function 'browse-url-default-browser)
 
 (setq warning-minimum-level ':error)
-;; (mouse-avoidance-mode 'cat-and-mouse)
 
+(mouse-avoidance-mode 'banish)
 
 ;; ========
 ;; doc-view
