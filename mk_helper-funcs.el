@@ -4,7 +4,7 @@
 
 
 (defconst mk/helper-funcs-path
-  (concat (file-name-directory load-file-name) "helper-funcs/")
+  (concat (file-name-directory load-file-name) "helper_funcs/")
   "Store path to helper functions.")
 
 
