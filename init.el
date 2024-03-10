@@ -31,6 +31,7 @@
 (require 'mk_project)
 (require 'mk_chatgpt)
 (require 'mk_keybindings)
+(require 'mk_helper-funcs)
 
 ;; =================
 ;; eval-after-load's
@@ -58,7 +59,7 @@
   "Select a search engine before running EWW." t)
 (autoload 'ibuffer "mk_ibuffer-setup")
 (autoload 'mk/call-ansi-term "mk_ansi-term")
-(autoload 'mk/run-python-func-on-text "mk_helper-funcs")
+;; (autoload 'mk/write "mk_helper-funcs")
 
 
 ;; =====
