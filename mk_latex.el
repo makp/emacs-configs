@@ -12,6 +12,10 @@
 
 ;;; Code:
 
+;; Add a hack to load AUCTeX
+(add-hook 'latex-mode-hook (lambda ()
+			     (LaTeX-mode)))
+
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (add-to-list
@@ -29,7 +33,8 @@
  TeX-master t	  ;; don't ask for a master file
  )
 
-;; LSP
+
+;; Enable LSP
 (require 'lsp-latex)
 
 (add-hook 'LaTeX-mode-hook
