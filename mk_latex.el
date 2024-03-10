@@ -12,8 +12,6 @@
 
 ;;; Code:
 
-
-
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (add-to-list
@@ -47,55 +45,6 @@
 ;; ---------
 (add-hook 'LaTeX-mode-hook (lambda ()
 			     (TeX-fold-mode 1)))
-
-
-;; (setq TeX-fold-preserve-comments t)
-;; ;; Foldable items in your comments are not folded
-
-;; (setq TeX-fold-env-spec-list
-;;       '(("[comment]" ("comment"))))
-;; ;; Environments taken into consideration in fold mode
-
-;; (setq TeX-fold-macro-spec-list
-;;       '(("[f]" ("footnote"))
-;; 	("[c]" ("cite" "citet" "citep" "citeyearpar"))
-;; 	("[l]" ("label"))
-;; 	("[r]" ("ref" "pageref" "eqref"))
-;; 	("[1]:||*" ("item"))
-;; 	("..." ("dots"))
-;; 	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
-;; ;; Macros taken into consideration in fold mode
-
-
-;; -----------
-;; Custom face
-;; -----------
-;; (setq font-latex-match-reference-keywords
-;;       '(("citep" "[{")
-;; 	("citet" "[{")))
-
-;; ---------------
-;; New evironments
-;; ---------------
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (LaTeX-add-environments
-;; 	     '("Verbatim")
-;; 	     '("align*")
-;; 	     '("SideBySideExample")	;; from fvrb-ex package
-;; 	     '("Example")))		;; 
-
-;; ----------
-;; New macros
-;; ----------
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (TeX-add-symbols '("DP" 1))))
-
-;; (setq font-latex-user-keyword-classes
-;;       '(("definitions" (("DP" "{"))
-;; 	 (:weight bold :foreground "chocolate1") command)))
-
 
 
 ;; ======
@@ -291,6 +240,56 @@
 ;; Other vars:
 ;; - preview-inner-environments: environments NOT to be previewed on their own
 ;; - preview-image-type: 'dvipng'
+
+;; (setq TeX-fold-preserve-comments t)
+;; ;; Foldable items in your comments are not folded
+
+;; (setq TeX-fold-env-spec-list
+;;       '(("[comment]" ("comment"))))
+;; ;; Environments taken into consideration in fold mode
+
+;; (setq TeX-fold-macro-spec-list
+;;       '(("[f]" ("footnote"))
+;; 	("[c]" ("cite" "citet" "citep" "citeyearpar"))
+;; 	("[l]" ("label"))
+;; 	("[r]" ("ref" "pageref" "eqref"))
+;; 	("[1]:||*" ("item"))
+;; 	("..." ("dots"))
+;; 	(1 ("part" "chapter" "section" "subsection" "subsubsection" "paragraph" "subparagraph" "part*" "chapter*" "section*" "subsection*" "subsubsection*" "paragraph*" "subparagraph*" "emph" "textit" "textsl" "textmd" "textrm" "textsf" "texttt" "textbf" "textsc" "textup"))))
+;; ;; Macros taken into consideration in fold mode
+
+
+;; -----------
+;; Custom face
+;; -----------
+;; (setq font-latex-match-reference-keywords
+;;       '(("citep" "[{")
+;; 	("citet" "[{")))
+
+;; ---------------
+;; New evironments
+;; ---------------
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (LaTeX-add-environments
+;; 	     '("Verbatim")
+;; 	     '("align*")
+;; 	     '("SideBySideExample")	;; from fvrb-ex package
+;; 	     '("Example")))		;; 
+
+;; ----------
+;; New macros
+;; ----------
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (TeX-add-symbols '("DP" 1))))
+
+;; (setq font-latex-user-keyword-classes
+;;       '(("definitions" (("DP" "{"))
+;; 	 (:weight bold :foreground "chocolate1") command)))
+
+
+
 
 (provide 'mk_latex)
 ;;; mk_latex.el ends here
