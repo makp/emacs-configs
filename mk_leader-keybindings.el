@@ -9,8 +9,7 @@
 ;; (require 'evil)
 
 (evil-define-key nil 'global
-  ;; (kbd "<leader><leader>") 'helm-M-x
-  (kbd "<leader>l") 'helm-resume
+  ;; (kbd "<leader>") 'helm-resume
   (kbd "<leader>h") 'help
 
   ;; file
@@ -19,7 +18,6 @@
   (kbd "<leader>fp") 'mk/copy-absolute-filename
 
   ;; buffer
-  (kbd "<leader>bw") 'save-buffer
   (kbd "<leader>bb") 'helm-mini
   (kbd "<leader>bp") 'previous-buffer
   (kbd "<leader>bn") 'bury-buffer
@@ -48,6 +46,13 @@
   (kbd "<leader>gg") 'helm-grep-do-git-grep ; accepts prefix arg
   (kbd "<leader>gb") 'helm-browse-project ; accepts prefix arg
   (kbd "<leader>gl") 'mk/list-git-status-of-open-buffers
+
+
+  ;; LSP
+  (kbd "<leader>ld") 'lsp-find-definition
+  (kbd "<leader>lr") 'lsp-rename
+  (kbd "<leader>lx") 'lsp-find-references
+
 
   ;; project
   (kbd "<leader>pp") 'helm-projectile-switch-project
@@ -92,7 +97,6 @@
   (kbd "<leader>oc") 'mk/chatgpt-select-model
   (kbd "<leader>oa") 'mk/call-ansi-term
   (kbd "<leader>od") 'dired-jump)
-
 
 
 (provide 'mk_leader-keybindings)

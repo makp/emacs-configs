@@ -6,7 +6,6 @@
 
 ;;; Code:
 
-
 (setq magit-repository-directories
       '(("~/elisp/agendas" . 0)
 	("~/config-files/general" . 1)
@@ -19,6 +18,7 @@
 	  (lambda ()
 	    (setq truncate-lines nil)))
 
+
 ;; Refine all hunks during diff (overkill?)
 (setq magit-diff-refine-hunk 'all)
 
@@ -29,7 +29,7 @@
 
 ;; Check the status of opened git repos
 (defun get-git-repo-dirs ()
-  "Return a list of directories of all unique Git repositories that have open buffers."
+  "Return a list of directories of all Git repos with open buffers."
   (let ((git-repo-dirs '()))
     (dolist (buf (buffer-list))
       (with-current-buffer buf
@@ -41,7 +41,7 @@
 
 
 (defun check-status-of-folder (folder)
-  "Check the git status of a folder."
+  "Check the git status of a FOLDER."
   (with-current-buffer (get-buffer-create "*magit-status*")
     (magit-status-setup-buffer folder)
     (magit-refresh)))
@@ -54,7 +54,7 @@
 
 
 (defun mk/list-git-status-of-open-buffers ()
-  "Create a temporary org-mode buffer with git status for each Git repository that has open buffers."
+  "Create a 'org-mode' buffer with git status for all open buffers."
   (interactive)
   (save-some-buffers)
   (with-current-buffer (get-buffer-create "*Git Status*")
@@ -86,7 +86,9 @@ Select a git repo if ARG is non-nil."
 
 
 (defun mk/select-git-repo-and-fetch-from-all-remotes(&optional arg)
-  "Fetch git repo. If ARG is non-nil, provide a list of all repos before fetching git repo."
+  "Fetch git repo.
+If ARG is non-nil, provide a list of all repos before fetching git
+repo."
   (interactive)
   (let ((current-prefix-arg '(4)))
     (call-interactively 'magit-status))  ;; (magit-section-show-level-3-all)
