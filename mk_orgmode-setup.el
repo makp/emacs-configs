@@ -366,8 +366,7 @@ If N > 1, open a list of previously clocked items to choose from."
 (defun mk/open-org-scratch (arg)
   "Open org scratch. With a prefix ARG, open it in another window."
   (interactive "P")
-  (let* ((hostname (system-name))
-	 (filename (expand-file-name (format "~/OneDrive/computer_files/org-scratch_%s.org" hostname)))
+  (let* ((filename (expand-file-name (format "~/OneDrive/computer_files/org-scratch_shared.org")))
 	 (current-file (buffer-file-name (current-buffer))))
     ;; Check if the org-scratch file is already open
     (if (and current-file (file-equal-p (buffer-file-name (current-buffer)) filename))
