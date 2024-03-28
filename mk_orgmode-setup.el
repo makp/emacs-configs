@@ -136,7 +136,7 @@
 			     "~/elisp/agendas/ag-longterm.org"
 			     "~/elisp/agendas/ag-teaching.org"
 			     "~/elisp/agendas/ag-geral.org"
-			     "~/elisp/agendas/gcal.org"
+			     ;; "~/elisp/agendas/gcal.org"
 			     "~/elisp/agendas/ag-it.org"))
 
 (defun mk/select-agenda()
@@ -205,9 +205,9 @@
 ;; ----
 ;; gcal
 ;; ----
-(require 'mk_gcal)
+;; (require 'mk_gcal)
 
-(add-hook 'org-agenda-mode-hook (lambda () (org-gcal-fetch)))
+;; (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-fetch)))
 ;; (setq org-gcal-notify-p nil)
 
 

@@ -67,7 +67,7 @@
 		      nov
 		      org
 		      org-contrib
-		      org-gcal
+		      ;; org-gcal
 		      org-ref
 		      projectile
 		      visual-fill-column
