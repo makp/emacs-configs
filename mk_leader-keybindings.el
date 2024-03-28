@@ -75,13 +75,13 @@
   (kbd "<leader>ao") 'mk/select-agenda
   (kbd "<leader>ac") 'org-capture
 
-  (kbd "<leader>at") 'org-timer-set-timer
-  (kbd "<leader>ax") 'org-timer-stop
+  (kbd "<leader>att") 'org-timer-set-timer
+  (kbd "<leader>atx") 'org-timer-stop
 
-  (kbd "<leader>ai") 'mk/clock-in
-  (kbd "<leader>aI") 'mk/quick-clockin
-  (kbd "<leader>ao") 'org-clock-out
-  (kbd "<leader>aw") 'org-clock-goto
+  (kbd "<leader>aci") 'mk/clock-in
+  (kbd "<leader>acI") 'mk/quick-clockin
+  (kbd "<leader>aco") 'org-clock-out
+  (kbd "<leader>acw") 'org-clock-goto
 
   ;; completion
   (kbd "<leader>cc") 'company-other-backend
