@@ -78,10 +78,10 @@
   (kbd "<leader>att") 'org-timer-set-timer
   (kbd "<leader>atx") 'org-timer-stop
 
-  (kbd "<leader>aci") 'mk/clock-in
-  (kbd "<leader>acI") 'mk/quick-clockin
-  (kbd "<leader>aco") 'org-clock-out
-  (kbd "<leader>acw") 'org-clock-goto
+  (kbd "<leader>ati") 'mk/clock-in
+  (kbd "<leader>atI") 'mk/quick-clockin
+  (kbd "<leader>ato") 'org-clock-out
+  (kbd "<leader>atw") 'org-clock-goto
 
   ;; completion
   (kbd "<leader>cc") 'company-other-backend
