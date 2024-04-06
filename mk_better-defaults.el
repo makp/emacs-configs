@@ -46,12 +46,9 @@
 (breadcrumb-mode 1)
 
 ;; ====
-;; path
+;; vars
 ;; ====
-(setenv "PATH" (concat "/home/makmiller/scripts/myscripts:/usr/bin/vendor_perl:/home/makmiller/.local/bin" ":" (getenv "PATH")))
-(setenv "EDITOR" (concat "~/scripts/myscripts/edit.sh" (getenv "EDITOR")))
-(setenv "VISUAL" (concat "~/scripts/myscripts/edit.sh" (getenv "VISUAL")))
-(setenv "ALTERNATE_EDITOR" (concat "vim" (getenv "ALTERNATE_EDITOR")))
+;; (setenv "VISUAL" (concat "~/scripts/myscripts/edit.sh" (getenv "VISUAL")))
 
 ;; =====
 ;; shell
