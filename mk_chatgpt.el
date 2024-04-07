@@ -25,7 +25,7 @@
   (interactive)
   (let ((gpt-version (completing-read "Que ce quer?: " '("gpt-4-0125-preview" "gpt-3.5-turbo-0125"))))
     (setq chatgpt-model gpt-version))
-  (chatgpt)
+  (chatgpt-new)
   (delete-other-windows)
   (mk/chatgpt-write-message))
 
