@@ -9,13 +9,12 @@
 ;; (require 'evil)
 
 (evil-define-key nil 'global
-  ;; (kbd "<leader>") 'helm-resume
   (kbd "<leader>h") 'help
 
   ;; file
-  (kbd "<leader>ff") 'helm-find-files
+  (kbd "<leader>ff") 'helm-find
   (kbd "<leader>fl") 'mk/locate-with-helm
-  (kbd "<leader>fp") 'mk/copy-absolute-filename
+  (kbd "<leader>fy") 'mk/copy-absolute-filename
 
   ;; buffer
   (kbd "<leader>bb") 'helm-mini
@@ -29,9 +28,8 @@
   (kbd "<leader>so") 'helm-occur
   (kbd "<leader>sO") 'helm-occur-visible-buffers
   (kbd "<leader>si") 'helm-imenu
-  (kbd "<leader>sa") 'helm-do-grep-ag
+  (kbd "<leader>sg") 'helm-do-grep-ag
   (kbd "<leader>st") 'mk/find-tags
-  (kbd "<leader>sf") 'helm-find
 
   ;; register, ring, and mark
   (kbd "<leader>rr") 'helm-register
@@ -93,10 +91,12 @@
   ;; (kbd "<leader>tw") 'mk/code
 
   ;; open X
+  (kbd "<leader>of") 'helm-find-files
   (kbd "<leader>os") 'mk/open-org-scratch
   (kbd "<leader>oc") 'mk/chatgpt-select-model
   (kbd "<leader>oa") 'mk/call-ansi-term
   (kbd "<leader>od") 'dired-jump)
+
 
 
 (provide 'mk_leader-keybindings)
