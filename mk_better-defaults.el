@@ -122,6 +122,10 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
+;; Enable editing text areas in web pages with Emacs
+(require 'edit-server)
+(edit-server-start)
+
 ;; ===========
 ;; mathematica
 ;; ===========

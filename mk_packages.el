@@ -38,6 +38,7 @@
 		      company-auctex
 		      company-box
 		      copilot
+		      edit-server
 		      elpy
 		      evil
 		      evil-collection
