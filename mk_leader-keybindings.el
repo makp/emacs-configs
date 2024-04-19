@@ -22,7 +22,7 @@
   (kbd "<leader>bn") 'bury-buffer
   (kbd "<leader>bx") 'kill-current-buffer
   (kbd "<leader>bX") 'kill-buffer-and-window
-  (kbd "<leader>bq") 'save-buffers-kill-emacs
+  (kbd "<leader>bq") 'save-buffers-kill-terminal
   
   ;; search
   (kbd "<leader>so") 'helm-occur
@@ -64,7 +64,7 @@
   (kbd "<leader>pt") 'projectile-find-tag
   (kbd "<leader>pr") 'projectile-replace
   (kbd "<leader>px") 'projectile-find-references
-  (kbd "<leader>pg") 'helm-projectile-grep
+  (kbd "<leader>pg") 'helm-projectile-rg
   (kbd "<leader>pa") 'projectile-run-term
 
 

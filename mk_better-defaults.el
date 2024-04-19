@@ -18,7 +18,7 @@
   "Select font based on hostname."
   (if (equal (system-name) "leibniz")
       (add-to-list 'default-frame-alist
-		   '(font . "Hack Nerd Font Mono-9")) ;DejaVu Sans Mono-13
+		   '(font . "Hack Nerd Font Mono-13")) ; DejaVu Sans Mono-13
     (add-to-list 'default-frame-alist
 		 '(font . "Hack Nerd Font Mono-11"))))
 
