@@ -29,6 +29,7 @@
 
 ;; Package list
 (defvar mk/pkg-list '(ace-link
+		      atomic-chrome
 		      aggressive-indent
 		      auctex
 		      breadcrumb
@@ -38,7 +39,6 @@
 		      company-auctex
 		      company-box
 		      copilot
-		      edit-server
 		      elpy
 		      evil
 		      evil-collection

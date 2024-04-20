@@ -123,8 +123,9 @@
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 
 ;; Enable editing text areas in web pages with Emacs
-(require 'edit-server)
-(edit-server-start)
+(require 'atomic-chrome)
+(atomic-chrome-start-server)
+(setq atomic-chrome-default-major-mode 'org-mode)
 
 ;; ===========
 ;; mathematica
