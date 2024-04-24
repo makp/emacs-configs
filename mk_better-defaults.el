@@ -160,8 +160,10 @@
 ;; Install all the grammars
 ;; (mapc #'treesit-install-language-grammar (mapcar #'car treesit-language-source-alist))
 
-(setq major-mode-remap-alist
-      '((python-mode . python-ts-mode)))
+;; As of [2024-04-23 Tue], python-ts-mode was producing a "stack
+;; smashing detected" error
+;; (setq major-mode-remap-alist
+;;       '((python-mode . python-ts-mode)))
 
 ;; LSP
 ;; Don't show doc with mouse
